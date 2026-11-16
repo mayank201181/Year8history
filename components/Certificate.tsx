@@ -572,7 +572,7 @@ export function Certificate({ kind, topic, summaries }: CertificateProps) {
           <div>
             <h1 className="text-2xl font-black tracking-tight">Year 8 certificate earned 🎓</h1>
             <p className="text-ink-2">
-              {qualifying.length} topics at {YEAR8_TOPIC_PCT}%+ mastery — a whole year of maths. Print it, frame it, or save it as a PDF.
+              {qualifying.length} topics at {YEAR8_TOPIC_PCT}%+ mastery — a whole year of history. Print it, frame it, or save it as a PDF.
             </p>
           </div>
           {controls}

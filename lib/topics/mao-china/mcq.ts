@@ -657,12 +657,12 @@ export const mcqPapers: Paper[] = [
         options: [
           "To overtake the Soviet Union within 5 years",
           "To double rice exports to Japan",
-          "To overtake the United States within 5 years",
+          "To overtake the United States within 15 years",
           "To overtake Britain's industrial output within 15 years",
         ],
         answerIndex: 3,
         explanation:
-          "Mao declared that China would overtake Britain's industrial output within 15 years — the goal behind the Great Leap Forward. Overtaking the United States is the trap: that was the Soviet leader Khrushchev's boast for the USSR at the same time.",
+          "Mao declared that China would overtake Britain's industrial output within 15 years — the goal behind the Great Leap Forward. Overtaking the United States within 15 years is the trap: that was the Soviet leader Khrushchev's boast for the USSR at the same time.",
         difficulty: "core",
         guideRef: "great-leap-forward",
         hints: ["The target was an old industrial power that had once fought China in the Opium Wars.", "The timescale was 15 years."],

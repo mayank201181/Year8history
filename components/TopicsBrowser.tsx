@@ -125,7 +125,7 @@ export function TopicsBrowser({ summaries }: { summaries: TopicSummary[] }) {
       <header>
         <h1 className="text-2xl font-black tracking-tight sm:text-3xl">All topics</h1>
         <p className="mt-1 text-ink-2">
-          {summaries.length} topics across {strandCount} strands{comingSoon > 0 ? ` (${comingSoon} coming soon)` : ""}. Open one for its lessons, practice questions, skill drills and challenge problems.
+          {summaries.length} topics across {strandCount} units{comingSoon > 0 ? ` (${comingSoon} coming soon)` : ""}. Open one for its lessons, sitcom episode, practice questions, recall drills and challenge questions.
         </p>
       </header>
 
@@ -146,7 +146,7 @@ export function TopicsBrowser({ summaries }: { summaries: TopicSummary[] }) {
             autoComplete="off"
             spellCheck={false}
             className="input pl-10 pr-12"
-            placeholder="Search, e.g. “percentages” or “bearings”"
+            placeholder="Search, e.g. “Magna Carta” or “hyperinflation”"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={(e) => {
@@ -162,7 +162,7 @@ export function TopicsBrowser({ summaries }: { summaries: TopicSummary[] }) {
           </span>
         </div>
 
-        <div role="group" aria-label="Filter by strand" className="nav-scroll -mx-4 flex gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0">
+        <div role="group" aria-label="Filter by unit" className="nav-scroll -mx-4 flex gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0">
           {chips.map((s) => {
             const on = strand === s;
             const st = s === ALL ? null : strandStyle(s);

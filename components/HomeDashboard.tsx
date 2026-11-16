@@ -584,7 +584,7 @@ export function HomeDashboard({ summaries }: { summaries: TopicSummary[] }) {
           <section aria-labelledby="tip-h" className="card flex flex-col border-brand/30 p-4 sm:p-5">
             <div className="flex items-start gap-3">
               <span aria-hidden className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-brand to-brand-2 text-xl font-black text-brand-ink">
-                π
+                ⏳
               </span>
               <div className="min-w-0 flex-1">
                 <h2 id="tip-h" className="text-xs font-bold uppercase tracking-wide text-brand">

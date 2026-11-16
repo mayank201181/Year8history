@@ -559,7 +559,7 @@ export const mcqPapers: Paper[] = [
         ],
         answerIndex: 3,
         explanation:
-          "Divine Right is the idea that kings get their authority from God and answer only to God; it was argued most fully by James I in the 1600s. The custom that the eldest son inherits is primogeniture — a different idea.",
+          "Divine Right is the idea that kings get their authority from God and answer only to God; it was set out most fully by James VI and I (King of England from 1603) around 1600. The custom that the eldest son inherits is primogeniture — a different idea.",
         difficulty: "warmup",
         guideRef: "claims-to-the-throne",
         hints: ["‘Divine’ means to do with God."],
@@ -638,7 +638,7 @@ export const mcqPapers: Paper[] = [
         kind: "mcq",
         id: "power-of-monarchs-m3-q06",
         question:
-          "Read the source.\n\n> “He was a very stern and violent man, so that no one dared do anything contrary to his will.” — the *Anglo-Saxon Chronicle* (written by English monks at Peterborough), on William I's death in 1087\n\nWhat does this source suggest about how William kept control?",
+          "Read the source.\n\n> “He was a very stern and violent man, so that no one dared do anything contrary to his will.” — the *Anglo-Saxon Chronicle* (Peterborough version), written by an English chronicler who said he had lived at William's court, on William I's death in 1087\n\nWhat does this source suggest about how William kept control?",
         options: [
           "He relied heavily on fear and force",
           "He was chosen by the English people",

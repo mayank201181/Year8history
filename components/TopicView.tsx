@@ -325,7 +325,7 @@ function ChallengeTab({ topic }: { topic: Topic }) {
             <h2 id="ch-intro" className="section-title">
               Challenge problems
             </h2>
-            <p className="text-ink-2">AoPS-style problems that need an idea, not just a method — use the hints, they&apos;re part of the training.</p>
+            <p className="text-ink-2">Questions that need a judgement, not just a fact — use the hints, they&apos;re part of the training.</p>
           </div>
         </div>
         {total ? (

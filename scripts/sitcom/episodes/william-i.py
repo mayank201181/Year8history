@@ -48,7 +48,7 @@ L("chrono", "Harold Godwinson. Richest earl in England. Says Edward named him on
 L("tara", "Sat down first. That's Dad.", mood="deadpan", shot="close")
 L("chrono", "William, Duke of Normandy. Says Edward promised him the throne. And that Harold swore, in ten sixty four, to support him.", mood="teach", shot="close", board="WILLIAM: promise + Harold's 1064 oath")
 L("tara", "Promise, oath, coupons. Mum.", mood="deadpan", shot="close")
-L("chrono", "Harald Hardrada, King of Norway. A Viking claim from an old deal. Backed by Harold's exiled brother, Tostig.", mood="teach", shot="close", board="HARDRADA: Viking claim + Tostig")
+L("chrono", "Harald Hardrada, King of Norway. A Viking claim from an old deal. Joined by Harold's exiled brother, Tostig.", mood="teach", shot="close", board="HARDRADA: Viking claim + Tostig")
 L("tara", "Cousin Harish. Invading from upstairs.", mood="deadpan", shot="close")
 L("chrono", "And Edgar Aetheling. Closest blood relative. About fourteen. No army.", mood="teach", shot="close", board="EDGAR: blood, but ~14 and no army")
 L("tara", "Blood claim. No army. Me.", mood="sad", shot="close", gap=0.3)
@@ -106,7 +106,7 @@ L("chrono", "One part of this story, we tell plainly. In ten sixty nine, the nor
 L("chrono", "That winter, his soldiers destroyed villages, crops, animals and tools across Yorkshire and the north, so people had nothing left to live on.", mood="serious", shot="close")
 L("chrono", "Many thousands of ordinary people died of hunger and cold. Nobody knows exactly how many. Years later, Domesday still listed much of the area as waste.", mood="sad", shot="close", board="Thousands died. Still 'waste' in 1086")
 L("tara", "They were farming families. They didn't choose any of this.", mood="sad", shot="close")
-L("chrono", "No. Even a chronicler on the Norman side condemned it. We remember them.", mood="serious", shot="close", gap=1.0)
+L("chrono", "No. Even a chronicler on the Norman side condemned it. We remember them.", mood="serious", shot="close", gap=1.5)
 serious(False)
 
 scene("living", [("tara", 230), ("mum", 470), ("dad", 710), ("chrono", 960)])

@@ -31,7 +31,7 @@ export const mcqPapers: Paper[] = [
         ],
         answerIndex: 0,
         explanation:
-          "Hardrada, King of Norway, claimed through an old Scandinavian deal between Magnus of Norway and Harthacnut (who had been King of England and Denmark). The 1051 promise is tempting, but that was *William's* claim; the Witan chose Harold, and the closest blood relative was Edgar Ætheling.",
+          "Hardrada, King of Norway, claimed through an old Scandinavian deal between Magnus of Norway and Harthacnut (King of Denmark, and later of England too). The 1051 promise is tempting, but that was *William's* claim; the Witan chose Harold, and the closest blood relative was Edgar Ætheling.",
         difficulty: "core",
         guideRef: "succession-crisis-1066",
         hints: ["Each claimant had a different *type* of claim. Which three types belong to Harold, William and Edgar?", "Hardrada was a Viking king — think about deals between earlier Scandinavian kings."],
@@ -117,7 +117,7 @@ export const mcqPapers: Paper[] = [
         ],
         answerIndex: 0,
         explanation:
-          "Nobody controlled the wind — and its timing meant William crossed when Harold was 250 miles away. The other three are things William *did*: tactics (feigned retreats), diplomacy (papal support) and preparation (a mixed army).",
+          "Nobody controlled the wind — and its timing meant William crossed when Harold was about 250 miles away. The other three are things William *did*: tactics (feigned retreats), diplomacy (papal support) and preparation (a mixed army).",
         difficulty: "warmup",
         guideRef: "why-william-won",
         hints: ["Luck means something nobody planned or controlled."],
@@ -208,7 +208,7 @@ export const mcqPapers: Paper[] = [
         ],
         answerIndex: 1,
         explanation:
-          "Medieval writers rarely had reliable figures, so the number cannot be checked — but the Harrying itself is well supported by other evidence, such as Domesday Book's many Yorkshire villages recorded as “waste” in 1086. Rejecting it as a myth goes far too far. And Orderic was not simply anti-Norman: his father was Norman and he lived in Normandy.",
+          "Medieval writers rarely had reliable figures, so the number cannot be checked — but the Harrying itself is well supported by other evidence, such as Domesday Book's many Yorkshire villages recorded as “waste” in 1086. Rejecting it as a myth goes far too far. And Orderic was not simply anti-Norman: his mother was English but his father was French, in the service of a Norman lord, and Orderic spent his life as a monk in Normandy.",
         difficulty: "challenge",
         guideRef: "securing-control",
         hints: ["Separate two questions: did the event happen, and how precise is the number?", "Can you think of a different source that might corroborate the destruction?", "Check Orderic's background before assuming he was biased one way."],
