@@ -264,7 +264,7 @@ export const practice: TopicPractice = {
             "A Norman chronicle and an English chronicle that both describe it",
             "Two copies of the same Norman chronicle",
             "A Norman chronicle and a later book whose author copied from it",
-            "A single account written by a Norman monk many years later",
+            "A Norman chronicle and a poem written by one of William's supporters",
           ],
           answerIndex: 0,
           explanation:
