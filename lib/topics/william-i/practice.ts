@@ -44,7 +44,7 @@ export const practice: TopicPractice = {
       traps: [
         { spec: { type: "number", value: 11 }, feedback: "That's 25 − 14 — but the battles are in different months. Count the days left in September, then add the October days." },
       ],
-      solution: ["From 25 September to 30 September is 5 days.", "Then 14 more days take you to 14 October.", "5 + 14 = 19 days — in which Harold marched about 250 miles and fought two battles."],
+      solution: ["From 25 September to 30 September is 5 days.", "Then 14 more days take you to 14 October.", "5 + 14 = 19 days — in which Harold marched about 250 miles south from Yorkshire, gathered men and fought again."],
       commonError: "Subtracting the two day-numbers and ignoring the change of month.",
       difficulty: "core",
       guideRef: "battles-of-1066",
@@ -609,7 +609,7 @@ export const practice: TopicPractice = {
           commonError: "Giving 1086 — that's when the survey was carried out, not ordered.",
           difficulty: "warmup",
           guideRef: "feudal-system-domesday",
-          hints: ["It was ordered the Christmas *before* the survey year of 1086."],
+          hints: ["The commissioners did their work in the year *after* William gave the order — and William died the year after that, in 1087."],
           strategy: "Use the chronology",
         },
         {
@@ -791,7 +791,7 @@ export const practice: TopicPractice = {
       question: "Explain how the feudal system and the Domesday Book together strengthened William's control of England. (4 marks)",
       marks: 4,
       modelAnswer:
-        "The feudal system strengthened William's control because every great landholder held land from him in return for loyalty and knights. If a baron rebelled, he could lose his land, so the Norman elite's wealth depended on William staying in power — and the king could always call on an army of knights.\n\nThe Domesday Book strengthened control by giving William detailed knowledge of who held what land and what it was worth. That let him assess taxes accurately and know what resources he could draw on against threats like the Danish invasion scare of 1085.\n\nThe two worked together. Domesday recorded the feudal chain in writing: exactly which lord held which estate from whom, and what service it owed. In the same year, 1086, the Oath of Salisbury made major landholders swear loyalty directly to William. Together they turned the conquest into a permanent, recorded system in which land, tax, service and loyalty all led back to the king.",
+        "The feudal system strengthened William's control because every great landholder held land from him in return for loyalty and knights. If a baron rebelled, he could lose his land, so the Norman elite's wealth depended on William staying in power — and the king could always call on an army of knights.\n\nThe Domesday Book strengthened control by giving William detailed knowledge of who held what land and what it was worth. That let him assess taxes accurately and know what resources he could draw on against threats like the Danish invasion scare of 1085.\n\nThe two worked together. Domesday recorded the feudal chain in writing: exactly which lord held which estate from whom, and what it was worth. In the same year, 1086, the Oath of Salisbury made major landholders swear loyalty directly to William. Together they turned the conquest into a permanent, recorded system in which land, tax, service and loyalty all led back to the king.",
       markScheme: [
         { point: "Explains how the feudal system gave control (land for loyalty and knights; rebels lose land)", keywords: ["loyalty", "knights", "land", "fealty", "lose", "service", "rebel"] },
         { point: "Explains how Domesday gave control (knowledge for tax and resources)", keywords: ["tax", "geld", "knowledge", "resources", "who owned", "who held", "worth"] },

@@ -16,7 +16,7 @@ export const mcqPapers: Paper[] = [
           "Edward died on 5 January 1066. The tempting wrong answer is 6 January — that was the day *after*, when Edward was buried and Harold Godwinson was crowned. 14 October is Hastings and 25 December is William's coronation.",
         difficulty: "warmup",
         guideRef: "succession-crisis-1066",
-        hints: ["Harold was crowned the day after Edward died — and that was on 6 January."],
+        hints: ["Harold was crowned very quickly, on the very next day after Edward's death. Which of these dates was Harold's coronation — and which day came just before it?"],
         strategy: "Use the chronology",
       },
       {
@@ -99,7 +99,7 @@ export const mcqPapers: Paper[] = [
         ],
         answerIndex: 3,
         explanation:
-          "Norman sources and the Tapestry say a rumour spread that William was dead, and part of his army began to flee; he showed his face to stop the panic. This is evidence of his leadership. It was not a signal for a feigned retreat — those were tactics used later in the day.",
+          "Norman writers say a rumour spread that William was dead, and part of his army began to flee; he showed his face to stop the panic, and the Tapestry shows him lifting his helmet. This is evidence of his leadership. It was not a signal for a feigned retreat — those were tactics used later in the day.",
         difficulty: "core",
         guideRef: "battles-of-1066",
         hints: ["What would happen to a medieval army if its leader was thought to be dead?", "Showing your face proves one simple thing: that you are …"],
@@ -737,7 +737,7 @@ export const mcqPapers: Paper[] = [
         options: ["cow", "beef", "sheep", "pig"],
         answerIndex: 1,
         explanation:
-          "“Beef” comes from the French *boeuf*. The words for the living animals — cow, sheep, pig — are Old English. One idea is that English peasants raised the animals while French-speaking lords ate the meat (beef, mutton, pork).",
+          "“Beef” comes from the Norman French *boef* (modern French *bœuf*). The words for the living animals — cow, sheep, pig — are Old English. One idea is that English peasants raised the animals while French-speaking lords ate the meat (beef, mutton, pork).",
         difficulty: "warmup",
         guideRef: "impact-of-the-conquest",
         hints: ["Which word is for the meat on a lord's table, not the animal in a peasant's field?"],
