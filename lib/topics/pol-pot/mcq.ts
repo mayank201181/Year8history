@@ -109,7 +109,7 @@ export const mcqPapers: Paper[] = [
         ],
         answerIndex: 2,
         explanation:
-          "S-21 was the secret prison at Tuol Sleng, a former high school in Phnom Penh, run by Duch. It is now the Tuol Sleng Genocide Museum. Refugee camps on the Thai border did exist, but after 1979 — they had nothing to do with S-21.",
+          "S-21 was the secret prison at Tuol Sleng, a former high school in Phnom Penh, run by Duch. It is now the Tuol Sleng Genocide Museum. Refugee camps on the Thai border did exist — especially after 1979 — but they had nothing to do with S-21.",
         difficulty: "core",
         guideRef: "genocide-and-fall",
         hints: ["Its other name is Tuol Sleng.", "It is now a genocide museum in the capital."],
@@ -188,11 +188,11 @@ export const mcqPapers: Paper[] = [
       {
         kind: "mcq",
         id: "pol-pot-m1-q12",
-        question: "Which Khmer Rouge leader was never tried in any court because he died in 1998?",
+        question: "Which Khmer Rouge leader died in 1998 without ever appearing before a court to answer for his crimes?",
         options: ["Duch", "Khieu Samphan", "Nuon Chea", "Pol Pot"],
         answerIndex: 3,
         explanation:
-          "Pol Pot died in April 1998 under house arrest imposed by his own movement, before any court was set up. Duch, Nuon Chea and Khieu Samphan were all tried and convicted by the ECCC.",
+          "Pol Pot died in April 1998 under house arrest imposed by his own movement, years before the ECCC was set up. Duch, Nuon Chea and Khieu Samphan were all tried and convicted by the ECCC.",
         difficulty: "warmup",
         guideRef: "justice-and-memory",
         hints: ["The ECCC only began work in 2006."],
@@ -222,7 +222,7 @@ export const mcqPapers: Paper[] = [
         options: [
           "S-21 held somewhere between about 12,000 and 20,000 prisoners",
           "Historians think even more people died from starvation, overwork and untreated disease than from execution",
-          "Thousands of mass-grave sites have been found across Cambodia",
+          "Around 20,000 mass graves have been found across Cambodia",
           "Duch, the head of S-21, was convicted in 2010",
         ],
         answerIndex: 1,
@@ -382,7 +382,7 @@ export const mcqPapers: Paper[] = [
         ],
         answerIndex: 3,
         explanation:
-          "From 1977 Khmer Rouge troops attacked villages across the border, killing thousands of Vietnamese civilians. Vietnam answered with a full invasion. It was not acting for the UN — in fact most UN members condemned the invasion.",
+          "From 1977 Khmer Rouge troops attacked villages across the border, killing thousands of Vietnamese civilians. Vietnam answered with a full invasion. It was not acting for the UN — in fact most UN members voted for Vietnam to withdraw its troops.",
         difficulty: "core",
         guideRef: "genocide-and-fall",
         hints: ["Former allies had become enemies after 1975.", "Who attacked whom first?"],
@@ -508,7 +508,7 @@ export const mcqPapers: Paper[] = [
           "The Khmer Rouge entered Phnom Penh on 17 April 1975. 7 January 1979 is the trap — that is when Vietnamese forces captured the city and *ended* Khmer Rouge rule.",
         difficulty: "warmup",
         guideRef: "khmer-rouge-take-power",
-        hints: ["City people forced out that day were called '17 April people'."],
+        hints: ["Sort the dates first: which belong to the Khmer Rouge arriving, and which to their being driven out?"],
       },
       {
         kind: "mcq",
@@ -635,7 +635,7 @@ export const mcqPapers: Paper[] = [
           "1975 Khmer Rouge capture Phnom Penh → 1979 Vietnamese capture it → 1991 Paris Peace Agreements → 1998 Pol Pot dies. The tempting slip is to put Pol Pot's death before the peace agreements, but he lived on in the jungle until 1998.",
         difficulty: "core",
         guideRef: "genocide-and-fall",
-        hints: ["Put a year next to each event.", "Did Pol Pot die before or after the Khmer Rouge movement finally collapsed in the late 1990s?"],
+        hints: ["Put a year next to each event.", "The Paris Peace Agreements were signed in 1991; Pol Pot lived on in the jungle for most of that decade."],
         strategy: "Use the chronology",
       },
       {

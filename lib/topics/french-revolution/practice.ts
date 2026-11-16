@@ -1181,30 +1181,32 @@ export const practice: TopicPractice = {
     {
       kind: "short",
       id: "french-revolution-ch-q05",
-      question: "France first abolished slavery in its colonies in 1794 and abolished it for good in 1848. How many years apart are these two dates?",
-      answer: { type: "number", value: 54 },
+      question: "France first abolished slavery in its colonies in 1794 and abolished it for good in 1848. A student concludes: “So slavery was illegal in the French colonies for 54 years before 1848.”\n\nThe student's claim is flawed. How many years did the 1794 abolition actually last before it was reversed?",
+      answer: { type: "number", value: 8 },
       traps: [
         {
-          spec: { type: "number", value: 8 },
-          feedback: "8 years is the gap between abolition (1794) and Napoleon restoring slavery (1802). The question asks about final abolition.",
+          spec: { type: "number", value: 54 },
+          feedback: "54 years is the gap between the two abolitions — that is the student's mistake. The first abolition did not last that long. Who reversed it, and when?",
         },
         {
           spec: { type: "number", value: 46 },
-          feedback: "46 years is the gap from 1802 (restoration) to 1848. The question asks from the first abolition in 1794.",
+          feedback: "46 years (1802–1848) is how long slavery was legal again after it was restored. The question asks how long the 1794 abolition lasted.",
         },
       ],
       solution: [
-        "1848 − 1794 = 54 years.",
-        "Slavery was restored by Napoleon in 1802, so enslaved people in colonies such as Guadeloupe waited more than four decades for freedom again.",
+        "Napoleon restored slavery in the French colonies in 1802.",
+        "1802 − 1794 = 8 years.",
+        "So for 46 of those 54 years slavery was legal again in colonies such as Guadeloupe — the student confused the date of a law with how long its effect lasted.",
       ],
-      commonError: "Using 1802 (restoration) instead of 1794 (first abolition).",
+      commonError: "Subtracting 1794 from 1848 without checking whether the first abolition was reversed.",
       difficulty: "challenge",
       guideRef: "revolution-change-and-continuity",
       hints: [
-        "You need the year of final abolition and the year of the first abolition.",
-        "Subtract the earlier year from the later one.",
+        "Don't just subtract the two dates in the question: check whether the 1794 abolition lasted.",
+        "Which ruler reversed the abolition of slavery, and in what year?",
+        "Napoleon restored slavery in 1802. Subtract the year of the first abolition from that.",
       ],
-      strategy: "Use the chronology",
+      strategy: "Look for change AND continuity",
     },
     {
       kind: "written",

@@ -205,7 +205,7 @@ export const practice: TopicPractice = {
           options: ["About 600,000", "About 2 million", "About 6 million", "About 20 million"],
           answerIndex: 2,
           explanation:
-            "Registered unemployment reached about 6 million in 1932 — roughly one in three workers. That desperation helped the Nazi vote rise to 37.3% in July 1932. Two million is closer to the level before the crash.",
+            "Registered unemployment reached about 6 million in 1932 — roughly one in three workers. That desperation helped the Nazi vote rise to 37.3% in July 1932. Two million is closer to the level in 1929, before the Depression deepened.",
           difficulty: "warmup",
           guideRef: "crisis",
           hints: ["It was roughly one in three German workers."],
