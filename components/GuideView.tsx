@@ -7,7 +7,7 @@ import { useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore
 import type { GuideSection, Topic, TopicExtras, WorkedExample } from "@/lib/types";
 import { useStore } from "@/lib/store";
 import { metaById } from "@/lib/topics/meta";
-import { checkAnswer, displayAnswer, type CheckStatus } from "@/lib/answerCheck";
+import { checkWithTraps, displayAnswer, type CheckStatus } from "@/lib/answerCheck";
 import { Diagram, Rich, RichInline } from "./Rich";
 import { AnswerInput } from "./AnswerInput";
 import { AskAI } from "./AskAI";
@@ -242,7 +242,7 @@ function YourTurn({ yt, awardKey }: { yt: NonNullable<WorkedExample["yourTurn"]>
 
   function check() {
     if (result || !value.trim()) return;
-    const r = checkAnswer(yt.answer, value);
+    const r = checkWithTraps(yt.answer, value, yt.traps);
     if (r.status === "invalid" || r.status === "close") {
       setMsg({ status: r.status, text: r.feedback });
       return;

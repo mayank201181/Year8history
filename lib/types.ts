@@ -202,6 +202,8 @@ export interface WorkedExample {
   yourTurn?: {
     question: string;
     answer: AnswerSpec;
+    /** Optional classic confusions with targeted feedback. */
+    traps?: Trap[];
     /** Short worked solution shown after they try. */
     solution: string;
   };

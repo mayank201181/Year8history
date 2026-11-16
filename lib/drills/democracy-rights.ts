@@ -747,7 +747,7 @@ export const drills: Drill[] = [
       },
       {
         tier: 2,
-        prompt: "What change to voter registration, introduced in 1955, made Singapore's electorate jump from about 23,000 to about 300,000?",
+        prompt: "What change to voter registration, introduced in 1955, made Singapore's electorate jump from about 22,000 to about 300,000?",
         answer: txt(["automatic registration", "automatic voter registration", "automatic"], "Automatic registration"),
         solution: "Automatic registration: people no longer had to sign themselves up to vote.",
         hint: "People no longer had to apply.",

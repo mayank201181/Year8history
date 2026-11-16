@@ -177,6 +177,7 @@ export const guide: TopicGuide = {
           yourTurn: {
             question: "What name, meaning “the Organisation”, did the Khmer Rouge leadership use when giving orders?",
             answer: { type: "text", accept: ["Angkar", "Angka", "the Angkar", "Angkar Padevat"], display: "Angkar" },
+            traps: [{ spec: { type: "text", accept: ["Angkor", "Angkor Wat"] }, feedback: "Angkor is the ancient temple city of the Khmer kings. The Khmer Rouge's 'Organisation' was Angkar — with an a." }],
             solution: "Angkar — “the Organisation”. Ordinary Cambodians were told to obey Angkar without knowing who its leaders were. (Don't confuse it with Angkor, the ancient temple city of the Khmer kings.)",
           },
         },

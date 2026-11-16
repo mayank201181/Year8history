@@ -4,7 +4,7 @@
 // Pure — no React, no Next.
 // ---------------------------------------------------------------------------
 import type { AnswerSpec, Question, Topic, Trap, WorkedExample } from "./types.ts";
-import { checkAnswer, specSelfCheck, specSample } from "./answerCheck.ts";
+import { checkAnswer, checkWithTraps, specSelfCheck, specSample } from "./answerCheck.ts";
 import { toMathML } from "./mathml.ts";
 
 export interface Issue {
@@ -59,7 +59,7 @@ export function checkTraps(where: string, spec: AnswerSpec, traps: Trap[] | unde
     const r = specSelfCheck(t.spec);
     if (r.status !== "correct") issues.push({ where: `${where}.traps[${i}]`, problem: `trap spec fails its own check ${JSON.stringify(t.spec)}` });
     try {
-      if (checkAnswer(spec, specSample(t.spec)).status === "correct") {
+      if (checkWithTraps(spec, specSample(t.spec), [t]).status === "correct") {
         issues.push({ where: `${where}.traps[${i}]`, problem: "trap answer is accepted as CORRECT by the real answer spec" });
       }
     } catch {
@@ -118,6 +118,7 @@ function checkWorked(where: string, w: WorkedExample, issues: Issue[]) {
   if (w.yourTurn) {
     checkText(`${where}.yourTurn.question`, w.yourTurn.question, issues);
     checkSpec(`${where}.yourTurn.answer`, w.yourTurn.answer, issues);
+    checkTraps(`${where}.yourTurn`, w.yourTurn.answer, w.yourTurn.traps, issues);
     checkText(`${where}.yourTurn.solution`, w.yourTurn.solution, issues);
   }
 }
