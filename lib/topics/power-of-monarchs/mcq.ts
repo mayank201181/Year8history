@@ -345,7 +345,7 @@ export const mcqPapers: Paper[] = [
           "Even a strong king like Henry VIII backed down when taxpayers refused a tax demanded without Parliament — he dropped it and pardoned the protesters. The Pilgrimage of Grace came later, in 1536, and was mainly about religious change, not this tax.",
         difficulty: "core",
         guideRef: "limits-on-power",
-        hints: ["What happened to the tax in the end?", "Check the dates: 1525 versus 1535–36."],
+        hints: ["What happened to the tax in the end?", "Check the dates: 1525 versus 1536."],
         strategy: "Use the chronology",
       },
       {
@@ -414,7 +414,7 @@ export const mcqPapers: Paper[] = [
           "Henry VIII became king in April 1509, aged 17. 1485 is when his father won at Bosworth, 1502 when his brother Arthur died, and 1534 the Act of Supremacy.",
         difficulty: "warmup",
         guideRef: "comparing-three-kings",
-        hints: ["He was 17 and had been born in 1491."],
+        hints: ["He was born in June 1491 and came to the throne in April, aged 17 — two months before his 18th birthday."],
       },
       {
         kind: "mcq",

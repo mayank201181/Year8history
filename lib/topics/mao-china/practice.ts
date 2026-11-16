@@ -107,7 +107,7 @@ export const practice: TopicPractice = {
       solution: ["Jiang Qing, Mao's wife, was a leading radical in the Cultural Revolution.", "She and three allies — the 'Gang of Four' — were arrested in October 1976."],
       difficulty: "warmup",
       guideRef: "cultural-revolution",
-      hints: ["Her surname is Jiang; she was often called 'Madame Mao'."],
+      hints: ["She had been a film actress in 1930s Shanghai before she married Mao; her surname is Jiang."],
     },
     {
       kind: "written",
@@ -320,7 +320,7 @@ export const practice: TopicPractice = {
           solution: ["After Japan took Nanjing in 1937, Chiang's government moved far inland to Chongqing, in Sichuan, which served as the wartime capital."],
           difficulty: "core",
           guideRef: "war-and-communist-victory",
-          hints: ["It is in south-west China, on the Yangtze River.", "Its older spelling is Chungking."],
+          hints: ["It is in south-west China, on the Yangtze River.", "It was the wartime capital that Japanese planes bombed again and again from 1938; its name begins with C."],
         },
         {
           kind: "written",
@@ -442,7 +442,7 @@ export const practice: TopicPractice = {
           solution: ["Mao's slogan was 'Let a hundred flowers bloom, let a hundred schools of thought contend.'", "It was followed by the Anti-Rightist Campaign."],
           difficulty: "warmup",
           guideRef: "maos-new-china",
-          hints: ["Mao's slogan was about letting many flowers bloom."],
+          hints: ["Mao's slogan used an image from a garden — and a large round number."],
         },
         {
           kind: "mcq",
@@ -522,7 +522,7 @@ export const practice: TopicPractice = {
           commonError: "Treating one figure as an exact, agreed fact.",
           difficulty: "core",
           guideRef: "great-leap-forward",
-          hints: ["The answer is in tens of millions.", "A commonly cited figure is about 30 million."],
+          hints: ["The answer is in tens of millions.", "The guide gives a range of estimates with a commonly cited figure in the middle — either end of the range, or anything between, will do."],
           strategy: "Use precise evidence",
         },
         {
@@ -653,7 +653,7 @@ export const practice: TopicPractice = {
           ],
           answerIndex: 3,
           explanation:
-            "The Qing could not stop foreign humiliation; the GMD could not stop inflation, corruption or Japan's invasion. In both cases weakness cost them support, opening the way for new rulers. Japan's invasion is the tempting distractor — it weakened the GMD, but Japan overthrew neither government, and it played no part in the fall of the Qing.",
+            "The Qing could not stop foreign humiliation; the GMD could not stop inflation, corruption or Japan's invasion. In both cases weakness cost them support, opening the way for new rulers. Japan's invasion is the tempting distractor — but Japan overthrew neither government: its victory in 1895 helped weaken the Qing, and its invasion from 1937 weakened the GMD, yet in both cases Chinese opponents took power.",
           difficulty: "challenge",
           guideRef: "china-in-crisis",
           hints: ["Compare case studies: what did the two governments have in common?", "Test each option against BOTH 1911 and 1949 — most only fit one, or neither."],

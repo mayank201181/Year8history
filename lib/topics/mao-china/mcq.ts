@@ -120,7 +120,7 @@ export const mcqPapers: Paper[] = [
       {
         kind: "mcq",
         id: "mao-china-m1-q09",
-        question: "Which GMD weakness most helped the Communists during the Civil War of 1946–49?",
+        question: "Which of these was a real GMD weakness that helped the Communists during the Civil War of 1946–49?",
         options: [
           "Runaway inflation that made its money almost worthless",
           "It had no foreign support at all",
@@ -214,7 +214,7 @@ export const mcqPapers: Paper[] = [
         answerIndex: 3,
         explanation:
           "All figures are estimates — roughly 15–45 million, with about 30 million commonly cited. 'Exactly 30 million from official records' is the tempting trap: 30 million is a common estimate, not an exact, recorded figure, and the government hid the scale of the disaster.",
-        difficulty: "challenge",
+        difficulty: "core",
         guideRef: "great-leap-forward",
         hints: ["Be suspicious of words like 'exactly' and 'agree' when the evidence was hidden.", "Do historians all use the same figure?"],
         strategy: "Use precise evidence",

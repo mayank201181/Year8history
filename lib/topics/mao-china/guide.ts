@@ -15,7 +15,7 @@ export const guide: TopicGuide = {
       heading: "China in crisis, 1839–1927",
       discovery: {
         problem:
-          "Imagine you are a young Chinese patriot around 1910. In your parents' lifetime:\n\n- Britain has won two wars to keep selling opium in China and taken Hong Kong.\n- Foreigners in the treaty ports are tried in their own courts, not Chinese ones.\n- Japan, a much smaller country, has beaten China in war (1895) and taken Taiwan.\n- An eight-nation foreign army has marched into Beijing (1900).\n\nYou want China to be strong again. Before you read on: is the real enemy the foreigners — or your own government? Write one sentence explaining your choice.",
+          "Imagine you are a young Chinese patriot around 1910. In your parents' and grandparents' lifetimes:\n\n- Britain (joined by France the second time) has won two wars to keep selling opium in China and taken Hong Kong.\n- Foreigners in the treaty ports are tried in their own courts, not Chinese ones.\n- Japan, a much smaller country, has beaten China in war (1895) and taken Taiwan.\n- An eight-nation foreign army has marched into Beijing (1900).\n\nYou want China to be strong again. Before you read on: is the real enemy the foreigners — or your own government? Write one sentence explaining your choice.",
         idea:
           "Many patriots decided that the problem began at home. Defeat after defeat convinced them that the **Qing dynasty** was too weak and old-fashioned to protect China, so the country needed a new kind of government before it could stand up to foreigners. That is how foreign humiliation turned into revolution: crisis abroad exposed weakness at home.",
       },
@@ -82,9 +82,9 @@ export const guide: TopicGuide = {
           answer:
             "The Long March helped Mao in two linked ways. First, it changed the leadership inside the party. The defeat in Jiangxi discredited the leaders who had fought Chiang's fifth campaign head-on, and at the Zunyi Conference in January 1935 Mao gained a leading role in military strategy. Second, the march became a legend. Although only about 8,000 of roughly 86,000 marchers reached Shaanxi, the Communists presented it as a heroic victory — Mao called it a 'manifesto' and a 'seeding-machine'. Because Mao was the leader who had brought the survivors through, the legend gave him great prestige, and by the time the CCP settled at Yan'an he was its dominant figure.",
           yourTurn: {
-            question: "In which town in Shaanxi province did the Communists make their headquarters after the Long March?",
-            answer: { type: "text", accept: ["Yan'an", "Yanan", "Yenan", "Yan an"], display: "Yan'an" },
-            solution: "Yan'an (also spelled Yenan), in Shaanxi province, was the CCP's base from early 1937 until 1947.",
+            question: "In what year did the survivors of the Long March reach Shaanxi province?",
+            answer: { type: "number", value: 1935 },
+            solution: "The march began in October 1934 and the survivors reached Shaanxi in October 1935. From early 1937 the CCP made its base at Yan'an, in Shaanxi.",
           },
         },
       ],

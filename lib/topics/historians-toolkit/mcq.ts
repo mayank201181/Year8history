@@ -13,7 +13,7 @@ export const mcqPapers: Paper[] = [
         options: ["The 11th century", "The 10th century", "The 12th century", "The 16th century"],
         answerIndex: 0,
         explanation:
-          "Take the 'hundreds' (10) and add one: 1066 is in the 11th century, which ran from 1001 to 1100. 'The 10th century' is the classic slip of reading the century straight off the first two digits — but the 1st century was the years 1–100, so the numbering is always one ahead.",
+          "Take the 'hundreds' (10) and add one: 1066 is in the 11th century, which ran from 1001 to 1100. 'The 10th century' is the classic slip of reading the century straight off the first two digits — but the 1st century was the years 1–100, so for a year like 1066 the century number is one ahead of the hundreds.",
         difficulty: "warmup",
         guideRef: "chronology-and-periods",
         hints: ["There was no year 0 — the 1st century was the years 1 to 100. So which hundred years contains 1066?"],
@@ -31,7 +31,7 @@ export const mcqPapers: Paper[] = [
         ],
         answerIndex: 1,
         explanation:
-          "Hastings (1066), Magna Carta (1215), the Act of Supremacy (1534), the Bastille (1789). The tempting slip is putting the Act of Supremacy before Magna Carta — but Henry VIII lived more than 300 years after King John.",
+          "Hastings (1066), Magna Carta (1215), the Act of Supremacy (1534), the Bastille (1789). The tempting slip is putting the Act of Supremacy before Magna Carta — but the Act of Supremacy came more than 300 years after Magna Carta.",
         difficulty: "warmup",
         guideRef: "chronology-and-periods",
         hints: ["Write the year next to each event first: 1066, 1215, 1534, 1789."],
@@ -124,20 +124,20 @@ export const mcqPapers: Paper[] = [
         question:
           "Study the source.\n\n> “…the worst disaster and largest capitulation in British history.” — Winston Churchill describing the fall of Singapore (February 1942), in his war memoirs *The Second World War*, published after the war\n\nWhich point about provenance most limits this source's reliability as a judgement on **who was to blame** for the fall of Singapore?",
         options: [
-          "Churchill was not alive in 1942, so he could only guess",
-          "The source was written by a Japanese officer who wanted to boast",
+          "Churchill was Prime Minister in 1942, so he had access to official reports about the defeat",
+          "It is a primary source written by Britain's wartime leader, so it must be accurate about blame",
           "Churchill was Prime Minister in 1942 and wrote with hindsight, so he may have wanted to protect his own reputation",
-          "The source is too short to be about Singapore",
+          "It was published after the war, so it cannot tell us anything about 1942",
         ],
         answerIndex: 2,
         explanation:
-          "Churchill led the British government when Singapore fell, so in memoirs written after the war he had a reason to shape how blame was shared. The other options are factually wrong about the origin: Churchill was very much alive and in charge in 1942, and the words are his, not a Japanese officer's.",
+          "Churchill led the British government when Singapore fell, so in memoirs written after the war he had a reason to shape how blame was shared. 'Access to official reports' is tempting, but it is a strength of the provenance, not a limitation; 'cannot tell us anything' goes too far — hindsight weakens a source without making it worthless; and being primary never guarantees accuracy.",
         difficulty: "challenge",
         guideRef: "utility-and-reliability",
         hints: [
           "Use Origin and Purpose: who wrote this, what was his job in 1942, and when did he write it?",
           "Would the person in charge at the time of a disaster have any reason to tell the story in a particular way?",
-          "Rule out options that are simply false about the source's origin.",
+          "Rule out options that describe a strength rather than a limitation, or that claim far too much.",
         ],
         strategy: "Ask \"who benefits?\"",
       },
@@ -465,7 +465,7 @@ export const mcqPapers: Paper[] = [
         ],
         answerIndex: 3,
         explanation:
-          "The story fails a provenance check: the line was already in circulation, attributed to an unnamed 'great princess', before Marie Antoinette came to France, and no reliable source has her saying it. 'She was executed before the Revolution began' is false — she was executed in October 1793, during the Revolution.",
+          "The story fails a provenance check: Rousseau had already written the line down, attributed to an unnamed 'great princess', before Marie Antoinette came to France in 1770, and no reliable source has her saying it. 'She was executed before the Revolution began' is false — she was executed in October 1793, during the Revolution.",
         difficulty: "core",
         guideRef: "utility-and-reliability",
         hints: [
@@ -486,7 +486,7 @@ export const mcqPapers: Paper[] = [
         ],
         answerIndex: 1,
         explanation:
-          "Interpretations differ when the evidence can reasonably be read in more than one way — here, publicity against a backlash among MPs. 'Militancy began only after women had won the vote' is false: WSPU militancy was at its height from about 1905 to 1914, before the 1918 Act.",
+          "Interpretations differ when the evidence can reasonably be read in more than one way — here, publicity against a backlash among MPs. 'Militancy began only after women had won the vote' is false: WSPU militancy ran from about 1905 to 1914 (at its most intense in 1912–14), before the 1918 Act.",
         difficulty: "core",
         guideRef: "interpretations",
         hints: [

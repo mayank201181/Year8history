@@ -13,7 +13,7 @@ export const practice: TopicPractice = {
       commonError: "Reading the century straight off the first two digits (15) instead of adding one.",
       difficulty: "warmup",
       guideRef: "chronology-and-periods",
-      hints: ["The 1st century was the years 1–100, so the century number is always one more than the hundreds."],
+      hints: ["The 1st century was the years 1–100, so for a year like 1534 the century number is one more than the hundreds."],
       strategy: "Use the chronology",
     },
     {
@@ -335,7 +335,7 @@ export const practice: TopicPractice = {
             "Interpretation: “King John was a bad king.” Give one piece of evidence that supports this interpretation and one that challenges it, and explain each. (4 marks)",
           marks: 4,
           modelAnswer:
-            "One piece of evidence that supports the interpretation is that John lost Normandy to Philip II of France in 1204. This was a disaster for his reputation and for the barons who held land there, and it earned him the nickname 'Softsword'. He also made the barons so angry with heavy taxes and harsh treatment that they forced him to accept Magna Carta in 1215. However, one piece of evidence that challenges it is that modern historians, studying the government records of his reign, have shown that John was a hard-working administrator who took a close interest in justice and royal finances. Some of his money problems were also inherited from his brother Richard I's crusade and ransom. So the evidence shows John had real failures, but 'bad king' is too simple a label.",
+            "One piece of evidence that supports the interpretation is that John lost Normandy to Philip II of France in 1204. This was a disaster for his reputation and for the barons who held land there; critics had already mocked him as 'Softsword' for giving way to Philip. He also made the barons so angry with heavy taxes and harsh treatment that they forced him to accept Magna Carta in 1215. However, one piece of evidence that challenges it is that modern historians, studying the government records of his reign, have shown that John was a hard-working administrator who took a close interest in justice and royal finances. Some of his money problems were also inherited from his brother Richard I's crusade and ransom. So the evidence shows John had real failures, but 'bad king' is too simple a label.",
           markScheme: [
             { point: "Gives accurate evidence supporting the interpretation (e.g. lost Normandy 1204, heavy taxes, quarrel with the Church, Magna Carta forced on him, Arthur's disappearance)", keywords: ["normandy", "1204", "taxes", "barons", "church", "pope", "interdict", "magna carta", "arthur"] },
             { point: "Explains how that evidence supports the view", keywords: ["because", "angered", "reputation", "failure", "rebelled", "this shows"] },
@@ -584,13 +584,13 @@ export const practice: TopicPractice = {
         {
           kind: "short",
           id: "historians-toolkit-p2-q09",
-          question: "The monk Matthew Paris wrote that Hell itself was made “fouler” by the presence of which English king?",
+          question: "The monk Matthew Paris recorded the verdict that Hell itself was made “fouler” by the presence of which English king?",
           answer: { type: "text", accept: ["John", "King John", "John I", "John Lackland"], display: "King John" },
           traps: [
-            { spec: { type: "text", accept: ["Henry VIII", "Henry"] }, feedback: "Henry VIII lived three centuries after Matthew Paris. Paris was writing in the mid-1200s about the king who sealed Magna Carta." },
+            { spec: { type: "text", accept: ["Henry VIII", "Henry", "Henry III"] }, feedback: "Not Henry — Henry III was the king while Paris was writing, and Henry VIII lived centuries later. Paris's target was the king who sealed Magna Carta." },
             { spec: { type: "text", accept: ["Richard", "Richard I", "Richard the Lionheart"] }, feedback: "Richard I was John's brother and was remembered far more kindly. Paris's target was the king who lost Normandy and sealed Magna Carta." },
           ],
-          solution: ["King John (reigned 1199–1216). Paris, a monk at St Albans, wrote this in the mid-1200s."],
+          solution: ["King John (reigned 1199–1216). Paris, a monk at St Albans, recorded this verdict in the mid-1200s."],
           difficulty: "warmup",
           guideRef: "interpretations",
           hints: ["He sealed Magna Carta in 1215."],
