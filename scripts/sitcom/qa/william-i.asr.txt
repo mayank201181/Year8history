@@ -1,0 +1,9 @@
+(0.74, 'teacher', 'Last one. Why did William win? Give me a judgement.', ' Last one, Whiteed William Win, give me a judgment.')
+(0.74, 'ticktock', 'Who dares open my drawer? Oh. Tara. I was napping.', " Houdair's opened my drawer. Oh, Tara, I was napping.")
+(0.78, 'ticktock', 'Recap. One. 1066: no heir, four claimants.', ' Recap 1 1066, no air for claimants.')
+(0.8, 'mum', "Paati's gone back to Chennai.", " Party's gone back to Chennai.")
+(0.8, 'ticktock', 'Two. Harold won at Stamford Bridge, then lost at Hastings.', ' Two Harald 1 at Stamford Bridge, then lost at Hastings.')
+(0.83, 'ticktock', "Oh, a charter! That's 1215. King John. I was there, you know.", " Oachata, that's 1215. King John, I was there, you know.")
+(0.84, 'dad', 'Yes! Feigned retreat! Never leave your shield wall, Anjali!', ' Yes, feigned retreat. Never leave your shield wall and jolly.')
+(0.85, 'guide', 'This is our replica of the Bayeux Tapestry! Which is actually embroidery. Seventy metres of it.', ' This is our replica of the Bayoure Tapestry, which is actually embroidery, 70 meters of it.')
+checked 93 flagged 8
