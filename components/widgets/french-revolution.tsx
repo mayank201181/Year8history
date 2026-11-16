@@ -61,13 +61,8 @@ function ThreeEstates() {
   // Stacked 100% bar, to scale.
   const W = 440;
   const X0 = 20;
-  let x = X0;
-  const segs = ESTATES.map((e) => {
-    const w = (v.values[e.id] / 100) * W;
-    const s = { e, x, w };
-    x += w;
-    return s;
-  });
+  const widths = ESTATES.map((e) => (v.values[e.id] / 100) * W);
+  const segs = ESTATES.map((e, i) => ({ e, x: X0 + widths.slice(0, i).reduce((a, b) => a + b, 0), w: widths[i] }));
 
   // Voting on the motion "Vote by head and write a constitution".
   const yesHead = DEPUTIES.third + clergyJoin + noblesJoin;

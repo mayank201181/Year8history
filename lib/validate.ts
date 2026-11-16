@@ -4,7 +4,7 @@
 // Pure — no React, no Next.
 // ---------------------------------------------------------------------------
 import type { AnswerSpec, Question, Topic, Trap, WorkedExample } from "./types.ts";
-import { checkAnswer, checkWithTraps, specSelfCheck, specSample } from "./answerCheck.ts";
+import { checkWithTraps, specSelfCheck, specSample } from "./answerCheck.ts";
 import { toMathML } from "./mathml.ts";
 
 export interface Issue {

@@ -1,5 +1,5 @@
 "use client";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { WidgetFrame, Slider, Segmented, Readout, type WidgetDef } from "./kit";
 
 // ---------------------------------------------------------------------------
@@ -358,7 +358,7 @@ function CoalitionBuilder() {
   const present = ORDER.filter((p) => e.seats[p]);
   const chosen = sel.filter((p) => e.seats[p]);
   const a = analyse(chosen, e);
-  const options = useMemo(() => realisticMajorities(e), [e]);
+  const options = realisticMajorities(e);
   const withoutNazis = options.filter((s) => !s.includes("NSDAP") && !s.includes("NSFB"));
 
   const toggle = (p: PartyId) => setSel((s) => (s.includes(p) ? s.filter((q) => q !== p) : [...s, p]));
@@ -377,7 +377,6 @@ function CoalitionBuilder() {
     };
 
   const W = 340;
-  let acc = 0;
   const pct = (n: number) => (n / a.total) * W;
   const names = (s: PartyId[]) => s.map((p) => PARTIES[p].name.replace(/ \(.*\)$/, "")).join(" + ");
 
@@ -393,7 +392,7 @@ function CoalitionBuilder() {
       caption={
         <>
           <p>
-            <strong>Why so hard?</strong> Proportional representation gave seats to every party with enough votes, so the Reichstag had many parties and no single one ever won a majority. Every government was a coalition — and coalitions of parties that disagreed kept breaking up (about 20 governments in 14 years). When no majority could be found, Chancellors relied on the President's emergency powers under <strong>Article 48</strong>.
+            <strong>Why so hard?</strong> Proportional representation gave seats to every party with enough votes, so the Reichstag had many parties and no single one ever won a majority. Every government was a coalition — and coalitions of parties that disagreed kept breaking up (about 20 governments in 14 years). When no majority could be found, Chancellors relied on the President’s emergency powers under <strong>Article 48</strong>.
           </p>
           <p className="mt-2">
             <strong>What actually happened ({e.label}):</strong> {e.happened}
@@ -433,10 +432,9 @@ function CoalitionBuilder() {
           })}
         </div>
         <svg viewBox={`0 0 ${W} 74`} className="h-auto w-full" role="img" aria-label={`Reichstag of ${e.label}: ${a.total} seats, majority ${a.majority}. Your coalition has ${a.seats} seats.`}>
-          {present.map((p) => {
+          {present.map((p, i) => {
             const w = pct(e.seats[p] ?? 0);
-            const x0 = acc;
-            acc += w;
+            const x0 = present.slice(0, i).reduce((sum, q) => sum + pct(e.seats[q] ?? 0), 0);
             return <rect key={p} x={x0} y={4} width={w} height={22} fill={PARTIES[p].colour} opacity={chosen.includes(p) ? 1 : 0.25} className="stroke-surface" strokeWidth={1} />;
           })}
           <rect x={0} y={38} width={W} height={18} className="fill-surface-2 stroke-line" strokeWidth={1} />

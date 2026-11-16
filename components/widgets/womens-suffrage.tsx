@@ -199,7 +199,7 @@ function TacticsBoard() {
       caption={
         judged.length === TACTICS.length ? (
           <p>
-            <strong>Your board is complete.</strong> Notice that the suffragists' slow, legal tactics mostly built support among MPs, while the suffragettes' tactics won headlines and sympathy but, from 1912, also gave opponents an argument. Most historians now link the two: the suffragettes made the issue impossible to ignore, and the suffragists made saying yes look safe — and the war gave Parliament the chance.
+            <strong>Your board is complete.</strong> Notice that the suffragists’ slow, legal tactics mostly built support among MPs, while the suffragettes’ tactics won headlines and sympathy but, from 1912, also gave opponents an argument. Most historians now link the two: the suffragettes made the issue impossible to ignore, and the suffragists made saying yes look safe — and the war gave Parliament the chance.
           </p>
         ) : myVerdict ? (
           <p>
@@ -472,7 +472,7 @@ function WhoCouldVote() {
               : r.year === 1918
                 ? "The biggest jump in British history — but not equality. Women had to be nine years older than men and meet a property test, which kept them to about 40% of voters (about 8.4 million of about 21 million)."
                 : "Equal at last: women now made up just over half of voters. 1918 was the first time women voted; 1928 was the first time they voted on equal terms."}{" "}
-            Figures are historians' estimates and differ slightly between sources.
+            Figures are historians’ estimates and differ slightly between sources.
           </p>
         </div>
       }

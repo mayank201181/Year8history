@@ -3,7 +3,7 @@ import type { ExamPaper } from "../types.ts";
 // Big Exam — Paper 2: Dictatorships (Term 2).
 // Enquiry: Under what circumstances did dictatorships come to power?
 // Sensitive content (the Holocaust, the Great Famine, the Khmer Rouge genocide): sober and factual.
-// Order: warmup (q01–q08) → core (q09–q20) → challenge (q21–q26).
+// Order: warmup (q01–q08) → core (q09–q20) → challenge (q21–q26; q22 is a core recall question).
 export const paper: ExamPaper = {
   id: "exam-2",
   title: "Paper 2: Dictatorships (Term 2)",
@@ -62,7 +62,7 @@ export const paper: ExamPaper = {
       ],
       solution: [
         "The Long March (October 1934 – October 1935) covered roughly 10,000 km.",
-        "It made Mao the Communists' leader and became a heroic legend in Communist propaganda.",
+        "During the march (at the Zunyi Conference, January 1935) Mao won a leading role in military strategy, and the march became a heroic legend in Communist propaganda.",
       ],
       hints: ["The name simply describes a very long walk."],
       commonError: "Mixing up the Long March (1934–35) with the Great Leap Forward (1958–62).",
@@ -387,12 +387,13 @@ export const paper: ExamPaper = {
       traps: [
         { spec: { type: "text", accept: ["long-term", "long-term cause", "long term", "long term cause"] }, feedback: "A long-term cause builds up over years, like the Treaty of Versailles. The fire was a single event that set things off." },
         { spec: { type: "text", accept: ["consequence", "result", "effect"] }, feedback: "A consequence is a *result*. The question asks what kind of *cause* the fire was." },
+        { spec: { type: "text", accept: ["short-term", "short-term cause", "short term", "short term cause"] }, feedback: "Close — the fire was certainly short-term. But the special name for the single event that *sets off* the change is one word: think of what sets off a gun." },
       ],
       solution: [
         "Historians sort causes into long-term, short-term and trigger causes.",
         "A trigger is the event that sets off a change that deeper causes had made possible — like a spark in a room full of gas.",
       ],
-      hints: ["Think of a gun: what sets it off?", "The word is also used for a spark that sets off an explosion."],
+      hints: ["Historians sort causes by timing: long-term, short-term, and the single event that sets things off. Which kind was the fire?", "Think of a gun: which part sets it off?"],
       strategy: "Sort causes into categories",
       commonError: "Treating the trigger as the most important cause — it is often the least important on its own.",
     },
@@ -443,13 +444,14 @@ export const paper: ExamPaper = {
       id: "exam-2-q22",
       topicId: "pol-pot",
       guideRef: "khmer-rouge-take-power",
-      difficulty: "challenge",
+      difficulty: "core",
       question:
         "Unlike Hitler and Mao, Pol Pot built no public cult of personality. The leaders hid their identities, and Cambodians were ordered to obey a faceless authority known only as “the Organisation”. What was the Khmer word for “the Organisation”?",
       answer: { type: "text", accept: ["Angkar", "Angka", "Angkar Padevat", "Angkar Loeu"], display: "Angkar" },
       traps: [
         { spec: { type: "text", accept: ["Khmer Rouge", "Red Khmers"] }, feedback: "“Khmer Rouge” (Red Khmers) was a nickname for Cambodia's communists, first used by Sihanouk. The regime itself demanded loyalty to a body with a Khmer name." },
         { spec: { type: "text", accept: ["Democratic Kampuchea", "Kampuchea"] }, feedback: "Democratic Kampuchea was the regime's name for the *country*. The question asks for the name of the ruling “Organisation”." },
+        { spec: { type: "text", accept: ["Angkor", "Angkor Wat"] }, feedback: "Angkor is the great medieval temple city (Angkor Wat). The Khmer Rouge's “Organisation” had a similar-looking but different name — check the vowel in the second syllable." },
       ],
       solution: [
         "People were told that Angkar had “the eyes of a pineapple” — it saw everything.",
@@ -477,7 +479,7 @@ export const paper: ExamPaper = {
         { point: "Explains that charisma mattered for Hitler (speeches, propaganda, rise in Nazi votes 1928–32)", keywords: ["speeches", "speaker", "goebbels", "propaganda", "rallies", "votes", "1932"] },
         { point: "Explains Pol Pot's lack of a public cult: secrecy, Angkar, hidden leadership", keywords: ["secret", "secrecy", "angkar", "hidden", "organisation", "no cult"] },
         { point: "Explains what brought Pol Pot to power instead: Vietnam War spillover, US bombing, weak Lon Nol government, Sihanouk's support", keywords: ["bombing", "lon nol", "civil war", "sihanouk", "vietnam", "weak government"] },
-        { point: "Draws the inference: charisma is not a necessary cause; even Hitler needed crisis and elites", keywords: ["not necessary", "not essential", "even hitler", "depression", "elites", "crisis"] },
+        { point: "Draws a supported inference from the comparison — e.g. charisma is not a necessary cause (even Hitler needed crisis and elites), or, if well argued, that leadership still mattered in another form (Pol Pot's ruthless, disciplined control of a secret party)", keywords: ["not necessary", "not essential", "even hitler", "depression", "elites", "crisis", "disciplined", "ruthless", "still mattered"] },
         { point: "Reaches a supported judgement about the importance of leadership compared with circumstances", keywords: ["overall", "judgement", "more important", "circumstances", "opportunity", "organisation"] },
       ],
       hints: [

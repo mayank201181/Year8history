@@ -481,7 +481,7 @@ function CompareKings() {
                 <strong>{matches ? "Your order matches one strong view." : "Your order differs from one strong view — that can be fine if your evidence is good."}</strong> Model order: {model.order.map(nameOf).join(" → ")}.
               </p>
               <p className="mt-1">{model.reason}</p>
-              <p className="mt-1 text-ink-2">In your essay, say which criterion you are using — 'secure at the start' and 'secure by the end' give different answers.</p>
+              <p className="mt-1 text-ink-2">In your essay, say which criterion you are using — ’secure at the start’ and ’secure by the end’ give different answers.</p>
             </div>
           ) : null}
         </div>

@@ -3,7 +3,7 @@ import type { ExamPaper } from "../types.ts";
 // Big Exam — Paper 3: Democracy & Rights + the whole year.
 // Enquiry: How and why has democracy developed? Plus synoptic questions linking
 // kings (Term 1), dictators (Term 2) and democracy (Term 3).
-// Order: warmup (q01–q08) → core (q09–q20) → challenge (q21–q26).
+// Order: warmup (q01–q08) → core (q09–q20) → challenge (q21–q26; q22 is a core recall question).
 export const paper: ExamPaper = {
   id: "exam-3",
   title: "Paper 3: Democracy & Rights + the whole year",
@@ -45,7 +45,7 @@ export const paper: ExamPaper = {
       ],
       answerIndex: 0,
       explanation:
-        "Fawcett led the NUWSS (founded 1897) — the suffragists — who used petitions, meetings, lobbying and marches. The WSPU is the tempting wrong answer: it was the Pankhursts' militant suffragette organisation (“Deeds not words”). The Anti-Suffrage League *opposed* votes for women, and the Chartists were a men's movement of the 1830s–40s.",
+        "Fawcett led the NUWSS (founded 1897) — the suffragists — who used petitions, meetings, lobbying and marches. The WSPU is the tempting wrong answer: it was the Pankhursts' militant suffragette organisation (“Deeds not words”). The Anti-Suffrage League *opposed* votes for women, and the Chartists campaigned in the 1830s–40s for votes for working *men*.",
       hints: ["Suffragist = peaceful; suffragette = militant. Fawcett led the suffragists."],
       strategy: "Use precise evidence",
     },
@@ -318,6 +318,7 @@ export const paper: ExamPaper = {
       traps: [
         { spec: { type: "text", accept: ["Robespierre", "Maximilien Robespierre"] }, feedback: "Robespierre dominated the Terror (1793–94) but never made himself sole ruler — and he was executed in 1794, five years before this coup." },
         { spec: { type: "text", accept: ["Louis XVI", "Louis", "Louis XVIII"] }, feedback: "The Bourbon kings inherited their thrones. This ruler was an army general who seized power." },
+        { spec: { type: "text", accept: ["Napoleon III", "Louis Napoleon", "Louis-Napoleon"] }, feedback: "Napoleon III was his nephew, who copied his methods — including plebiscites — after a coup in 1851. The ruler who seized power in 1799 and was crowned in 1804 was his uncle." },
       ],
       solution: [
         "Napoleon Bonaparte seized power in November 1799 and became First Consul.",
@@ -439,10 +440,10 @@ export const paper: ExamPaper = {
       id: "exam-3-q22",
       topicId: "french-revolution",
       guideRef: "revolution-change-and-continuity",
-      difficulty: "challenge",
+      difficulty: "core",
       question:
         "In 1791 a playwright wrote the *Declaration of the Rights of Woman and of the Female Citizen*, rewriting the 1789 Declaration to include women. She dedicated it to the Queen and was executed during the Terror in 1793. Who was she?",
-      answer: { type: "text", accept: ["Olympe de Gouges", "de Gouges", "Gouges", "Olympe"], display: "Olympe de Gouges" },
+      answer: { type: "text", accept: ["Olympe de Gouges", "de Gouges", "Gouges"], display: "Olympe de Gouges" },
       traps: [
         { spec: { type: "text", accept: ["Marie Antoinette", "Marie-Antoinette"] }, feedback: "Marie Antoinette was the Queen the declaration was dedicated *to*. The author was a playwright." },
         { spec: { type: "text", accept: ["Mary Wollstonecraft", "Wollstonecraft"] }, feedback: "Mary Wollstonecraft was a British writer who published *A Vindication of the Rights of Woman* in 1792. The French declaration of 1791 was by someone else." },
@@ -451,7 +452,7 @@ export const paper: ExamPaper = {
         "Olympe de Gouges argued that if a woman could be sent to the scaffold, she should also have the right to speak in public life.",
         "She was guillotined in November 1793 — evidence that the Revolution's “equality” did not extend to women.",
       ],
-      hints: ["She was French and wrote plays and political pamphlets.", "Her first name is Olympe."],
+      hints: ["She was French and wrote plays and political pamphlets.", "Her first name is Olympe — give her surname too."],
       strategy: "Look for change AND continuity",
       commonError: "Naming Mary Wollstonecraft, who wrote a similar-sounding work in Britain in 1792.",
     },
@@ -516,7 +517,7 @@ export const paper: ExamPaper = {
         "King John (1215) and Louis XVI (1789) both faced revolts against their power. Explain why Louis XVI lost his throne and his life, while John stayed king until his death. (5 marks)",
       marks: 5,
       modelAnswer:
-        "The two kings faced similar problems at first: both were short of money (John from his wars in France, Louis from debts that included helping the American Revolution) and both angered powerful subjects with taxes. But the rebels wanted different things. John's barons wanted to *limit* the king, through Magna Carta, and when that failed they invited Prince Louis of France to replace him — they still wanted a king. Nobody in 1215 imagined a country without one. In 1789, by contrast, Enlightenment ideas and the Declaration of the Rights of Man said that sovereignty belonged to the nation, so the monarchy itself could be questioned. Louis's own actions made things worse: the Flight to Varennes in 1791 and war with Austria in 1792 made him look like a traitor, so the monarchy was abolished in September 1792 and he was executed in January 1793. John was also lucky that he died in October 1216, during the war, before he could be defeated. Overall the key difference was ideas: John faced rebels who wanted a better king, while Louis faced revolutionaries who came to believe they needed no king at all.",
+        "The two kings faced similar problems at first: both were short of money (John from his wars in France, Louis from debts that included helping the American Revolution) and both angered powerful subjects with taxes. But the rebels wanted different things. John's barons wanted to *limit* the king, through Magna Carta, and when that failed they invited Prince Louis of France to replace him — they still wanted a king. Almost nobody in 1215 imagined a country without one. In 1789, by contrast, Enlightenment ideas and the Declaration of the Rights of Man said that sovereignty belonged to the nation, so the monarchy itself could be questioned. Louis's own actions made things worse: the Flight to Varennes in 1791 and war with Austria in 1792 made him look like a traitor, so the monarchy was abolished in September 1792 and he was executed in January 1793. John was also lucky that he died in October 1216, during the war, before he could be defeated. Overall the key difference was ideas: John faced rebels who wanted a better king, while Louis faced revolutionaries who came to believe they needed no king at all.",
       markScheme: [
         { point: "Identifies similar pressures (money problems from war, unpopular taxes, angry powerful subjects)", keywords: ["money", "debt", "taxes", "war", "barons", "similar"] },
         { point: "Explains that John's barons aimed to limit or replace the king, not abolish monarchy (Magna Carta; invited Prince Louis)", keywords: ["limit", "magna carta", "prince louis", "replace", "still wanted a king", "barons"] },

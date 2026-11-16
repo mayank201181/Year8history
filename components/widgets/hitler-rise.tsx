@@ -14,18 +14,17 @@ interface Party {
   name: string;
   fill: string;
   bg: string;
-  stance: string;
 }
 
 // Left → right across the political spectrum.
 const PARTIES: Party[] = [
-  { key: "kpd", short: "KPD", name: "Communists (KPD)", fill: "fill-brand", bg: "bg-brand", stance: "wanted a Soviet-style revolution — against the Republic" },
-  { key: "spd", short: "SPD", name: "Social Democrats (SPD)", fill: "fill-bad", bg: "bg-bad", stance: "the Republic's strongest defenders" },
-  { key: "lib", short: "Liberals", name: "Liberals (DDP/DStP + DVP)", fill: "fill-s-geometry", bg: "bg-s-geometry", stance: "middle-class parties that collapsed after 1930" },
-  { key: "centre", short: "Centre", name: "Catholic Centre (Zentrum + BVP)", fill: "fill-s-number", bg: "bg-s-number", stance: "Catholic parties, Brüning's base" },
-  { key: "dnvp", short: "DNVP", name: "Nationalists (DNVP)", fill: "fill-accent", bg: "bg-accent", stance: "conservative nationalists, Hugenberg's party" },
-  { key: "nsdap", short: "Nazis", name: "Nazis (NSDAP)", fill: "fill-ink", bg: "bg-ink", stance: "wanted to destroy the Republic" },
-  { key: "other", short: "Others", name: "All other small parties", fill: "fill-ink-2", bg: "bg-ink-2", stance: "regional and single-issue parties" },
+  { key: "kpd", short: "KPD", name: "Communists (KPD)", fill: "fill-brand", bg: "bg-brand" },
+  { key: "spd", short: "SPD", name: "Social Democrats (SPD)", fill: "fill-bad", bg: "bg-bad" },
+  { key: "lib", short: "Liberals", name: "Liberals (DDP/DStP + DVP)", fill: "fill-s-geometry", bg: "bg-s-geometry" },
+  { key: "centre", short: "Centre", name: "Catholic Centre (Zentrum + BVP)", fill: "fill-s-number", bg: "bg-s-number" },
+  { key: "dnvp", short: "DNVP", name: "Nationalists (DNVP)", fill: "fill-accent", bg: "bg-accent" },
+  { key: "nsdap", short: "Nazis", name: "Nazis (NSDAP)", fill: "fill-ink", bg: "bg-ink" },
+  { key: "other", short: "Others", name: "All other small parties", fill: "fill-ink-2", bg: "bg-ink-2" },
 ];
 
 interface Election {
@@ -127,7 +126,10 @@ function ElectionExplorer() {
   // Coalition bar.
   const cbTop = 8;
   const cbScale = (v: number) => (v / e.total) * 300;
-  let acc = 0;
+  const cbSegs = PARTIES.filter((p) => coalition.includes(p.key)).reduce<{ p: Party; x: number; w: number }[]>((segs, p) => {
+    const prev = segs[segs.length - 1];
+    return [...segs, { p, x: prev ? prev.x + prev.w : 0, w: cbScale(e.seats[p.key]) }];
+  }, []);
 
   const ariaMain = `${e.label} Reichstag election, ${mode === "seats" ? "seats" : "vote share"}: ${PARTIES.map((p) => `${p.short} ${mode === "seats" ? e.seats[p.key] : e.votes[p.key] + "%"}`).join(", ")}. Majority needs ${majority} of ${e.total} seats.`;
 
@@ -225,12 +227,9 @@ function ElectionExplorer() {
           </div>
           <svg viewBox="0 0 320 34" className="mt-2 h-auto w-full" role="img" aria-label={`Coalition of ${coalitionNames.join(", ") || "no parties"}: ${coalitionSeats} seats; ${majority} needed for a majority.`}>
             <rect x={10} y={cbTop} width={300} height={16} rx={3} className="fill-surface stroke-line" />
-            {PARTIES.filter((p) => coalition.includes(p.key)).map((p) => {
-              const w = cbScale(e.seats[p.key]);
-              const r = <rect key={p.key} x={10 + acc} y={cbTop} width={w} height={16} className={p.fill} opacity={0.85} />;
-              acc += w;
-              return r;
-            })}
+            {cbSegs.map(({ p, x, w }) => (
+              <rect key={p.key} x={10 + x} y={cbTop} width={w} height={16} className={p.fill} opacity={0.85} />
+            ))}
             <line x1={10 + cbScale(majority)} x2={10 + cbScale(majority)} y1={2} y2={30} className="stroke-ink" strokeWidth={1.5} strokeDasharray="3 2" />
             <text x={10 + cbScale(majority) + 3} y={33} fontSize={8} className="fill-ink">
               majority

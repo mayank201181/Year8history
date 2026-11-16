@@ -2,7 +2,7 @@ import type { ExamPaper } from "../types.ts";
 
 // Big Exam — Paper 1: Kings & Power (Term 1).
 // Enquiry: Under what circumstances did kings rise to power?
-// Order: warmup (q01–q08) → core (q09–q20) → challenge (q21–q26).
+// Order: warmup (q01–q08) → core (q09–q20) → challenge (q21–q26; q22 is a core recall question).
 export const paper: ExamPaper = {
   id: "exam-1",
   title: "Paper 1: Kings & Power (Term 1)",
@@ -279,7 +279,7 @@ export const paper: ExamPaper = {
       ],
       solution: [
         "Philip II's armies took Normandy's capital, Rouen, in June 1204.",
-        "The loss earned John the nickname “Softsword” and cost the barons their Norman estates.",
+        "Critics had already called John “Softsword” after a peace treaty in 1200; losing Normandy made the nickname stick and cost many barons their Norman estates.",
       ],
       hints: ["It was five years after John became king in 1199.", "It was ten years before the Battle of Bouvines."],
       strategy: "Use the chronology",
@@ -333,14 +333,14 @@ export const paper: ExamPaper = {
       difficulty: "core",
       question: "Which of these is the clearest example of a king using *patronage* to keep control?",
       options: [
-        "Henry VIII had Hans Holbein paint grand portraits of him",
+        "Henry VIII displayed grand portraits showing himself as a strong, magnificent king",
         "John charged scutage to barons who did not fight for him",
         "William I was anointed with holy oil at his coronation",
         "William I gave English estates to Norman barons in return for loyalty and knights",
       ],
       answerIndex: 3,
       explanation:
-        "Patronage means rewarding supporters — with land, titles or jobs — so that they stay loyal. William's grants of English land to his barons, in return for knight service, are a perfect example. Holbein's portraits are propaganda; scutage is a tax; anointing is about the Church making a king legitimate.",
+        "Patronage means rewarding supporters — with land, titles or jobs — so that they stay loyal. William's grants of English land to his barons, in return for knight service, are a perfect example. Henry's grand portraits (by Hans Holbein) are propaganda — they shape how people see the king rather than rewarding supporters; scutage is a tax; anointing is about the Church making a king legitimate.",
       hints: ["A patron is someone who gives rewards.", "Which option involves the king giving something away in return for loyalty?"],
       strategy: "Sort causes into categories",
     },
@@ -435,7 +435,7 @@ export const paper: ExamPaper = {
       id: "exam-1-q22",
       topicId: "power-of-monarchs",
       guideRef: "limits-on-power",
-      difficulty: "challenge",
+      difficulty: "core",
       question:
         "In 1525 Henry VIII and Cardinal Wolsey demanded a heavy new tax, without asking Parliament, to pay for war in France. There was widespread refusal and protest — thousands gathered at Lavenham in Suffolk — and Henry backed down. What was this demand called?",
       answer: { type: "text", accept: ["Amicable Grant", "the Amicable Grant"], display: "the Amicable Grant" },
