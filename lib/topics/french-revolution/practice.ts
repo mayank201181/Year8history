@@ -171,6 +171,7 @@ export const practice: TopicPractice = {
           "Civil Code",
           "the Civil Code",
           "French Civil Code",
+          "Code civil",
           "Napoleon's Code",
         ],
         display: "the Napoleonic Code (Civil Code)",
@@ -657,7 +658,7 @@ export const practice: TopicPractice = {
           question: "Who was Louis XVI's Austrian-born queen?",
           answer: {
             type: "text",
-            accept: ["Marie Antoinette", "Marie-Antoinette", "Queen Marie Antoinette", "Maria Antonia"],
+            accept: ["Marie Antoinette", "Marie-Antoinette", "Queen Marie Antoinette", "Antoinette", "Maria Antonia"],
             display: "Marie Antoinette",
           },
           traps: [

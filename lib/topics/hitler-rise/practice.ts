@@ -51,7 +51,7 @@ export const practice: TopicPractice = {
       solution: ["The Enabling Act, passed on 23 March 1933 by 444 votes to 94.", "It let the cabinet make laws for four years without the Reichstag — the legal basis of the dictatorship."],
       difficulty: "warmup",
       guideRef: "consolidating-power",
-      hints: ["It 'enabled' Hitler to rule without parliament."],
+      hints: ["Its name describes what it did: it made it *possible* for Hitler's cabinet to rule without parliament."],
     },
     {
       kind: "mcq",
@@ -79,7 +79,7 @@ export const practice: TopicPractice = {
       modelAnswer:
         "Nazi propaganda, run by Joseph Goebbels from 1930, won support by reaching huge numbers of people with simple, emotional messages. Posters, newspapers, films and mass rallies repeated the same ideas: the Weimar politicians had failed, and only Hitler could restore jobs, order and national pride. Propaganda was tailored to different groups — work and bread for the unemployed, protection from Communism for the middle classes and business — so the Nazis could appeal to almost everyone. Modern methods such as the 1932 'Hitler over Germany' flights presented Hitler as a dynamic leader above ordinary politics. Because the Depression had left millions desperate, these messages found a willing audience, helping the Nazis rise from 107 seats in 1930 to 230 in July 1932.",
       markScheme: [
-        { point: "Names Goebbels and/or specific propaganda methods (posters, rallies, films, newspapers, radio, flights)", keywords: ["goebbels", "posters", "rallies", "films", "newspapers", "flights", "plane", "radio"] },
+        { point: "Names Goebbels and/or specific propaganda methods (posters, rallies, films, newspapers, loudspeaker vans, flights)", keywords: ["goebbels", "posters", "rallies", "films", "newspapers", "flights", "plane", "loudspeaker"] },
         { point: "Explains the message: simple ideas, blaming Weimar/Communists/scapegoats, Hitler as saviour", keywords: ["simple", "blame", "scapegoat", "saviour", "strong leader", "failed", "hope"] },
         { point: "Explains that propaganda targeted different groups with different promises", keywords: ["unemployed", "farmers", "middle class", "business", "workers", "different groups", "everyone"] },
         { point: "Links propaganda to the Depression or to rising votes, with evidence", keywords: ["depression", "desperate", "unemployment", "230", "107", "votes", "seats"] },
@@ -100,7 +100,7 @@ export const practice: TopicPractice = {
       commonError: "Confusing the SA (Röhm) with the SS (Himmler).",
       difficulty: "core",
       guideRef: "consolidating-power",
-      hints: ["The SA wanted a 'second revolution' — who led it?", "His surname has an umlaut: R_hm."],
+      hints: ["The SA wanted a 'second revolution' — who led it?", "He was a former army officer and one of Hitler's oldest comrades; his surname begins with R."],
     },
     {
       kind: "written",
@@ -417,7 +417,7 @@ export const practice: TopicPractice = {
           solution: ["Hitler became party leader in July 1921.", "That year the party also set up the SA."],
           difficulty: "warmup",
           guideRef: "early-nazi-party",
-          hints: ["It was the year after the party was renamed the NSDAP (1920)."],
+          hints: ["It was soon after the party was renamed the NSDAP in 1920 — the same year the party set up the SA."],
           strategy: "Use the chronology",
         },
         {
@@ -440,7 +440,7 @@ export const practice: TopicPractice = {
           solution: ["Three: Hitler, Wilhelm Frick and Hermann Göring.", "The rest were conservatives — which is why Papen and Hindenburg thought Hitler could be controlled."],
           difficulty: "warmup",
           guideRef: "becoming-chancellor",
-          hints: ["Hitler, Frick and Göring — count them."],
+          hints: ["The conservatives wanted the Nazis to be a small minority in the cabinet — and don't forget to count Hitler himself."],
         },
         {
           kind: "mcq",
@@ -733,10 +733,10 @@ export const practice: TopicPractice = {
       question: "Explain why the Nazi persecution of Jewish people in Germany increased step by step between 1933 and 1938, rather than all at once. (4 marks)",
       marks: 4,
       modelAnswer:
-        "The Nazis moved step by step partly because Hitler first needed to secure his own power; in 1933 he still depended on Hindenburg, the army and conservative allies, so he could not yet do everything he wanted. Each step also tested reactions: the boycott of 1 April 1933 met little resistance from other Germans, which encouraged the next, harsher measures such as the Nuremberg Laws of 1935. Using laws gave persecution a legal appearance, so officials enforced it and many Germans accepted it as normal. The regime also cared about its image abroad — some antisemitic signs were removed during the 1936 Berlin Olympics. By 1938, with power secure and opposition crushed, the regime organised the open violence of Kristallnacht. This gradual process made each new crime seem less shocking, and it led on to the Holocaust during the Second World War.",
+        "The Nazis moved step by step partly because Hitler first needed to secure his own power; in 1933 he still depended on Hindenburg, the army and conservative allies, so he could not yet do everything he wanted. Each step also tested reactions. The one-day boycott of 1 April 1933 drew criticism abroad and a mixed response at home, so the regime switched to laws, such as dismissing Jewish civil servants; when these met little open protest from other Germans, harsher measures followed, such as the Nuremberg Laws of 1935. Using laws gave persecution a legal appearance, so officials enforced it and many Germans accepted it as normal. The regime also cared about its image abroad — some antisemitic signs were removed during the 1936 Berlin Olympics. By 1938, with power secure and opposition crushed, the regime organised the open violence of Kristallnacht. This gradual process made each new crime seem less shocking, and it led on to the Holocaust during the Second World War.",
       markScheme: [
         { point: "Hitler first had to secure his power / depended on others in 1933", keywords: ["secure", "power", "hindenburg", "army", "allies", "depended"] },
-        { point: "Each step tested reactions; little resistance encouraged the next (with evidence)", keywords: ["tested", "reaction", "resistance", "encouraged", "boycott", "next step"] },
+        { point: "Each step tested reactions; little open protest encouraged the next (with evidence)", keywords: ["tested", "reaction", "resistance", "protest", "encouraged", "boycott", "next step"] },
         { point: "Legal measures made persecution seem normal/legitimate (Nuremberg Laws)", keywords: ["law", "legal", "nuremberg", "normal", "accepted", "officials"] },
         { point: "Concern for international image / escalation to Kristallnacht once secure", keywords: ["olympics", "abroad", "image", "kristallnacht", "1938", "violence"] },
       ],

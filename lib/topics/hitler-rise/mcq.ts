@@ -148,7 +148,7 @@ export const mcqPapers: Paper[] = [
           "The Nuremberg Laws (September 1935) took away Jewish people's German citizenship and banned marriage between Jewish and non-Jewish Germans. Other parties were banned by a different law, in July 1933, and Dachau opened in March 1933.",
         difficulty: "core",
         guideRef: "the-nazi-police-state",
-        hints: ["The Nuremberg Laws were about who counted as a German citizen.", "Dachau and the ban on other parties both date from 1933 — two years earlier."],
+        hints: ["Check the dates: which options belong to 1933, and which could belong to 1935?", "Dachau and the ban on other parties both date from 1933, and the Hitler Youth became the only legal youth organisation in 1936. The Nuremberg Laws were about who counted as a German citizen."],
       },
       {
         kind: "mcq",
@@ -338,7 +338,7 @@ export const mcqPapers: Paper[] = [
           "The Gestapo was the secret state police, set up in 1933, who could arrest and imprison people without trial. The German parliament was the Reichstag, and the youth movement was the Hitler Youth.",
         difficulty: "warmup",
         guideRef: "the-nazi-police-state",
-        hints: ["Its name is short for 'Geheime Staatspolizei' — secret state police."],
+        hints: ["Its name is short for 'Geheime Staatspolizei'. 'Geheim' means secret — and 'Polizei' looks a lot like an English word."],
       },
       {
         kind: "mcq",
@@ -539,7 +539,7 @@ export const mcqPapers: Paper[] = [
         ],
         answerIndex: 2,
         explanation:
-          "Lebensraum means 'living space': the aim of conquering land in eastern Europe for Germans to settle. A national community without class conflict is the 'Volksgemeinschaft' — a different Nazi idea.",
+          "Lebensraum means 'living space': the aim of conquering land in eastern Europe for Germans to settle — a racist aim that treated the Slavic peoples living there as inferior. A national community without class conflict is the 'Volksgemeinschaft' — a different Nazi idea.",
         difficulty: "warmup",
         guideRef: "early-nazi-party",
         hints: ["'Leben' = life or living; 'Raum' = room or space."],
