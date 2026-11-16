@@ -125,7 +125,6 @@ L("chrono", "Second. Legitimacy is the right to rule. Power is the ability. You 
 L("chrono", "Third. Tools of control. Armies, castles, land, law, taxes, propaganda.", mood="teach", board="3. Castles · land · law · tax · propaganda")
 L("chrono", "Fourth. Limits. Barons, Popes, rebels, Magna Carta and Parliament.", mood="teach", board="4. Barons · Pope · Magna Carta · Parliament")
 L("chrono", "And finally. Everywhere, from China to Singapura, kings mixed lineage, force and the sacred.", mood="smug", board="5. Mandate of Heaven · daulat", gap=0.5)
-
 # ---------------- TAG ----------------
 scene("living", [("tara", 260), ("mum", 560), ("dad", 860)])
 L("dad", "Fine. I abdicate. Tara, the crown is yours.", mood="sad", shot="close", prop="crown")
