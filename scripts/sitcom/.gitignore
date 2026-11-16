@@ -1,0 +1,6 @@
+kokoro-v1.0.onnx
+voices-v1.0.bin
+*.part
+tts_cache/
+out/
+__pycache__/
