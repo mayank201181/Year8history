@@ -33,12 +33,12 @@ L("tara", "Chrono. Dad's crowned himself and invented a tax.", mood="worried", s
 sfx("tick")
 poof("chrono", 860)
 L("chrono", "A king, a tax, and an empty treasury? King John. This ends with a very long document.", mood="bored", shot="close")
-L("chrono", "John's father, Henry the Second, built the Angevin Empire. England, plus huge lands in France. Normandy, Anjou, Aquitaine.", mood="teach", shot="close", boardClear=True, board="Henry II: the Angevin Empire", diagram=TIMELINE)
+L("chrono", "His father, Henry the Second, built the Angevin Empire. England, plus huge lands in France. Normandy, Anjou, Aquitaine.", mood="teach", shot="close", boardClear=True, board="Henry II: the Angevin Empire", diagram=TIMELINE)
 L("chrono", "Then his brother, Richard the Lionheart. Barely in England. He spent a fortune on crusade, was captured coming home, and England paid a huge ransom.", mood="teach", shot="close", board="Richard I: crusade + huge ransom")
 L("tara", "So Mum spent the jar, and Dad inherited it empty.", mood="thinking", shot="close")
 L("chrono", "Exactly. Richard died in eleven ninety nine. John became king, ahead of his twelve year old nephew, Arthur of Brittany.", mood="teach", shot="close", board="1199: John king, not nephew Arthur")
 L("chrono", "Arthur was captured, and in twelve oh three he vanished in John's prison. Many believed John had him killed. Likely, but unproven.", mood="serious", shot="close")
-L("chrono", "Trust is like sand. Very hard to put back in the glass.", mood="teach", shot="close", gap=0.4)
+L("chrono", "Trust is like sand. Hard to put back in the glass.", mood="teach", shot="close", gap=0.4)
 
 # ---------------- ACT 2: LOSING NORMANDY ----------------
 card("SUNDAY, THE HAWKER CENTRE", "The family table. Held by the Raos since 2015.", 2.4)
@@ -50,10 +50,8 @@ L("tara", "We've held that table for ten years. That was our Normandy.", mood="d
 poof("chrono", 800)
 L("chrono", "Uncle Philip is Philip the Second of France. In twelve oh four, he took Normandy. People called John Softsword.", mood="teach", shot="close", boardClear=True, board="1204: Philip II takes Normandy")
 L("uncle", "Your father, Mister Soft Tissue.", mood="smug", shot="close", board="Nickname: 'John Softsword'")
-L("dad", "That's not funny.", mood="annoyed", shot="close")
-L("tara", "It's a bit funny.", mood="deadpan", shot="close")
 L("chrono", "Why it mattered? Lost land, money, barons' estates, and pride. So John taxed England for ten years to win it back.", mood="teach", shot="close", board="Lost: land, money, estates, pride")
-L("chrono", "Then, in twelve fourteen, his allies lost at Bouvines. Very expensive. Very pointless.", mood="bored", shot="close", board="1214: allies crushed at Bouvines", gap=0.4)
+L("chrono", "In twelve fourteen, his allies lost at Bouvines. Expensive. And pointless.", mood="bored", shot="close", board="1214: allies crushed at Bouvines", gap=0.4)
 
 confess("dad", "VIKRAM RAO · Dad · Softsword, Allegedly")
 L("dad", "I didn't lose the table. I strategically lent it to Uncle Philip.", mood="smug")
@@ -81,7 +79,7 @@ card("WEDNESDAY", "Grandma has entered the chat.", 2.2)
 scene("living", [("tara", 260), ("dad", 600), ("chrono", 980)])
 L("dad", "Grandma made Tara admin of the family chat? No. I'm king. I choose me.", mood="annoyed", shot="close", prop="crown")
 L("chrono", "The Church. John and Pope Innocent the Third clashed over the Archbishop of Canterbury. The Pope chose Stephen Langton. John refused him.", mood="teach", shot="close", boardClear=True, board="Pope picks Stephen Langton. John: NO.")
-L("tara", "Grandma says, if you refuse, Sunday dosa at her flat is cancelled. For everyone.", mood="deadpan", shot="close", prop="phone")
+L("tara", "Grandma says refuse, and Sunday dosa is cancelled. For everyone.", mood="deadpan", shot="close", prop="phone")
 L("chrono", "An interdict. Twelve oh eight. The Pope stopped most church services in England, for six years.", mood="teach", shot="close", board="1208: INTERDICT")
 L("tara", "And she's removed you from the family group chat.", mood="deadpan", shot="close", prop="phone")
 L("chrono", "Excommunicated, twelve oh nine. Thrown out of the Church. So John grabbed Church money instead.", mood="teach", shot="close", board="1209: excommunicated. Takes Church money")
@@ -95,7 +93,7 @@ scene("living", [("tara", 260), ("mum", 560), ("dad", 860)])
 sfx("door")
 L("mum", "I'm home! Why is the potted plant wearing a sign?", mood="shock", shot="close")
 L("dad", "Royal forest.", mood="smug", shot="close", prop="crown")
-L("tara", "Mum, he lost our table, fought Grandma, and taxed everything. The barons are rebelling.", mood="determined", shot="close")
+L("tara", "He lost our table, fought Grandma, and taxed everything. The barons are rebelling.", mood="determined", shot="close")
 L("mum", "Then the barons take the kitchen. Nobody eats until the king negotiates.", mood="determined", shot="close")
 poof("chrono", 1080)
 L("chrono", "In May twelve fifteen, rebel barons captured London. Control the capital, control the snacks.", mood="smug", shot="close", boardClear=True, board="May 1215: rebel barons take London")
@@ -114,11 +112,11 @@ freeze("SEALED WITH KAYA", 2.6, narrator="Narrator: Legally binding. Slightly st
 L("dad", "Grandma? Please cancel this charter. You own the flat.", mood="worried", shot="close", prop="phone")
 L("chrono", "John did that. The Pope annulled Magna Carta that August, and the First Barons' War began.", mood="teach", shot="close", board="Aug 1215: Pope annuls it → war")
 L("dad", "She said no.", mood="sad", shot="close")
-L("chrono", "Kinder than Innocent the Third. John died in October twelve sixteen, mid war. But Magna Carta was reissued in twelve sixteen, twelve seventeen and twelve twenty five.", mood="teach", shot="close", board="Oct 1216: John dies, mid-war")
-L("tara", "And Grandma keeps the flat.", mood="deadpan", shot="close", board="Reissued: 1216, 1217, 1225")
+L("chrono", "Kinder than Innocent the Third. John died in October twelve sixteen, mid war.", mood="teach", shot="close", board="Oct 1216: John dies, mid-war")
+L("chrono", "But Magna Carta was reissued in twelve sixteen, twelve seventeen and twelve twenty five.", mood="teach", shot="close", board="Reissued: 1216, 1217, 1225")
 L("chrono", "So, was John that bad? Check your sources. Monks like Roger of Wendover and Matthew Paris wrote his story after he died. And John had shut their churches and taken their money.", mood="teach", shot="close", boardClear=True, board="Monks: Roger of Wendover, Matthew Paris")
 L("dad", "But I've seen the Robin Hood cartoon. Bad Prince John. It's basically a documentary.", mood="smug", shot="close")
-L("chrono", "That's a myth. Next. The Robin Hood stories came much later. There's no good evidence he even existed.", mood="eyeroll", shot="close")
+L("chrono", "That's a myth. Next. Robin Hood stories came much later. There's no good evidence he even existed.", mood="eyeroll", shot="close")
 L("chrono", "Modern historians see a hard worker with debts and a clever enemy. But he lost Normandy and was cruel. Most still call him a poor king.", mood="teach", shot="close", board="Modern view: hard-working, but failed")
 L("chrono", "Magna Carta failed in weeks. But it became a symbol: even kings are under the law. It inspired Parliament, America's Bill of Rights, and the Universal Declaration of Human Rights.", mood="teach", shot="close", board="Big idea: the king is UNDER the law")
 
@@ -140,12 +138,12 @@ L("chrono", "Somebody turn me over. And wipe the kaya off the charter.", mood="b
 # ---------------- PAUSE CHALLENGE ----------------
 card("PAUSE CHALLENGE", "Chrono gives you 5 seconds. No fast justice.", 3.0)
 challenge(1, "In which year did John lose Normandy?", "1204", "Philip II of France took it → 'Softsword'",
-  "Question one. In which year did John lose Normandy to Philip the Second of France?",
+  "Question one. In which year did King John lose Normandy?",
   "Twelve oh four. Not twelve fifteen, that's Magna Carta. Losing Normandy is why John needed all that money.")
 challenge(2, "Which Magna Carta clause: no free man imprisoned without lawful judgement?", "Clause 39", "39: lawful judgement of peers / law of the land",
   "Question two. Which clause of Magna Carta says no free man shall be imprisoned without lawful judgement?",
   "Clause thirty nine. The ancestor of the right to a fair trial. Clause forty is about selling justice.")
 challenge(3, "A monk, Roger of Wendover, called John wicked. Why be careful?", "Monk = biased", "Wrote after John died; John attacked the Church",
-  "Question three. A monk, Roger of Wendover, called John wicked. Why should a historian be careful?",
+  "Question three. A monk, Roger of Wendover, called John wicked. Why be careful?",
   "Provenance. He wrote after John died, and monks hated John for the interdict. Biased, but still useful.")
 end_card()
