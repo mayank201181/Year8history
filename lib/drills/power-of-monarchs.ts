@@ -77,7 +77,7 @@ export const drills: Drill[] = [
         prompt: "Which English king died childless on 5 January 1066, starting a succession crisis?",
         answer: { type: "text", accept: ["Edward the Confessor", "Edward", "King Edward", "the Confessor"], display: "Edward the Confessor" },
         solution: "Edward the Confessor. With no son, several men claimed his throne.",
-        hint: "He was famous for his piety and built Westminster Abbey.",
+        hint: "He was famous for his piety and rebuilt Westminster Abbey.",
       },
       {
         prompt: "Which nephew of John — son of his older brother Geoffrey — had a rival claim to the throne in 1199?",
@@ -134,7 +134,7 @@ export const drills: Drill[] = [
       {
         prompt: "Which teenage prince, great-nephew of Edward the Confessor, had the strongest blood claim in 1066 but was passed over?",
         answer: { type: "text", accept: ["Edgar Ætheling", "Edgar Atheling", "Edgar", "Edgar the Atheling", "Edgar the Ætheling"], display: "Edgar Ætheling" },
-        solution: "Edgar Ætheling was about 14 — too young to lead an army against invaders.",
+        solution: "Edgar Ætheling was in his early teens — too young to lead an army against invaders.",
         hint: "'Ætheling' means 'prince of the royal family'.",
         tier: 2,
       },
@@ -748,7 +748,7 @@ export const drills: Drill[] = [
       {
         prompt: "Is the Bayeux Tapestry a primary or secondary source for the Norman Conquest?",
         answer: PRIMARY,
-        solution: "Primary — made within about 20 years of 1066, probably for Bishop Odo.",
+        solution: "Primary — made soon after 1066, probably in the 1070s for Bishop Odo.",
         hint: "When was it made?",
         traps: [notSecondary],
       },
