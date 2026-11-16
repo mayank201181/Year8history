@@ -682,8 +682,8 @@ export const drills: Drill[] = [
       {
         prompt: "After losing the civil war in 1949, Chiang Kai-shek's government retreated to which island?",
         answer: text(["Taiwan", "Formosa"], "Taiwan"),
-        solution: "Taiwan, with around 2 million soldiers and civilians.",
-        hint: "About 160 km off the south-east coast.",
+        solution: "Taiwan, with around 1–2 million soldiers and civilians.",
+        hint: "An island off China's south-east coast.",
         traps: [trap(["Hong Kong"], "Hong Kong was a British colony then. Chiang went to Taiwan.")],
       },
       {
@@ -702,7 +702,7 @@ export const drills: Drill[] = [
       },
       {
         prompt: "After Peng Dehuai criticised the Great Leap in 1959, he was sacked. What happened to honest reporting of the famine? (one word)",
-        answer: text(["stopped", "ended", "disappeared", "nothing", "silenced"], "It stopped"),
+        answer: text(["stopped", "ended", "disappeared", "silenced", "ceased"], "It stopped"),
         solution: "It stopped: officials were too frightened to report the truth, so the famine grew worse.",
         hint: "Would you dare to speak up?",
         tier: 2,
@@ -838,7 +838,6 @@ export const drills: Drill[] = [
         answer: text(["People's Daily", "Renmin Ribao", "the People's Daily"], "People's Daily"),
         solution: "The People's Daily — a source for what the party said, not necessarily what was true.",
         hint: "The People's ___.",
-        tier: 2,
       },
       {
         prompt: "Precise evidence: in late 1958, what grain harvest (in million tonnes) did the leadership claim?",
