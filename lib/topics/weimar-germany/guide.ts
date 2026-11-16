@@ -324,7 +324,7 @@ export const guide: TopicGuide = {
     ],
     misconceptions: [
       { wrong: "German troops were defeated on German soil, so everyone knew Germany had lost.", right: "The fighting ended with no enemy army in Germany, which is exactly why the stab-in-the-back myth was believable — even though the generals themselves had asked for an armistice." },
-      { wrong: "Hitler came to power through the Munich Putsch.", right: "The Putsch of 1923 failed completely. Hitler became Chancellor legally ten years later, in January 1933, after the Depression." },
+      { wrong: "Hitler came to power through the Munich Putsch.", right: "The Putsch of 1923 failed completely. Hitler became Chancellor legally just over nine years later, in January 1933, after the Depression." },
       { wrong: "Hyperinflation was caused only by reparations.", right: "Reparations and the Ruhr occupation were the trigger, but hyperinflation happened because the government printed huge amounts of money — partly to pay the striking Ruhr workers." },
       { wrong: "Everyone suffered equally from hyperinflation.", right: "Savers and people on fixed incomes were ruined, but borrowers paid off debts cheaply and some businessmen grew rich." },
       { wrong: "The ‘Golden Twenties’ meant Germany's problems were solved.", right: "The recovery depended on short-term American loans, and farmers and the middle classes still struggled. It collapsed after 1929." },

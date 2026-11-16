@@ -222,7 +222,7 @@ export const mcqPapers: Paper[] = [
         answerIndex: 1,
         explanation:
           "Laws by parliament collapsed while presidential decrees soared, so power was moving from the Reichstag to President Hindenburg and his Chancellors. Hitler did not use Article 48 in 1932 — he was not Chancellor until January 1933; the decrees were for Brüning and von Papen.",
-        difficulty: "challenge",
+        difficulty: "core",
         guideRef: "great-depression",
         hints: ["Compare the direction of each column: which goes up, which goes down?", "Who signed Article 48 decrees — and who was in charge in 1932?", "Check the date Hitler became Chancellor before choosing an answer that mentions him."],
         strategy: "Use precise evidence",
@@ -255,14 +255,19 @@ export const mcqPapers: Paper[] = [
       {
         kind: "mcq",
         id: "weimar-germany-m2-q01",
-        question: "In which town did the new National Assembly meet in 1919, giving the republic its name?",
-        options: ["Berlin", "Munich", "Versailles", "Weimar"],
+        question: "Why did the new National Assembly meet in the small town of Weimar in 1919, rather than in the capital, Berlin?",
+        options: [
+          "Weimar was the capital of Germany",
+          "The Allies ordered it to meet outside Berlin",
+          "The Kaiser was still living in Berlin",
+          "Berlin was too dangerous after the Spartacist Uprising",
+        ],
         answerIndex: 3,
         explanation:
-          "The Assembly met in the quiet town of Weimar because Berlin was too dangerous after the Spartacist Uprising. Berlin was the capital, but its violence is exactly why the politicians left it.",
+          "The Assembly met in the quiet town of Weimar because Berlin was too dangerous after the Spartacist Uprising of January 1919. Weimar was not the capital — Berlin was — and the Kaiser could not have been the reason: he had already fled to the Netherlands in November 1918.",
         difficulty: "warmup",
         guideRef: "germany-after-ww1",
-        hints: ["The answer is in the name ‘Weimar Republic’."],
+        hints: ["Think about what had just happened on the streets of Berlin in January 1919."],
       },
       {
         kind: "mcq",
@@ -504,12 +509,12 @@ export const mcqPapers: Paper[] = [
         options: [
           "Hitler had already explained it in Mein Kampf",
           "The Allies admitted they had lost the war",
-          "Ebert's government announced that the army had won",
+          "The Treaty of Versailles said Germany had not lost the war",
           "No enemy army had invaded Germany when the fighting stopped",
         ],
         answerIndex: 3,
         explanation:
-          "Because the war ended with German troops still on foreign soil, many Germans could not believe they had been beaten. Mein Kampf is an anachronism here: Hitler wrote it in 1924, years after the myth began.",
+          "Because the war ended with German troops still on foreign soil, many Germans could not believe they had been beaten. Mein Kampf is an anachronism here: Hitler wrote it in 1924, years after the myth began. The Treaty of Versailles said the opposite of ‘not lost’: Article 231 blamed Germany for the war.",
         difficulty: "core",
         guideRef: "germany-after-ww1",
         hints: ["Where was the fighting happening in November 1918?", "Check the dates — could any option be too late?"],
@@ -654,7 +659,7 @@ export const mcqPapers: Paper[] = [
           "Germany joined in 1926, the year after Locarno, as a permanent member of the League Council. In 1919 Germany was excluded, and 1933 is when Hitler took Germany OUT of the League.",
         difficulty: "warmup",
         guideRef: "golden-twenties",
-        hints: ["It came one year after the Locarno Treaties of 1925."],
+        hints: ["It came soon after Germany accepted its western borders at Locarno — and before the Wall Street Crash."],
         strategy: "Use the chronology",
       },
       {
