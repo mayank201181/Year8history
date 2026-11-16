@@ -14,7 +14,8 @@ def load(path):
 
 BAD_SPOKEN = [
     (r"[0-9]", "digits in spoken text — write numbers as words"),
-    (r"[%/×÷=^√π<>≤≥+]", "maths symbol in spoken text — say it in words"),
+    (r"[%/×÷=^√π<>≤≥+]", "symbol in spoken text — say it in words"),
+    (r"\b(Hitler|Mao|Pol Pot)\b.*\b(lol|haha)\b", "no jokes about dictators' crimes"),
     (r"\bnought\b", "say 'zero', not 'nought' (TTS says 'not')"),
     (r"\b(Sigh|Ugh|Hmm+|Pfft|Tsk|Argh|Ahem)\b", "interjection TTS mangles — use a real word"),
     (r"(^|[.!?]\s+)(One|Two|Three|Four|Five|Six|Seven|Eight|Nine|Ten)\.\s+(Per ?cent|Percent)", "'One. Percent' is heard as 'one percent'"),
@@ -94,6 +95,8 @@ def lint(path):
             if len(b["work"]) > 60: warns.append(f"{where}: challenge work text long ({len(b['work'])})")
             if len(b["a"]) > 14: warns.append(f"{where}: challenge answer should be short (<=14 chars)")
             spoken += len(b["qs"]) + len(b["as_"])
+        elif k == "serious":
+            pass
         elif k == "freeze":
             if len(b["text"]) > 22: warns.append(f"{where}: freeze text long")
     if not (4300 <= spoken <= 7200): warns.append(f"spoken length {spoken} chars (aim 4500-6500 ≈ 6-8 min)")
