@@ -1,0 +1,4 @@
+(0.8, 'tara', "The Weimar documentary. It's homework.", " The VIMAR documentary, It's Homework.")
+(0.82, 'ticktock', 'The thirtieth of January, 1933. If you said a coup, go and sit with Ticktock.', ' 30 January 1933. If you set a coupe, go and sit with TikTok.')
+(0.84, 'ticktock', 'A long march? China, 1934! I was there!', ' Along March, China 1934, I was there.')
+checked 87 flagged 3

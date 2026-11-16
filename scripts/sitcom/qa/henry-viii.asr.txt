@@ -1,0 +1,8 @@
+(0.0, 'tara', 'Like Paati.', ' Lake Potty')
+(0.78, 'tara', 'Royal cousins fighting over one seat. So, Deepavali.', ' Royal cousins fighting over one seat, so deep a volley.')
+(0.8, 'teacher', 'A judgement, with reasons. Lovely.', ' A judgment with reasons, lovely.')
+(0.8, 'teacher', 'Judgement time. Why did Henry break with Rome? Love, an heir, money, power or religion?', ' Judgment time, why did Henry break with Rome?  Love and air, money, power, or religion.')
+(0.81, 'teacher', 'The Duke of Norfolk promised pardons and a parliament, so the rebels went home.', ' The Duke of Norfolk promised pardons an apparlement, so the rebels went home.')
+(0.82, 'ticktock', "Annulled. Yes. That's what I said. Very quietly.", " An old yes, that's what I said, very quietly.")
+(0.84, 'ticktock', 'Three. 1534: Parliament makes Henry Supreme Head of the Church.', ' 3.1534, Parliament makes Henry Supreme Head of the Church.')
+checked 92 flagged 7
