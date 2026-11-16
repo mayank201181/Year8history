@@ -317,6 +317,8 @@ type Settings = Record<FeatureId, number>;
 interface Preset {
   id: string;
   label: string;
+  /** Short label for the chart. */
+  short: string;
   settings: Settings;
   notes: Partial<Record<FeatureId, string>>;
   summary: string;
@@ -326,6 +328,7 @@ const PRESETS: Preset[] = [
   {
     id: "britain1928",
     label: "Britain 1928",
+    short: "UK 1928",
     settings: { elections: 2, press: 2, courts: 2, opposition: 2, parliament: 2, terror: 0, cult: 0, ideology: 0 },
     notes: {
       elections: "The Equal Franchise Act (1928) gave women the vote on the same terms as men, from age 21.",
@@ -336,6 +339,7 @@ const PRESETS: Preset[] = [
   {
     id: "weimar1928",
     label: "Weimar Germany 1928",
+    short: "Weimar 1928",
     settings: { elections: 2, press: 2, courts: 1, opposition: 2, parliament: 2, terror: 0, cult: 0, ideology: 0 },
     notes: {
       elections: "Men and women over 20 vote; proportional representation gives seats to many parties (the Nazis won 12).",
@@ -347,6 +351,7 @@ const PRESETS: Preset[] = [
   {
     id: "germany1932",
     label: "Germany 1932",
+    short: "Ger. 1932",
     settings: { elections: 2, press: 1, courts: 1, opposition: 2, parliament: 0, terror: 1, cult: 0, ideology: 0 },
     notes: {
       elections: "Two Reichstag elections and a presidential election are held — amid street violence.",
@@ -360,6 +365,7 @@ const PRESETS: Preset[] = [
   {
     id: "germany1934",
     label: "Germany 1934",
+    short: "Ger. 1934",
     settings: { elections: 0, press: 0, courts: 0, opposition: 0, parliament: 0, terror: 2, cult: 2, ideology: 2 },
     notes: {
       elections: "Only Nazi candidates stand; votes are held under pressure.",
@@ -376,6 +382,7 @@ const PRESETS: Preset[] = [
   {
     id: "china1966",
     label: "China 1966",
+    short: "China 1966",
     settings: { elections: 0, press: 0, courts: 0, opposition: 0, parliament: 0, terror: 2, cult: 2, ideology: 2 },
     notes: {
       elections: "No competitive elections: Communist Party rule.",
@@ -390,6 +397,7 @@ const PRESETS: Preset[] = [
   {
     id: "cambodia1976",
     label: "Cambodia 1976",
+    short: "Camb. 1976",
     settings: { elections: 0, press: 0, courts: 0, opposition: 0, parliament: 0, terror: 2, cult: 0, ideology: 2 },
     notes: {
       elections: "A single-list 'election' in March 1976 offers no real choice.",
@@ -430,8 +438,8 @@ function Spectrum() {
   const set = (f: FeatureId, v: number) => setSettings((prev) => ({ ...prev, [f]: v }));
 
   // Spectrum geometry: democracy on the left (100) → dictatorship on the right (0).
-  const X0 = 20;
-  const X1 = 460;
+  const X0 = 14;
+  const X1 = 346;
   const px = (sc: number) => X0 + ((100 - sc) / 100) * (X1 - X0);
   const presetMarks = PRESETS.map((p) => ({ p, sc: democracyScore(p.settings) })).sort((a, b) => b.sc - a.sc);
   const rows: number[] = [];
@@ -439,7 +447,7 @@ function Spectrum() {
   for (const pm of presetMarks) {
     const x = px(pm.sc);
     let row = 0;
-    while (lastX[row] !== undefined && Math.abs(x - lastX[row]) < 120) row++;
+    while (lastX[row] !== undefined && Math.abs(x - lastX[row]) < 92) row++;
     lastX[row] = x;
     rows.push(row);
   }
@@ -486,30 +494,30 @@ function Spectrum() {
         ))}
       </div>
 
-      <svg viewBox="0 0 480 150" className="mt-3 h-auto w-full" role="img" aria-label={aria}>
+      <svg viewBox="0 0 360 160" className="mt-3 h-auto w-full" role="img" aria-label={aria}>
         <rect x={X0} y={30} width={(X1 - X0) * 0.2} height={18} className="fill-good-soft" />
         <rect x={X0 + (X1 - X0) * 0.2} y={30} width={(X1 - X0) * 0.25} height={18} className="fill-accent-soft" />
         <rect x={X0 + (X1 - X0) * 0.45} y={30} width={(X1 - X0) * 0.3} height={18} className="fill-bad-soft" />
         <rect x={X0 + (X1 - X0) * 0.75} y={30} width={(X1 - X0) * 0.25} height={18} className="fill-brand-soft" />
         <rect x={X0} y={30} width={X1 - X0} height={18} fill="none" className="stroke-ink" strokeWidth={1} />
-        <text x={X0} y={20} fontSize={12} fontWeight={700} className="fill-good">
+        <text x={X0} y={20} fontSize={13} fontWeight={700} className="fill-good">
           ← Democracy
         </text>
-        <text x={X1} y={20} fontSize={12} fontWeight={700} textAnchor="end" className="fill-brand">
+        <text x={X1} y={20} fontSize={13} fontWeight={700} textAnchor="end" className="fill-brand">
           Dictatorship →
         </text>
         <polygon points={`${px(score)},52 ${px(score) - 9},66 ${px(score) + 9},66`} className="fill-ink" />
         <line x1={px(score)} x2={px(score)} y1={24} y2={52} className="stroke-ink" strokeWidth={3} />
         {presetMarks.map((pm, k) => {
           const x = px(pm.sc);
-          const y = 84 + rows[k] * 18;
-          const anchor = x < 70 ? "start" : x > 410 ? "end" : "middle";
+          const y = 84 + rows[k] * 17;
+          const anchor = x < 50 ? "start" : x > 310 ? "end" : "middle";
           return (
             <g key={pm.p.id}>
               <line x1={x} x2={x} y1={48} y2={y - 10} className="stroke-ink-2" strokeWidth={1} strokeDasharray="2 2" />
               <circle cx={x} cy={48} r={3} className="fill-ink-2" />
-              <text x={x} y={y} fontSize={11} textAnchor={anchor} className="fill-ink-2">
-                {pm.p.label}
+              <text x={x} y={y} fontSize={12} textAnchor={anchor} className="fill-ink-2">
+                {pm.p.short}
               </text>
             </g>
           );

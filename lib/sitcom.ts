@@ -74,6 +74,16 @@ export const SITCOM_EPISODES: SitcomEpisode[] = [
     "poster": "/videos/posters/weimar-germany.jpg"
   },
   {
+    "num": 7,
+    "topicId": "hitler-rise",
+    "topicShort": "Hitler's Rise to Power",
+    "title": "The Wrong Kind Of Popular",
+    "logline": "A school-council candidate blames everything on the Year Sevens and promises to fix everything. Tara spots the pattern; Chrono explains how Hitler really came to power, 1919-34.",
+    "durationSec": 497,
+    "src": "/videos/hitler-rise.mp4",
+    "poster": "/videos/posters/hitler-rise.jpg"
+  },
+  {
     "num": 8,
     "topicId": "mao-china",
     "topicShort": "Mao's China",
