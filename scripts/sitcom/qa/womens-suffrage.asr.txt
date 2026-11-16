@@ -1,0 +1,13 @@
+(0.46, 'uncle', 'Two teh tarik. Why so serious, Tara?', ' 2-Tay Tarek, Wysos serious Tara.')
+(0.5, 'mum', 'Vikram. A petition. Signed by me, Tara, Paati, and Uncle Hock.', ' Vikram Apetition, signed by Meetara Party and Uncle Hawk.')
+(0.62, 'mum', 'Still four to one. Paati sent a postal vote.', ' Still 4-1, party centre postal vote.')
+(0.73, 'ticktock', 'Do hourglasses get a vote?', ' Do our glasses get a vote?')
+(0.73, 'ticktock', 'Emmeline Pankhurst, with her daughters.', ' Emily in Pankhurst with her daughters.')
+(0.73, 'ticktock', "Two. Fawcett's suffragists campaigned peacefully.", ' Two force its suffragists campaigned peacefully.')
+(0.74, 'ticktock', 'Five. Democracy was won step by step. And check who was allowed to vote.', ' 5.Democracy was one step by step, and Czech who was allowed to vote.')
+(0.75, 'mum', 'A weekly remote rota? Yes: four. No: one.', ' A weekly remote router, yes for no one.')
+(0.75, 'tara', 'Peterloo. People died for asking for a vote.', ' Peter Liu, people died for asking for vote.')
+(0.75, 'tara', "Polite, organised, very good at petitions. That's Mum.", " polite organized, very good at petitions.  That's Mom.")
+(0.8, 'tara', 'Separate spheres. Very 1850.', ' Separate spheres vary 1850.')
+(0.81, 'teacher', "Against: separate spheres, 'too emotional', women don't fight wars. Some women agreed, like Mary Augusta Ward.", " Against separate spheres, two emotional women don't fight wars.  Some women agreed like Mary Auguste Award.")
+checked 88 flagged 12
