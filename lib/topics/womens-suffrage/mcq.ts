@@ -193,7 +193,7 @@ export const mcqPapers: Paper[] = [
         ],
         answerIndex: 3,
         explanation:
-          "Property-owning women were thought likely to vote Conservative, so some Liberals feared that schemes like the Conciliation Bills would help their rivals. By then the Married Women's Property Act of 1882 meant women could own property, so the ‘no property’ option is wrong.",
+          "Property-owning women were thought likely to vote Conservative, so some Liberals feared that schemes like the Conciliation Bills would help their rivals. Single women had always been able to own property, and the Married Women's Property Act of 1882 let wives do so too, so the ‘no property’ option is wrong.",
         difficulty: "core",
         guideRef: "the-opposition",
         hints: ["Ask ‘who benefits?’ — which party tended to attract wealthier voters?", "The Liberals' main rivals for government were the Conservatives."],
@@ -212,9 +212,9 @@ export const mcqPapers: Paper[] = [
         answerIndex: 0,
         explanation:
           "Studies of the newsreel film suggest she may have been trying to attach WSPU colours to the King's horse, and she is reported to have had a return ticket — both point away from a planned death. She left no such farewell letter, and she was a very experienced militant who had been imprisoned and force-fed many times.",
-        difficulty: "challenge",
+        difficulty: "core",
         guideRef: "suffragettes",
-        hints: ["You are looking for evidence that suggests she expected to come home.", "Which option is consistent with what we know about her long militant career?", "Whose horse was it? Think about why she chose that race."],
+        hints: ["You are looking for evidence that suggests she expected to come home.", "Which option is consistent with what we know about her long militant career?", "Someone who planned to die would hardly buy a ticket home — and what was she reaching for on the film?"],
         strategy: "Cross-reference sources",
       },
       {
@@ -416,7 +416,7 @@ export const mcqPapers: Paper[] = [
         ],
         answerIndex: 0,
         explanation:
-          "‘Conciliation’ means bringing sides together: MPs from different parties drafted a limited bill for about a million property-owning women. All three bills failed. They were not about votes for all adults — that idea came only after the war.",
+          "‘Conciliation’ means bringing sides together: MPs from different parties drafted a limited bill for about a million property-owning women. All three bills failed. They were not about votes for all adults — women gained the vote on equal terms with men only in 1928.",
         difficulty: "core",
         guideRef: "the-opposition",
         hints: ["‘Conciliation’ means trying to reach agreement between opposing sides.", "They were limited bills — which women would a compromise include?"],
@@ -453,7 +453,7 @@ export const mcqPapers: Paper[] = [
         ],
         answerIndex: 2,
         explanation:
-          "Letters from shopkeepers and readers written at the time give direct evidence of ordinary people's reactions. The WSPU leaflet and Pankhurst's autobiography are useful for the suffragettes' own motives, and a police list counts damage — neither tells you how ordinary people felt.",
+          "Letters from shopkeepers and readers written at the time give direct evidence of ordinary people's reactions. The WSPU leaflet and Pankhurst's autobiography are useful for the suffragettes' own motives, and a police list counts damage — none of them tells you how ordinary people felt.",
         difficulty: "challenge",
         guideRef: "suffragettes",
         hints: ["Ask ‘useful for what?’ — the enquiry is about the feelings of ordinary Londoners.", "Who wrote each source? Were they ordinary Londoners?", "A source can be reliable and still be useless for a particular question."],
@@ -648,7 +648,7 @@ export const mcqPapers: Paper[] = [
         ],
         answerIndex: 2,
         explanation:
-          "The timing matters: the narrow defeat came days after the WSPU's window-smashing campaign, and some MPs cited militancy. But historians also note other reasons (for example, Irish Nationalist MPs voted against it for their own political reasons), which is why it is debated. Suffragettes could not vote in Parliament — no women were MPs.",
+          "The timing matters: the narrow defeat came about three weeks after the WSPU's window-smashing campaign, and some MPs cited militancy. But historians also note other reasons (for example, Irish Nationalist MPs voted against it for their own political reasons), which is why it is debated. Suffragettes could not vote in Parliament — no women were MPs.",
         difficulty: "challenge",
         guideRef: "the-opposition",
         hints: ["Look at the timing of the vote and of the window smashing.", "Could suffragettes vote in Parliament in 1912?", "Why would historians argue about what caused a narrow defeat?"],
@@ -666,7 +666,7 @@ export const mcqPapers: Paper[] = [
         ],
         answerIndex: 3,
         explanation:
-          "Markievicz, a Sinn Féin candidate, was the first woman elected to the Commons, but she refused to take her seat. Nancy Astor was the first woman to actually sit, in 1919. She had no role in the WSPU.",
+          "Markievicz, a Sinn Féin candidate, was the first woman elected to the Commons, but she refused to take her seat. Nancy Astor was the first woman to actually sit, in 1919. She never led the WSPU, and no woman was Prime Minister until 1979.",
         difficulty: "core",
         guideRef: "the-vote-is-won",
         hints: ["Separate ‘elected’ from ‘took her seat’.", "December 1918 was the first general election in which women could stand."],

@@ -128,9 +128,9 @@ export const guide: TopicGuide = {
           answer:
             "The main reason was politics in Europe. In May 1527 Emperor Charles V's troops sacked Rome, leaving Pope Clement VII under his control. Charles was Catherine of Aragon's nephew, so the Pope could not grant an annulment without angering the most powerful ruler in Europe. A second reason was Catherine's own resistance: she insisted her marriage to Arthur had never been consummated, so her marriage to Henry was valid, and she appealed to Rome. Because of both pressures the Pope delayed; the court at Blackfriars was adjourned in July 1529 and the case was called back to Rome, leaving Henry with no annulment.",
           yourTurn: {
-            question: "Which Pope refused to grant Henry VIII an annulment? (Give his name and number.)",
-            answer: { type: "text", accept: ["Clement VII", "Pope Clement VII", "Clement the Seventh", "Clement 7", "Pope Clement"], display: "Pope Clement VII" },
-            solution: "Pope Clement VII — under pressure from Charles V, whose troops had sacked Rome in 1527.",
+            question: "In what year did the troops of Charles V sack Rome, leaving Pope Clement VII under the Emperor's control?",
+            answer: { type: "number", value: 1527 },
+            solution: "Rome was sacked in May 1527. From then on Pope Clement VII dared not offend Charles V, Catherine's nephew — so he would not grant Henry's annulment.",
           },
         },
       ],

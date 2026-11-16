@@ -189,7 +189,10 @@ export const practice: TopicPractice = {
           id: "henry-viii-p1-q02",
           question: "Which French king did Henry VIII meet at the Field of the Cloth of Gold in 1520?",
           answer: { type: "text", accept: ["Francis I", "Francis", "King Francis", "Francis the First", "Francis 1", "François I", "Francois I", "King Francis I"], display: "Francis I" },
-          traps: [{ spec: { type: "text", accept: ["Charles V", "Charles"] }, feedback: "Charles V was the Holy Roman Emperor and King of Spain — France's great rival, and Catherine of Aragon's nephew." }],
+          traps: [
+            { spec: { type: "text", accept: ["Charles V", "Charles"] }, feedback: "Charles V was the Holy Roman Emperor and King of Spain — France's great rival, and Catherine of Aragon's nephew." },
+            { spec: { type: "text", accept: ["Francis II", "Francis 2", "Francis the Second"] }, feedback: "Right name, wrong number. Francis II ruled France briefly in 1559–60, long after Henry died. Henry met the first King Francis." },
+          ],
           solution: ["Francis I of France met Henry near Calais in June 1520."],
           difficulty: "warmup",
           guideRef: "young-henry",
@@ -490,7 +493,7 @@ export const practice: TopicPractice = {
           ],
           answerIndex: 1,
           explanation:
-            "The source gives one foreign visitor's impression of the 24-year-old king, so it is useful evidence of the image Henry projected early in his reign. It cannot prove he was the *best* king — it is about looks, not ruling — and one opinion cannot prove a comparison with every other ruler.",
+            "The source gives one foreign visitor's impression of the 23-year-old king, so it is useful evidence of the image Henry projected early in his reign. It cannot prove he was the *best* king — it is about looks, not ruling — and one opinion cannot prove a comparison with every other ruler.",
           difficulty: "core",
           guideRef: "young-henry",
           hints: ["Ask 'useful for what?' — what is the source actually about?", "Check the date: how old was Henry in 1515?"],
@@ -524,14 +527,17 @@ export const practice: TopicPractice = {
           solution: ["Cardinal Lorenzo Campeggio, the Pope's representative.", "He adjourned the court in July 1529, and the case was called back to Rome."],
           difficulty: "core",
           guideRef: "the-great-matter",
-          hints: ["He was an Italian sent from Rome.", "His surname begins with C and sounds like 'cam-PEJ-ee-oh'."],
+          hints: ["He was an Italian sent from Rome.", "His surname begins with C. Henry had earlier made him Bishop of Salisbury, so he was expected to be friendly."],
         },
         {
           kind: "short",
           id: "henry-viii-p2-q09",
           question: "Anne Boleyn gave birth to a daughter in September 1533. What was the baby's name?",
           answer: { type: "text", accept: ["Elizabeth", "Princess Elizabeth", "Elizabeth I", "Elizabeth Tudor", "Queen Elizabeth I"], display: "Elizabeth (later Elizabeth I)" },
-          traps: [{ spec: { type: "text", accept: ["Mary", "Princess Mary", "Mary I"] }, feedback: "Mary was Catherine of Aragon's daughter, born in 1516." }],
+          traps: [
+            { spec: { type: "text", accept: ["Mary", "Princess Mary", "Mary I"] }, feedback: "Mary was Catherine of Aragon's daughter, born in 1516." },
+            { spec: { type: "text", accept: ["Elizabeth II", "Elizabeth 2", "Queen Elizabeth II"] }, feedback: "Right name, wrong queen. Elizabeth II reigned 1952–2022. Anne Boleyn's daughter became Elizabeth I." },
+          ],
           solution: ["Princess Elizabeth, born 7 September 1533.", "She later ruled as Elizabeth I (1558–1603)."],
           difficulty: "warmup",
           guideRef: "break-with-rome",
@@ -726,11 +732,12 @@ export const practice: TopicPractice = {
     {
       kind: "short",
       id: "henry-viii-ch-q05",
-      question: "Thomas Cromwell was executed on 28 July 1540. Which of Henry's wives did he marry on that very same day?",
+      question: "Thomas Cromwell was executed on 28 July 1540. On that very same day Henry married a niece of the Duke of Norfolk, leader of the court faction that had brought Cromwell down. Which wife was she? (Careful: Norfolk had two nieces who became Henry's queens.)",
       answer: { type: "text", accept: ["Catherine Howard", "Katherine Howard", "Howard", "Queen Catherine Howard"], display: "Catherine Howard" },
       traps: [
         { spec: { type: "text", accept: ["Anne of Cleves", "Cleves"] }, feedback: "Anne of Cleves was the wife whose failed marriage helped bring Cromwell down. Henry married the next wife on the day Cromwell died." },
         { spec: { type: "text", accept: ["Catherine Parr", "Katherine Parr", "Parr"] }, feedback: "Catherine Parr married Henry in 1543. The wife he married in July 1540 was another Catherine." },
+        { spec: { type: "text", accept: ["Anne Boleyn", "Boleyn", "Anne Bullen"] }, feedback: "Anne Boleyn was indeed Norfolk's niece — but she married Henry in 1533 and was executed in 1536. Use the chronology: which Howard niece married Henry in 1540?" },
       ],
       solution: [
         "The Anne of Cleves marriage was annulled on 9 July 1540.",
@@ -739,7 +746,8 @@ export const practice: TopicPractice = {
       commonError: "Answering Anne of Cleves — her marriage caused Cromwell's fall, but it had already been annulled.",
       difficulty: "challenge",
       guideRef: "henrys-power-and-image",
-      hints: ["Which marriage did Cromwell arrange — and when was it annulled?", "Henry married the next wife in the order very quickly afterwards.", "She was the fifth wife, a niece of the Duke of Norfolk."],
+      hints: ["Use the chronology: which marriage did Cromwell arrange — and when was it annulled?", "Henry married the next wife in the order very quickly afterwards. Anne Boleyn was also Norfolk's niece, but that was years earlier.", "She was the fifth wife, and she shared the Duke of Norfolk's family name."],
+      strategy: "Use the chronology",
     },
     {
       kind: "written",

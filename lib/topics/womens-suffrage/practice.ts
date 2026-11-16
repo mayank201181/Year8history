@@ -37,7 +37,7 @@ export const practice: TopicPractice = {
       commonError: "Confusing 1918 (women over 30, with property) with 1928 (all women over 21).",
       difficulty: "warmup",
       guideRef: "the-vote-is-won",
-      hints: ["It was the year the First World War ended."],
+      hints: ["Not the year of EQUAL voting — this partial reform came ten years earlier, while the First World War was still being fought."],
     },
     {
       kind: "short",
@@ -47,7 +47,7 @@ export const practice: TopicPractice = {
       solution: ["Suffrage means the right to vote. ‘Women's suffrage’ = votes for women. (Another word with the same meaning is ‘franchise’.)"],
       difficulty: "warmup",
       guideRef: "women-in-victorian-britain",
-      hints: ["Take the end off ‘suffragist’."],
+      hints: ["Both words share a root; the endings -ist and -ette just say what kind of campaigner someone was."],
     },
     {
       kind: "mcq",
@@ -247,7 +247,7 @@ export const practice: TopicPractice = {
           solution: ["Mary Ward, who wrote as Mrs Humphry Ward, was a best-selling novelist and a leader of the Women's National Anti-Suffrage League."],
           difficulty: "warmup",
           guideRef: "the-opposition",
-          hints: ["She wrote under her husband's name: ‘Mrs Humphry …’."],
+          hints: ["She published her best-selling novels under her married name, using her husband's full name with ‘Mrs’ in front."],
         },
         {
           kind: "short",
@@ -259,7 +259,7 @@ export const practice: TopicPractice = {
           commonError: "Giving 21, the age set for women by the Equal Franchise Act of 1928.",
           difficulty: "warmup",
           guideRef: "the-vote-is-won",
-          hints: ["Women had to be older than men — by nine years."],
+          hints: ["Women had to be quite a bit older than men (who voted at 21) — old enough to keep women a minority of voters."],
         },
         {
           kind: "mcq",
@@ -646,7 +646,7 @@ export const practice: TopicPractice = {
         "Read the source.\n\n> “The argument of the broken pane of glass is the most valuable argument in modern politics.” — Emmeline Pankhurst, speech, February 1912\n\nHow useful is this source for a historian studying why the suffragettes used militant methods? (5 marks)",
       marks: 5,
       modelAnswer:
-        "The source is very useful for understanding the suffragettes' motives because it comes from Emmeline Pankhurst, the WSPU's founder and leader, so it shows the official reasoning behind militancy. She argues that breaking windows is the most effective ‘argument’ — in other words, that dramatic action forces politicians and the public to pay attention when words have failed. The date matters: February 1912 was just before the mass window-smashing campaign of March 1912, after the Conciliation Bills had been blocked, so it shows the leadership deliberately preparing to escalate out of frustration. However, it has limits. As a public speech, it was meant to inspire supporters, so it presents militancy in the best light and does not show doubts within the movement or how effective militancy really was. Overall it is highly useful for explaining WHY the WSPU used militancy, but not for judging whether it worked.",
+        "The source is very useful for understanding the suffragettes' motives because it comes from Emmeline Pankhurst, the WSPU's founder and leader, so it shows the official reasoning behind militancy. She argues that breaking windows is the most effective ‘argument’ — in other words, that dramatic action forces politicians and the public to pay attention when words have failed. The date matters: February 1912 was just before the mass window-smashing campaign of March 1912, after the 1910 and 1911 Conciliation Bills had been blocked, so it shows the leadership deliberately preparing to escalate out of frustration. However, it has limits. As a public speech, it was meant to inspire supporters, so it presents militancy in the best light and does not show doubts within the movement or how effective militancy really was. Overall it is highly useful for explaining WHY the WSPU used militancy, but not for judging whether it worked.",
       markScheme: [
         { point: "Uses the content: explains Pankhurst's argument that militant action was more effective than words", keywords: ["broken", "glass", "window", "effective", "attention", "words failed", "argument"] },
         { point: "Uses the author: as WSPU leader she shows the official reasoning", keywords: ["pankhurst", "leader", "founder", "wspu", "official"] },
@@ -743,7 +743,7 @@ export const practice: TopicPractice = {
       kind: "short",
       id: "womens-suffrage-ch-q06",
       question:
-        "A ‘diary of a suffragette’ dated 1910 contains the line: “Today I voted for the first time in a general election.” In what is the EARLIEST year in which a British woman could really have written this?",
+        "A ‘diary of a suffragette’ dated 1910 contains the line: “Today I voted for the first time in a general election.” What is the EARLIEST year in which a woman in Britain could really have written this about a general election for the UK Parliament?",
       answer: { type: "number", value: 1918 },
       traps: [
         { spec: { type: "number", value: 1928 }, feedback: "1928 is when women gained EQUAL voting rights. Some women over 30 could already vote in the general election of December 1918." },

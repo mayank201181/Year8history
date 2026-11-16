@@ -53,7 +53,7 @@ export const guide: TopicGuide = {
         "Each Reform Act showed that the vote *could* be widened — so why not to women? Every time Parliament extended it to more men, it made women's exclusion look less like ‘nature’ and more like a choice. And because only Parliament could change the laws on property, divorce and education, campaigners concluded that the vote was the key to every other right.",
       strategies: ["Look for change AND continuity", "Use precise evidence", "Zoom out to the big picture"],
       thinkDeeper:
-        "In 1884 a poor male farm labourer could vote but a wealthy woman factory owner who paid taxes could not. What does that tell you about what Victorian Parliament thought the vote was *for*?",
+        "After 1884 a male farm labourer who rented his own cottage could vote but a wealthy woman factory owner who paid taxes could not. What does that tell you about what Victorian Parliament thought the vote was *for*?",
     },
     // ------------------------------------------------------------------ 2
     {
@@ -334,7 +334,7 @@ export const guide: TopicGuide = {
     ],
     mnemonics: [
       { topic: "Suffragist vs suffragette", device: "SuffraGETTEs wanted to GET the vote by force; suffraGISTs gave the GIST of their case politely.", explanation: "Suffragettes (WSPU) = militant; suffragists (NUWSS) = peaceful persuasion." },
-      { topic: "1918 vs 1928", device: "19‘2’8 starts with a 2 — like 21.", explanation: "1928 = women vote at 21, equal with men. 1918 = women over 30 with property only." },
+      { topic: "1918 vs 1928", device: "The 2 in 19‘2’8 — like the 2 in 21.", explanation: "1928 = women vote at 21, equal with men. 1918 = women over 30 with property only." },
       { topic: "WSPU colours", device: "Green, White, Violet — ‘Give Women Votes’.", explanation: "A popular memory trick for the suffragette colours (purple/violet, white, green). Historians think the WSPU did not choose them for this reason — it is just a handy hook." },
     ],
     realWorld: [
