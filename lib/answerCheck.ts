@@ -385,6 +385,16 @@ function checkExpression(spec: Extract<AnswerSpec, { type: "expression" }>, inpu
   return { status: "correct" };
 }
 
+/** Different things one letter apart: never forgive these as spelling slips. */
+const CONFUSABLE: Array<[string, string]> = [
+  ["shaanxi", "shanxi"],
+  ["suffragist", "suffragette"],
+  ["austria", "australia"],
+  ["prussia", "russia"],
+];
+/** Whole answers that name a different person (but "Harold Hardrada" is still a slip for Harald Hardrada). */
+const CONFUSABLE_NAMES: Array<[string, string]> = [["harold", "harald"]];
+
 /** Looser key for history answers: no accents, no leading "the", letters/digits only. */
 function looseText(s: string): string {
   return s
@@ -431,6 +441,8 @@ function checkText(spec: Extract<AnswerSpec, { type: "text" }>, input: string): 
       const k = looseText(a);
       if (k.length < 5 || /\d/.test(k)) continue;
       if (roman(input) !== roman(a)) continue;
+      if (CONFUSABLE.some(([x, y]) => (l.includes(x) && k.includes(y)) || (l.includes(y) && k.includes(x)))) continue;
+      if (CONFUSABLE_NAMES.some(([x, y]) => (l === x && k === y) || (l === y && k === x))) continue;
       const allowed = k.length >= 9 ? 2 : 1;
       if (editDistance(l, k) <= allowed) {
         return { status: "correct", feedback: `Accepted — watch the spelling: ${spec.display ?? a}.` };
