@@ -1,0 +1,564 @@
+import type { ExamPaper } from "../types.ts";
+
+// Big Exam — Paper 3: Democracy & Rights + the whole year.
+// Enquiry: How and why has democracy developed? Plus synoptic questions linking
+// kings (Term 1), dictators (Term 2) and democracy (Term 3).
+// Order: warmup (q01–q08) → core (q09–q20) → challenge (q21–q26).
+export const paper: ExamPaper = {
+  id: "exam-3",
+  title: "Paper 3: Democracy & Rights + the whole year",
+  minutes: 50,
+  questions: [
+    // ------------------------------ WARMUP ------------------------------
+    {
+      kind: "short",
+      id: "exam-3-q01",
+      topicId: "french-revolution",
+      guideRef: "revolution-of-1789",
+      difficulty: "warmup",
+      question: "In what year did a Paris crowd storm the Bastille prison?",
+      answer: { type: "number", value: 1789 },
+      traps: [
+        { spec: { type: "number", value: 1793 }, feedback: "1793 is when Louis XVI was executed. The Bastille fell four years earlier, at the very start of the Revolution." },
+        { spec: { type: "number", value: 1799 }, feedback: "1799 is Napoleon's coup, which is often seen as the *end* of the Revolution. The Bastille fell at the beginning." },
+      ],
+      solution: [
+        "The Bastille fell on 14 July 1789, a few weeks after the Tennis Court Oath.",
+        "14 July is still France's national day.",
+      ],
+      hints: ["It is the same year as the Tennis Court Oath and the Declaration of the Rights of Man."],
+      strategy: "Use the chronology",
+      commonError: "Mixing up 1789 (start of the Revolution) with 1793 (execution of the King).",
+    },
+    {
+      kind: "mcq",
+      id: "exam-3-q02",
+      topicId: "womens-suffrage",
+      guideRef: "suffragists",
+      difficulty: "warmup",
+      question: "Which organisation, led by Millicent Fawcett, campaigned for votes for women using peaceful, law-abiding methods?",
+      options: [
+        "The National Union of Women's Suffrage Societies (NUWSS)",
+        "The Women's Social and Political Union (WSPU)",
+        "The Women's National Anti-Suffrage League",
+        "The Chartists",
+      ],
+      answerIndex: 0,
+      explanation:
+        "Fawcett led the NUWSS (founded 1897) — the suffragists — who used petitions, meetings, lobbying and marches. The WSPU is the tempting wrong answer: it was the Pankhursts' militant suffragette organisation (“Deeds not words”). The Anti-Suffrage League *opposed* votes for women, and the Chartists were a men's movement of the 1830s–40s.",
+      hints: ["Suffragist = peaceful; suffragette = militant. Fawcett led the suffragists."],
+      strategy: "Use precise evidence",
+    },
+    {
+      kind: "short",
+      id: "exam-3-q03",
+      topicId: "french-revolution",
+      guideRef: "ancien-regime",
+      difficulty: "warmup",
+      question:
+        "Under the Ancien Régime, French society was divided into three estates. Which estate included peasants, town workers and the wealthy middle class (the bourgeoisie) — about 97% of the population?",
+      answer: { type: "text", accept: ["Third Estate", "the Third Estate", "3rd Estate", "Third", "3rd"], display: "the Third Estate" },
+      traps: [
+        { spec: { type: "text", accept: ["First Estate", "First", "the clergy", "clergy"] }, feedback: "The First Estate was the clergy — a tiny, privileged group. Most French people belonged to a different estate." },
+        { spec: { type: "text", accept: ["Second Estate", "Second", "the nobility", "nobility", "nobles"] }, feedback: "The Second Estate was the nobility, also a small privileged group that paid little tax." },
+      ],
+      solution: [
+        "First Estate = clergy; Second Estate = nobles; Third Estate = everyone else.",
+        "The Third Estate paid most of the taxes but had the least power.",
+      ],
+      hints: ["Count from the top of the pyramid: clergy, nobles, then everyone else."],
+      commonError: "Thinking the “first” estate was the biggest — it was the most privileged, and one of the smallest.",
+    },
+    {
+      kind: "mcq",
+      id: "exam-3-q04",
+      topicId: "democracy-rights",
+      guideRef: "human-rights-after-1945",
+      difficulty: "warmup",
+      question: "Which organisation adopted the Universal Declaration of Human Rights on 10 December 1948?",
+      options: ["The League of Nations", "The European Union", "The United Nations", "The British Parliament"],
+      answerIndex: 2,
+      explanation:
+        "The UN General Assembly adopted the UDHR in Paris in 1948, with a committee chaired by Eleanor Roosevelt. The League of Nations is the tempting wrong answer — but it had been replaced by the United Nations, founded in 1945. The European Union did not exist until 1993.",
+      hints: ["This organisation was founded in 1945, after the Second World War."],
+      strategy: "Use the chronology",
+    },
+    {
+      kind: "short",
+      id: "exam-3-q05",
+      topicId: "womens-suffrage",
+      guideRef: "the-vote-is-won",
+      difficulty: "warmup",
+      question: "In what year did the Equal Franchise Act give women the vote on the same terms as men, from the age of 21?",
+      answer: { type: "number", value: 1928 },
+      traps: [
+        { spec: { type: "number", value: 1918 }, feedback: "1918 gave the vote to *some* women — those over 30 who met a property qualification. Equal terms with men came ten years later." },
+        { spec: { type: "number", value: 1969 }, feedback: "1969 is when the voting age was lowered to 18 for everyone. Women first voted on equal terms with men earlier than that." },
+      ],
+      solution: [
+        "The Equal Franchise Act of 1928 let women vote from 21, the same age as men.",
+        "This came ten years after the 1918 Representation of the People Act.",
+      ],
+      hints: ["It came exactly ten years after the 1918 Act."],
+      strategy: "Use the chronology",
+      commonError: "Mixing up 1918 (some women over 30) with 1928 (equal terms at 21).",
+    },
+    {
+      kind: "mcq",
+      id: "exam-3-q06",
+      topicId: "democracy-rights",
+      guideRef: "age-of-revolutions",
+      difficulty: "warmup",
+      question:
+        "Put these documents in chronological order, earliest first: the Universal Declaration of Human Rights; Magna Carta; the Declaration of the Rights of Man and of the Citizen; the Bill of Rights.",
+      options: [
+        "Magna Carta → Declaration of the Rights of Man → Bill of Rights → Universal Declaration",
+        "Bill of Rights → Magna Carta → Declaration of the Rights of Man → Universal Declaration",
+        "Magna Carta → Bill of Rights → Universal Declaration → Declaration of the Rights of Man",
+        "Magna Carta → Bill of Rights → Declaration of the Rights of Man → Universal Declaration",
+      ],
+      answerIndex: 3,
+      explanation:
+        "Magna Carta 1215, the English Bill of Rights 1689, the French Declaration of the Rights of Man 1789, and the UDHR 1948. The tempting slip is placing the French declaration before the English Bill of Rights — but the Bill of Rights came a century earlier, after the Glorious Revolution of 1688.",
+      hints: ["Write the year beside each document first: 1215, 1689, 1789, 1948 — then match them."],
+      strategy: "Use the chronology",
+    },
+    {
+      kind: "short",
+      id: "exam-3-q07",
+      topicId: "womens-suffrage",
+      guideRef: "suffragettes",
+      difficulty: "warmup",
+      question:
+        "In June 1913 a suffragette stepped onto the course during the Epsom Derby and was struck by the King's horse; she died four days later. Who was she?",
+      answer: { type: "text", accept: ["Emily Wilding Davison", "Emily Davison", "Davison", "Emily Wilding-Davison", "Wilding Davison"], display: "Emily Wilding Davison" },
+      traps: [
+        { spec: { type: "text", accept: ["Emmeline Pankhurst", "Pankhurst", "Mrs Pankhurst"] }, feedback: "Emmeline Pankhurst founded the WSPU in 1903 and lived until 1928. The woman at the Derby was another WSPU member." },
+        { spec: { type: "text", accept: ["Millicent Fawcett", "Fawcett"] }, feedback: "Millicent Fawcett led the peaceful suffragists (NUWSS) and would never have joined this kind of protest." },
+      ],
+      solution: [
+        "Emily Wilding Davison was a militant WSPU member who had been imprisoned and force-fed many times.",
+        "Historians still debate whether she meant to die or was trying to attach a suffragette scarf to the horse.",
+      ],
+      hints: ["She was not a leader of either organisation, but a militant WSPU member."],
+      commonError: "Naming Emmeline Pankhurst, the WSPU's leader, instead of Emily Wilding Davison.",
+    },
+    {
+      kind: "mcq",
+      id: "exam-3-q08",
+      topicId: "democracy-rights",
+      guideRef: "democracy-in-singapore",
+      difficulty: "warmup",
+      question: "Which of these is a feature of voting in Singapore today?",
+      options: [
+        "Only people who own property can vote",
+        "Voting is compulsory for citizens on the electoral register",
+        "The voting age is 18",
+        "Voters choose the Prime Minister directly in a separate national vote",
+      ],
+      answerIndex: 1,
+      explanation:
+        "Singapore has had compulsory voting since 1959: citizens are registered from 21 and must vote. The voting age is 21, not 18 (18 is the UK's voting age); there is no property qualification; and the Prime Minister is the leader who commands a majority in Parliament — the President, not the Prime Minister, is chosen in a separate national vote.",
+      hints: ["Think about what happens if a registered Singaporean citizen does not vote."],
+      strategy: "Use precise evidence",
+    },
+
+    // ------------------------------- CORE -------------------------------
+    {
+      kind: "mcq",
+      id: "exam-3-q09",
+      topicId: "french-revolution",
+      guideRef: "causes-of-the-revolution",
+      difficulty: "core",
+      question: "Historians sort the causes of the French Revolution into long-term, short-term and trigger causes. Which of these was the *trigger*?",
+      options: [
+        "Louis XVI calling the Estates-General to solve the government's money crisis",
+        "Enlightenment writers such as Rousseau criticising absolute monarchy",
+        "The unfair system of three estates and privileges",
+        "Napoleon seizing power in a coup",
+      ],
+      answerIndex: 0,
+      explanation:
+        "Calling the Estates-General (it met in May 1789) set events in motion, because it gave the Third Estate a stage on which to demand change. Enlightenment ideas and the unfair estates system were long-term causes that had built up over decades. Napoleon's coup (1799) came ten years *after* the Revolution began, so it cannot be a cause of it.",
+      hints: ["A trigger is the event that sets things off. Which option is a single decision, just before 1789?", "Which option happened after the Revolution had begun?"],
+      strategy: "Sort causes into categories",
+    },
+    {
+      kind: "short",
+      id: "exam-3-q10",
+      topicId: "french-revolution",
+      guideRef: "radical-revolution",
+      difficulty: "core",
+      question:
+        "Which revolutionary leader, a member of the Committee of Public Safety, is most closely associated with the Reign of Terror (1793–94) and was himself executed in July 1794?",
+      answer: { type: "text", accept: ["Maximilien Robespierre", "Robespierre", "Maximilien de Robespierre"], display: "Maximilien Robespierre" },
+      traps: [
+        { spec: { type: "text", accept: ["Georges Danton", "Danton"] }, feedback: "Danton was a leading revolutionary who called for the Terror to be relaxed — he was arrested on the Committee's orders and guillotined in April 1794. Think of the man who fell three months later." },
+        { spec: { type: "text", accept: ["Napoleon", "Napoleon Bonaparte", "Bonaparte"] }, feedback: "Napoleon was a young army officer during the Terror; he seized power in 1799." },
+      ],
+      solution: [
+        "Robespierre argued that “virtue” needed “terror” to protect the Republic from its enemies.",
+        "In July 1794 the Convention turned on him, fearing they would be next, and he was guillotined on 28 July.",
+      ],
+      hints: ["He was nicknamed “the Incorruptible”.", "His fall in July 1794 is usually seen as the end of the Terror."],
+      strategy: "Use the chronology",
+      commonError: "Naming Danton — he was a victim of the Terror before Robespierre fell.",
+    },
+    {
+      kind: "written",
+      id: "exam-3-q11",
+      topicId: "womens-suffrage",
+      guideRef: "suffragettes",
+      difficulty: "core",
+      question: "Explain two differences between the methods of the suffragists (NUWSS) and the suffragettes (WSPU). (4 marks)",
+      marks: 4,
+      modelAnswer:
+        "The first difference is whether they kept the law. Millicent Fawcett's suffragists used peaceful, legal methods — petitions, public meetings, lobbying MPs and marches such as the 1907 Mud March — to show women were responsible enough to vote. Emmeline Pankhurst's suffragettes, founded in 1903 with the motto “Deeds not words”, turned to militancy: heckling politicians, smashing windows, arson and attacking post boxes. The second difference is how they treated prison and publicity. Suffragettes deliberately got arrested and went on hunger strike to win attention in the newspapers, because they believed decades of polite campaigning had been ignored; suffragists avoided breaking the law so as not to give MPs an excuse to say women were unfit to vote.",
+      markScheme: [
+        { point: "Identifies suffragists' peaceful, legal methods (petitions, meetings, lobbying, marches)", keywords: ["peaceful", "legal", "petition", "petitions", "lobby", "march", "mud march", "meetings"] },
+        { point: "Identifies suffragettes' militant methods (heckling, window smashing, arson; 'Deeds not words')", keywords: ["militant", "violent", "violence", "windows", "arson", "deeds not words", "heckling"] },
+        { point: "Identifies a second difference, e.g. attitude to breaking the law, prison and hunger strikes", keywords: ["prison", "arrested", "hunger strike", "break the law", "broke the law", "law-abiding"] },
+        { point: "Explains why the methods differed (proving women responsible vs. winning publicity after being ignored)", keywords: ["responsible", "publicity", "ignored", "attention", "newspapers", "prove"] },
+      ],
+      hints: ["Start with leaders and mottos: Fawcett vs Pankhurst; “Deeds not words”.", "Think about the law and prison.", "Then explain *why* each group chose its methods."],
+      strategy: "Compare case studies",
+      commonError: "Mixing up the names: suffragISTS were peaceful (NUWSS); suffragETTES were militant (WSPU).",
+    },
+    {
+      kind: "mcq",
+      id: "exam-3-q12",
+      topicId: "democracy-rights",
+      guideRef: "human-rights-after-1945",
+      difficulty: "core",
+      question:
+        "Read these three extracts.\n\n> “No free man shall be seized or imprisoned … except by the lawful judgement of his equals or by the law of the land.” — Magna Carta, 1215\n\n> “No man may be accused, arrested or detained except in the cases determined by the law …” — Declaration of the Rights of Man and of the Citizen, 1789\n\n> “No one shall be subjected to arbitrary arrest, detention or exile.” — Universal Declaration of Human Rights, 1948\n\nWhich idea runs through all three?",
+      options: [
+        "Every adult should have the right to vote",
+        "Men and women should have equal rights",
+        "A ruler's power comes directly from God",
+        "People should not be locked up by those in power except according to the law",
+      ],
+      answerIndex: 3,
+      explanation:
+        "All three protect people from being imprisoned at a ruler's whim — the rule of law — which is a striking continuity across 733 years. But notice the change too: “free man” (1215) became “man” (1789) and then “no one” (1948), so the right was gradually extended to everyone. None of the extracts mentions voting, Magna Carta and the 1789 Declaration did not give women equal rights, and none of them bases power on God.",
+      hints: ["Find the words the three extracts share: seized, arrested, detained, imprisoned…", "Now check each option against all three extracts, not just one."],
+      strategy: "Look for change AND continuity",
+    },
+    {
+      kind: "short",
+      id: "exam-3-q13",
+      topicId: "democracy-rights",
+      guideRef: "widening-the-vote",
+      difficulty: "core",
+      question:
+        "In what year was the Great Reform Act passed, abolishing many “rotten boroughs” and giving the vote to more middle-class men?",
+      answer: { type: "number", value: 1832 },
+      traps: [
+        { spec: { type: "number", value: 1867 }, feedback: "1867 is the Second Reform Act, which gave the vote to many working men in towns. The *Great* (first) Reform Act came 35 years earlier." },
+        { spec: { type: "number", value: 1884 }, feedback: "1884 is the Third Reform Act, which extended the vote to men in the countryside. The Great Reform Act was the first." },
+      ],
+      solution: [
+        "The Great Reform Act of 1832 gave new industrial towns such as Manchester MPs and let more middle-class men vote.",
+        "It still left only around 7% of adults able to vote, and its words “male persons” shut women out.",
+      ],
+      hints: ["It was the first of three Reform Acts in the 1800s — the others were 1867 and 1884.", "It came 35 years before the Second Reform Act of 1867."],
+      strategy: "Use the chronology",
+      commonError: "Thinking the 1832 Act brought democracy — most men, and all women, still could not vote.",
+    },
+    {
+      kind: "written",
+      id: "exam-3-q14",
+      topicId: "french-revolution",
+      guideRef: "revolution-change-and-continuity",
+      difficulty: "core",
+      question:
+        "The Revolution promised “Liberty, Equality, Fraternity”. Explain why equality remained limited in France between 1789 and 1804. Use two examples. (4 marks)",
+      marks: 4,
+      modelAnswer:
+        "First, women were left out. The Declaration of the Rights of Man of 1789 talked about the rights of “men” and citizens, but women were not given the vote. When Olympe de Gouges wrote the Declaration of the Rights of Woman in 1791 demanding equal rights, she was ignored, and she was executed in 1793. Second, equality did not reach enslaved people for long. Slavery in the French colonies was only abolished in 1794, after enslaved people in Saint-Domingue rose up, and Napoleon restored it in 1802. Equality was limited because the revolutionaries who wrote the laws were mostly wealthy men, whose idea of a “citizen” reflected their own interests — and Napoleon's Code of 1804 even required wives to obey their husbands.",
+      markScheme: [
+        { point: "Example of women's exclusion (no vote; Olympe de Gouges's 1791 Declaration ignored; executed 1793)", keywords: ["women", "olympe", "de gouges", "gouges", "1791", "no vote"] },
+        { point: "Example of slavery (abolished 1794 after the Saint-Domingue uprising; restored by Napoleon in 1802)", keywords: ["slavery", "slaves", "enslaved", "1794", "1802", "saint-domingue", "haiti", "restored"] },
+        { point: "Another limit, e.g. only 'active citizens' who paid enough tax could vote (1791), or Napoleon's dictatorship", keywords: ["active citizens", "tax", "property", "napoleon", "dictator", "emperor"] },
+        { point: "Explains why equality was limited (laws made by wealthy men in their own interests; Napoleonic Code 1804 made wives obey husbands)", keywords: ["napoleonic code", "1804", "obey", "husbands", "wealthy", "because", "interests"] },
+      ],
+      hints: ["Who was left out of “the Rights of Man”? Look at the title itself.", "What happened to slavery in 1794 and in 1802?", "Explain *why*: who wrote the laws?"],
+      strategy: "Look for change AND continuity",
+      commonError: "Describing the Terror instead of explaining the limits on equality.",
+    },
+    {
+      kind: "mcq",
+      id: "exam-3-q15",
+      topicId: "power-of-monarchs",
+      guideRef: "claims-to-the-throne",
+      difficulty: "core",
+      question:
+        "Kings, dictators and democratic governments have all claimed the right to rule. Which source of legitimacy belongs to a democracy, but was NOT the basis of William I's or Henry VIII's right to rule?",
+      options: [
+        "Being crowned and anointed by the Church",
+        "Descent from an earlier ruler",
+        "The consent of the people, shown in free and regular elections",
+        "Victory in battle",
+      ],
+      answerIndex: 2,
+      explanation:
+        "In a democracy, the government's right to rule comes from the people, shown in free elections that can remove it. Medieval and Tudor kings relied on the other three: anointing by the Church (both kings), descent (Henry VIII inherited in 1509), and victory in battle (William at Hastings; Henry VII at Bosworth). Even the Witan's choice of a king in 1066 was made by a small group of nobles, not by the people.",
+      hints: ["For each option, ask: did William I or Henry VIII use this to justify his rule?", "Which option involves ordinary people choosing — and being able to remove — their rulers?"],
+      strategy: "Compare case studies",
+    },
+    {
+      kind: "short",
+      id: "exam-3-q16",
+      topicId: "french-revolution",
+      guideRef: "napoleon",
+      difficulty: "core",
+      question:
+        "Like Hitler in 1934, this French ruler held plebiscites — yes-or-no public votes — to make his seizure of power look popular. He took power in a coup in 1799 and crowned himself Emperor in 1804. Who was he?",
+      answer: { type: "text", accept: ["Napoleon", "Napoleon Bonaparte", "Napoleon I", "Bonaparte", "Napoléon", "Napoléon Bonaparte"], display: "Napoleon Bonaparte" },
+      traps: [
+        { spec: { type: "text", accept: ["Robespierre", "Maximilien Robespierre"] }, feedback: "Robespierre dominated the Terror (1793–94) but never made himself sole ruler — and he was executed in 1794, five years before this coup." },
+        { spec: { type: "text", accept: ["Louis XVI", "Louis", "Louis XVIII"] }, feedback: "The Bourbon kings inherited their thrones. This ruler was an army general who seized power." },
+      ],
+      solution: [
+        "Napoleon Bonaparte seized power in November 1799 and became First Consul.",
+        "Plebiscites in 1800, 1802 and 1804 approved his rule, but the voting was not free or fair — a technique later dictators also used.",
+      ],
+      hints: ["He was an army general, famous for victories in Italy and Egypt.", "His family came from Corsica, and he was defeated at Waterloo in 1815."],
+      strategy: "Compare case studies",
+      commonError: "Thinking a plebiscite makes a ruler democratic — a yes/no vote with no real choice is a tool of dictators.",
+    },
+    {
+      kind: "mcq",
+      id: "exam-3-q17",
+      topicId: "womens-suffrage",
+      guideRef: "the-vote-is-won",
+      difficulty: "core",
+      question: "Who gained the vote under the Representation of the People Act of 1918?",
+      options: [
+        "All women over 21, on the same terms as men",
+        "Women over 30 who met a property qualification, and almost all men over 21",
+        "All men and women over 18",
+        "Only women who had worked in munitions factories during the war",
+      ],
+      answerIndex: 1,
+      explanation:
+        "The 1918 Act gave the vote to about 8.4 million women over 30 who met a property qualification (or whose husband did), and to almost all men over 21. Equal terms at 21 is the 1928 Act; votes at 18 came in 1969. There was no special vote for munitions workers — in fact many of them were under 30, so they did *not* qualify.",
+      hints: ["Women's voting age in 1918 was higher than men's.", "Equal voting came ten years later."],
+      strategy: "Use precise evidence",
+    },
+    {
+      kind: "written",
+      id: "exam-3-q18",
+      topicId: "democracy-rights",
+      guideRef: "human-rights-after-1945",
+      difficulty: "core",
+      question:
+        "Study Source D.\n\n> “The will of the people shall be the basis of the authority of government; this will shall be expressed in periodic and genuine elections which shall be by universal and equal suffrage and shall be held by secret vote or by equivalent free voting procedures.” — Universal Declaration of Human Rights, Article 21(3), adopted by the United Nations, 1948\n\nUsing Source D and your own knowledge, explain how ideas about where a government's power comes from had changed since the time of Henry VIII, and why the writers of the UDHR thought this mattered after the Second World War. (4 marks)",
+      marks: 4,
+      modelAnswer:
+        "Source D says a government's authority comes from “the will of the people”, shown in regular, genuine elections where everyone has an equal, secret vote. This is a huge change from Henry VIII's time, when a king's authority was said to come from God and inheritance — Henry inherited the crown in 1509 and nobody elected him, while Parliament was chosen by a small number of property-owning men. The writers thought this mattered because of recent history: Hitler had used the Enabling Act to destroy elections and create a one-party state, which led to war and the Holocaust. Making free elections a human right was meant to stop governments ruling without the consent of the people — although not every country that signed the declaration followed it.",
+      markScheme: [
+        { point: "Uses the source: authority comes from the will of the people, shown in regular, free, secret, equal elections", keywords: ["will of the people", "elections", "secret", "universal", "equal", "vote"] },
+        { point: "Contrasts with Henry VIII's time: power from God and inheritance; no election of the king; few voters", keywords: ["divine right", "god", "inherited", "henry", "1509", "not elected", "few men"] },
+        { point: "Explains the post-war context: dictators such as Hitler destroyed elections and rights, leading to war and the Holocaust", keywords: ["hitler", "dictator", "dictatorship", "enabling act", "one-party", "holocaust", "nazi", "war"] },
+        { point: "Explains why it mattered: making elections a right aimed to stop rule without consent (with a limit, e.g. not all countries followed it)", keywords: ["consent", "stop", "prevent", "never again", "right", "not every country", "protect"] },
+      ],
+      hints: [
+        "Quote the key phrase in Source D: where does authority come from?",
+        "Where did Henry VIII's authority come from?",
+        "What had just happened in Europe between 1933 and 1945?",
+      ],
+      strategy: "Look for change AND continuity",
+      commonError: "Only paraphrasing the source without bringing in Henry VIII or the Second World War.",
+    },
+    {
+      kind: "short",
+      id: "exam-3-q19",
+      topicId: "democracy-rights",
+      guideRef: "parliament-vs-crown",
+      difficulty: "core",
+      question:
+        "After the Glorious Revolution, Parliament made William III and Mary II accept a document (1689) that limited the monarch's power — for example, the monarch could not raise taxes or keep an army in peacetime without Parliament's consent. What is this document usually called?",
+      answer: { type: "text", accept: ["Bill of Rights", "the Bill of Rights", "English Bill of Rights", "Bill of Rights 1689", "Declaration of Right"], display: "the Bill of Rights" },
+      traps: [
+        { spec: { type: "text", accept: ["Magna Carta"] }, feedback: "Magna Carta (1215) limited King John. The 1689 document came after the Civil War and the Glorious Revolution." },
+        { spec: { type: "text", accept: ["Rights of Man", "Declaration of the Rights of Man", "Declaration of the Rights of Man and of the Citizen"] }, feedback: "That is the French declaration of 1789 — a century later. The English document of 1689 has a similar-sounding name." },
+      ],
+      solution: [
+        "The Bill of Rights (1689) made Parliament's consent necessary for taxes, laws and a peacetime army.",
+        "It created a constitutional monarchy: the monarch reigns, but within limits set by Parliament.",
+      ],
+      hints: ["Its name says it lists people's rights.", "The US later used the same name for the first ten amendments to its Constitution."],
+      strategy: "Use the chronology",
+      commonError: "Confusing the English Bill of Rights (1689) with Magna Carta (1215) or the French Declaration (1789).",
+    },
+    {
+      kind: "written",
+      id: "exam-3-q20",
+      topicId: "why-dictatorships",
+      guideRef: "keeping-control",
+      difficulty: "core",
+      question:
+        "Explain one similarity and one difference between the Reign of Terror in France (1793–94) and the way Hitler used terror to secure power in 1933–34. (4 marks)",
+      marks: 4,
+      modelAnswer:
+        "A similarity is that both used fear and violence to destroy opponents, justified by claims that the nation was in danger. During the Terror, the Law of Suspects (1793) allowed the arrest of anyone thought to oppose the Revolution, and around 17,000 people were officially executed; Hitler used the Reichstag Fire to claim a Communist plot, arrested opponents and sent them to camps such as Dachau, then had rivals killed in the Night of the Long Knives (1934). A difference is what the terror led to. The Terror was run by a committee in the name of protecting the Republic, and it ended when the Convention turned on Robespierre and executed him in July 1794. Hitler's terror, by contrast, built a permanent one-man dictatorship backed by the SS and Gestapo, which lasted until 1945.",
+      markScheme: [
+        { point: "Identifies a similarity: both used fear and violence against opponents, justified by claims of danger", keywords: ["fear", "violence", "opponents", "enemies", "danger", "threat", "terror"] },
+        { point: "Supports the similarity with evidence from both (Law of Suspects/~17,000 executions; Reichstag Fire, Dachau, Night of the Long Knives)", keywords: ["law of suspects", "17,000", "guillotine", "reichstag fire", "dachau", "night of the long knives", "camps"] },
+        { point: "Identifies a difference (e.g. committee rule that ended in 1794 vs a permanent one-man dictatorship)", keywords: ["committee", "ended", "robespierre", "one man", "permanent", "dictatorship", "whereas"] },
+        { point: "Explains the difference with evidence (Robespierre executed July 1794; SS and Gestapo until 1945)", keywords: ["1794", "executed", "ss", "gestapo", "1945", "führer", "fuhrer"] },
+      ],
+      hints: ["Make a two-column table: Terror | Hitler.", "What excuse did each side give for using terror?", "How did each period of terror end?"],
+      strategy: "Compare case studies",
+      commonError: "Describing each event separately without stating clearly what is similar and what is different.",
+    },
+
+    // ----------------------------- CHALLENGE ----------------------------
+    {
+      kind: "mcq",
+      id: "exam-3-q21",
+      topicId: "democracy-rights",
+      guideRef: "early-democracy",
+      difficulty: "challenge",
+      question: "Marcus writes: “Magna Carta (1215) was the beginning of democracy in England.” Which piece of evidence most WEAKENS his claim?",
+      options: [
+        "Magna Carta mainly protected barons and “free men”; most people were unfree villeins, and it gave nobody a vote",
+        "Magna Carta was reissued in 1216, 1217 and 1225",
+        "Clause 39 said no free man could be imprisoned without lawful judgement",
+        "American revolutionaries later quoted Magna Carta when they demanded their rights",
+      ],
+      answerIndex: 0,
+      explanation:
+        "Democracy means rule by the people, but Magna Carta was a deal between the King and his richest subjects: most English people were villeins who gained little, and nobody gained a vote. The reissues, clause 39 and its later use by Americans all show Magna Carta's lasting *significance* — they support the idea that it mattered, so they do not weaken Marcus's claim. A stronger version would be: Magna Carta began the idea that the king is under the law, which later helped democracy grow.",
+      hints: ["First define democracy. What would you expect a democratic document to do?", "Three options show why Magna Carta *mattered*. Which one shows what it did *not* do?"],
+      strategy: "Weigh both sides, then judge",
+    },
+    {
+      kind: "short",
+      id: "exam-3-q22",
+      topicId: "french-revolution",
+      guideRef: "revolution-change-and-continuity",
+      difficulty: "challenge",
+      question:
+        "In 1791 a playwright wrote the *Declaration of the Rights of Woman and of the Female Citizen*, rewriting the 1789 Declaration to include women. She dedicated it to the Queen and was executed during the Terror in 1793. Who was she?",
+      answer: { type: "text", accept: ["Olympe de Gouges", "de Gouges", "Gouges", "Olympe"], display: "Olympe de Gouges" },
+      traps: [
+        { spec: { type: "text", accept: ["Marie Antoinette", "Marie-Antoinette"] }, feedback: "Marie Antoinette was the Queen the declaration was dedicated *to*. The author was a playwright." },
+        { spec: { type: "text", accept: ["Mary Wollstonecraft", "Wollstonecraft"] }, feedback: "Mary Wollstonecraft was a British writer who published *A Vindication of the Rights of Woman* in 1792. The French declaration of 1791 was by someone else." },
+      ],
+      solution: [
+        "Olympe de Gouges argued that if a woman could be sent to the scaffold, she should also have the right to speak in public life.",
+        "She was guillotined in November 1793 — evidence that the Revolution's “equality” did not extend to women.",
+      ],
+      hints: ["She was French and wrote plays and political pamphlets.", "Her first name is Olympe."],
+      strategy: "Look for change AND continuity",
+      commonError: "Naming Mary Wollstonecraft, who wrote a similar-sounding work in Britain in 1792.",
+    },
+    {
+      kind: "written",
+      id: "exam-3-q23",
+      topicId: "womens-suffrage",
+      guideRef: "why-women-won-the-vote",
+      difficulty: "challenge",
+      question:
+        "Which was more important in some women winning the vote in 1918: the long campaign by women's suffrage groups, or the First World War? Explain your answer. (5 marks)",
+      marks: 5,
+      modelAnswer:
+        "The long campaign mattered. Petitions had been presented since 1866, and Fawcett's NUWSS, with around 50,000 members by 1914, steadily won over MPs from the Liberal and Labour parties. The suffragettes kept the issue in the newspapers, although their militancy may also have hardened opposition. The war mattered too. Women's work in munitions, transport and nursing changed many people's attitudes, and both groups backed the war effort. The war also created a practical reason to act: a new law was needed anyway so that soldiers who had been away could vote, which gave Parliament a chance to include women. However, the 1918 Act gave the vote only to women over 30 with property — many munitions workers were younger and did not qualify — so war work alone cannot be the reason. Overall the campaign was more important: it had already made votes for women a serious question, and the war was the trigger that let Parliament settle it.",
+      markScheme: [
+        { point: "Explains the suffragists' long campaign (petitions since 1866; NUWSS ~50,000 members; support from MPs)", keywords: ["suffragists", "nuwss", "fawcett", "petitions", "1866", "mps", "campaign"] },
+        { point: "Explains the suffragettes' role (publicity), possibly noting militancy hardened opposition", keywords: ["suffragettes", "wspu", "publicity", "militancy", "hardened", "opposition"] },
+        { point: "Explains the war's impact on attitudes (munitions, nursing, transport; groups backing the war effort)", keywords: ["war work", "munitions", "nursing", "attitudes", "war effort", "jobs"] },
+        { point: "Explains the war's practical effect (new law needed for soldiers) and/or the limit that young war workers were excluded", keywords: ["soldiers", "new law", "reform anyway", "under 30", "over 30", "younger", "excluded"] },
+        { point: "Reaches a supported judgement linking the factors (e.g. campaign made it a serious issue; war was the trigger)", keywords: ["more important", "overall", "trigger", "judgement", "linked", "therefore"] },
+      ],
+      hints: [
+        "Plan both sides first: the campaign (suffragists and suffragettes) and the war.",
+        "Who exactly got the vote in 1918? Does that fit the “reward for war work” idea?",
+        "Try linking: could the war have achieved this without decades of campaigning before it?",
+      ],
+      strategy: "Weigh both sides, then judge",
+      commonError: "Claiming women were given the vote as a “reward” for war work — the age limit of 30 excluded most young munitions workers.",
+    },
+    {
+      kind: "written",
+      id: "exam-3-q24",
+      topicId: "democracy-rights",
+      guideRef: "widening-the-vote",
+      difficulty: "challenge",
+      question: "How much did the right to vote in Britain change between 1832 and 1928? (5 marks)",
+      marks: 5,
+      modelAnswer:
+        "In 1832 change was small: the Great Reform Act gave more middle-class men the vote and seats to new industrial towns, but only about 7% of adults could vote, and women were shut out by the words “male persons”. Change was gradual over the next fifty years: the 1867 Act added many working men in towns, the 1872 Ballot Act made voting secret, and the 1884 Act extended the vote to men in the countryside — but still only about 28% of adults could vote. The biggest change came in 1918, when almost all men over 21 and many women over 30 gained the vote (about 74% of adults), followed by equal votes at 21 in 1928 (about 97%). There was also continuity: for most of the period voting depended on property, and women were excluded completely until 1918. Overall the right to vote changed enormously — from a small privileged minority to almost all adults — but most of that change was squeezed into just ten years, 1918–28, after nearly a century of slow, partial reform.",
+      markScheme: [
+        { point: "Describes the limited change of 1832 (more middle-class men; ~7% of adults; women excluded as 'male persons')", keywords: ["1832", "middle-class", "middle class", "7%", "male persons", "rotten boroughs"] },
+        { point: "Describes gradual change 1867–1884 (town workers, secret ballot 1872, rural men)", keywords: ["1867", "1872", "1884", "secret ballot", "working men", "countryside"] },
+        { point: "Describes the major change of 1918 and 1928 (men over 21, women over 30, then equal votes at 21)", keywords: ["1918", "1928", "over 30", "over 21", "equal", "74%", "97%"] },
+        { point: "Identifies continuity (property qualification; women excluded until 1918)", keywords: ["continuity", "property", "women excluded", "still", "no women", "stayed the same"] },
+        { point: "Judges the extent and rate of change (huge overall, but slow until a rapid turning point in 1918)", keywords: ["turning point", "rapid", "slow", "gradual", "overall", "extent", "judgement"] },
+      ],
+      hints: [
+        "Build a quick timeline: 1832, 1867, 1872, 1884, 1918, 1928.",
+        "Look for continuity as well as change — what stayed the same until 1918?",
+        "Judge the *rate* of change: steady, or slow then sudden?",
+      ],
+      strategy: "Look for change AND continuity",
+      commonError: "Listing the Acts without judging how big the change was or when it happened fastest.",
+    },
+    {
+      kind: "written",
+      id: "exam-3-q25",
+      topicId: "power-of-monarchs",
+      guideRef: "limits-on-power",
+      difficulty: "challenge",
+      question:
+        "King John (1215) and Louis XVI (1789) both faced revolts against their power. Explain why Louis XVI lost his throne and his life, while John stayed king until his death. (5 marks)",
+      marks: 5,
+      modelAnswer:
+        "The two kings faced similar problems at first: both were short of money (John from his wars in France, Louis from debts that included helping the American Revolution) and both angered powerful subjects with taxes. But the rebels wanted different things. John's barons wanted to *limit* the king, through Magna Carta, and when that failed they invited Prince Louis of France to replace him — they still wanted a king. Nobody in 1215 imagined a country without one. In 1789, by contrast, Enlightenment ideas and the Declaration of the Rights of Man said that sovereignty belonged to the nation, so the monarchy itself could be questioned. Louis's own actions made things worse: the Flight to Varennes in 1791 and war with Austria in 1792 made him look like a traitor, so the monarchy was abolished in September 1792 and he was executed in January 1793. John was also lucky that he died in October 1216, during the war, before he could be defeated. Overall the key difference was ideas: John faced rebels who wanted a better king, while Louis faced revolutionaries who came to believe they needed no king at all.",
+      markScheme: [
+        { point: "Identifies similar pressures (money problems from war, unpopular taxes, angry powerful subjects)", keywords: ["money", "debt", "taxes", "war", "barons", "similar"] },
+        { point: "Explains that John's barons aimed to limit or replace the king, not abolish monarchy (Magna Carta; invited Prince Louis)", keywords: ["limit", "magna carta", "prince louis", "replace", "still wanted a king", "barons"] },
+        { point: "Explains the new ideas of 1789 (Enlightenment; sovereignty belongs to the nation; Rights of Man)", keywords: ["enlightenment", "sovereignty", "nation", "rights of man", "rousseau", "the people"] },
+        { point: "Explains Louis's own actions and events (Flight to Varennes 1791; war 1792; Republic; executed 1793)", keywords: ["varennes", "1791", "war", "austria", "traitor", "republic", "1793", "executed"] },
+        { point: "Reaches a supported judgement on the key difference (e.g. ideas; also John's death in 1216)", keywords: ["key difference", "overall", "judgement", "1216", "died", "most important"] },
+      ],
+      hints: [
+        "Start with the similarities: why were both kings in trouble?",
+        "What did the rebels in each case actually want — a better king, or no king?",
+        "What did Louis do in 1791 that destroyed trust in him?",
+      ],
+      strategy: "Compare case studies",
+      commonError: "Telling two stories side by side without explaining the *difference* in outcome.",
+    },
+    {
+      kind: "written",
+      id: "exam-3-q26",
+      topicId: "democracy-rights",
+      guideRef: "widening-the-vote",
+      difficulty: "challenge",
+      question:
+        "“Democracy developed mainly because ordinary people fought for it.” How far do you agree? Use evidence from at least two topics you have studied this year. (6 marks)",
+      marks: 6,
+      modelAnswer:
+        "There is strong evidence for the statement. In 1789 the Third Estate defied the King with the Tennis Court Oath, and Paris crowds stormed the Bastille and marched on Versailles, forcing Louis XVI to accept change. In Britain, the Chartists gathered huge petitions in the 1830s and 1840s, and the suffragists and suffragettes campaigned for decades for votes for women.\n\nHowever, other factors mattered. Politicians often granted reform for their own reasons: the 1832 Act was partly passed to head off revolution, and in 1918 Parliament needed a new law for returning soldiers anyway. Wars and crises drove change: the First World War opened the way for the 1918 Act, and the horrors of the Second World War led to the UDHR in 1948. New ideas, such as Locke's natural rights and the Enlightenment, shaped what people fought for. And even in 1215 the pressure came from rich barons, not ordinary people.\n\nThe factors were linked: popular pressure worked best when a crisis made rulers willing to listen. Fighting for democracy did not guarantee it either — the French Revolution produced the Terror and then Napoleon's dictatorship. Overall I partly agree: ordinary people's struggle was necessary to put democracy on the agenda, but it usually succeeded only when crises and elites' own interests pushed in the same direction.",
+      markScheme: [
+        { point: "Agrees using the French Revolution (Tennis Court Oath, Bastille, march on Versailles)", keywords: ["third estate", "tennis court oath", "bastille", "versailles", "sans-culottes", "crowd"] },
+        { point: "Agrees using British campaigns (Chartists, suffragists, suffragettes)", keywords: ["chartists", "suffragists", "suffragettes", "petition", "petitions", "campaign"] },
+        { point: "Disagrees: elites/politicians granted change for their own reasons (1832 to avoid revolution; 1918 for soldiers; barons in 1215)", keywords: ["politicians", "parliament", "avoid revolution", "soldiers", "barons", "elites"] },
+        { point: "Disagrees: wars, crises and ideas drove change (WW1, WW2 and the UDHR, Enlightenment/Locke)", keywords: ["war", "first world war", "second world war", "udhr", "enlightenment", "locke", "ideas"] },
+        { point: "Links the factors and/or notes that struggle did not guarantee democracy (Terror, Napoleon)", keywords: ["linked", "together", "terror", "napoleon", "did not guarantee", "when"] },
+        { point: "Reaches a substantiated overall judgement", keywords: ["overall", "partly agree", "largely agree", "judgement", "therefore", "necessary"] },
+      ],
+      hints: [
+        "Plan by factors: ordinary people; elites and politicians; wars and crises; ideas.",
+        "Use at least two topics — the French Revolution and votes for women work well together.",
+        "Did fighting for democracy always produce democracy? Think about 1793–1804.",
+        "Finish with *how far*, and the reason for your judgement.",
+      ],
+      strategy: "Weigh both sides, then judge",
+      commonError: "Writing only about ordinary people's struggles without weighing them against other factors.",
+    },
+  ],
+};
