@@ -94,6 +94,16 @@ export const SITCOM_EPISODES: SitcomEpisode[] = [
     "poster": "/videos/posters/mao-china.jpg"
   },
   {
+    "num": 9,
+    "topicId": "pol-pot",
+    "topicShort": "Pol Pot & the Khmer Rouge",
+    "title": "Remembering Year Zero",
+    "logline": "A very special episode. Tara prepares a respectful presentation on Cambodia 1953-79 with help from Chrono and Mum: the war spills over, the Khmer Rouge take power, Year Zero, the genocide, justice and memory.",
+    "durationSec": 503,
+    "src": "/videos/pol-pot.mp4",
+    "poster": "/videos/posters/pol-pot.jpg"
+  },
+  {
     "num": 10,
     "topicId": "why-dictatorships",
     "topicShort": "Why Dictatorships Rise",
