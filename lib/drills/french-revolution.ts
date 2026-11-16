@@ -14,7 +14,7 @@ const EVENTS: DatedEvent[] = [
   { year: 1789, label: "the Declaration of the Rights of Man and of the Citizen", alt: ["Declaration of the Rights of Man", "Rights of Man"], date: "26 August 1789" },
   { year: 1791, label: "the Flight to Varennes", alt: ["Flight to Varennes", "Varennes"], date: "20–21 June 1791" },
   { year: 1791, label: "Olympe de Gouges's Declaration of the Rights of Woman", alt: ["Declaration of the Rights of Woman", "Rights of Woman"], date: "September 1791" },
-  { year: 1792, label: "the declaration of the French Republic", alt: ["French Republic declared", "declaration of the Republic", "Republic declared", "the Republic"], date: "22 September 1792 (the monarchy was abolished the day before)" },
+  { year: 1792, label: "the declaration of the French Republic", alt: ["French Republic declared", "declaration of the Republic", "Republic declared", "the Republic"], date: "22 September 1792" },
   { year: 1793, label: "the execution of Louis XVI", alt: ["execution of Louis XVI", "Louis XVI's execution", "execution of the king", "Louis executed"], date: "21 January 1793" },
   { year: 1793, label: "the Law of Suspects", alt: ["Law of Suspects"], date: "17 September 1793" },
   { year: 1794, label: "the first abolition of slavery in the French colonies", alt: ["first abolition of slavery", "abolition of slavery", "slavery abolished"], date: "4 February 1794" },
@@ -26,7 +26,7 @@ const EVENTS: DatedEvent[] = [
   { year: 1804, label: "Napoleon's coronation as Emperor", alt: ["Napoleon's coronation", "Napoleon crowned Emperor", "coronation"], date: "2 December 1804" },
   { year: 1815, label: "the Battle of Waterloo", alt: ["Battle of Waterloo", "Waterloo"], date: "18 June 1815" },
   { year: 1848, label: "the final abolition of slavery in the French colonies", alt: ["final abolition of slavery", "final abolition"], date: "1848" },
-  { year: 1944, label: "the granting of the vote to French women", alt: ["French women's vote", "women's vote in France", "French women get the vote"], date: "1944 (they first voted in 1945)" },
+  { year: 1944, label: "the granting of the vote to French women", alt: ["French women's vote", "women's vote in France", "French women get the vote"], date: "April 1944" },
   { year: 1948, label: "the adoption of the Universal Declaration of Human Rights", alt: ["Universal Declaration of Human Rights", "UDHR", "the UDHR"], date: "10 December 1948" },
 ];
 
@@ -137,7 +137,7 @@ export const drills: Drill[] = [
         prompt: "Which British commander, with Prussian help, defeated Napoleon at Waterloo in 1815?",
         answer: { type: "text", accept: ["Wellington", "Duke of Wellington", "the Duke of Wellington", "Arthur Wellesley"], display: "The Duke of Wellington" },
         solution: "The Duke of Wellington, with the Prussian army under Blücher, on 18 June 1815.",
-        hint: "A duke — a famous rubber boot is named after him.",
+        hint: "A duke — a type of boot is named after him.",
       },
       {
         prompt: "Which priest wrote the 1789 pamphlet *What is the Third Estate?*, answering “Everything”?",
@@ -432,7 +432,7 @@ export const drills: Drill[] = [
         prompt: "Napoleon restored slavery in 1802 and sent an army to Saint-Domingue. Which new independent state was born there in 1804?",
         answer: { type: "text", accept: ["Haiti", "Hayti", "Republic of Haiti"], display: "Haiti" },
         solution: "Haiti — the first state founded by formerly enslaved people.",
-        hint: "The island's original Taíno name.",
+        hint: "Its name comes from the Taíno people's name for the island.",
       },
       {
         prompt: "The Terror ended and in 1795 a new constitution gave power to five Directors. What was this government called?",
