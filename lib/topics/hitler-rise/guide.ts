@@ -431,7 +431,7 @@ export const guide: TopicGuide = {
     ],
     videos: [
       { title: "How did Hitler rise to power?", channel: "TED-Ed", url: "https://www.youtube.com/results?search_query=TED-Ed+how+did+Hitler+rise+to+power" },
-      { title: "Why did people vote for the Nazis?", channel: "BBC Bitesize", url: "https://www.youtube.com/results?search_query=why+did+Germans+vote+for+the+Nazis+1930+1932" },
+      { title: "Why did people vote for the Nazis?", channel: "BBC Bitesize", url: "https://www.youtube.com/results?search_query=BBC+Bitesize+why+did+Germans+vote+for+the+Nazis" },
       { title: "How Hitler became a dictator: the Enabling Act", channel: "Search results", url: "https://www.youtube.com/results?search_query=Enabling+Act+1933+how+Hitler+became+dictator" },
       { title: "The Night of the Long Knives explained", channel: "Search results", url: "https://www.youtube.com/results?search_query=Night+of+the+Long+Knives+1934+explained" },
     ],

@@ -334,7 +334,7 @@ export const practice: TopicPractice = {
           ],
           answerIndex: 1,
           explanation:
-            "The Games were a propaganda showcase; some antisemitic signs were even taken down while foreign visitors were in Berlin. Jewish athletes were not free to compete — Germany allowed only a token Jewish competitor. The African American athlete Jesse Owens won four gold medals, undermining Nazi racist claims in front of the world.",
+            "The Games were a propaganda showcase; some antisemitic signs were even taken down while foreign visitors were in Berlin. German Jewish athletes were largely shut out of the German team; the regime allowed only token Jewish participation. The African American athlete Jesse Owens won four gold medals, undermining Nazi racist claims in front of the world.",
           difficulty: "core",
           guideRef: "the-nazi-police-state",
           hints: ["Who was watching the Olympics?", "Think about propaganda aimed at foreigners as well as Germans."],
@@ -367,7 +367,7 @@ export const practice: TopicPractice = {
           marks: 5,
           modelAnswer:
             "The Enabling Act (23 March 1933) was extremely important because it gave Hitler's cabinet the power to make laws without the Reichstag. It was the legal foundation of the dictatorship: using it, Hitler shut down the trade unions in May 1933 and made the Nazis the only legal party in July 1933. Because it was passed by the Reichstag itself, officials, judges and soldiers continued to obey.\n\nHowever, other steps were also vital. The Reichstag Fire decree came first and made the Act possible, because it allowed the arrest of Communist deputies before the vote. And Hitler's power was not complete until August 1934: the Night of the Long Knives won the army's support, and when Hindenburg died Hitler became Führer and the army swore an oath to him, removing the last check on his power.\n\nOverall I largely agree. The Enabling Act was the most important single step because it turned Hitler from a Chancellor dependent on others into a ruler who could make any law, and later steps relied on it — but it depended on the terror of the Reichstag Fire decree, and his control was only complete in 1934.",
-      markScheme: [
+          markScheme: [
             { point: "Explains what the Enabling Act did (laws without the Reichstag)", keywords: ["make laws", "without the reichstag", "law-making", "four years", "power to make laws"] },
             { point: "Shows its consequences (unions May 1933, one-party state July 1933) or the importance of its legality", keywords: ["unions", "one-party", "one party", "parties banned", "legal", "obey", "july 1933"] },
             { point: "Argues for another step with evidence (Reichstag Fire decree, Night of the Long Knives, Hindenburg's death/army oath)", keywords: ["reichstag fire", "decree", "night of the long knives", "röhm", "rohm", "hindenburg", "oath", "army"] },
@@ -435,7 +435,7 @@ export const practice: TopicPractice = {
         {
           kind: "short",
           id: "hitler-rise-p2-q03",
-          question: "How many Nazis, including Hitler himself, were in Hitler's first cabinet in January 1933?",
+          question: "How many Nazis, including Hitler himself, were in Hitler's first cabinet in January 1933? (Give a number.)",
           answer: { type: "number", value: 3 },
           solution: ["Three: Hitler, Wilhelm Frick and Hermann Göring.", "The rest were conservatives — which is why Papen and Hindenburg thought Hitler could be controlled."],
           difficulty: "warmup",
@@ -511,7 +511,7 @@ export const practice: TopicPractice = {
         {
           kind: "short",
           id: "hitler-rise-p2-q08",
-          question: "Which numbered article of the Weimar constitution let the President rule by emergency decree?",
+          question: "Which numbered article of the Weimar constitution let the President rule by emergency decree? (Give the number only.)",
           answer: { type: "number", value: 48, display: "Article 48" },
           solution: ["Article 48.", "From 1930 Brüning, Papen and Schleicher all governed using Article 48 decrees signed by Hindenburg, because they had no Reichstag majority."],
           difficulty: "core",
@@ -776,7 +776,7 @@ export const practice: TopicPractice = {
       ],
       answerIndex: 1,
       explanation:
-        "This shows the March 1933 election was not fully free — opponents were arrested and intimidated — and even so most voters did not back the Nazis. The 444–94 Enabling Act vote looks like free consent but actually took place with Communist deputies arrested or in hiding and SA men surrounding the building, so it does not weaken the claim at all — on the surface it supports it.",
+        "This shows the March 1933 election was not fully free — opponents were arrested and intimidated — and even so most voters did not back the Nazis. The 444–94 Enabling Act vote, as stated, looks like consent, so on its own it supports the claim (although its context — Communist deputies arrested and SA men in the building — tells a different story).",
       difficulty: "challenge",
       guideRef: "consolidating-power",
       hints: ["To weaken a claim you need evidence that the choice was NOT free, or NOT made by most Germans.", "Three options appear, on the surface, to support the claim. Which one does not?"],

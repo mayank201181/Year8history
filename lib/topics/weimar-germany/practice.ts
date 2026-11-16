@@ -562,7 +562,7 @@ export const practice: TopicPractice = {
           question: "Was the Treaty of Versailles unfair to Germany? Explain both sides. (4 marks)",
           marks: 4,
           modelAnswer:
-            "Germans had good reasons to call it unfair. It was a Diktat that they could not negotiate, Article 231 blamed Germany alone for the war, and reparations of £6.6 billion were a huge burden. On the other hand, Germany had invaded Belgium and France, where much of the war's destruction took place, and in 1918 Germany had forced an even harsher treaty, Brest-Litovsk, on Russia. Germany also kept most of its industry and remained a great power. So the treaty was harsh and humiliating, but not as crushing as many Germans believed.",
+            "Germans had good reasons to call it unfair. It was a Diktat that they could not negotiate, Article 231 blamed Germany alone for the war, and reparations of £6.6 billion were a huge burden. On the other hand, Germany had invaded Belgium and France, where much of the war's destruction took place, and in 1918 Germany had forced an even harsher treaty, Brest-Litovsk, on Russia. Germany also kept its industrial heartland in the Ruhr and remained a great power. So the treaty was harsh and humiliating, but not as crushing as many Germans believed.",
           markScheme: [
             { point: "Argues it was unfair: Diktat / no negotiation", keywords: ["diktat", "not allowed", "negotiate", "dictated"] },
             { point: "Argues it was unfair: precise harsh terms (Article 231, £6.6 billion, land)", keywords: ["231", "war guilt", "£6.6", "reparations", "13%", "colonies"] },

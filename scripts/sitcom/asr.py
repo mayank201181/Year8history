@@ -4,6 +4,7 @@ Usage: python3 asr.py episodes/<topic>.py   (after build.py)
 import json, re, hashlib, os, difflib, sys
 HERE=os.path.dirname(os.path.abspath(__file__))
 from faster_whisper import WhisperModel
+sys.path.insert(0,HERE); from respell import respell
 ns={}; exec(open(os.path.join(HERE,'common.py')).read(), ns)
 exec(open(sys.argv[1]).read(), ns)
 V=ns['VOICES']; m=WhisperModel('base.en', device='cpu', compute_type='int8', cpu_threads=2)
@@ -14,7 +15,7 @@ for b in ns['B']:
     if b['type']=='challenge': items += [('chrono',b['qs']),('chrono',b['as_'])]
 bad=[]
 for who,text in items:
-    key=hashlib.sha1(json.dumps([V[who],text]).encode()).hexdigest()[:16]
+    key=hashlib.sha1(json.dumps([V[who],respell(text)]).encode()).hexdigest()[:16]
     f=os.path.join(HERE,'tts_cache',f'{who}_{key}.wav')
     import soundfile as sf, numpy as np
     au,sr=sf.read(f,dtype='float32'); au=au.mean(1) if au.ndim>1 else au

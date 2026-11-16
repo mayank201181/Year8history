@@ -97,5 +97,5 @@ same as a normal frame (about 15 to 35 ms). Avoid adding per-draw `ctx.filter` i
 - Write numbers as words. Say years the way people say them ("ten sixty six").
 - Say "zero point seven", not "nought".
 - Avoid interjections ("Ugh", "Hmm").
-- If Kokoro mispronounces a name, add a phonetic respelling for the spoken text in `build.py` and keep the real spelling in the
+- If Kokoro mispronounces a name, add a phonetic respelling to `RESPELL` in `respell.py` (TTS only) and keep the real spelling in the
   subtitles. Then check `out/<topic>/asr.txt`.

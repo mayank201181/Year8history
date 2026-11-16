@@ -90,7 +90,7 @@ const GRIEVANCES: Grievance[] = [
     label: "Hostages",
     emoji: "🧒",
     clause: "49",
-    grievance: "John demanded barons' sons as hostages for their fathers' loyalty. Matilda de Braose refused to hand hers over in 1208 — and her family was destroyed.",
+    grievance: "John demanded barons' sons as hostages for their fathers' loyalty. According to a chronicler, Matilda de Braose refused to hand hers over in 1208 — and her family was destroyed.",
     plain: "The king will at once return all hostages and charters handed over to him as security for peace or loyal service.",
     survival: "dropped",
     survivalNote: "Dropped: it dealt with the 1215 crisis itself, so it had no place in later reissues.",
@@ -280,6 +280,8 @@ const GROUP_NAME: Record<Group, string> = { b: "Barons", c: "Church", f: "France
 
 interface Step {
   date: string;
+  /** Short axis label. */
+  year: string;
   title: string;
   what: string;
   /** Change in pressure on a 0–10 judgement scale. */
@@ -290,13 +292,15 @@ interface Step {
 const STEPS: Step[] = [
   {
     date: "May 1199",
+    year: "1199",
     title: "John is crowned",
     what: "Richard I dies without children. The English barons and John's mother Eleanor back John; Brittany, Anjou and Philip II of France back his nephew Arthur.",
-    d: { b: 1, c: 1, f: 3 },
+    d: { b: 1, c: 1, f: 2 },
     why: "John starts with a rival claimant and a hostile French king. The English barons accept him — for now.",
   },
   {
     date: "1200",
+    year: "1200",
     title: "John marries Isabella of Angoulême",
     what: "John marries Isabella, who was engaged to Hugh de Lusignan. The Lusignans appeal to Philip II, John's overlord for his French lands.",
     d: { b: 0, c: 0, f: 2 },
@@ -304,27 +308,31 @@ const STEPS: Step[] = [
   },
   {
     date: "1202",
+    year: "1202",
     title: "Lands declared forfeit; Arthur captured",
     what: "John ignores Philip's summons, so Philip declares his French lands forfeit. John wins a brilliant victory at Mirebeau and captures Arthur — but ignores the advice of his ally William des Roches over Arthur's fate.",
-    d: { b: 1, c: 0, f: 1 },
+    d: { b: 1, c: 0, f: 2 },
     why: "A military success, but des Roches and other lords of Anjou desert to Philip. Winning battles isn't enough if allies don't trust you.",
   },
   {
     date: "1203",
+    year: "1203",
     title: "Arthur disappears",
     what: "Arthur vanishes in John's custody at Rouen. Rumours spread that John had him murdered.",
-    d: { b: 1, c: 0, f: 1 },
+    d: { b: 1, c: 0, f: 2 },
     why: "Lords in Normandy and Brittany lose faith in John, and Philip gains support. Fear and distrust spread.",
   },
   {
     date: "1204",
+    year: "1204",
     title: "Normandy is lost",
     what: "Château Gaillard falls in March and Rouen surrenders in June. John is mocked as 'Softsword'.",
-    d: { b: 2, c: 0, f: 2 },
+    d: { b: 1, c: 0, f: 2 },
     why: "Barons lose their Norman estates. John now lives in England full-time and squeezes it for money to win Normandy back.",
   },
   {
     date: "1205–1207",
+    year: "1205",
     title: "Quarrel over the Archbishop",
     what: "After Hubert Walter dies, John wants his own man as Archbishop of Canterbury. Pope Innocent III consecrates Stephen Langton instead (1207). John refuses to let him in.",
     d: { b: 0, c: 3, f: 0 },
@@ -332,6 +340,7 @@ const STEPS: Step[] = [
   },
   {
     date: "1207",
+    year: "1207",
     title: "A huge new tax",
     what: "John levies a tax of a thirteenth on movable goods and income — one of the biggest taxes yet raised in England.",
     d: { b: 1, c: 0, f: 0 },
@@ -339,6 +348,7 @@ const STEPS: Step[] = [
   },
   {
     date: "1208–1209",
+    year: "1208",
     title: "Interdict and excommunication",
     what: "The Pope places England under an interdict (1208) and excommunicates John (1209). John seizes Church lands and their income.",
     d: { b: 0, c: 4, f: 0 },
@@ -346,27 +356,31 @@ const STEPS: Step[] = [
   },
   {
     date: "1208–1210",
+    year: "1210",
     title: "The fall of the de Braose family",
     what: "John hounds his former favourite William de Braose for debts. In 1210 de Braose's wife Matilda and eldest son die of starvation in John's prison.",
-    d: { b: 2, c: 0, f: 0 },
+    d: { b: 1, c: 0, f: 0 },
     why: "Every baron could see that if the king turned against you, there was no law to protect you.",
   },
   {
     date: "1212",
-    title: "A plot to kill or desert John",
+    year: "1212",
+    title: "A baronial plot is uncovered",
     what: "John learns of a plot by barons including Robert FitzWalter and Eustace de Vesci. He calls off his invasion of Wales; the plotters flee.",
-    d: { b: 1, c: 0, f: 1 },
-    why: "Baronial anger has turned into conspiracy, and the plotters are in contact with Philip.",
+    d: { b: 1, c: 0, f: 0 },
+    why: "Baronial anger has turned into conspiracy. FitzWalter flees to France — John's enemies are starting to link up.",
   },
   {
     date: "May 1213",
+    year: "1213",
     title: "John submits to the Pope",
     what: "Facing a planned French invasion, John accepts Langton and hands England to the Pope as a fief, paying 1,000 marks a year. His fleet then destroys French ships at Damme.",
-    d: { b: 0, c: -6, f: -1 },
+    d: { b: 0, c: -6, f: -2 },
     why: "A brilliant U-turn: the Pope becomes John's protector and Philip loses his 'holy war'. But the barons' grievances haven't gone away.",
   },
   {
     date: "1214",
+    year: "1214",
     title: "Defeat at Bouvines and a record scutage",
     what: "John's allies are crushed at Bouvines (27 July). He has demanded scutage at 3 marks per knight's fee, and many northern barons refuse to pay or serve.",
     d: { b: 2, c: 0, f: 1 },
@@ -374,6 +388,7 @@ const STEPS: Step[] = [
   },
   {
     date: "May 1215",
+    year: "1215",
     title: "The barons rebel and take London",
     what: "Rebel barons renounce their loyalty (5 May) and capture London (17 May). John can't pay an army big enough to win quickly.",
     d: { b: 1, c: 0, f: 0 },
@@ -508,7 +523,7 @@ function PressureGauge() {
         ))}
         {STEPS.map((st, i) => (
           <text key={i} x={px(i)} y={H - 12} fontSize={8} textAnchor="middle" className={i === step ? "fill-brand" : "fill-ink-2"}>
-            {st.date.slice(-4) === "1207" && st.date.length > 4 ? "1205" : st.date.slice(-4)}
+            {st.year}
           </text>
         ))}
         <line x1={px(step)} x2={px(step)} y1={T} y2={H - B} className="stroke-brand" strokeDasharray="3 3" strokeWidth={1} />

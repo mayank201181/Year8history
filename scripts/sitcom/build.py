@@ -25,7 +25,11 @@ def kokoro():
         _k = Kokoro(os.path.join(HERE, "kokoro-v1.0.onnx"), os.path.join(HERE, "voices-v1.0.bin"))
     return _k
 
+sys.path.insert(0, HERE)
+from respell import respell
+
 def tts(who, text):
+    text = respell(text)          # phonetic fixes for TTS only (subtitles use the original text)
     v = VOICES[who]
     key = hashlib.sha1(json.dumps([v, text]).encode()).hexdigest()[:16]
     f = os.path.join(cache, f"{who}_{key}.wav")
