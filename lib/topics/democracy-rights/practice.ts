@@ -525,7 +525,7 @@ export const practice: TopicPractice = {
           kind: "short",
           id: "democracy-rights-p2-q04",
           question: "Who wrote the *Declaration of the Rights of Woman and of the Female Citizen* in 1791?",
-          answer: { type: "text", accept: ["Olympe de Gouges", "de Gouges", "Gouges", "Marie Gouze"], display: "Olympe de Gouges" },
+          answer: { type: "text", accept: ["Olympe de Gouges", "de Gouges", "Gouges", "Olympe", "Marie Gouze"], display: "Olympe de Gouges" },
           traps: [
             { spec: { type: "text", accept: ["Mary Wollstonecraft", "Wollstonecraft"] }, feedback: "Mary Wollstonecraft wrote *A Vindication of the Rights of Woman* in England in 1792 — a similar argument, but the French *Declaration* was by Olympe de Gouges." },
             { spec: { type: "text", accept: ["Marie Antoinette"] }, feedback: "Marie Antoinette was the queen. The *Declaration of the Rights of Woman* was written by Olympe de Gouges — though she did dedicate it to the queen." },
