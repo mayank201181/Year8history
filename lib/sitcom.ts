@@ -64,6 +64,36 @@ export const SITCOM_EPISODES: SitcomEpisode[] = [
     "poster": "/videos/posters/power-of-monarchs.jpg"
   },
   {
+    "num": 6,
+    "topicId": "weimar-germany",
+    "topicShort": "Weimar Germany",
+    "title": "A Billion Marks For A Bread Roll",
+    "logline": "Dad prints 'Rao Marks' pocket money and causes hyperinflation at Uncle Hock's stall. Germany after WW1, Versailles, the Weimar constitution, 1923, Stresemann's recovery and the Depression that opened the door to Hitler.",
+    "durationSec": 504,
+    "src": "/videos/weimar-germany.mp4",
+    "poster": "/videos/posters/weimar-germany.jpg"
+  },
+  {
+    "num": 8,
+    "topicId": "mao-china",
+    "topicShort": "Mao's China",
+    "title": "The Great Leap Backwards",
+    "logline": "Dad launches a household 'Great Leap Forward', melts Mum's woks into 'art' and reports fake results. Chrono explains China 1839-1976: humiliation, revolution, the Long March, 1949, the Great Leap Forward and famine, the Cultural Revolution.",
+    "durationSec": 520,
+    "src": "/videos/mao-china.mp4",
+    "poster": "/videos/posters/mao-china.jpg"
+  },
+  {
+    "num": 10,
+    "topicId": "why-dictatorships",
+    "topicShort": "Why Dictatorships Rise",
+    "title": "Crisis, Weakness And A Microphone",
+    "logline": "The condo lift breaks, the water goes off, the residents' committee collapses and Dad grabs the microphone. Chrono compares how Hitler, Mao and Pol Pot came to power: crisis, weak government, leadership and control.",
+    "durationSec": 502,
+    "src": "/videos/why-dictatorships.mp4",
+    "poster": "/videos/posters/why-dictatorships.jpg"
+  },
+  {
     "num": 11,
     "topicId": "french-revolution",
     "topicShort": "The French Revolution",
