@@ -144,7 +144,7 @@ export const drills: Drill[] = [
       {
         prompt: "Which Khmer Rouge leader was head of state of Democratic Kampuchea and was convicted of genocide in 2018?",
         answer: { type: "text", accept: ["Khieu Samphan", "Samphan"], display: "Khieu Samphan" },
-        solution: "Khieu Samphan, head of state from 1976. He is the last surviving senior leader to have been convicted.",
+        solution: "Khieu Samphan, head of state from 1976. He had already been convicted of crimes against humanity in 2014.",
         hint: "He was convicted alongside Nuon Chea.",
         tier: 2,
       },
@@ -697,7 +697,7 @@ export const drills: Drill[] = [
         prompt: "Cambodia's population in 1975 was about how many million? (Estimates vary.)",
         answer: { type: "number", value: 7.5, tolerance: 0.6, display: "About 7–8 million" },
         solution: "About 7–8 million, so 1.5–2 million deaths was roughly a quarter.",
-        hint: "Less than Singapore's population today? No — a little more.",
+        hint: "A single-digit number of millions.",
         tier: 2,
       },
       {
@@ -795,9 +795,9 @@ export const drills: Drill[] = [
         traps: [notSecondary],
       },
       {
-        prompt: "Primary or secondary source? *A report sent by journalist Sydney Schanberg from Phnom Penh as the city fell in April 1975.*",
+        prompt: "Primary or secondary source? *A newspaper report by journalist Sydney Schanberg, written in May 1975 about the fall of Phnom Penh, which he witnessed.*",
         answer: PRIMARY,
-        solution: "Primary: an eyewitness report written at the time.",
+        solution: "Primary: an eyewitness report written within weeks of the events.",
         hint: "Was he there?",
         traps: [notSecondary],
       },
@@ -838,7 +838,7 @@ export const drills: Drill[] = [
         tier: 2,
       },
       {
-        prompt: "Which Cambodian research centre, which began in 1995, has collected and preserved hundreds of thousands of Khmer Rouge documents? Give its short name.",
+        prompt: "Which Cambodian research centre, which began in 1995, has built the largest archive of Khmer Rouge documents? Give its short name.",
         answer: { type: "text", accept: ["DC-Cam", "DCCam", "Documentation Center of Cambodia", "Documentation Centre of Cambodia"], display: "DC-Cam" },
         solution: "DC-Cam, the Documentation Center of Cambodia. Its archive was used as evidence at the ECCC.",
         hint: "Documentation Center of Cambodia.",

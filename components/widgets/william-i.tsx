@@ -459,7 +459,7 @@ function WhyWilliamWon() {
       ]}
       caption={
         <>
-          The battle lasted most of the day, so William's victory was <strong>not inevitable</strong>. Historians argue about the balance of factors — the best answers weigh them, link them, and back the judgement with precise evidence.{" "}
+          The battle lasted most of the day, so William’s victory was <strong>not inevitable</strong>. Historians argue about the balance of factors — the best answers weigh them, link them, and back the judgement with precise evidence.{" "}
           {openCount < 4 ? "Open some evidence cards to build your case." : `You have examined ${openCount} of ${CARDS.length} cards.`}
         </>
       }
@@ -495,7 +495,7 @@ function WhyWilliamWon() {
         <div className="rounded-xl bg-brand-soft p-3 text-sm leading-relaxed text-ink">
           <div className="text-xs font-bold uppercase tracking-wide text-ink-2">Your judgement</div>
           <p className="mt-1">{judgement}</p>
-          {unsupported ? <p className="mt-1 font-bold text-bad">Careful: you haven't opened any evidence for {FACTORS[top].name.toLowerCase()} yet. A judgement needs evidence.</p> : null}
+          {unsupported ? <p className="mt-1 font-bold text-bad">Careful: you haven’t opened any evidence for {FACTORS[top].name.toLowerCase()} yet. A judgement needs evidence.</p> : null}
         </div>
 
         <div>
@@ -526,9 +526,9 @@ function WhyWilliamWon() {
           <div className="rounded-xl border border-line bg-surface-2 p-3 text-sm leading-relaxed text-ink">
             <div className="font-bold">One strong model judgement (historians disagree!)</div>
             <p className="mt-1">
-              Luck gave William his chance: Hardrada's invasion and the change of wind meant he landed unopposed while Harold was in the north. But luck alone did not win the battle. <strong>William's skill</strong> turned that chance into victory — his long preparation, papal support, mixed army and leadership on the day broke a shield wall that held for hours. Harold's decisions to rush south with a tired army made William's job easier. So the most important factor was William's skill, because without it the lucky timing would have been wasted — but the factors only worked together.
+              Luck gave William his chance: Hardrada’s invasion and the change of wind meant he landed unopposed while Harold was in the north. But luck alone did not win the battle. <strong>William’s skill</strong> turned that chance into victory — his long preparation, papal support, mixed army and leadership on the day broke a shield wall that held for hours. Harold’s decisions to rush south with a tired army made William’s job easier. So the most important factor was William’s skill, because without it the lucky timing would have been wasted — but the factors only worked together.
             </p>
-            <p className="mt-2 text-ink-2">Another historian might put luck first: if Hardrada had invaded a month later, Harold's full army would probably have been waiting on the south coast. What would YOU need to argue to beat this model answer?</p>
+            <p className="mt-2 text-ink-2">Another historian might put luck first: if Hardrada had invaded a month later, Harold’s full army would probably have been waiting on the south coast. What would YOU need to argue to beat this model answer?</p>
           </div>
         ) : null}
       </div>

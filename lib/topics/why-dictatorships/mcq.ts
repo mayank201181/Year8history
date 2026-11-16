@@ -381,7 +381,7 @@ export const mcqPapers: Paper[] = [
           "Papen and Hindenburg wanted Nazi mass support behind a conservative government and thought they could 'box in' Hitler. They were badly wrong. The Nazis never held a majority of seats in a free election — their peak was 230 of 608 seats in July 1932.",
         difficulty: "core",
         guideRef: "weak-government",
-        hints: ["Why limit the Nazis to three cabinet posts?", "What did Papen expect to happen — and what actually happened within 18 months?"],
+        hints: ["Why limit the Nazis to three cabinet posts?", "What did Papen expect to happen — and what actually happened within about 18 months?"],
         strategy: "Ask “who benefits?”",
       },
       {
@@ -765,7 +765,7 @@ export const mcqPapers: Paper[] = [
         ],
         answerIndex: 3,
         explanation:
-          "The best conclusion uses a clear criterion (present in every case), supports it, and tests it with a counter-example. 'Comes first is always most important' is a flawed criterion; the leadership option generalises from one country (and Pol Pot had no public charisma); 'equally important' dodges the judgement.",
+          "The best conclusion uses a clear criterion (present in every case), supports it, and tests it with a counter-example. 'Comes first is always most important' is a flawed criterion; the leadership option generalises from one country (and Pol Pot had no public charisma); 'equally important' dodges the judgement. A conclusion that put weak government or leadership first could be just as strong — what makes this one best is the criterion and the test, not the factor it chose.",
         difficulty: "challenge",
         guideRef: "judging-causes",
         hints: [
