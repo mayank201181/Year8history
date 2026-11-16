@@ -30,7 +30,7 @@ export const practice: TopicPractice = {
         "Under the Treaty of Versailles, Germany had to give a strip of land to the new state of Poland. It cut East Prussia off from the rest of Germany. What was this strip of land called?",
       answer: {
         type: "text",
-        accept: ["Polish Corridor", "the Polish Corridor", "Polish corridor", "corridor", "the corridor", "West Prussia", "Danzig corridor"],
+        accept: ["Polish Corridor", "the Polish Corridor", "Polish corridor", "corridor", "the corridor", "Danzig corridor"],
         display: "The Polish Corridor",
       },
       traps: [
@@ -382,7 +382,7 @@ export const practice: TopicPractice = {
           markScheme: [
             { point: "Useful: shows Nazi promises aimed at the unemployed / the Depression", keywords: ["work", "bread", "jobs", "unemployed", "unemployment", "depression", "6 million", "promise"] },
             { point: "Useful: shows Nazi propaganda methods (simple, emotional, no detailed policies)", keywords: ["propaganda", "simple", "slogan", "emotional", "goebbels", "no details", "no policies"] },
-            { point: "Limitation from provenance: made by the Nazis to persuade, so shows their message not voters' motives", keywords: ["nazi", "made by", "persuade", "purpose", "biased", "one-sided", "not what voters", "propaganda"] },
+            { point: "Limitation from provenance: made by the Nazis to persuade, so shows their message not voters' motives", keywords: ["nazi poster", "by the nazis", "made by", "persuade", "purpose", "biased", "one-sided", "not what voters", "propaganda"] },
             { point: "Limitation of content / judgement: misses other reasons (e.g. fear of communism) and needs other evidence", keywords: ["communism", "communist", "other reasons", "other evidence", "election results", "only", "partly", "overall"] },
           ],
           commonError: "Saying 'it is biased so it is useless'. A biased source can be very useful for showing what its makers wanted people to believe.",
@@ -403,7 +403,7 @@ export const practice: TopicPractice = {
           modelAnswer:
             "One reason was **proportional representation**. Parties got seats in exact proportion to their votes, so many small parties won seats and no single party ever had a majority. This meant governments had to be **coalitions** of several parties, which often argued and collapsed; Germany had about 20 different governments between 1919 and 1933.\n\nA second reason was **Article 48**. It let the President rule by emergency decree without the Reichstag. This was meant for emergencies, but from 1930 Chancellors used it to govern, so the Reichstag was bypassed and democracy was weakened. It also gave huge power to one man, the President, which later helped Hitler.",
           markScheme: [
-            { point: "Identifies proportional representation leading to many parties", keywords: ["proportional representation", "pr", "many parties", "small parties", "proportion"] },
+            { point: "Identifies proportional representation leading to many parties", keywords: ["proportional representation", "(pr)", "many parties", "small parties", "proportion"] },
             { point: "Explains the result: no majority, coalitions, frequent collapse of governments", keywords: ["coalition", "coalitions", "no majority", "collapsed", "unstable", "20 governments", "argued"] },
             { point: "Identifies Article 48 (emergency decree powers)", keywords: ["article 48", "emergency", "decree", "president"] },
             { point: "Explains why Article 48 weakened democracy (Reichstag bypassed, power in one person's hands, used from 1930)", keywords: ["bypass", "bypassed", "without the reichstag", "one man", "1930", "bruning", "brüning", "undemocratic", "dictator"] },
@@ -428,7 +428,7 @@ export const practice: TopicPractice = {
           markScheme: [
             { point: "Identifies a first method (e.g. Reichstag Fire decree, Enabling Act, banning unions, banning parties)", keywords: ["reichstag fire", "decree", "enabling act", "trade unions", "unions", "banned", "parties", "one-party"] },
             { point: "Develops the first method with detail (arrests of communists, rights suspended, dates)", keywords: ["communists", "arrested", "free speech", "press", "1933", "rights", "suspended"] },
-            { point: "Identifies a second, different method (e.g. Night of the Long Knives)", keywords: ["night of the long knives", "röhm", "rohm", "sa", "1934", "purge"] },
+            { point: "Identifies a second, different method (e.g. Night of the Long Knives)", keywords: ["night of the long knives", "röhm", "rohm", "the sa", "sa leader", "1934", "purge"] },
             { point: "Develops the second method with detail (who was targeted and why it silenced opposition)", keywords: ["killed", "murdered", "rivals", "schleicher", "threat", "army", "removed"] },
           ],
           difficulty: "core",
@@ -447,12 +447,12 @@ export const practice: TopicPractice = {
             "Explain how **crises** and the **weakness of the Weimar government** worked *together* to help Hitler become Chancellor. Show the links between the factors. (6 marks)",
           marks: 6,
           modelAnswer:
-            "The **Great Depression** was the crisis that turned the Nazis into a mass party. After the Wall Street Crash in 1929, American loans were recalled and unemployment reached about 6 million by 1932.\n\nThis crisis exposed the **weakness of the Weimar system**. Because of proportional representation, the government was a coalition, and in 1930 it collapsed when the parties could not agree on cutting unemployment benefits. From then on, Chancellor Brüning governed using **Article 48** decrees, so the Reichstag was sidelined and democracy already looked like it was failing.\n\nThe two factors fed each other: the worse the crisis got, the more voters turned to extremes, which made the Reichstag even harder to manage, so the President relied on decrees and a small circle of advisers. That is why, in January 1933, a **backroom deal** by von Papen and Hindenburg could make Hitler Chancellor. Without the crisis, Hitler would not have had 37% of the vote; without the weak system, that vote would not have been turned into power. The link between them is what mattered most.",
+            "The **Great Depression** was the crisis that turned the Nazis into a mass party. After the Wall Street Crash in 1929, American loans were recalled and unemployment reached about 6 million by 1932.\n\nThis crisis exposed the **weakness of the Weimar system**. Because of proportional representation, the government was a coalition, and in March 1930 it collapsed when the parties could not agree how to pay for unemployment benefits. From then on, Chancellor Brüning governed using **Article 48** decrees, so the Reichstag was sidelined and democracy already looked like it was failing.\n\nThe two factors fed each other: the worse the crisis got, the more voters turned to extremes, which made the Reichstag even harder to manage, so the President relied on decrees and a small circle of advisers. That is why, in January 1933, a **backroom deal** by von Papen and Hindenburg could make Hitler Chancellor. Without the crisis, Hitler would not have had 37% of the vote; without the weak system, that vote would not have been turned into power. The link between them is what mattered most.",
           markScheme: [
             { point: "Explains a crisis (Depression / unemployment) with precise detail", keywords: ["depression", "wall street", "crash", "1929", "unemployment", "6 million", "loans"] },
             { point: "Explains a weakness of government (PR, coalitions collapsing)", keywords: ["proportional representation", "coalition", "coalitions", "collapsed", "1930", "no majority"] },
             { point: "Explains rule by Article 48 decree sidelining the Reichstag", keywords: ["article 48", "decree", "brüning", "bruning", "bypassed", "sidelined"] },
-            { point: "Makes an explicit link: the crisis made the weakness worse (or vice versa)", keywords: ["because", "led to", "which meant", "made worse", "fed", "linked", "link", "so"] },
+            { point: "Makes an explicit link: the crisis made the weakness worse (or vice versa)", keywords: ["because", "led to", "which meant", "made worse", "fed", "linked", "link", "as a result", "this meant"] },
             { point: "Explains the backroom deal (Papen, Hindenburg) as the outcome of the weakened system", keywords: ["papen", "hindenburg", "deal", "backroom", "appointed", "january 1933", "control"] },
             { point: "Reaches a supported judgement about how the factors combined", keywords: ["without", "together", "combination", "most important", "overall", "judgement", "conclusion"] },
           ],
@@ -471,7 +471,7 @@ export const practice: TopicPractice = {
           kind: "written",
           id: "hitler-rise-p1-q12",
           question:
-            "**Source C** — Reichstag election results, 1932 (share of the vote).\n\n| Party | July 1932 | November 1932 |\n|---|---|---|\n| Nazis (NSDAP) | 37.3% | 33.1% |\n| Social Democrats (SPD) | 21.6% | 20.4% |\n| Communists (KPD) | 14.3% | 16.9% |\n| Centre Party | 12.5% | 11.9% |\n| Nationalists (DNVP) | 5.9% | 8.3% |\n\nUse Source C and your own knowledge to explain why some conservative politicians in late 1932 thought it was both **necessary** and **safe** to bring Hitler into government. (5 marks)",
+            "**Source C** — official Reichstag election results, 1932 (share of the vote).\n\n| Party | July 1932 | November 1932 |\n|---|---|---|\n| Nazis (NSDAP) | 37.3% | 33.1% |\n| Social Democrats (SPD) | 21.6% | 20.4% |\n| Communists (KPD) | 14.3% | 16.9% |\n| Centre Party | 12.4% | 11.9% |\n| Nationalists (DNVP) | 5.9% | 8.3% |\n\nUse Source C and your own knowledge to explain why some conservative politicians in late 1932 thought it was both **necessary** and **safe** to bring Hitler into government. (5 marks)",
           marks: 5,
           modelAnswer:
             "Source C shows the Nazis were still the **largest party** in November 1932, with 33.1%. No government could get support in the Reichstag without them, and ruling by Article 48 decree without any popular backing could not last, so conservatives like von Papen thought it was **necessary** to use Hitler's mass support.\n\nThe Communist vote rose from 14.3% to **16.9%**. Conservatives, landowners and industrialists feared a communist revolution, so they wanted a strong anti-communist movement on their side.\n\nAt the same time, the Nazi vote **fell** by over 4 points, and the party was short of money. Conservatives thought Hitler was past his peak and would be grateful for power, so it seemed **safe**: only three Nazis were in the new cabinet, and Papen as Vice-Chancellor believed he could control him.\n\nThe source cannot show the backroom meetings themselves, so it explains the reasoning but not the deal.",
@@ -650,7 +650,7 @@ export const practice: TopicPractice = {
             { point: "Lesson 1 identified: force/armed revolt would fail (army and police loyal)", keywords: ["force", "violence", "army", "police", "fired", "failed", "armed"] },
             { point: "Explains the change: win power legally through elections", keywords: ["legal", "legally", "elections", "votes", "reichstag", "democracy"] },
             { point: "Lesson 2 identified: need for organisation / propaganda (shown by the trial's publicity)", keywords: ["organisation", "organise", "propaganda", "publicity", "trial", "newspapers", "headlines"] },
-            { point: "Explains what he did: refounded the party (1925), branches, SS, propaganda machine", keywords: ["1925", "refounded", "branches", "ss", "mein kampf", "rebuilt", "nationwide"] },
+            { point: "Explains what he did: refounded the party (1925), branches, SS, propaganda machine", keywords: ["1925", "refounded", "branches", "the ss", "ss bodyguard", "mein kampf", "rebuilt", "nationwide"] },
           ],
           commonError: "Narrating what happened in the putsch instead of explaining what Hitler learned and how he changed.",
           difficulty: "core",
@@ -721,7 +721,7 @@ export const practice: TopicPractice = {
             { point: "Challenges A (no majority; vote fell in November 1932; Hindenburg refused him)", keywords: ["majority", "fell", "33", "november", "refused", "never won"] },
             { point: "Supports B with evidence (Papen, Hindenburg, backroom deal, three Nazis in cabinet)", keywords: ["papen", "hindenburg", "deal", "backroom", "three nazis", "vice-chancellor", "control", "use him"] },
             { point: "Recognises how the interpretations connect (votes made Hitler impossible to ignore)", keywords: ["both", "combine", "connect", "why they turned", "impossible to ignore", "because of his support"] },
-            { point: "Reaches a clear, justified judgement on which is more convincing", keywords: ["more convincing", "overall", "therefore", "judgement", "conclusion", "most"] },
+            { point: "Reaches a clear, justified judgement on which is more convincing", keywords: ["more convincing", "overall", "therefore", "judgement", "conclusion", "most convincing", "stronger"] },
           ],
           solutions: [
             {
@@ -850,7 +850,7 @@ export const practice: TopicPractice = {
         { spec: { type: "text", accept: ["Centre Party", "the Centre Party", "Centre", "Zentrum", "Center Party"] }, feedback: "The Catholic Centre Party voted *for* the Act after Hitler promised to respect the Church's rights." },
       ],
       solution: [
-        "The **Social Democrats (SPD)** cast all 94 votes against the Act; some of their own deputies had already been arrested.",
+        "All **94 Social Democrat (SPD)** deputies present voted against the Act; others had already been arrested or had fled.",
         "The Communists were barred, and the Centre Party voted in favour, giving Hitler more than the two-thirds majority he needed.",
       ],
       difficulty: "challenge",

@@ -182,7 +182,7 @@ export const practice: TopicPractice = {
           question: "As the youngest son of Henry II, with no great lands of his own to inherit, John was given a nickname. What was it?",
           answer: { type: "text", accept: ["Lackland", "Lack Land", "Lack-land", "John Lackland", "Sans Terre", "Jean sans Terre", "Lackeland"], display: "Lackland" },
           traps: [
-            { spec: { type: "text", accept: ["Softsword", "Soft Sword", "Soft-sword"] }, feedback: "'Softsword' came later, after he *lost* Normandy in 1204. Which nickname did he have as a young man with no lands?" },
+            { spec: { type: "text", accept: ["Softsword", "Soft Sword", "Soft-sword"] }, feedback: "'Softsword' came later, when he was king: critics first used it after he gave up land to Philip II in 1200, and losing Normandy in 1204 made it stick. Which nickname did he have as a young man with no lands?" },
           ],
           solution: ["Henry II's lands were meant for John's older brothers.", "So young John 'lacked land' — he was nicknamed **Lackland** (in French, *sans Terre*)."],
           difficulty: "warmup",
@@ -201,7 +201,7 @@ export const practice: TopicPractice = {
           solution: ["Château Gaillard fell in March **1204** and Rouen surrendered that summer.", "Normandy, held by English kings since 1066, was gone."],
           difficulty: "warmup",
           guideRef: "losing-normandy",
-          hints: ["It was five years after John became king in 1199."],
+          hints: ["It was early in John's reign, a few years before his quarrel with the Pope began."],
         },
         {
           kind: "mcq",
@@ -415,7 +415,7 @@ export const practice: TopicPractice = {
           solution: ["John died of dysentery at Newark in October **1216**, in the middle of the First Barons' War.", "His nine-year-old son became Henry III."],
           difficulty: "warmup",
           guideRef: "magna-carta",
-          hints: ["It was the year after Magna Carta."],
+          hints: ["He died during the war that broke out after Magna Carta, so think about which year Prince Louis invaded."],
         },
         {
           kind: "short",
@@ -428,7 +428,7 @@ export const practice: TopicPractice = {
           solution: ["Bouvines was fought on 27 July **1214**.", "It was the year before Magna Carta, and it destroyed John's hopes of recovering Normandy."],
           difficulty: "warmup",
           guideRef: "barons-revolt",
-          hints: ["It came just one year before Magna Carta."],
+          hints: ["It was the battle that ended John's ten-year plan to win back Normandy — shortly before the barons rebelled."],
         },
         {
           kind: "mcq",
@@ -558,7 +558,7 @@ export const practice: TopicPractice = {
             "There is strong evidence that John was a bad king. He **lost Normandy** in 1204 and failed to win it back at Bouvines in 1214, and he was **cruel and untrustworthy** — Arthur of Brittany probably died on his orders, and Matilda de Braose and her son were starved to death in his prison in 1210. His harsh fines and scutage drove his barons into rebellion, and he broke Magna Carta within weeks.\n\nHowever, there is a case that he was a capable ruler in difficult circumstances. Royal records show he was **hard-working**, travelled constantly hearing court cases, and built up an efficient system for collecting money. He faced Philip II, one of the strongest French kings, and inherited debts from Richard's crusade and ransom. Much of his bad reputation comes from monks like Roger of Wendover, who were biased after the Interdict.\n\nOverall, I mostly agree. John had real skills as an administrator, but a king had to win wars and keep his barons' trust, and John failed at both because of his own suspicion and cruelty.",
           markScheme: [
             { point: "Argues for 'bad': military failure (Normandy 1204, Bouvines 1214)", keywords: ["normandy", "1204", "bouvines", "1214", "lost", "softsword", "defeat"] },
-            { point: "Argues for 'bad': cruelty/untrustworthiness (Arthur, Matilda de Braose, hostages, broke Magna Carta)", keywords: ["cruel", "arthur", "braose", "hostages", "untrustworthy", "broke", "murder", "starved"] },
+            { point: "Argues for 'bad': cruelty/untrustworthiness (Arthur, Matilda de Braose, hostages, broke Magna Carta)", keywords: ["cruel", "arthur", "braose", "briouze", "hostages", "untrustworthy", "broke", "murder", "starved"] },
             { point: "Argues against: hard-working, skilled administrator, justice and finance", keywords: ["hard-working", "administrator", "records", "justice", "courts", "efficient", "travelled"] },
             { point: "Argues against: difficult circumstances (Philip II, Richard's debts, inflation) / bad luck", keywords: ["philip", "debts", "ransom", "crusade", "inflation", "unlucky", "luck", "circumstances"] },
             { point: "Evaluates the evidence for his reputation (biased monastic chroniclers, Victorian view)", keywords: ["monks", "chroniclers", "wendover", "matthew paris", "biased", "victorian", "reputation"] },
@@ -596,7 +596,7 @@ export const practice: TopicPractice = {
           question: "Explain why Magna Carta **failed to bring peace** in 1215. (5 marks)",
           marks: 5,
           modelAnswer:
-            "First, **neither side trusted the other**. Magna Carta was a peace treaty forced on John, not something he believed in, and the security clause allowing 25 barons to seize his lands was something no king would accept for long. Second, John quickly **asked the Pope for help**. Since 1213 England had been a papal fief, so Innocent III supported his vassal and in August 1215 declared the charter 'null and void'. Third, the **extreme rebels did not want peace** either: some, like Robert Fitzwalter, kept hold of London and wanted to replace John. Within months the First Barons' War had begun, and in 1216 the rebels invited Prince Louis of France to be king. These reasons linked together: John's submission to the Pope gave him a way out, and the barons' distrust meant they were ready to fight again.",
+            "First, **neither side trusted the other**. Magna Carta was a peace treaty forced on John, not something he believed in, and the security clause allowing 25 barons to seize his lands was something no king would accept for long. Second, John quickly **asked the Pope for help**. Since 1213 England had been a papal fief, so Innocent III supported his vassal and in August 1215 declared the charter 'null and void'. Third, the **extreme rebels did not want peace** either: some, like Robert Fitzwalter, kept hold of London and wanted to replace John. Within months the First Barons' War had begun, and by the end of 1215 the rebels had invited Prince Louis of France to be king; he landed in May 1216. These reasons linked together: John's submission to the Pope gave him a way out, and the barons' distrust meant they were ready to fight again.",
           markScheme: [
             { point: "Explains mutual distrust / the charter was forced on John", keywords: ["trust", "distrust", "forced", "did not believe", "unwilling", "pressure"] },
             { point: "Explains the security clause (25 barons) was unacceptable to John", keywords: ["security clause", "25", "twenty-five", "clause 61", "seize"] },
@@ -717,7 +717,7 @@ export const practice: TopicPractice = {
       question: "**Compare** William I and John. Why was William able to keep control of his barons, while John faced a rebellion? (6 marks)",
       marks: 6,
       modelAnswer:
-        "William and John both demanded a lot from their barons, but their situations were very different. William **won England by conquest** in 1066, so the barons owed their new lands entirely to him; loyalty brought rewards, rebellion meant losing everything. John **inherited** a kingdom whose barons held their lands by long family right and were used to customary limits on the king.\n\nSecondly, William was a **successful war leader**: victory at Hastings and crushing revolts such as the Harrying of the North made him feared. John was 'Softsword', who lost Normandy in 1204 and failed again at Bouvines in 1214, so fear and respect drained away.\n\nThirdly, William kept **the Church on his side** — the Pope gave his invasion a papal banner and Lanfranc supported him — whereas John's quarrel with Innocent III brought the Interdict and gave rebels the name 'Army of God'.\n\nOverall, military success was the key difference: William's victories made his harshness acceptable, but John's defeats made his heavy demands unbearable.",
+        "William and John both demanded a lot from their barons, but their situations were very different. William **won England by conquest** in 1066, so the barons owed their new lands entirely to him; loyalty brought rewards, rebellion meant losing everything. John **inherited** a kingdom whose barons held their lands by long family right and were used to customary limits on the king.\n\nSecondly, William was a **successful war leader**: victory at Hastings and crushing revolts such as the Harrying of the North made him feared. John, mocked as 'Softsword', lost Normandy in 1204 and failed again at Bouvines in 1214, so fear and respect drained away.\n\nThirdly, William kept **the Church on his side** — the Pope gave his invasion a papal banner and Lanfranc supported him — whereas John's quarrel with Innocent III brought the Interdict and gave rebels the name 'Army of God'.\n\nOverall, military success was the key difference: William's victories made his harshness acceptable, but John's defeats made his heavy demands unbearable.",
       markScheme: [
         { point: "Contrasts how they gained power: conquest and land grants vs inheritance", keywords: ["conquest", "conquered", "1066", "inherited", "inheritance", "gave land", "rewards", "new lands"] },
         { point: "Contrasts military success: Hastings/Harrying vs Normandy 1204 and Bouvines", keywords: ["hastings", "harrying", "victory", "normandy", "bouvines", "softsword", "defeat", "lost"] },
@@ -763,7 +763,7 @@ export const practice: TopicPractice = {
         { point: "Explains the influence of the time/context of writing (Victorian pride in liberty and Parliament)", keywords: ["victorian", "liberty", "parliament", "stubbs", "proud", "heroes", "villain", "context"] },
         { point: "Explains the modern approach: judging John in context (Philip II, money problems)", keywords: ["modern", "warren", "context", "philip", "money", "coffers", "pressures", "circumstances"] },
         { point: "Uses precise knowledge to test Interpretation A", keywords: ["coward", "softsword", "normandy", "bouvines", "biased", "exaggerated", "liar", "arthur"] },
-        { point: "Uses precise knowledge to test Interpretation B", keywords: ["hard-working", "administrator", "justice", "cruel", "braose", "arthur", "hostages", "suspicious"] },
+        { point: "Uses precise knowledge to test Interpretation B", keywords: ["hard-working", "administrator", "justice", "cruel", "braose", "briouze", "arthur", "hostages", "suspicious"] },
         { point: "Reaches a supported judgement on which is more convincing", keywords: ["more convincing", "overall", "judgement", "i find", "stronger", "better supported"] },
       ],
       solutions: [
@@ -796,7 +796,7 @@ export const practice: TopicPractice = {
       question: "Explain the **chain of events** that links the loss of Normandy in 1204 to Magna Carta in 1215. (5 marks)",
       marks: 5,
       modelAnswer:
-        "1. Losing Normandy in 1204 humiliated John ('Softsword') and cost him its income, so he resolved to **win it back**.\n2. Reconquest needed a huge war chest, so John **squeezed his barons** for ten years with scutage, the 1207 tax, huge fines for inheritances and marriages, and he took hostages to ensure loyalty.\n3. He also spent far more time in England than earlier kings, so his barons felt his **government directly and constantly**, which bred resentment.\n4. In 1214 the great campaign failed at **Bouvines**: the money had been wasted and John looked weak.\n5. Angry barons now had both **grievances and opportunity**: they renounced homage, took London in May 1215 and forced John to agree Magna Carta at Runnymede. Each link made the next more likely, so the loss of Normandy was the long-term starting point of the crisis.",
+        "1. Losing Normandy in 1204 humiliated John — it seemed to confirm his critics' nickname 'Softsword' — and cost him its income, so he resolved to **win it back**.\n2. Reconquest needed a huge war chest, so John **squeezed his barons** for ten years with scutage, the 1207 tax, huge fines for inheritances and marriages, and he took hostages to ensure loyalty.\n3. He also spent far more time in England than earlier kings, so his barons felt his **government directly and constantly**, which bred resentment.\n4. In 1214 the great campaign failed at **Bouvines**: the money had been wasted and John looked weak.\n5. Angry barons now had both **grievances and opportunity**: they renounced homage, took London in May 1215 and forced John to agree Magna Carta at Runnymede. Each link made the next more likely, so the loss of Normandy was the long-term starting point of the crisis.",
       markScheme: [
         { point: "Link 1: loss of Normandy led John to plan reconquest / lost income and prestige", keywords: ["win back", "reconquer", "income", "humiliated", "softsword", "1204"] },
         { point: "Link 2: reconquest required heavy taxes, fines, scutage, hostages", keywords: ["scutage", "taxes", "fines", "1207", "hostages", "money", "squeezed"] },

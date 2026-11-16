@@ -262,7 +262,7 @@ export const practice: TopicPractice = {
           kind: "short",
           id: "william-i-p1-q05",
           question: "Name the land tax collected by Anglo-Saxon kings that William kept collecting — and that the Domesday survey helped him to assess.",
-          answer: { type: "text", accept: ["geld", "the geld", "danegeld", "dane geld", "dane-geld", "heregeld", "land tax geld"], display: "The geld" },
+          answer: { type: "text", accept: ["geld", "the geld", "danegeld", "dane geld", "dane-geld", "land tax geld"], display: "The geld" },
           traps: [
             { spec: { type: "text", accept: ["scutage"] }, feedback: "Scutage was money paid instead of knight service — it became a big issue later, under King John. The Anglo-Saxon land tax had a different name." },
             { spec: { type: "text", accept: ["tithe", "tithes"] }, feedback: "A tithe was a tenth of produce paid to the **Church**, not a royal tax." },
@@ -553,7 +553,7 @@ export const practice: TopicPractice = {
         {
           kind: "written",
           id: "william-i-p2-q10",
-          question: "**Source B** — from the *Anglo-Saxon Chronicle* (Worcester version), written by English monks, describing events after William's coronation (adapted).\n\n> Bishop Odo and Earl William stayed behind here, and built castles far and wide throughout this country, and oppressed the wretched people; and always after that it grew much worse.\n\nWhat can you infer from Source B about the effect of Norman castles on the English? (3 marks)",
+          question: "**Source B** — from the *Anglo-Saxon Chronicle* (Worcester version), written by English monks, describing events after William's coronation, when William went back to Normandy in 1067 (adapted).\n\n> Bishop Odo and Earl William [William FitzOsbern, one of the king's closest followers] stayed behind here, and built castles far and wide throughout this country, and oppressed the wretched people; and always after that it grew much worse.\n\nWhat can you infer from Source B about the effect of Norman castles on the English? (3 marks)",
           marks: 3,
           modelAnswer:
             "I can infer that the English saw castles as a **tool of oppression**, not protection. The writer links the castles directly to the Normans who \"oppressed the wretched people\", which suggests castles were used to dominate and frighten the local population.\n\nI can also infer that castle-building was **widespread and fast** — \"far and wide throughout this country\" suggests the Normans were planting castles everywhere to control the whole kingdom, not just a few places.\n\nFinally, \"always after that it grew much worse\" suggests English monks felt life got steadily harder under Norman rule, so castles became a symbol of the Conquest that the English resented.",
@@ -653,7 +653,7 @@ export const practice: TopicPractice = {
         { spec: { type: "number", value: 20 }, feedback: "Check September: it has **30** days, not 31." },
         { spec: { type: "number", value: 18 }, feedback: "Nearly — recount. From 25 to 30 September is 5 days, then add the days into October." },
       ],
-      solution: ["From 25 September to 30 September = **5** days.", "Then 14 more days to 14 October: 5 + 14 = **19** days.", "In those 19 days Harold heard of William's landing, marched back to London (roughly 200 miles), gathered troops and marched on to Hastings."],
+      solution: ["From 25 September to 30 September = **5** days.", "Then 14 more days to 14 October: 5 + 14 = **19** days.", "In those 19 days Harold heard of William's landing, marched back to London (about 185 miles), gathered troops and marched on to Hastings."],
       commonError: "Assuming September has 31 days.",
       difficulty: "challenge",
       guideRef: "battles-of-1066",
@@ -745,10 +745,10 @@ export const practice: TopicPractice = {
       question: "**What if?** Suppose the wind had let William cross the Channel in August 1066, while Harold's army and fleet were still waiting on the south coast. Explain how this might have changed the outcome — and why historians have to be careful with \"what if\" questions. (4 marks)",
       marks: 4,
       modelAnswer:
-        "If William had landed in August, he would probably have faced Harold's **full, fresh army** — including the fyrd, which was only sent home on 8 September when supplies ran out — and possibly the English **fleet** at sea. Harold would not yet have marched 250 miles north to fight Hardrada, so his housecarls would not have been tired or reduced by losses at Stamford Bridge. William's invasion might have been defeated on the beaches or soon after landing.\n\nBut historians must be careful. We cannot know: William might still have won through his cavalry, archers and leadership, or might simply have waited for a better moment. \"What if\" questions are useful because they show **which factors really mattered** — here, that timing and luck were important — but they are speculation, not evidence, and we must avoid treating one imagined outcome as certain.",
+        "If William had landed in August, he would probably have faced Harold's **full, fresh army** — including the fyrd, which was only sent home on 8 September when supplies ran out — and possibly the English **fleet** at sea. Harold would not yet have marched about 185 miles north from London to fight Hardrada, so his housecarls would not have been tired or reduced by losses at Stamford Bridge. William's invasion might have been defeated on the beaches or soon after landing.\n\nBut historians must be careful. We cannot know: William might still have won through his cavalry, archers and leadership, or might simply have waited for a better moment. \"What if\" questions are useful because they show **which factors really mattered** — here, that timing and luck were important — but they are speculation, not evidence, and we must avoid treating one imagined outcome as certain.",
       markScheme: [
         { point: "Harold's army would have been fresh / at full strength with the fyrd still assembled", keywords: ["fresh", "full", "fyrd", "8 september", "not tired", "south coast", "waiting"] },
-        { point: "No Stamford Bridge first — no long march north, no losses (or fleet at sea)", keywords: ["stamford bridge", "hardrada", "march", "250", "losses", "fleet", "navy"] },
+        { point: "No Stamford Bridge first — no long march north, no losses (or fleet at sea)", keywords: ["stamford bridge", "hardrada", "march", "185", "250", "losses", "fleet", "navy"] },
         { point: "Recognises William might still have won (or delayed) — outcome uncertain", keywords: ["might still", "could still", "uncertain", "cannot know", "may have", "cavalry", "archers"] },
         { point: "Explains the value and limits of counterfactuals (show which factors mattered, but speculation)", keywords: ["speculation", "evidence", "careful", "which factors", "mattered", "luck", "timing", "imagined", "not certain"] },
       ],

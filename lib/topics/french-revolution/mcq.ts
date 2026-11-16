@@ -441,7 +441,7 @@ export const mcqPapers: Paper[] = [
       {
         kind: "mcq",
         id: "french-revolution-m2-q07",
-        question: "**Source A** — from *Travels in France* by Arthur Young, an English farmer who toured France in 1787–89 (adapted). In July 1789 he met a poor woman in Champagne.\n\n> She said her husband had only a morsel of land, one cow and a poor little horse, yet they had to pay dues of wheat and chickens to one lord, and oats and money to another, besides very heavy taxes. It was said that something was to be done by some great folks for such poor ones, but she did not know who nor how.\n\nWhat can you infer from this source?",
+        question: "**Source A** — from *Travels in France* by Arthur Young, an English farmer who toured France in 1787–89 (adapted). In July 1789 he met a poor woman in eastern France.\n\n> She said her husband had only a morsel of land, one cow and a poor little horse, yet they had to pay dues of wheat and chickens to one lord, and oats and money to another, besides very heavy taxes. It was said that something was to be done by some great folks for such poor ones, but she did not know who nor how.\n\nWhat can you infer from this source?",
         options: [
           "Peasants were burdened by both feudal dues to lords and royal taxes, and some hoped the events of 1789 would bring change",
           "Peasants no longer owed any dues to lords by 1789",
@@ -867,7 +867,7 @@ export const mcqPapers: Paper[] = [
           "A government led by five Directors, set up after the Terror, which became unpopular because of corruption, war and economic problems",
         ],
         answerIndex: 3,
-        explanation: "After Robespierre's fall, a new constitution created the **Directory** to prevent another dictatorship. Its weakness — rigged elections, corruption, money troubles and war — helped Napoleon overthrow it in 1799. The Terror was run by the **Committee of Public Safety**, an easy confusion.",
+        explanation: "After Robespierre's fall, a new constitution created the **Directory** to prevent another dictatorship. Its weakness — overturning election results it disliked, corruption, money troubles and war — helped Napoleon overthrow it in 1799. The Terror was run by the **Committee of Public Safety**, an easy confusion.",
         difficulty: "core",
         guideRef: "napoleon-and-legacy",
         hints: [
@@ -888,7 +888,7 @@ export const mcqPapers: Paper[] = [
           "Napoleon destroyed the records to hide the true number",
         ],
         answerIndex: 1,
-        explanation: "Official death sentences are only part of the story: estimates for deaths in prison and without trial take the total well beyond 17,000, and the war in the **Vendée** killed tens of thousands more. The \"most victims were nobles\" idea is a common myth — the great majority of those executed were from the Third Estate.",
+        explanation: "Official death sentences are only part of the story: estimates for deaths in prison and without trial take the total well beyond 17,000, and the war in the **Vendée** killed far more — estimates run well over 100,000 people on both sides. The \"most victims were nobles\" idea is a common myth — the great majority of those executed were from the Third Estate.",
         difficulty: "challenge",
         guideRef: "radical-revolution",
         hints: [
@@ -909,7 +909,7 @@ export const mcqPapers: Paper[] = [
           "It shows the king alone chose who could vote",
         ],
         answerIndex: 1,
-        explanation: "The 1791 rules tied the vote to **property and gender**: all women and many poorer men were excluded. But \"no rights of any kind\" goes too far — passive citizens still had **civil rights** such as equality before the law. Precision matters: the limit was on *political* rights. All adult men got the vote for the Convention in 1792.",
+        explanation: "The 1791 rules tied the vote to **property and gender**: all women and many poorer men were excluded. But \"no rights of any kind\" goes too far — passive citizens still had **civil rights** such as equality before the law. Precision matters: the limit was on *political* rights. Almost all men aged 21+ got the vote for the Convention in 1792.",
         difficulty: "challenge",
         guideRef: "rights-of-man",
         hints: [
@@ -973,10 +973,10 @@ export const mcqPapers: Paper[] = [
           "The Haitian Revolution",
           "The Russian Revolution",
           "The American Revolution",
-          "The Glorious Revolution in Ireland",
+          "The Glorious Revolution of 1688",
         ],
         answerIndex: 2,
-        explanation: "The **American colonists'** fight for independence — with French help — spread ideas about rights and government by consent. The Haitian Revolution began in 1791 and was partly *inspired by* events in France, not the other way round. The Russian Revolution was in 1917.",
+        explanation: "The **American colonists'** fight for independence — with French help — spread ideas about rights and government by consent. The Haitian Revolution began in 1791 and was partly *inspired by* events in France, not the other way round. The Russian Revolution was in 1917, and the Glorious Revolution of 1688 replaced one English king with another rather than throwing off British rule.",
         difficulty: "warmup",
         guideRef: "causes-of-revolution",
         hints: [
@@ -1053,7 +1053,7 @@ export const mcqPapers: Paper[] = [
           "The story was already circulating when she was a child in Austria, so it was very probably pinned on her later by her enemies",
         ],
         answerIndex: 3,
-        explanation: "Rousseau wrote this in the 1760s; Marie Antoinette was born in 1755 and only came to France in 1770. He names no princess. There is **no reliable evidence** she ever said it; the line became attached to her through hostile pamphlets that also called her \"Madame Deficit\". (\"Brioche\" is a rich bread, usually translated as \"cake\".)",
+        explanation: "Rousseau wrote this in the 1760s; Marie Antoinette was born in 1755 and only came to France in 1770. He names no princess. There is **no reliable evidence** she ever said it; the line seems to have been attached to her name only later, because it fitted the hostile image spread by pamphlets that called her \"Madame Deficit\". (\"Brioche\" is a rich bread, usually translated as \"cake\".)",
         difficulty: "core",
         guideRef: "ancien-regime",
         hints: [
@@ -1241,7 +1241,7 @@ export const mcqPapers: Paper[] = [
           "It gave French women the vote, directly inspiring Britain's suffragettes",
         ],
         answerIndex: 1,
-        explanation: "The best judgement weighs **change and continuity**. \"Achieved nothing\" ignores lasting changes such as the end of feudal privilege and the language of rights that later campaigners used. \"Full democracy\" ignores passive citizens, women's exclusion and the Terror. French women did not vote until 1944.",
+        explanation: "The best judgement weighs **change and continuity**. \"Achieved nothing\" ignores lasting changes such as the end of feudal privilege and the language of rights that later campaigners used. \"Full democracy\" ignores passive citizens, women's exclusion and the Terror. French women did not win the vote until 1944.",
         difficulty: "challenge",
         guideRef: "napoleon-and-legacy",
         hints: [

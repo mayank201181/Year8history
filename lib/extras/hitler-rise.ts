@@ -8,7 +8,7 @@ export const extras: TopicExtras = {
   hook:
     "In 1928 only about 1 German voter in 40 chose the Nazis. Six years later Hitler was dictator of Germany — and at no point had a majority of Germans voted for him in a free election. How is that possible?",
   didYouKnow: [
-    "Hitler was not a German citizen for most of his political career. Born in Austria, he only gained German citizenship in **February 1932** — just in time to stand for President.",
+    "Hitler was not a German citizen for most of his rise to power. Born in Austria, he only gained German citizenship in **February 1932** — just in time to stand for President.",
     "Hitler **lost** the 1932 presidential election. In the run-off, Hindenburg won about 53% of the vote to Hitler's 37%. Less than a year later, Hindenburg appointed him Chancellor anyway.",
     "The Weimar Republic is named after a small town, not a person: the National Assembly met in **Weimar** in 1919 because Berlin was too violent and unsafe.",
     "By November 1923 one US dollar was worth about **4.2 trillion marks**. Photographs from the time show people using bundles of worthless banknotes as fuel and children playing with stacks of them like building blocks.",
@@ -70,6 +70,6 @@ export const extras: TopicExtras = {
   history: {
     title: "The last free speech in the Reichstag",
     story:
-      "On **23 March 1933** the Reichstag met in a Berlin opera house, because its own building had burned. SA and SS men lined the walls. Communist deputies had been arrested or forced into hiding, and some Social Democrats were missing too. Hitler demanded the **Enabling Act**. Then **Otto Wels**, leader of the Social Democrats, stood up. Knowing he might be arrested, he told the Nazis that they could take away freedom and life, but not honour. All **94** Social Democrats present voted no; the Act passed anyway, by 444 votes. Within months the SPD was banned. Wels escaped abroad and kept opposing the Nazis from exile until his death in Paris in 1939. His speech is remembered as the last time anyone spoke freely against Hitler in a German parliament.",
+      "On **23 March 1933** the Reichstag met in a Berlin opera house, because its own building had burned. SA and SS men lined the walls. Communist deputies had been arrested or forced into hiding, and some Social Democrats were missing too. Hitler demanded the **Enabling Act**. Then **Otto Wels**, leader of the Social Democrats, stood up. Knowing he might be arrested, he told the Nazis that they could take away freedom and life, but not honour. All **94** Social Democrats present voted no; the Act passed anyway, by 444 votes to 94. Within months the SPD was banned. Wels escaped abroad and kept opposing the Nazis from exile until his death in Paris in 1939. His speech is remembered as the last time anyone spoke freely against Hitler in a German parliament.",
   },
 };

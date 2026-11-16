@@ -10,7 +10,7 @@ export const practice: TopicPractice = {
       answer: { type: "text", accept: ["13th", "13th century", "thirteenth", "thirteenth century", "13", "the 13th century", "the thirteenth century", "13th c"], display: "13th century" },
       traps: [
         { spec: { type: "text", accept: ["12th", "12th century", "twelfth", "twelfth century", "12"] }, feedback: "The '12' at the start is the trap. The 1200s are the **13th** century, because the 1st century was the years 1–100." },
-        { spec: { type: "text", accept: ["14th", "14th century", "fourteenth", "14"] }, feedback: "Too far forward — the 1300s are the 14th century. 1215 is in the 1200s." },
+        { spec: { type: "text", accept: ["14th", "14th century", "fourteenth", "fourteenth century", "14"] }, feedback: "Too far forward — the 1300s are the 14th century. 1215 is in the 1200s." },
       ],
       solution: ["The 1st century = years 1–100, so the century number is always one more than the 'hundreds' digits.", "1215 is in the 1200s → the **13th century**."],
       commonError: "Reading the first two digits ('12') and saying 12th century.",
@@ -92,7 +92,7 @@ export const practice: TopicPractice = {
       kind: "mcq",
       id: "historians-toolkit-quiz-q06",
       question:
-        "Official histories published in China while Mao was in power described the **Long March (1934–35)** as a glorious victory. Many later historians describe it as a desperate retreat in which only a small fraction of those who set out survived. Which is the **best** explanation of why these interpretations differ?",
+        "Official histories published in China while Mao was in power described the **Long March (1934–35)** as a glorious victory. Many later historians describe it as a desperate retreat in which only a small fraction of those who set out reached the end. Which is the **best** explanation of why these interpretations differ?",
       options: [
         "Historians writing later cannot know anything about events that happened before they were born",
         "Only one account can be based on evidence, so the other must be invented",
@@ -233,16 +233,16 @@ export const practice: TopicPractice = {
           kind: "mcq",
           id: "historians-toolkit-p1-q04",
           question:
-            "**Source A** — from the *Ecclesiastical History* by Orderic Vitalis, a monk born in England in 1075 to a Norman father and an English mother. He wrote it in a monastery in Normandy in about the 1120s–30s (adapted).\n\n> I have often praised William in this book, but I cannot praise him for this act, which condemned the innocent and the guilty alike to die of slow starvation.\n\nOrderic is describing the **Harrying of the North** (1069–70). Which detail of the **provenance** makes his criticism of William especially significant?",
+            "**Source A** — from the *Ecclesiastical History* by Orderic Vitalis, a monk born in England in 1075 to an English mother and a French father who served one of William's Norman earls. Aged ten he was sent to a monastery in Normandy, where he wrote this in about the 1120s–30s (adapted).\n\n> I have often praised William in this book, but I cannot praise him for this act, which condemned the innocent and the guilty alike to die of slow starvation.\n\nOrderic is describing the **Harrying of the North** (1069–70). Which detail of the **provenance** makes his criticism of William especially significant?",
           options: [
             "He was an eyewitness who watched the Harrying happen",
-            "He had a Norman father and wrote in a Norman monastery, yet still condemned William — so his criticism is unlikely to be simple anti-Norman bias",
+            "He was half-French and wrote in a Norman monastery, yet still condemned William — so his criticism is unlikely to be simple anti-Norman bias",
             "He wrote about 50 years later, so his account is useless",
             "He was a monk, and monks were bound to tell the truth",
           ],
           answerIndex: 1,
           explanation:
-            "Orderic was half-Norman, lived in Normandy and says he often praised William — so when even he condemns the Harrying, it suggests the brutality was real, not just English hatred of the Normans. He was **not** an eyewitness: he was born in 1075, years after 1069–70. Writing later does not make a source useless, and being a monk did not guarantee accuracy — monks had their own loyalties and purposes.",
+            "Orderic was half-French, lived in a Norman monastery and says he often praised William — so when even he condemns the Harrying, it suggests the brutality was real, not just English hatred of the Normans. He was **not** an eyewitness: he was born in 1075, years after 1069–70. Writing later does not make a source useless, and being a monk did not guarantee accuracy — monks had their own loyalties and purposes.",
           difficulty: "core",
           guideRef: "provenance-nop",
           hints: ["Check the dates: when was Orderic born, and when did the Harrying happen?", "Whose side would you *expect* a Norman-educated monk to take?", "A criticism is stronger when it comes from someone who might be expected to be friendly."],
@@ -540,7 +540,7 @@ export const practice: TopicPractice = {
             "Bitterness about the Treaty of Versailles (1919)",
             "Mass unemployment after the Wall Street Crash (1929)",
             "The Enabling Act (March 1933)",
-            "Weak coalition governments ruling by emergency decree (1930–32)",
+            "Chancellors governing by presidential emergency decree instead of through the Reichstag (1930–32)",
           ],
           answerIndex: 2,
           explanation:
@@ -618,7 +618,7 @@ export const practice: TopicPractice = {
             "\"**Charismatic leadership** was the most important reason dictators came to power in the 20th century.\" How far do you agree? Refer to **at least two** of Hitler, Mao and Pol Pot. (6 marks)",
           marks: 6,
           modelAnswer:
-            "Charismatic leadership clearly mattered. Hitler was a powerful speaker, and Nazi propaganda built him up as the saviour Germany needed; Mao's leadership and the legend of the Long March gave the Communists a heroic image. However, charisma alone was not enough. Hitler had been speaking since the early 1920s, yet the Nazis won only 2.6% of the vote in 1928. What changed was the **crisis** of the Depression: with about 6 million unemployed by 1932, people turned to extremes. **Weak government** mattered too — Weimar coalitions collapsed and ruled by emergency decree, and in China the corrupt Guomindang lost support through inflation. Pol Pot shows the limits of charisma most clearly: he was secretive and almost unknown, yet the Khmer Rouge still took power in 1975 because of war, US bombing and Lon Nol's weak government. Overall, I only partly agree. Charisma helped leaders exploit their opportunities, but crises and weak governments created those opportunities — so they were more important.",
+            "Charismatic leadership clearly mattered. Hitler was a powerful speaker, and Nazi propaganda built him up as the saviour Germany needed; Mao's leadership and the legend of the Long March gave the Communists a heroic image. However, charisma alone was not enough. Hitler had been speaking since the early 1920s, yet the Nazis won only 2.6% of the vote in 1928. What changed was the **crisis** of the Depression: with about 6 million unemployed by 1932, people turned to extremes. **Weak government** mattered too — the last Weimar coalition collapsed in 1930, and from then on chancellors ruled by emergency decree, and in China the corrupt Guomindang lost support through inflation. Pol Pot shows the limits of charisma most clearly: he was secretive and almost unknown, yet the Khmer Rouge still took power in 1975 because of war, US bombing and Lon Nol's weak government. Overall, I only partly agree. Charisma helped leaders exploit their opportunities, but crises and weak governments created those opportunities — so they were more important.",
           markScheme: [
             { point: "Argument FOR charisma with precise evidence (Hitler's speeches/propaganda, Mao's Long March image)", keywords: ["speeches", "speaker", "propaganda", "long march", "charisma", "charismatic", "saviour", "leadership"] },
             { point: "Argument that crises mattered more, with evidence (Depression/6 million unemployed; war; US bombing)", keywords: ["depression", "unemployed", "6 million", "crisis", "war", "bombing", "japan", "2.6%"] },
@@ -667,7 +667,7 @@ export const practice: TopicPractice = {
       answer: { type: "text", accept: ["13th", "13th century", "thirteenth", "thirteenth century", "13", "the 13th century", "the thirteenth century"], display: "13th century" },
       traps: [
         { spec: { type: "text", accept: ["14th", "14th century", "fourteenth", "fourteenth century", "14"] }, feedback: "That's the everyday answer — but by the strict rule, 1201–1300 is the 13th century, so 1300 is its **last** year. The 14th century starts in 1301." },
-        { spec: { type: "text", accept: ["12th", "12th century", "twelfth", "12"] }, feedback: "Too early: the 12th century ends in AD 1200." },
+        { spec: { type: "text", accept: ["12th", "12th century", "twelfth", "twelfth century", "12"] }, feedback: "Too early: the 12th century ends in AD 1200." },
       ],
       solution: [
         "1st century = 1–100, 2nd = 101–200 … so the Nth century ends in the year N × 100.",

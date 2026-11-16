@@ -1,0 +1,522 @@
+import type { Paper } from "../../types.ts";
+
+// Henry VIII — Practice Papers 3 and 4 (12 questions each).
+export const morePapers: Paper[] = [
+  {
+    id: "henry-viii-p3",
+    title: "Practice Paper 3",
+    questions: [
+      {
+        kind: "short",
+        id: "henry-viii-p3-q01",
+        question: "Henry VIII was born in June 1491 and became king in April 1509. How old was he when he became king?",
+        answer: { type: "number", value: 17, display: "17" },
+        traps: [
+          { spec: { type: "number", value: 18 }, feedback: "Close — but he did not turn 18 until 28 June 1509, two months *after* becoming king." },
+        ],
+        solution: [
+          "From June 1491 to June 1508 is 17 years.",
+          "April 1509 comes before his birthday in June 1509, so he was still **17**.",
+        ],
+        commonError: "Subtracting the years (1509 − 1491 = 18) without checking whether his birthday had passed.",
+        difficulty: "warmup",
+        guideRef: "tudor-rise",
+        hints: ["Subtract the years, then check: had he reached his birthday by April?"],
+        strategy: "Put it in chronological order",
+      },
+      {
+        kind: "short",
+        id: "henry-viii-p3-q02",
+        question: "Which Bishop of Rochester was executed in June 1535, a few weeks before Thomas More, for refusing to accept Henry as Supreme Head of the Church? Give his surname.",
+        answer: { type: "text", accept: ["Fisher", "John Fisher", "Bishop Fisher", "Saint John Fisher", "St John Fisher", "Cardinal Fisher"], display: "John Fisher" },
+        traps: [
+          { spec: { type: "text", accept: ["More", "Thomas More"] }, feedback: "More was executed in July 1535 — but he was a lawyer and former Lord Chancellor, not a bishop. Who was the bishop?" },
+          { spec: { type: "text", accept: ["Cranmer", "Thomas Cranmer"] }, feedback: "Cranmer *supported* the Royal Supremacy, and he was Archbishop of Canterbury. You want the bishop who opposed it." },
+        ],
+        solution: [
+          "**John Fisher**, Bishop of Rochester, had defended Catherine of Aragon's marriage and refused the oath.",
+          "The Pope made him a cardinal in May 1535 — which seems to have made Henry even more determined. He was beheaded on 22 June 1535.",
+        ],
+        difficulty: "core",
+        guideRef: "break-with-rome",
+        hints: [
+          "He was the only English bishop to refuse the oath.",
+          "He had been Catherine of Aragon's strongest defender; the Pope made him a cardinal shortly before his death.",
+        ],
+        strategy: "Use precise evidence",
+      },
+      {
+        kind: "short",
+        id: "henry-viii-p3-q03",
+        question: "What is the name for a religious community of monks led by an abbot — the kind of house Henry VIII closed between 1536 and 1540?",
+        answer: { type: "text", accept: ["abbey", "an abbey", "monastery", "a monastery", "monasteries", "abbeys", "priory", "religious house"], display: "abbey (monastery)" },
+        traps: [
+          { spec: { type: "text", accept: ["cathedral", "a cathedral"] }, feedback: "A cathedral is the main church of a bishop's area. Monks living in a community under an abbot lived in an …?" },
+        ],
+        solution: [
+          "A community of monks led by an **abbot** lived in an **abbey** — a type of **monastery**.",
+          "England and Wales had more than 800 religious houses (abbeys, priories, nunneries and friaries) before the Dissolution.",
+        ],
+        difficulty: "warmup",
+        guideRef: "dissolution-of-monasteries",
+        hints: ["The word for the place is very close to the word 'abbot'."],
+        strategy: "Use precise evidence",
+      },
+      {
+        kind: "short",
+        id: "henry-viii-p3-q04",
+        question: "In which year did Henry VIII die?",
+        answer: { type: "number", value: 1547 },
+        traps: [
+          { spec: { type: "number", value: 1537 }, feedback: "1537 is when his son Edward was born. Henry lived another ten years." },
+          { spec: { type: "number", value: 1553 }, feedback: "1553 is when Edward VI died. Henry died first, when Edward was only 9." },
+        ],
+        solution: [
+          "Henry died on **28 January 1547**, aged 55.",
+          "His nine-year-old son became Edward VI.",
+        ],
+        difficulty: "warmup",
+        guideRef: "six-wives",
+        hints: ["His son Edward, born in 1537, was 9 when he became king."],
+        strategy: "Put it in chronological order",
+      },
+      {
+        kind: "short",
+        id: "henry-viii-p3-q05",
+        question: "Which King of France met Henry VIII at the Field of the Cloth of Gold in 1520?",
+        answer: { type: "text", accept: ["Francis I", "Francis", "Francis the First", "Francois I", "François I", "Francis 1", "Francois", "King Francis I"], display: "Francis I" },
+        traps: [
+          { spec: { type: "text", accept: ["Charles V", "Charles", "Emperor Charles V"] }, feedback: "Henry did meet Charles V in 1520 — but Charles was Holy Roman Emperor and King of Spain. The Field of the Cloth of Gold was with the French king." },
+          { spec: { type: "text", accept: ["Louis XIV", "Louis"] }, feedback: "Louis XIV ruled France more than a century later. Who was the young French king in 1520?" },
+        ],
+        solution: [
+          "Henry met **Francis I** of France near Calais in June 1520.",
+          "The two young kings were rivals, and the meeting was a contest of magnificence organised by Wolsey.",
+        ],
+        difficulty: "core",
+        guideRef: "young-henry",
+        hints: [
+          "He was a young, glamorous Renaissance king — Henry's great rival.",
+          "His name is the French form of Francis.",
+        ],
+        strategy: "Use precise evidence",
+      },
+      {
+        kind: "mcq",
+        id: "henry-viii-p3-q06",
+        question: "Henry VIII's early wars against France (1512–14 and 1522–25) had one big drawback. What was it?",
+        options: [
+          "England lost Calais, its last territory in France",
+          "They led directly to the Break with Rome",
+          "They cost huge sums, so Henry had to ask Parliament and taxpayers for more money",
+          "Henry was captured by the French at the Battle of the Spurs",
+        ],
+        answerIndex: 2,
+        explanation:
+          "Henry's wars brought some glory — Tournai and Thérouanne were captured in 1513 — but they were very **expensive**. When Wolsey tried to raise the 'Amicable Grant' in 1525 without Parliament, there was a tax revolt and Henry had to back down. Calais is a tempting choice, but it was lost much later, in **1558** under Mary I; and at the Battle of the Spurs (1513) it was the *French* who fled.",
+        difficulty: "core",
+        guideRef: "young-henry",
+        hints: ["Think about what kings always needed to fight wars.", "Who had to agree to new taxes — and what happened in 1525?"],
+        strategy: "Use precise evidence",
+      },
+      {
+        kind: "written",
+        id: "henry-viii-p3-q07",
+        question:
+          "**Source A** — a description, written for this exercise, of Hans Holbein's famous full-length image of Henry VIII. It comes from the wall painting Holbein made for Whitehall Palace in 1537, when Henry was 46; many copies were made. Holbein was the King's Painter, paid by Henry.\n\n> Henry stands facing us, feet planted wide apart, hands near his hips. His shoulders are made enormous by padded, jewelled clothes. He stares straight at the viewer, calm and confident. There is no sign of the leg wound that had troubled him since his jousting accident in 1536.\n\nHow useful is Source A for finding out what Henry VIII **really looked like** in 1537? (4 marks)",
+        marks: 4,
+        modelAnswer:
+          "Source A is useful in some ways. Holbein was a highly skilled painter who saw Henry in person, so the face is probably a good likeness, and the clothes show the fashions Henry really wore.\n\nHowever, Holbein was the King's Painter, paid by Henry, and the painting was made for the royal palace. Its purpose was to impress — to make Henry look strong, masculine and in control. The shoulders are made 'enormous' by padding, the pose is deliberately powerful, and the leg wound from 1536 is hidden. By 1537 Henry was heavier and in pain, so the body is idealised.\n\nOverall, Source A is of limited use for what Henry *really* looked like, but extremely useful for a different enquiry: how Henry *wanted* to be seen. It is royal propaganda, and the many copies show it worked.",
+        markScheme: [
+          { point: "Useful: Holbein was skilled and saw Henry in person — face and clothes probably accurate", keywords: ["face", "likeness", "saw", "in person", "skilled", "realistic", "clothes", "detail"] },
+          { point: "Provenance: King's Painter, paid by Henry, for a royal palace — purpose to impress (propaganda)", keywords: ["paid", "king's painter", "propaganda", "purpose", "impress", "image", "commissioned"] },
+          { point: "Limitation: exaggerated/hidden features — padding, pose, no leg wound", keywords: ["exaggerated", "padded", "padding", "hidden", "leg", "wound", "injury", "jousting", "idealised", "flattering"] },
+          { point: "Judgement: limited for his real appearance, very useful for how he wanted to be seen", keywords: ["judgement", "wanted to be seen", "how he wanted", "less useful", "more useful", "overall", "different enquiry"] },
+        ],
+        commonError: "Saying 'it's a painting from the time, so it shows exactly what he looked like'. Being from the time doesn't make a source accurate — think about its purpose.",
+        difficulty: "challenge",
+        guideRef: "henry-power",
+        hints: [
+          "Who paid Holbein, and where was the painting displayed?",
+          "Which details look like *choices* made to impress? What is missing?",
+          "A source that is weak for one enquiry can be excellent for another. What would this source be good for?",
+        ],
+        strategy: "Check the provenance (NOP)",
+      },
+      {
+        kind: "written",
+        id: "henry-viii-p3-q08",
+        question: "Explain why Henry VII was able to keep the throne after winning it at Bosworth in 1485. (4 marks)",
+        marks: 4,
+        modelAnswer:
+          "First, his victory at Bosworth was complete: Richard III was killed, leaving no adult Yorkist king to rally around. Henry dated his reign from the day before the battle, so those who had fought for Richard could be treated as traitors.\n\nSecondly, in 1486 he married Elizabeth of York, uniting the houses of Lancaster and York. The Tudor rose symbolised this, and their children had a strong claim from both sides.\n\nThirdly, he controlled the nobles, making many of them sign bonds that cost them large sums of money if they were disloyal, and limiting private armies.\n\nFinally, he defeated challenges from pretenders — Lambert Simnel at the Battle of Stoke (1487) and later Perkin Warbeck — and had heirs, Arthur and Henry, to continue the dynasty. These methods together turned a weak claim into a secure throne.",
+        markScheme: [
+          { point: "Bosworth: Richard III killed; reign dated before the battle so opponents were traitors", keywords: ["bosworth", "richard", "killed", "battle", "traitors", "victory", "1485"] },
+          { point: "Marriage to Elizabeth of York (1486) united the houses — Tudor rose", keywords: ["elizabeth of york", "marriage", "married", "tudor rose", "united", "unite", "1486"] },
+          { point: "Controlled the nobles — bonds, fines, limiting private armies", keywords: ["nobles", "bonds", "fines", "retainers", "private armies", "control", "money"] },
+          { point: "Defeated pretenders (Simnel, Stoke 1487; Warbeck) and had heirs", keywords: ["simnel", "warbeck", "stoke", "rebels", "pretenders", "sons", "heirs", "arthur"] },
+        ],
+        difficulty: "core",
+        guideRef: "tudor-rise",
+        hints: [
+          "Think about what happened to his rival at Bosworth.",
+          "Who did Henry marry in 1486, and why was it such a clever choice?",
+          "How did he deal with powerful nobles and with rebels who claimed to be Yorkist princes?",
+        ],
+        strategy: "Link the causes",
+      },
+      {
+        kind: "written",
+        id: "henry-viii-p3-q09",
+        question:
+          "**Source B** — from the oath sworn by the rebels of the Pilgrimage of Grace, written by their leader Robert Aske in October 1536 (adapted into modern English).\n\n> You shall not enter into this our Pilgrimage of Grace for any private profit, but only for the love you bear to Almighty God and His faith, to Holy Church and its maintenance, to the preservation of the King's person and his children, and to drive away evil councillors from the King and his Privy Council.\n\nWhat can you infer from Source B about the aims of the Pilgrims? (3 marks)",
+        marks: 3,
+        modelAnswer:
+          "First, I can infer that the Pilgrims' main aim was religious: they swore to act for 'God and His faith' and 'Holy Church', which suggests they wanted to defend the old Church and stop the closure of the monasteries.\n\nSecondly, they claimed to be loyal to the King, promising the 'preservation of the King's person'. They did not want to overthrow Henry.\n\nThirdly, they blamed 'evil councillors' — they meant ministers such as Thomas Cromwell. This was a clever way to rebel: by blaming advisers instead of the King, the rebels could argue they were not committing treason.",
+        markScheme: [
+          { point: "Religious aim: defend the Church/faith and the monasteries", keywords: ["church", "faith", "god", "religion", "monasteries", "holy church", "catholic"] },
+          { point: "Claimed loyalty to the King — not trying to overthrow him", keywords: ["loyal", "king", "preservation", "not against", "overthrow", "protect the king"] },
+          { point: "Blamed evil councillors (e.g. Cromwell) — a way to avoid the charge of treason", keywords: ["councillors", "advisers", "cromwell", "blame", "evil", "treason", "clever"] },
+        ],
+        difficulty: "core",
+        guideRef: "dissolution-of-monasteries",
+        hints: [
+          "Look for three things the oath tells rebels to fight *for*.",
+          "Who are the 'evil councillors' likely to be in 1536?",
+          "Why might rebels be careful to say they love the King?",
+        ],
+        strategy: "Make an inference",
+      },
+      {
+        kind: "written",
+        id: "henry-viii-p3-q10",
+        question: "Explain why Cardinal Wolsey fell from power in 1529. (4 marks)",
+        marks: 4,
+        modelAnswer:
+          "The main reason was that Wolsey failed to get Henry his annulment. Wolsey had promised to deliver it through his influence with the Pope, but the special court at Blackfriars in 1529 was adjourned by the papal legate Campeggio without a decision.\n\nThis task was nearly impossible because, after the Sack of Rome in 1527, Pope Clement VII was under the control of Charles V, Catherine of Aragon's nephew.\n\nWolsey also had powerful enemies. Anne Boleyn and her supporters blamed him for the delay, and nobles such as the Duke of Norfolk resented the power and wealth of a man said to be a butcher's son.\n\nFinally, all Wolsey's power came from the King's favour. Once Henry lost faith in him, he was stripped of office, charged with praemunire (serving a foreign power — the Pope), and in 1530 he died on his way to London to face a charge of treason.",
+        markScheme: [
+          { point: "Failed to get the annulment — Blackfriars court (1529) adjourned by Campeggio", keywords: ["annulment", "failed", "blackfriars", "campeggio", "court", "1529"] },
+          { point: "Explains why the task was impossible — Pope under Charles V's control after 1527", keywords: ["charles", "sack", "1527", "impossible", "trapped", "pope", "nephew"] },
+          { point: "Enemies: Anne Boleyn's supporters and resentful nobles", keywords: ["anne", "boleyn", "enemies", "nobles", "norfolk", "jealous", "resented", "butcher"] },
+          { point: "His power depended on the King's favour — praemunire, treason charge, death 1530", keywords: ["favour", "praemunire", "treason", "1530", "depended", "lost faith"] },
+        ],
+        difficulty: "core",
+        guideRef: "the-great-matter",
+        hints: [
+          "What had Henry asked Wolsey to achieve by 1529 — and did he?",
+          "Why was the Pope unable to help Wolsey after 1527?",
+          "Who at court wanted Wolsey gone — and where did all his power come from in the first place?",
+        ],
+        strategy: "Link the causes",
+      },
+      {
+        kind: "written",
+        id: "henry-viii-p3-q11",
+        question: "Edward was born in 1537, but the succession still worried Henry in the 1540s. Explain why. (4 marks)",
+        marks: 4,
+        modelAnswer:
+          "First, Henry had only one legitimate son. Many children died young in Tudor times, and if Edward died the Tudor line would depend on daughters again.\n\nSecondly, Edward would inherit as a child. A boy king could not rule himself, so powerful nobles might fight to control him — the kind of rivalry that had fuelled the Wars of the Roses.\n\nThirdly, Henry's later marriages — to Anne of Cleves, Catherine Howard and Catherine Parr — produced no more children.\n\nFinally, Mary and Elizabeth had both been declared illegitimate. To give the dynasty a back-up, the Third Act of Succession (1544) put them back in line after Edward, and Henry's will set up a council to govern for Edward. These steps show how anxious Henry still was.",
+        markScheme: [
+          { point: "Only one son — if Edward died, the line would be in danger", keywords: ["only one", "edward", "one son", "died", "sickly", "child mortality"] },
+          { point: "A child king — risk of nobles fighting for control (minority)", keywords: ["child", "minority", "young", "nine", "regent", "council", "nobles", "rivals"] },
+          { point: "Later marriages produced no more children", keywords: ["no children", "no more children", "marriages", "catherine parr", "anne of cleves", "catherine howard"] },
+          { point: "Mary and Elizabeth illegitimate — Third Act of Succession (1544) / Henry's will", keywords: ["mary", "elizabeth", "illegitimate", "third act", "1544", "act of succession", "will"] },
+        ],
+        difficulty: "core",
+        guideRef: "six-wives",
+        hints: [
+          "How safe was it in Tudor times to rely on one child surviving?",
+          "How old would Edward be when Henry died? Why could that be dangerous?",
+          "What did Parliament do about Mary and Elizabeth in 1544?",
+        ],
+        strategy: "Think about consequences",
+      },
+      {
+        kind: "written",
+        id: "henry-viii-p3-q12",
+        question: "Arjun writes: *'In 1534 Henry VIII made England a Protestant country.'* Explain why Arjun's statement is misleading. (4 marks)",
+        marks: 4,
+        modelAnswer:
+          "Arjun is right that 1534 was a turning point: the Act of Supremacy made Henry, not the Pope, head of the Church in England. But that was a change in *who controlled* the Church, not in what it believed.\n\nHenry's own beliefs stayed largely Catholic. He kept the Mass, priests who could not marry and most Catholic ceremonies, and the Act of Six Articles (1539) reinforced Catholic teaching. He had been named 'Defender of the Faith' for attacking Luther.\n\nHenry also punished Protestants: people who denied Catholic beliefs such as the Mass could be burned as heretics, like Anne Askew in 1546 — at the same time as he executed Catholics like More who denied his supremacy.\n\nThere were some Protestant steps, such as the English Great Bible of 1539, encouraged by Cranmer and Cromwell. But England only became clearly Protestant under Edward VI after 1547. So Arjun confuses the Break with Rome with the Protestant Reformation.",
+        markScheme: [
+          { point: "Explains what did change: Henry replaced the Pope as head (1534) — a change of authority", keywords: ["supreme head", "pope", "authority", "1534", "head", "control"] },
+          { point: "Henry's beliefs stayed Catholic: Mass, Six Articles (1539), Defender of the Faith", keywords: ["catholic", "mass", "six articles", "1539", "defender of the faith", "beliefs", "stayed"] },
+          { point: "Henry punished Protestants as heretics (e.g. Anne Askew) as well as Catholics", keywords: ["burned", "heretics", "heresy", "askew", "protestants", "punished", "both"] },
+          { point: "Some Protestant steps (Great Bible, Cranmer), but England became Protestant later, under Edward VI", keywords: ["english bible", "great bible", "cranmer", "cromwell", "edward", "later", "reformation"] },
+        ],
+        commonError: "Treating the Break with Rome (a change in who ran the Church) as the same thing as becoming Protestant (a change in beliefs).",
+        difficulty: "challenge",
+        guideRef: "break-with-rome",
+        hints: [
+          "Separate two questions: *who* ran the Church, and *what* did it teach?",
+          "What did the Act of Six Articles (1539) say about Catholic beliefs?",
+          "Under which of Henry's children did England's Church become clearly Protestant?",
+        ],
+        strategy: "Spot the flaw",
+      },
+    ],
+  },
+  {
+    id: "henry-viii-p4",
+    title: "Practice Paper 4",
+    questions: [
+      {
+        kind: "short",
+        id: "henry-viii-p4-q01",
+        question: "In which year did Cardinal Wolsey fall from power after failing to get Henry his annulment?",
+        answer: { type: "number", value: 1529 },
+        traps: [
+          { spec: { type: "number", value: 1530 }, feedback: "Wolsey *died* in 1530, on his way to face treason charges — but he had lost power the year before." },
+          { spec: { type: "number", value: 1527 }, feedback: "1527 is when the Pope fell under Charles V's control and the 'Great Matter' began. Wolsey struggled on for two more years." },
+        ],
+        solution: [
+          "The Blackfriars court failed in summer **1529**, and Wolsey was stripped of the office of Lord Chancellor in October 1529.",
+          "He died in November 1530 on his way to London to face a charge of treason.",
+        ],
+        difficulty: "core",
+        guideRef: "the-great-matter",
+        hints: [
+          "It came two years after the Sack of Rome (1527).",
+          "It was the year the special court at Blackfriars failed — the year before Wolsey died.",
+        ],
+        strategy: "Put it in chronological order",
+      },
+      {
+        kind: "short",
+        id: "henry-viii-p4-q02",
+        question: "In which year did Henry VIII secretly marry Anne Boleyn?",
+        answer: { type: "number", value: 1533 },
+        traps: [
+          { spec: { type: "number", value: 1536 }, feedback: "1536 is when Anne was executed. The marriage came three years earlier." },
+          { spec: { type: "number", value: 1534 }, feedback: "1534 was the Act of Supremacy. Henry married Anne before that — the marriage forced the pace of the Break." },
+        ],
+        solution: [
+          "Henry married Anne secretly in **January 1533**, as she was already pregnant.",
+          "Cranmer declared the marriage valid in May 1533, and Elizabeth was born that September.",
+        ],
+        difficulty: "warmup",
+        guideRef: "break-with-rome",
+        hints: ["It was the same year Elizabeth was born and Cranmer became Archbishop of Canterbury."],
+        strategy: "Put it in chronological order",
+      },
+      {
+        kind: "short",
+        id: "henry-viii-p4-q03",
+        question: "The 1536 Act of Parliament closed the 'lesser' monasteries first. Below what yearly income was a monastery counted as 'lesser'? Give the amount in pounds.",
+        answer: { type: "number", value: 200, display: "£200" },
+        traps: [
+          { spec: { type: "number", value: 1536 }, feedback: "That's the year of the Act. The question asks for the yearly income limit in pounds." },
+        ],
+        solution: [
+          "Houses with an income of less than **£200 a year** were closed under the 1536 Act.",
+          "The figures came from the *Valor Ecclesiasticus* survey of 1535. The larger houses followed from 1538, and the last closed in 1540.",
+        ],
+        difficulty: "core",
+        guideRef: "dissolution-of-monasteries",
+        hints: [
+          "The government's own survey of 1535 gave the income of every religious house.",
+          "The figure is a round number of pounds, between £100 and £300.",
+        ],
+        strategy: "Use precise evidence",
+      },
+      {
+        kind: "short",
+        id: "henry-viii-p4-q04",
+        question: "In which year was Henry's son Edward (later Edward VI) born?",
+        answer: { type: "number", value: 1537 },
+        traps: [
+          { spec: { type: "number", value: 1547 }, feedback: "1547 is when Edward became king, after Henry died. He was born ten years earlier." },
+          { spec: { type: "number", value: 1536 }, feedback: "In 1536 Henry married Jane Seymour. Edward was born the following year." },
+        ],
+        solution: [
+          "Edward was born on **12 October 1537**.",
+          "His mother, Jane Seymour, died less than two weeks later.",
+        ],
+        difficulty: "warmup",
+        guideRef: "six-wives",
+        hints: ["Henry married Jane Seymour in 1536; Edward was born the following year."],
+        strategy: "Put it in chronological order",
+      },
+      {
+        kind: "short",
+        id: "henry-viii-p4-q05",
+        question: "Henry VIII believed his authority to rule came directly from God, so that rebelling against him was a sin. What is this belief called?",
+        answer: { type: "text", accept: ["divine right", "divine right of kings", "the divine right of kings", "divine-right", "divine rights", "the divine right"], display: "the divine right of kings" },
+        traps: [
+          { spec: { type: "text", accept: ["feudal system", "feudalism", "the feudal system"] }, feedback: "The feudal system was about land given in return for loyalty and service. You want the belief about God choosing the king." },
+          { spec: { type: "text", accept: ["Royal Supremacy", "Supremacy", "Supreme Head"] }, feedback: "The Royal Supremacy (1534) made Henry head of the Church. You want the older, wider belief that God chose kings." },
+        ],
+        solution: [
+          "The **divine right of kings** was the belief that monarchs were chosen by God.",
+          "Even so, Henry still needed Parliament for taxes and laws.",
+        ],
+        difficulty: "warmup",
+        guideRef: "young-henry",
+        hints: ["'Divine' means 'from God'."],
+        strategy: "Use precise evidence",
+      },
+      {
+        kind: "mcq",
+        id: "henry-viii-p4-q06",
+        question: "Why was Henry VII's victory at Bosworth in 1485 not enough on its own to make the Tudors safe on the throne?",
+        options: [
+          "The Pope refused to recognise any Tudor as king",
+          "Richard III survived the battle and escaped abroad to raise a new army",
+          "Parliament had already chosen a different king before the battle",
+          "His claim was weak, so Yorkist rivals and pretenders could still challenge him",
+        ],
+        answerIndex: 3,
+        explanation:
+          "Henry Tudor's claim came through his mother, **Margaret Beaufort**, from a family line that had once been barred from the throne. Rebels backed pretenders such as **Lambert Simnel** (defeated at Stoke, 1487) and **Perkin Warbeck**. Richard III did *not* escape — he was killed at Bosworth, which is exactly why Henry could take the crown. And the Pope actually supported Henry, approving his marriage to Elizabeth of York.",
+        difficulty: "core",
+        guideRef: "tudor-rise",
+        hints: [
+          "Winning one battle does not stop other people claiming the throne.",
+          "Think about how strong Henry's family claim was — and who might use that weakness.",
+        ],
+        strategy: "Think about who benefited",
+      },
+      {
+        kind: "written",
+        id: "henry-viii-p4-q07",
+        question:
+          "**Source A** — from the statement of Robert Aske, leader of the Pilgrimage of Grace, when he was questioned by the King's officials in London in 1537 (adapted into modern English).\n\n> The abbeys in the north gave great alms to poor men and served God well. Many of them stood in the mountains and remote places, where the people are poor and little taught, and travellers found food and shelter there. The abbeys were one of the beauties of this realm to all men and strangers passing through it.\n\nHow useful is Source A for an enquiry into the effects of the Dissolution on ordinary people in the north of England? (5 marks)",
+        marks: 5,
+        modelAnswer:
+          "Source A is useful because it shows what northern people believed they were losing: alms for the poor, food and shelter for travellers, and religious services in remote places. This suggests ordinary people in the north lost practical help, not just churches.\n\nThe provenance is a strength in one way. Aske was a Yorkshireman who knew the region, so he could describe the local role of the abbeys.\n\nHowever, Aske was the leader of a defeated rebellion, being questioned by the King's officials. He needed to justify the rising and show the rebels had good reasons, so he may have exaggerated the abbeys' goodness.\n\nFrom my own knowledge, many monasteries did run hospitals, give alms and teach, but the 1535 visitors reported corruption in some houses, and some local gentry gained land from the closures.\n\nOverall, Source A is very useful for understanding northern feelings and why people rebelled, but less useful for measuring the real scale of the effects. I would cross-reference it with other evidence.",
+        markScheme: [
+          { point: "Uses the content: alms, shelter for travellers, services in remote places — help lost", keywords: ["alms", "poor", "charity", "help", "remote", "travellers", "shelter", "served god", "lost"] },
+          { point: "Provenance strength: Aske was from the north and knew the area", keywords: ["aske", "north", "yorkshire", "local", "knew", "eyewitness", "lived"] },
+          { point: "Provenance weakness: rebel leader questioned after defeat — motive to justify/exaggerate", keywords: ["rebel", "rebellion", "defend", "justify", "exaggerate", "questioned", "trial", "biased", "purpose"] },
+          { point: "Own knowledge used to test it (hospitals, schools, visitors' reports, gentry gains)", keywords: ["hospitals", "schools", "visitors", "corruption", "gentry", "valor", "sick", "own knowledge"] },
+          { point: "Judgement: useful for northern views/why people rebelled; limited for scale; cross-reference", keywords: ["judgement", "overall", "useful for", "limited", "cross-reference", "other sources", "views", "feelings"] },
+        ],
+        commonError: "Ignoring the situation Aske was in when he spoke — a defeated rebel under questioning had strong reasons to present the abbeys well.",
+        difficulty: "core",
+        guideRef: "dissolution-of-monasteries",
+        hints: [
+          "What does Aske say the abbeys did for ordinary people?",
+          "Who was Aske, and what situation was he in when he said this?",
+          "Use your own knowledge to test the source, then judge what it is *most* useful for.",
+        ],
+        strategy: "Check the provenance (NOP)",
+      },
+      {
+        kind: "written",
+        id: "henry-viii-p4-q08",
+        question: "Explain why Thomas Cromwell was important in the Break with Rome. (4 marks)",
+        marks: 4,
+        modelAnswer:
+          "Cromwell was important because he found a legal way to solve a problem Wolsey could not. Instead of begging the Pope, he used Parliament. The Act in Restraint of Appeals (1533) stopped appeals going to Rome, so Catherine of Aragon could not appeal to the Pope against Cranmer's ruling.\n\nHe then steered through the Act of Supremacy (1534), making Henry Supreme Head of the Church, and the Treason Act, which made it treason to deny the King's title. Laws passed by Parliament were harder to challenge than a royal order.\n\nAs Vicegerent in Spirituals from 1535, Cromwell organised the Valor Ecclesiasticus and the visitations that led to the Dissolution of the Monasteries, bringing huge wealth to the Crown.\n\nSo Cromwell turned Henry's marriage problem into a lasting legal revolution that increased royal power.",
+        markScheme: [
+          { point: "Used Parliament: Act in Restraint of Appeals (1533) stopped appeals to Rome", keywords: ["parliament", "restraint of appeals", "1533", "appeal", "appeals", "laws", "acts"] },
+          { point: "Act of Supremacy and Treason Act (1534): Henry head, opposition treason", keywords: ["supremacy", "1534", "treason", "oath", "supreme head"] },
+          { point: "As Vicegerent organised the Valor/visitations/Dissolution — wealth for the Crown", keywords: ["vicegerent", "valor", "monasteries", "dissolution", "visitors", "money", "wealth"] },
+          { point: "Explains significance: solved what Wolsey couldn't; made the Break legal and lasting", keywords: ["wolsey", "legal", "lasting", "solved", "without the pope", "permanent", "revolution"] },
+        ],
+        difficulty: "core",
+        guideRef: "break-with-rome",
+        hints: [
+          "Wolsey tried to get the annulment from the Pope. What different route did Cromwell use?",
+          "Name at least two Acts of Parliament from 1533–34 and say what each did.",
+          "What else did Cromwell organise from 1535 that made Henry richer?",
+        ],
+        strategy: "Judge significance",
+      },
+      {
+        kind: "written",
+        id: "henry-viii-p4-q09",
+        question: "*'Henry VIII was far more powerful in 1540 than when he became king in 1509.'* How far do you agree? (6 marks)",
+        marks: 6,
+        modelAnswer:
+          "In many ways I agree. By 1540 Henry was Supreme Head of the Church (1534), so no Pope could overrule him and he controlled bishops and Church courts. He had also gained enormous wealth from the Dissolution of the Monasteries, completed in 1540. And he had shown he could crush opposition: More and Fisher were executed in 1535, about 200 rebels after the Pilgrimage of Grace, and Cromwell himself in 1540. The Treason Act made even words against him dangerous.\n\nHowever, there are limits. Henry still needed Parliament: every change had been made through Acts of Parliament, and Parliament became more important as a result. The Pilgrimage of Grace showed that tens of thousands of his subjects would resist. Much monastery land was soon sold to pay for wars, and the succession still rested on one small boy.\n\nOverall, I mostly agree. Henry's power over the Church, wealth and lives of his subjects was far greater in 1540, even if it relied more than before on Parliament's cooperation.",
+        markScheme: [
+          { point: "For: Supreme Head — control of the Church, no Pope (1534)", keywords: ["supreme head", "church", "pope", "1534", "supremacy"] },
+          { point: "For: wealth from the Dissolution of the Monasteries", keywords: ["monasteries", "wealth", "money", "land", "dissolution"] },
+          { point: "For: crushed opposition — More, Fisher, Pilgrimage, Cromwell; Treason Act", keywords: ["executed", "treason", "more", "fisher", "pilgrimage", "fear", "aske", "crushed"] },
+          { point: "Against: still needed Parliament, whose role grew; could not tax freely", keywords: ["parliament", "needed", "laws", "amicable grant", "tax", "consent"] },
+          { point: "Against: resistance (Pilgrimage), land sold, succession fragile", keywords: ["resistance", "rebellion", "sold", "spent", "edward", "succession", "one son"] },
+          { point: "Supported overall judgement", keywords: ["judgement", "overall", "agree", "disagree", "mostly", "to a large extent", "partly"] },
+        ],
+        solutions: [
+          { label: "Argument: yes — Henry was far more powerful by 1540", steps: ["He had taken the Pope's place as head of the Church.", "The Dissolution made the Crown richer than ever.", "Executions showed no one — bishop, chancellor or chief minister — could defy him."] },
+          { label: "Argument: no — his power was more dependent than it looked", steps: ["Every change needed Parliament, which gained importance from the Break.", "The Pilgrimage of Grace showed serious opposition.", "Monastery wealth was quickly spent or sold, and the succession rested on one child."] },
+        ],
+        difficulty: "challenge",
+        guideRef: "henry-power",
+        hints: [
+          "Compare 1509 and 1540 in three areas: the Church, money and opposition.",
+          "Now argue the other side: what did Henry still depend on in 1540?",
+          "Finish with a judgement that says *how far* — not just yes or no.",
+        ],
+        strategy: "Spot change and continuity",
+      },
+      {
+        kind: "written",
+        id: "henry-viii-p4-q10",
+        question:
+          "**Source B** — from *The Life of Cardinal Wolsey* by George Cavendish, Wolsey's servant, written in the 1550s. Cavendish reports Wolsey's words as he lay dying in November 1530, on his way to London to face a charge of treason (adapted).\n\n> 'If I had served God as diligently as I have done the King, He would not have given me over in my grey hairs.'\n\nWhat can you infer from Source B about Wolsey's relationship with Henry VIII? (3 marks)",
+        marks: 3,
+        modelAnswer:
+          "I can infer that Wolsey had devoted his life to serving Henry — he says he served the King 'diligently', even more than he served God. For about 15 years he had run Henry's government.\n\nI can also infer that Wolsey felt abandoned: in his old age ('my grey hairs') the King he had served had turned against him. This suggests that a minister's power depended entirely on the King's favour, which could vanish once Wolsey failed to get the annulment in 1529.\n\nHowever, Cavendish wrote this in the 1550s as a loyal former servant, so he may have shaped Wolsey's last words to make him seem wise and tragic.",
+        markScheme: [
+          { point: "Inference: Wolsey had worked very hard and loyally for the King", keywords: ["served", "diligently", "hard", "loyal", "devoted", "worked"] },
+          { point: "Inference: Wolsey felt abandoned — his power depended entirely on the King's favour", keywords: ["abandoned", "betrayed", "given me over", "depended", "favour", "turned against", "dropped"] },
+          { point: "Uses context or provenance: fall after failed annulment (1529); Cavendish a loyal servant writing later", keywords: ["annulment", "1529", "failed", "cavendish", "servant", "later", "1550s"] },
+        ],
+        difficulty: "core",
+        guideRef: "young-henry",
+        hints: [
+          "What does Wolsey say about how hard he worked for the King?",
+          "What does 'given me over in my grey hairs' suggest he feels Henry has done to him?",
+          "Why did Wolsey lose favour in 1529 — and who reported these words, and when?",
+        ],
+        strategy: "Make an inference",
+      },
+      {
+        kind: "written",
+        id: "henry-viii-p4-q11",
+        question: "The rhyme *'divorced, beheaded, died, divorced, beheaded, survived'* is a useful memory aid, but historians say 'divorced' is not accurate. Explain why. (3 marks)",
+        marks: 3,
+        modelAnswer:
+          "Neither of Henry's marriages that ended this way was legally a divorce: both were annulled, which means they were declared never to have been valid at all.\n\nHis marriage to Catherine of Aragon was declared void by Archbishop Cranmer in 1533, on the grounds that she had been his brother Arthur's wife, which Henry said Leviticus forbade. This made their daughter Mary illegitimate.\n\nHis marriage to Anne of Cleves was annulled in 1540 after only about six months, on the grounds that it had not been consummated and that Anne had earlier been promised to someone else. She accepted and was treated afterwards as the 'King's sister'.",
+        markScheme: [
+          { point: "Explains that the marriages were annulled — declared never valid — not divorced", keywords: ["annulled", "annulment", "never valid", "never existed", "not a divorce", "void"] },
+          { point: "Catherine of Aragon: declared void by Cranmer (1533) — brother's widow / Leviticus; Mary illegitimate", keywords: ["catherine", "aragon", "cranmer", "1533", "leviticus", "brother", "mary", "illegitimate"] },
+          { point: "Anne of Cleves: annulled in 1540 — not consummated / earlier engagement; 'King's sister'", keywords: ["anne of cleves", "cleves", "1540", "sister", "not consummated", "engagement", "promised"] },
+        ],
+        commonError: "Thinking Henry could simply divorce a wife. The Church did not allow divorce of a valid marriage, which is why Henry needed annulments.",
+        difficulty: "core",
+        guideRef: "six-wives",
+        hints: [
+          "What is the difference between ending a marriage and declaring it never existed?",
+          "What reason did Henry give for his first marriage being invalid?",
+          "On what grounds was the Anne of Cleves marriage ended in 1540?",
+        ],
+        strategy: "Use precise evidence",
+      },
+      {
+        kind: "written",
+        id: "henry-viii-p4-q12",
+        question: "Explain how the Wars of the Roses (1455–1485) help to explain Henry VIII's 'Great Matter' in the late 1520s. (4 marks)",
+        marks: 4,
+        modelAnswer:
+          "The Wars of the Roses were decades of on-and-off civil war between the houses of Lancaster and York over who should be king. Kings were overthrown and killed, and nobles fought for power.\n\nThe Tudors had come out of these wars only in 1485, when Henry VII won the crown in battle with a weak claim. So in the 1520s the dynasty was still new and felt insecure.\n\nThis is why Henry VIII was so desperate for a son. No woman had ever been crowned to rule England in her own right, and the last attempt — Matilda in the 12th century — had led to civil war. Henry feared that leaving only his daughter Mary could restart the fighting.\n\nSo the Wars of the Roses were a long-term cause: they created the fear of a disputed succession, which turned Catherine's failure to have a son into a crisis — the short-term trigger being Henry's love for Anne Boleyn.",
+        markScheme: [
+          { point: "Describes the Wars of the Roses: civil war between Lancaster and York over the crown", keywords: ["civil war", "lancaster", "york", "fighting", "disputed", "wars of the roses"] },
+          { point: "The Tudors were new and insecure — crown won in battle in 1485", keywords: ["tudor", "new", "insecure", "1485", "bosworth", "weak claim"] },
+          { point: "So a male heir seemed essential — no crowned ruling queen (Matilda's civil war); Mary only", keywords: ["son", "male heir", "matilda", "queen", "woman", "daughter", "mary"] },
+          { point: "Links long-term cause to the short-term crisis of the 1520s", keywords: ["long-term", "short-term", "link", "fear", "therefore", "trigger", "explains"] },
+        ],
+        difficulty: "challenge",
+        guideRef: "the-great-matter",
+        hints: [
+          "What happens to a country when people disagree about who the rightful king is?",
+          "How long had the Tudors been on the throne by 1527? Why might they feel insecure?",
+          "Link it together: long-term fear of civil war → need for a son → the 'Great Matter'.",
+        ],
+        strategy: "Long-term vs short-term causes",
+      },
+    ],
+  },
+];

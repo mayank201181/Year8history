@@ -20,7 +20,7 @@ export const mcqPapers: Paper[] = [
         ],
         answerIndex: 2,
         explanation:
-          "John was Henry II's **youngest son**, so his older brothers were due to inherit the great Angevin lands, leaving him 'lacking land'. Losing Normandy (1204) earned him a *different* nickname, 'Softsword', many years later. Raising money for the crusade by selling offices and lands was something **Richard** did.",
+          "John was Henry II's **youngest son**, so his older brothers were due to inherit the great Angevin lands, leaving him 'lacking land'. His critics later gave him a *different* nickname, 'Softsword', for giving up and then losing French lands to Philip II. Raising money for the crusade by selling offices and lands was something **Richard** did.",
         difficulty: "warmup",
         guideRef: "becoming-king",
         hints: ["Think about John's place in the family: how many older brothers did he have?"],
@@ -209,7 +209,7 @@ export const mcqPapers: Paper[] = [
         ],
         answerIndex: 0,
         explanation:
-          "Clause 39 says the king must act through **lawful judgement** or **the law of the land** — he is not above the law. It covers only **'free men'**; most peasants were unfree villeins, so it did not give everyone rights in 1215. Taxation is clause 12 (and mentions 'general consent', not Parliament); the Church's freedom is clause 1.",
+          "Clause 39 says the king must act through **lawful judgement** or **the law of the land** — he is not above the law. It covers only **'free men'**; many peasants were unfree villeins, so it did not give everyone rights in 1215. Taxation is clause 12 (and mentions 'general consent', not Parliament); the Church's freedom is clause 1.",
         difficulty: "core",
         guideRef: "magna-carta",
         hints: [
@@ -252,7 +252,7 @@ export const mcqPapers: Paper[] = [
         ],
         answerIndex: 3,
         explanation:
-          "Check the **provenance**: Paris was a monk, monks had seen John seize church property, and he wrote decades later, partly copying Roger of Wendover. That gives him a motive to exaggerate. He was not at John's court (he was a child when John died), and a hostile source still has value — it shows how churchmen remembered John.",
+          "Check the **provenance**: Paris was a monk, monks had seen John seize church property, and he wrote decades later, partly copying Roger of Wendover. That gives him a motive to exaggerate. He was not at John's court (he was still young when John died and only became a monk in 1217), and a hostile source still has value — it shows how churchmen remembered John.",
         difficulty: "challenge",
         guideRef: "bad-king-john",
         hints: [
@@ -397,12 +397,12 @@ export const mcqPapers: Paper[] = [
         options: [
           "He refused to go on crusade with Richard",
           "He agreed to Magna Carta instead of fighting the barons",
-          "He lost Normandy and other French lands to Philip II without winning a major battle",
+          "He gave up land to Philip II in a peace treaty and then lost Normandy, looking weak in war",
           "His sword broke during the Battle of Bouvines",
         ],
         answerIndex: 2,
         explanation:
-          "Losing Normandy (1204) and much of the Angevin empire without a decisive fight made John look weak compared with his warrior brother Richard. He was not at Bouvines himself, and the nickname is about his record in France, not Runnymede — he **did** fight the barons after 1215.",
+          "The jibe is first recorded after John gave up land to Philip II in the Treaty of Le Goulet (1200); losing Normandy (1204) seemed to confirm it, making John look weak beside his warrior brother Richard. He was not at Bouvines himself, and the nickname is about his record in France, not Runnymede — he **did** fight the barons after 1215.",
         difficulty: "core",
         guideRef: "losing-normandy",
         hints: [
@@ -444,7 +444,7 @@ export const mcqPapers: Paper[] = [
         ],
         answerIndex: 1,
         explanation:
-          "By 1213 Philip II was gathering an invasion force with papal backing. Submitting turned Innocent III from an enemy into a **protector**. Normandy was lost in 1204, *before* the Interdict began, so it cannot be a consequence of it; and Runnymede was two years later.",
+          "By 1213 Philip II was gathering an invasion force and claiming the Pope's blessing. Submitting turned Innocent III from an enemy into a **protector**. Normandy was lost in 1204, *before* the Interdict began, so it cannot be a consequence of it; and Runnymede was two years later.",
         difficulty: "core",
         guideRef: "john-and-the-church",
         hints: [
@@ -946,7 +946,7 @@ export const mcqPapers: Paper[] = [
         ],
         answerIndex: 2,
         explanation:
-          "Later versions of the legend — plays, Victorian novels and films — made Prince John the **villain**. The earliest Robin Hood ballads don't mention John at all; he was added centuries later. These stories reflect John's reputation, so they are not evidence for what he did.",
+          "Later versions of the legend — Tudor plays, novels such as Scott's *Ivanhoe* (1819) and films — made Prince John the **villain**. The earliest Robin Hood ballads don't mention John at all; he was added centuries later. These stories reflect John's reputation, so they are not evidence for what he did.",
         difficulty: "warmup",
         guideRef: "bad-king-john",
         hints: ["In these stories, who is the 'good' king that Robin stays loyal to?"],

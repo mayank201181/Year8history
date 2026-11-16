@@ -479,7 +479,7 @@ export const mcqPapers: Paper[] = [
           "In conclusion, there were lots of reasons why William won.",
           "In conclusion, luck was a reason, and so was preparation, and Harold made mistakes.",
           "In conclusion, William won the Battle of Hastings in 1066.",
-          "Luck mattered — the wind changed while Harold was fighting in the north — but William's preparation mattered more, because without his cavalry and archers he could not have exploited that luck.",
+          "Luck mattered — the wind changed just after Harold had marched north to fight Hardrada — but William's preparation mattered more, because without his cavalry and archers he could not have exploited that luck.",
         ],
         answerIndex: 3,
         explanation:
@@ -521,7 +521,7 @@ export const mcqPapers: Paper[] = [
         ],
         answerIndex: 0,
         explanation:
-          "**Cross-referencing** tests a source against other evidence. Survivors' accounts and the regime's own records (found after the Vietnamese invasion of January 1979) show forced labour, starvation and mass killing: an estimated 1.5–2 million people died under the Khmer Rouge. 'Trust it because it was made at the time' is the mistake of thinking primary means reliable — the regime's purpose was to hide the truth.",
+          "**Cross-referencing** tests a source against other evidence. Survivors' accounts and the regime's own records (found after Vietnamese forces drove the Khmer Rouge from Phnom Penh in January 1979) show forced labour, starvation and mass killing: an estimated 1.5–2 million people died under the Khmer Rouge. 'Trust it because it was made at the time' is the mistake of thinking primary means reliable — the regime's purpose was to hide the truth.",
         difficulty: "challenge",
         guideRef: "provenance-nop",
         hints: ["Who made the broadcast, and what did they want listeners to believe?", "One source on its own cannot be checked. What else could you compare it with?", "Think about what survivors later told the world."],
@@ -811,7 +811,7 @@ export const mcqPapers: Paper[] = [
         ],
         answerIndex: 1,
         explanation:
-          "This argument uses two criteria — **Remembered** (14 July is France's national day) and **Revealing** (royal authority had collapsed in Paris). The 'seven prisoners' fact is true and remarkable, but on its own it suggests the attack mattered as a symbol rather than proving why it was significant.",
+          "This argument uses two criteria — **Remembered** (14 July is France's national day) and **Revealing** (royal authority had collapsed in Paris). The 'seven prisoners' fact is true, but it is just an interesting detail: on its own it does not explain why the event mattered (if anything, it shows the attack mattered as a symbol, not for the prisoners it freed).",
         difficulty: "challenge",
         guideRef: "change-continuity-significance",
         hints: ["A good significance argument uses criteria, not just interesting facts.", "Which option uses more than one of the 5 Rs?"],

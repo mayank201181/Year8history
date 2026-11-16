@@ -41,7 +41,7 @@ export const mcqPapers: Paper[] = [
         difficulty: "warmup",
         guideRef: "battles-of-1066",
         hints: [
-          "It came after Harold's victory over the Vikings in the north, but before William's coronation.",
+          "After his northern victory, Harold had to march his army all the way south again — so could the battle still have been in September?",
         ],
         strategy: "Put it in chronological order",
       },
@@ -86,11 +86,11 @@ export const mcqPapers: Paper[] = [
       {
         kind: "mcq",
         id: "william-i-m1-q05",
-        question: "**Source A** — from the *Ecclesiastical History* by Orderic Vitalis, a monk who was born in England in 1075 to a Norman father and an English mother, writing in Normandy in the 1120s–30s (adapted).\n\n> The king ordered that crops, herds and food of every kind should be gathered together and burned, so that the whole region north of the Humber was stripped of everything that could keep people alive. I have often praised William in this book, but I cannot praise him for this.\n\nWhich is the best judgement about how useful Source A is for studying the Harrying of the North?",
+        question: "**Source A** — from the *Ecclesiastical History* by Orderic Vitalis, a monk who was born in England in 1075 to a French father (who served a Norman lord) and an English mother, writing in Normandy in the 1120s–30s (adapted).\n\n> The king ordered that crops, herds and food of every kind should be gathered together and burned, so that the whole region north of the Humber was stripped of everything that could keep people alive. I have often praised William in this book, but I cannot praise him for this.\n\nWhich is the best judgement about how useful Source A is for studying the Harrying of the North?",
         options: [
           "Completely reliable, because Orderic was a monk and an eyewitness who saw the Harrying happen in person, so had no reason to lie.",
           "Useless, because a monk would have had no interest in what a king did.",
-          "Biased in William's favour, because Orderic's father was a Norman.",
+          "Biased in William's favour, because Orderic lived and wrote in Normandy.",
           "Useful for showing the Harrying was remembered as very cruel, but Orderic wrote decades later and may exaggerate.",
         ],
         answerIndex: 3,
@@ -507,7 +507,7 @@ export const mcqPapers: Paper[] = [
           "Who held land directly from the king?",
           "Who did the actual farming?",
         ],
-        strategy: "Put it in chronological order",
+        strategy: "Use precise evidence",
       },
       {
         kind: "mcq",
@@ -650,7 +650,7 @@ export const mcqPapers: Paper[] = [
         difficulty: "warmup",
         guideRef: "claimants",
         hints: [
-          "Harold was crowned the day after Edward died — on 6 January.",
+          "The Witan had to choose a new king quickly, and Harold was crowned the very next day. Which date comes just before his coronation?",
         ],
         strategy: "Put it in chronological order",
       },
@@ -935,7 +935,7 @@ export const mcqPapers: Paper[] = [
         difficulty: "warmup",
         guideRef: "securing-the-kingdom",
         hints: [
-          "He chose the same church as Edward the Confessor's burial and Harold's coronation, on a major Christian festival.",
+          "He wanted to look like Edward the Confessor's rightful successor — so he chose a church closely linked to Edward.",
         ],
         strategy: "Use precise evidence",
       },
@@ -1067,7 +1067,7 @@ export const mcqPapers: Paper[] = [
           "Harold Godwinson",
         ],
         answerIndex: 2,
-        explanation: "**Hereward**, an English thegn, held out in the marshes around Ely with Danish help until William captured the island in 1071. Hereward's later fame owes a lot to legend. Edgar Ætheling was linked with the northern rebellion of 1069; Harold had died at Hastings in 1066.",
+        explanation: "**Hereward**, an English thegn, held out in the marshes around Ely — at first with Danish help, until the Danes made a deal with William and sailed home in 1070 — until William captured the island in 1071. Hereward's later fame owes a lot to legend. Edgar Ætheling was linked with the northern rebellion of 1069; Harold had died at Hastings in 1066.",
         difficulty: "core",
         guideRef: "securing-the-kingdom",
         hints: [

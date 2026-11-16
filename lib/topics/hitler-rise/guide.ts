@@ -468,7 +468,7 @@ export const guide: TopicGuide = {
       { front: "Hyperinflation (1923)", back: "Prices rising out of control: a loaf went from 0.63 marks (1918) to about **201 billion marks** (November 1923)." },
       { front: "Munich (Beer Hall) Putsch", back: "Hitler's failed attempt to seize power by force in Munich, **8–9 November 1923**." },
       { front: "Mein Kampf", back: "'My Struggle' — the book Hitler wrote in Landsberg prison (1924), setting out his antisemitic and expansionist ideas." },
-      { front: "SA", back: "*Sturmabteilung* ('stormtroopers' or 'brownshirts') — the Nazis' paramilitary force, led by Ernst Röhm." },
+      { front: "SA", back: "*Sturmabteilung* ('stormtroopers' or 'brownshirts') — the Nazis' paramilitary force, led from 1931 by Ernst Röhm." },
       { front: "Gustav Stresemann", back: "Chancellor (1923) then Foreign Minister (1923–29); led the 'Golden Years' recovery. Died October 1929." },
       { front: "Dawes Plan", back: "**1924** agreement that made reparations manageable and brought American loans into Germany." },
       { front: "Wall Street Crash", back: "US stock market collapse, **October 1929**; American banks recalled loans, triggering the Depression in Germany." },
@@ -554,7 +554,7 @@ export const guide: TopicGuide = {
       {
         title: "Germany's 'defensive democracy'",
         detail:
-          "Germany's 1949 constitution (the Basic Law) was written with Weimar in mind: parties normally need 5% of the vote to win seats, a Chancellor can only be removed if parliament agrees on a replacement, the President has no Article 48-style powers, and a constitutional court can ban parties that aim to destroy democracy.",
+          "West Germany's 1949 constitution (the Basic Law) was written with Weimar in mind: a Chancellor can only be removed if parliament agrees on a replacement, the President has no Article 48-style powers, and a constitutional court can ban parties that aim to destroy democracy. Election law adds a further safeguard: parties normally need 5% of the vote to win seats.",
         emoji: "🏛️",
       },
       {
@@ -578,7 +578,7 @@ export const guide: TopicGuide = {
       {
         title: "Hyperinflation since 1923",
         detail:
-          "Germany's was not the last: Hungary (1946) and Zimbabwe (2008, which printed a 100-trillion-dollar note) suffered even faster price rises. Economists still study 1923 as a warning about printing money to pay for crises.",
+          "Germany's was not the last: Hungary (1946) and Zimbabwe (2007–09, which printed a 100-trillion-dollar note) suffered even faster price rises. Economists still study 1923 as a warning about printing money to pay for crises.",
         emoji: "💸",
       },
     ],

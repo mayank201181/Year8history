@@ -26,7 +26,7 @@ export const morePapers: Paper[] = [
         kind: "short",
         id: "mao-rise-p3-q02",
         question:
-          "Who founded the Guomindang (Nationalist Party), set out the 'Three Principles of the People', and is still called the 'Father of the Nation' in both mainland China and Taiwan? Give his name.",
+          "Who founded the Guomindang (Nationalist Party), set out the 'Three Principles of the People', and is still honoured as the 'Father of the Nation' in Taiwan and as a 'forerunner of the revolution' in mainland China? Give his name.",
         answer: {
           type: "text",
           accept: ["Sun Yat-sen", "Sun Yatsen", "Sun Yat sen", "Sun Zhongshan", "Sun Yixian", "Dr Sun Yat-sen", "Sun", "Dr Sun"],
@@ -37,8 +37,8 @@ export const morePapers: Paper[] = [
           { spec: { type: "text", accept: ["Mao", "Mao Zedong", "Mao Tse-tung"] }, feedback: "Mao led the rival Communist Party. The Nationalists' founder was someone else." },
         ],
         solution: [
-          "**Sun Yat-sen** founded the Guomindang and briefly became the first president of the Republic of China in 1912.",
-          "Both the Communists and the Nationalists claim him as a founding father — a sign of how important he was.",
+          "**Sun Yat-sen** founded the Guomindang and briefly became the first (provisional) president of the Republic of China in 1912.",
+          "Both the Communists and the Nationalists honour him as a founder of modern China — a sign of how important he was.",
         ],
         difficulty: "warmup",
         guideRef: "nationalists-and-communists",
@@ -56,7 +56,7 @@ export const morePapers: Paper[] = [
         solution: ["The breakout began in **October 1934**.", "About a year later, in October 1935, the survivors reached Shaanxi in the north-west."],
         difficulty: "warmup",
         guideRef: "long-march",
-        hints: ["The March lasted about a year and ended in October 1935."],
+        hints: ["Chiang's fifth encirclement campaign began in late 1933 and took about a year to squeeze the communists out of Jiangxi."],
         strategy: "Put it in chronological order",
       },
       {
@@ -68,7 +68,7 @@ export const morePapers: Paper[] = [
           { spec: { type: "text", accept: ["the people", "people", "ballot box", "ballot", "vote", "votes"] }, feedback: "That would describe a democracy. Mao's point was that real power comes from armed force." },
         ],
         solution: [
-          "*\"Political power grows out of the barrel of a gun.\"*",
+          "*\"Political power grows out of the barrel of a gun.\"* This famous wording comes from a speech Mao gave in 1938 (*Problems of War and Strategy*); he had first made the same point to party leaders in August 1927.",
           "Mao believed the communists could only win by building their own army — a sharp contrast with Hitler, who came to power through elections and appointment.",
         ],
         difficulty: "core",
@@ -278,7 +278,7 @@ export const morePapers: Paper[] = [
         solution: ["The Cultural Revolution began in **1966** and lasted until Mao's death in **1976**.", "Mao used it to attack rivals in the party and restore his own authority after the failure of the Great Leap Forward."],
         difficulty: "warmup",
         guideRef: "mao-in-power",
-        hints: ["It lasted ten years and ended when Mao died in 1976."],
+        hints: ["It began in the mid-1960s, a few years after the Great Leap Forward famine had ended."],
         strategy: "Put it in chronological order",
       },
       {
@@ -291,12 +291,12 @@ export const morePapers: Paper[] = [
           { spec: { type: "text", accept: ["Yan'an", "Yanan", "Yenan"] }, feedback: "Yan'an was the communist base from the late 1930s — long after the party's founding." },
         ],
         solution: [
-          "The first congress of the CCP met in **Shanghai** in July 1921, with Mao as one of the delegates.",
+          "The first congress of the CCP met in **Shanghai** in July 1921, with Mao as one of the delegates (its final session moved to a boat on a lake at nearby Jiaxing to avoid the police).",
           "Shanghai was China's biggest industrial city — fitting, because at first the party followed the Soviet idea of a revolution led by city workers.",
         ],
         difficulty: "warmup",
         guideRef: "nationalists-and-communists",
-        hints: ["It was China's largest port and industrial city — the same city as the 1927 massacre."],
+        hints: ["It was China's largest port and industrial city, full of foreign-run districts and factory workers."],
       },
       {
         kind: "short",
@@ -339,7 +339,7 @@ export const morePapers: Paper[] = [
         kind: "mcq",
         id: "mao-rise-p4-q06",
         question:
-          "In his writing on guerrilla war (1937), Mao said: *\"The guerrilla must move amongst the people as a fish swims in the sea.\"* What did he mean?",
+          "In *On Guerrilla Warfare* (1937), Mao compared the people to water and guerrilla soldiers to the fish who live in it. His idea is often summed up in the saying: *\"The guerrilla must move amongst the people as a fish swims in the sea.\"* What did he mean?",
         options: [
           "Guerrillas should travel by river and sea to avoid the enemy.",
           "Guerrillas should keep away from ordinary people so that villagers are not harmed.",
@@ -425,7 +425,7 @@ export const morePapers: Paper[] = [
         question: "Describe the key events of the Long March, 1934–1935. (4 marks)",
         marks: 4,
         modelAnswer:
-          "In **October 1934** about 86,000 communist soldiers and followers broke out of the Jiangxi Soviet, which was surrounded by Guomindang forces. They suffered heavy losses early on, especially crossing the **Xiang River** in late 1934.\n\nIn **January 1935** the leaders met at the **Zunyi Conference**, where the old leadership was blamed and Mao gained a leading role. The marchers then twisted through south-west China to escape their pursuers. In **May 1935** came the famous crossing of **Luding Bridge** over the Dadu River.\n\nAfter crossing snow-covered mountains and dangerous swampy grasslands, the survivors reached **Shaanxi** in the north-west in **October 1935**. Only around 8,000 of those who set out arrived; the communists claimed they had covered about 12,500 km.",
+          "In **October 1934** about 86,000 communist soldiers and followers broke out of the Jiangxi Soviet, which was surrounded by Guomindang forces. They suffered heavy losses early on, especially crossing the **Xiang River** in late 1934.\n\nIn **January 1935** the leaders met at the **Zunyi Conference**, where the old leadership was blamed and Mao gained a leading role. The marchers then twisted through south-west China to escape their pursuers. In **May 1935** came the famous crossing of **Luding Bridge** over the Dadu River.\n\nAfter crossing snow-covered mountains and dangerous swampy grasslands, the survivors reached **Shaanxi** in the north-west in **October 1935**. Only around 8,000 of those who set out arrived; the communists claimed they had covered about 12,500 km, though researchers who retraced the main route estimate roughly 6,000 km.",
         markScheme: [
           { point: "Start: breakout from Jiangxi, October 1934, about 86,000 people", keywords: ["october 1934", "1934", "jiangxi", "86,000", "breakout", "broke out"] },
           { point: "Zunyi Conference (January 1935) — Mao gains leading role", keywords: ["zunyi", "january 1935", "conference", "mao"] },
@@ -443,7 +443,7 @@ export const morePapers: Paper[] = [
         question: "\"Mao's leadership was the main reason the communists came to power in China in 1949.\" How far do you agree? (6 marks)",
         marks: 6,
         modelAnswer:
-          "I partly agree. **Mao's leadership** was very important. His idea of a **peasant revolution** suited China, where most people were peasants, and his **land reform** gave them a reason to support the communists. His guerrilla tactics kept a weak army alive, and after **Zunyi** (1935) he led the party through the Long March, which became a powerful propaganda legend.\n\nHowever, Mao's leadership alone could not have won. **Crises** created the opportunity: the **Japanese invasion of 1937** stopped Chiang's campaigns against the communists and allowed them to grow from about 40,000 members to about 1.2 million by 1945. The **Guomindang's weaknesses** — corruption, inflation and soldiers who deserted or surrendered in 1946–49 — also handed the communists victory.\n\nOverall, I think Mao's leadership was **necessary but not sufficient**. The crises and the Guomindang's weakness created the opening, but Mao's strategy made sure it was the communists, not another group, who took it. In 1934, before the Japanese war, his leadership had not been enough to stop the communists being driven out of Jiangxi.",
+          "I partly agree. **Mao's leadership** was very important. His idea of a **peasant revolution** suited China, where most people were peasants, and his **land reform** gave them a reason to support the communists. His guerrilla tactics kept a weak army alive, and after **Zunyi** (1935) he led the party through the Long March, which became a powerful propaganda legend.\n\nHowever, Mao's leadership alone could not have won. **Crises** created the opportunity: the **Japanese invasion of 1937** stopped Chiang's campaigns against the communists and allowed them to grow from about 40,000 members to about 1.2 million by 1945. The **Guomindang's weaknesses** — corruption, inflation and soldiers who deserted or surrendered in 1946–49 — also handed the communists victory.\n\nOverall, I think Mao's leadership was **necessary but not sufficient**. The crises and the Guomindang's weakness created the opening, but Mao's strategy made sure it was the communists, not another group, who took it. In 1934, before the Japanese war, the communists were driven out of Jiangxi and nearly destroyed: Mao's ideas already existed, but they could not win power until the war changed the situation.",
         markScheme: [
           { point: "Agree: Mao's peasant strategy and land reform won mass support", keywords: ["peasant", "peasants", "land reform", "strategy", "support"] },
           { point: "Agree: Mao's guerrilla tactics, Zunyi leadership and the Long March legend / propaganda", keywords: ["guerrilla", "zunyi", "long march", "propaganda", "legend", "leadership"] },
@@ -452,7 +452,7 @@ export const morePapers: Paper[] = [
           { point: "Links factors (e.g. crises created the chance that Mao exploited)", keywords: ["linked", "exploit", "opening", "opportunity", "because", "without", "combined"] },
           { point: "Clear, supported judgement on 'how far'", keywords: ["overall", "partly agree", "agree", "disagree", "necessary", "sufficient", "most important", "main reason"] },
         ],
-        commonError: "Treating Mao as the whole story. Remember he failed in 1934 — what changed between then and 1949?",
+        commonError: "Treating Mao as the whole story. Remember the communists were nearly wiped out in 1934–35 — what changed between then and 1949?",
         solutions: [
           {
             label: "Argument: Mao's leadership mattered most",
@@ -484,7 +484,7 @@ export const morePapers: Paper[] = [
         hints: [
           "Plan two sides: what Mao's leadership achieved, and what else helped the communists.",
           "Use the enquiry headings: crises, weakness of government, leadership.",
-          "Test the claim: in 1934 Mao's ideas existed, but the communists were losing. What changed?",
+          "Test the claim: in 1934 Mao's ideas existed (though he had been sidelined), but the communists were losing. What changed?",
           "Finish with a judgement — is leadership 'necessary', 'sufficient', or both?",
         ],
         strategy: "Weigh factors",

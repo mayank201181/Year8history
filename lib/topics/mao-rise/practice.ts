@@ -7,7 +7,7 @@ export const practice: TopicPractice = {
       kind: "short",
       id: "mao-rise-quiz-q01",
       question:
-        "In 1919 thousands of students protested in Beijing against the peace settlement at the end of the First World War. In which year did this **May Fourth Movement** begin?",
+        "Soon after the First World War, thousands of students protested in Beijing against the peace settlement being agreed in Paris. In which year did this **May Fourth Movement** begin?",
       answer: { type: "number", value: 1919 },
       traps: [
         { spec: { type: "number", value: 1911 }, feedback: "1911 is the revolution against the Qing emperor. The May Fourth protests came eight years later." },
@@ -19,7 +19,7 @@ export const practice: TopicPractice = {
       ],
       difficulty: "warmup",
       guideRef: "china-in-crisis",
-      hints: ["The question itself tells you the year — read it carefully, then check it against the First World War peace talks."],
+      hints: ["The First World War ended in November 1918, and the peace conference met in Paris during the following year."],
       strategy: "Put it in chronological order",
     },
     {
@@ -88,7 +88,7 @@ export const practice: TopicPractice = {
       solution: ["Mao proclaimed the People's Republic in Beijing on **1 October 1949**.", "Chiang Kai-shek and the Guomindang government fled to Taiwan."],
       difficulty: "warmup",
       guideRef: "japan-and-civil-war",
-      hints: ["It is the year the Civil War (which began in 1946) ended — three years later."],
+      hints: ["It is the year the Civil War ended — the same year Chiang Kai-shek fled to Taiwan."],
     },
     {
       kind: "mcq",
@@ -281,7 +281,7 @@ export const practice: TopicPractice = {
           ],
           difficulty: "warmup",
           guideRef: "japan-and-civil-war",
-          hints: ["It was the year after Japan's surrender."],
+          hints: ["American-sponsored peace talks after Japan's surrender in 1945 broke down within months."],
           strategy: "Put it in chronological order",
         },
         {
@@ -385,7 +385,7 @@ export const practice: TopicPractice = {
             "In 1946 the Guomindang had a much larger army than the communists, plus American aid. Explain why the communists had nevertheless won the Civil War by 1949. (6 marks)",
           marks: 6,
           modelAnswer:
-            "The communists won partly because of **Guomindang weaknesses**. Runaway inflation and corruption turned city people against the government, and many of its conscripted soldiers were poorly fed and badly treated, so whole units **surrendered or changed sides**, taking their American weapons with them.\n\nSecond, the communists had **mass support in the countryside**. During the war with Japan they had grown from about 40,000 members (1937) to about 1.2 million (1945), and their land reform gave peasants a reason to fight for them and supply their armies.\n\nThird, **communist military strategy** was effective. In 1945 the Soviet Union occupied Manchuria and let the communists take over captured Japanese weapons. Commanders such as Lin Biao then won huge battles in Manchuria and at Huaihai (1948–49).\n\nThese factors were linked: Guomindang weakness lost it support, which the communists were organised to win. Overall the most important reason was that the communists had the **support of the peasants**, because that turned the Guomindang's numbers into a disadvantage it could not keep supplied or loyal.",
+            "The communists won partly because of **Guomindang weaknesses**. Runaway inflation and corruption turned city people against the government, and many of its conscripted soldiers were poorly fed and badly treated, so whole units **surrendered or changed sides**, taking their American weapons with them.\n\nSecond, the communists had **mass support in the countryside**. During the war with Japan they had grown from about 40,000 members (1937) to about 1.2 million (1945), and their land reform gave peasants a reason to fight for them and supply their armies.\n\nThird, **communist military strategy** was effective. In 1945 the Soviet Union occupied Manchuria and let the communists take over captured Japanese weapons. Commanders such as Lin Biao then won huge battles in Manchuria (1948), and other communist armies won the decisive Huaihai campaign (1948–49).\n\nThese factors were linked: Guomindang weakness lost it support, which the communists were organised to win. Overall the most important reason was that the communists had the **support of the peasants**, because that turned the Guomindang's numbers into a disadvantage it could not keep supplied or loyal.",
           markScheme: [
             { point: "Guomindang weaknesses: corruption, inflation, low morale", keywords: ["corrupt", "corruption", "inflation", "morale", "prices", "unpopular"] },
             { point: "Guomindang soldiers surrendered / defected / deserted", keywords: ["surrender", "defect", "desert", "changed sides", "switched"] },
@@ -421,7 +421,7 @@ export const practice: TopicPractice = {
             "The interpretation stresses the Guomindang's *own failures*, so the best evidence shows support collapsing because of what the government did — inflation and corruption in its own cities. The membership figure is tempting because it is accurate and important, but it shows communist *strength*, which supports the opposite argument.",
           difficulty: "challenge",
           guideRef: "why-mao-rose",
-          hints: ["Read the interpretation carefully: whose actions does it say decided the war?", "Three options are true facts — but which one is about the Guomindang's own failures?"],
+          hints: ["Read the interpretation carefully: whose actions does it say decided the war?", "All four options are true facts — but which one is about the Guomindang's own failures?"],
           strategy: "Consider the counter-argument",
         },
       ],
@@ -535,7 +535,7 @@ export const practice: TopicPractice = {
           ],
           answerIndex: 1,
           explanation:
-            "Most Chinese people were peasants, and many paid huge rents to landlords. Owning land gave them security — and a reason to defend the communists who had given it. The option about factory workers is tempting if you are thinking of the Russian model, but land reform was about the countryside, which is exactly why Mao's peasant strategy suited China.",
+            "Most Chinese people were peasants, and many paid huge rents to landlords. Owning land gave them security — and a reason to defend the communists who had given it. (During the war against Japan the communists mostly cut rents and interest rather than seizing land, but this too made life better for poor tenants.) The option about factory workers is tempting if you are thinking of the Russian model, but land reform was about the countryside, which is exactly why Mao's peasant strategy suited China.",
           difficulty: "core",
           guideRef: "mao-and-the-peasants",
           hints: ["Who made up most of China's population?", "What did a poor tenant farmer want most?"],
@@ -843,7 +843,7 @@ export const practice: TopicPractice = {
         "Historians sometimes argue that the way a dictator **gains** power shapes how he **uses** it. How far do Mao's actions after 1949 support this idea? Give at least two links. (5 marks)",
       marks: 5,
       modelAnswer:
-        "There are strong links. Mao had said that \"political power grows out of the barrel of a gun\", and he won power through **war**. After 1949 he used force against 'enemies' — for example in the **land reform** campaigns of the early 1950s, when landlords were denounced at mass meetings and many were killed.\n\nSecond, the **cult of personality** grew out of the Yan'an years, when the Long March legend and party propaganda built up Mao's image. After 1949 this became portraits everywhere, the Little Red Book and the Red Guards' devotion in the **Cultural Revolution**.\n\nThird, Mao's faith in **mass peasant mobilisation**, which had won the Civil War, led to the **Great Leap Forward** (1958–62). Pushing millions into communes produced a famine in which tens of millions died.\n\nHowever, not everything followed from his rise: Soviet influence and Cold War pressures also shaped his policies. Overall the idea is largely supported — the methods that won power were turned on China itself.",
+        "There are strong links. Mao had argued as early as 1927 that power is won by armed force, and in 1938 he put it in his famous words: \"political power grows out of the barrel of a gun\". He won power through **war**. After 1949 he used force against 'enemies' — for example in the **land reform** campaigns of the early 1950s, when landlords were denounced at mass meetings and many were killed.\n\nSecond, the **cult of personality** grew out of the Yan'an years, when the Long March legend and party propaganda built up Mao's image. After 1949 this became portraits everywhere, the Little Red Book and the Red Guards' devotion in the **Cultural Revolution**.\n\nThird, Mao's faith in **mass peasant mobilisation**, which had won the Civil War, led to the **Great Leap Forward** (1958–62). Pushing millions into communes produced a famine in which tens of millions died.\n\nHowever, not everything followed from his rise: Soviet influence and Cold War pressures also shaped his policies. Overall the idea is largely supported — the methods that won power were turned on China itself.",
       markScheme: [
         { point: "Link 1: power won by force / violence continued against 'enemies' (land reform, campaigns)", keywords: ["barrel of a gun", "gun", "force", "violence", "war", "land reform", "landlords", "enemies"] },
         { point: "Link 2: propaganda/cult of personality from Yan'an grew into Little Red Book / Cultural Revolution", keywords: ["cult", "propaganda", "little red book", "cultural revolution", "red guards", "yan'an", "long march"] },

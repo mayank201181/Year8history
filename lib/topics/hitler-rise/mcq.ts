@@ -50,7 +50,7 @@ export const mcqPapers: Paper[] = [
         ],
         answerIndex: 3,
         explanation:
-          "The **SA** (*Sturmabteilung*, 'storm division'), set up in 1921, were the Nazis' brown-shirted stormtroopers. They protected Nazi meetings and broke up opponents' meetings with violence. Goebbels ran propaganda, not the SA, and the army after 1919 was the *Reichswehr*.",
+          "The **SA** (*Sturmabteilung*, 'storm detachment'), set up in 1921, were the Nazis' brown-shirted stormtroopers. They protected Nazi meetings and broke up opponents' meetings with violence. Goebbels ran propaganda, not the SA, and the army after 1919 was the *Reichswehr*.",
         difficulty: "warmup",
         guideRef: "early-nazi-party",
         hints: ["Their nickname came from the colour of their uniform."],
@@ -482,7 +482,7 @@ export const mcqPapers: Paper[] = [
           "It shows the Communists had won a majority in 1932",
           "It shows the Nazis and Communists had joined forces against the Republic",
           "It shows Communist support was falling, so people felt safe",
-          "Communist support was rising, which frightened people who feared a revolution like Russia's in 1917, and the Nazis presented themselves as the strongest barrier to communism",
+          "It shows Communist support was rising, which frightened people who feared a revolution like Russia's in 1917, and the Nazis presented themselves as the strongest barrier to communism",
         ],
         answerIndex: 3,
         explanation:
@@ -614,7 +614,7 @@ export const mcqPapers: Paper[] = [
           "Germany joined the League of Nations in 1926",
           "The Rentenmark stabilised the currency after 1923",
           "Farmers faced falling food prices and growing debts, and the whole recovery depended on short-term loans from the USA",
-          "Germany signed the Locarno Treaties with France and Belgium in 1925",
+          "In the Locarno Treaties of 1925 Germany accepted its western borders with France and Belgium",
         ],
         answerIndex: 2,
         explanation:
@@ -851,7 +851,7 @@ export const mcqPapers: Paper[] = [
         hints: [
           "Which freedoms does the decree mention?",
           "What does 'beyond the legal limits otherwise prescribed' mean in plain English?",
-          "Think about how this would help the Nazis in the election a week later.",
+          "Think about how this would help the Nazis in the election less than a week later.",
         ],
         strategy: "Make an inference",
       },
@@ -859,7 +859,7 @@ export const mcqPapers: Paper[] = [
         kind: "mcq",
         id: "hitler-rise-m3-q12",
         question:
-          "**Source D**: unemployment and the Nazi vote (approximate unemployment figures).\n\n| Election | Unemployed in Germany | Nazi share of vote |\n|---|---|---|\n| May 1928 | about 1.4 million | 2.6% |\n| September 1930 | about 3 million | 18.3% |\n| July 1932 | about 5.5–6 million | 37.3% |\n\nWhat is the most careful conclusion from Source D?",
+          "**Source D**: unemployment and the Nazi vote (approximate unemployment figures).\n\n| Election | Unemployed in Germany | Nazi share of vote |\n|---|---|---|\n| May 1928 | about 1.4 million | 2.6% |\n| September 1930 | about 3 million | 18.3% |\n| July 1932 | about 5.4 million | 37.3% |\n\nWhat is the most careful conclusion from Source D?",
         options: [
           "Every unemployed German voted for the Nazis",
           "The rising Nazi vote caused unemployment to rise",
@@ -1037,12 +1037,12 @@ export const mcqPapers: Paper[] = [
         options: [
           "Left-wing groups committed more murders than right-wing groups",
           "The courts treated both sides equally",
-          "The killers of right-wing victims were punished more harshly",
+          "Right-wing murderers were punished more harshly than left-wing murderers",
           "The courts, whose judges had mostly served under the Kaiser, were far harsher on the left than the right, which weakened the Republic's ability to defend itself",
         ],
         answerIndex: 3,
         explanation:
-          "Right-wing groups committed far **more** murders (354 against 22), yet almost all went unpunished and none were executed. Left-wing killers were punished severely. Many judges were conservatives left over from the Kaiser's time who sympathised with the right, so the **legal system did not protect democracy**. Victims included the politicians Matthias Erzberger (1921) and Walther Rathenau (1922). 'Left-wing groups committed more murders' simply misreads the table.",
+          "Right-wing groups committed far **more** murders (354 against 22), yet almost all went unpunished and none were executed. Left-wing killers were punished severely. Many judges were conservatives left over from the Kaiser's time who sympathised with the right, so the **legal system did not protect democracy**. Victims included the politicians Matthias Erzberger (1921) and Walther Rathenau (1922). 'Left-wing groups committed more murders' simply misreads the table, and the claim that right-wing murderers were punished more harshly is the reverse of what it shows.",
         difficulty: "core",
         guideRef: "crises-1919-1923",
         hints: [

@@ -55,7 +55,7 @@ export const morePapers: Paper[] = [
         ],
         solution: [
           "Kaing Guek Eav ('Duch') was convicted of crimes against humanity in **2010**; on appeal in 2012 his sentence was increased to life imprisonment.",
-          "His was the tribunal's first case because S-21's own records gave such detailed evidence.",
+          "His case came first partly because he had been in custody since 1999 and S-21's own records gave such detailed evidence.",
         ],
         difficulty: "warmup",
         guideRef: "fall-and-justice",
@@ -102,7 +102,7 @@ export const morePapers: Paper[] = [
       {
         kind: "mcq",
         id: "pol-pot-p3-q06",
-        question: "Why did the Khmer Rouge leaders keep their names — and even the existence of their Communist Party — secret until 1977?",
+        question: "Why did the Khmer Rouge leaders hide behind the name 'Angkar', not even announcing the existence of their Communist Party until 1977?",
         options: [
           "They were planning to hand power back to Prince Sihanouk",
           "The United Nations had banned communist parties in Cambodia",
@@ -159,7 +159,7 @@ export const morePapers: Paper[] = [
         kind: "written",
         id: "pol-pot-p3-q09",
         question:
-          "**Source B** — a description. Between 2009 and 2017, thousands of survivors joined the Khmer Rouge tribunal's cases as 'civil parties'. Many gave testimony in court about their experiences in the cooperatives during 1975–79, more than 30 years after the events.\n\nHow useful is this survivor testimony to a historian studying conditions in the cooperatives? (4 marks)",
+          "**Source B** — a description. During the Khmer Rouge tribunal's trials (2009–2017), thousands of survivors took part as 'civil parties'. Many submitted written accounts, and some gave testimony in court, about their experiences in the cooperatives during 1975–79 — more than 30 years after the events.\n\nHow useful is this survivor testimony to a historian studying conditions in the cooperatives? (4 marks)",
         marks: 4,
         modelAnswer:
           "This testimony is very useful because it comes from eyewitnesses who lived and worked in the cooperatives, so it gives direct evidence of hunger, overwork, fear and the separation of families that official Khmer Rouge records do not show. Because thousands of people from different regions gave evidence, historians can cross-reference their accounts and see which experiences were common. However, there are limitations. The testimony was given more than 30 years later, so details such as dates may be less accurate, and traumatic memories can be hard to recall. Each witness only saw their own cooperative, and conditions varied between regions and years. Also, its purpose was to help prosecute the leaders, so the court focused on particular crimes. Overall, it is highly useful, especially when many accounts agree with each other and with documents such as Khmer Rouge records.",
@@ -307,7 +307,7 @@ export const morePapers: Paper[] = [
         commonError: "Confusing the 2018 genocide verdict with Duch's 2010 conviction.",
         difficulty: "core",
         guideRef: "fall-and-justice",
-        hints: ["It was the tribunal's last major verdict, many years after Duch's case.", "It came almost 40 years after the regime fell in 1979."],
+        hints: ["It was the tribunal's last trial verdict, many years after Duch's case.", "It came almost 40 years after the regime fell in 1979."],
         strategy: "Put it in chronological order",
       },
       {
@@ -370,7 +370,7 @@ export const morePapers: Paper[] = [
         question: "Explain why the Khmer Rouge regime collapsed so quickly when Vietnam invaded in December 1978. (5 marks)",
         marks: 5,
         modelAnswer:
-          "First, the Khmer Rouge had weakened themselves through purges. Growing paranoia led them to arrest and kill many of their own cadres and soldiers, especially in the Eastern Zone in 1978. Some Eastern Zone commanders, including Heng Samrin and Hun Sen, fled to Vietnam and returned with the invasion, giving it Cambodian leaders. Second, the population had no reason to defend the regime. Exhausted and hungry after years of forced labour, most people saw the invasion as an escape rather than a threat. Third, the Khmer Rouge had provoked a much stronger enemy. Their repeated border attacks on Vietnam gave Vietnam a reason to invade with a large, experienced army that had recently won its own long war. Finally, Democratic Kampuchea was isolated: apart from China, it had almost no allies, and China did not send troops to defend it. These factors combined, so Phnom Penh fell on 7 January 1979, about two weeks after the invasion began.",
+          "First, the Khmer Rouge had weakened themselves through purges. Growing paranoia led them to arrest and kill many of their own cadres and soldiers, especially in the Eastern Zone in 1978. Some Eastern Zone commanders, including Hun Sen (1977) and Heng Samrin (1978), fled to Vietnam and returned with the invasion, giving it Cambodian leaders. Second, the population had no reason to defend the regime. Exhausted and hungry after years of forced labour, most people saw the invasion as an escape rather than a threat. Third, the Khmer Rouge had provoked a much stronger enemy. Their repeated border attacks on Vietnam gave Vietnam a reason to invade with a large, experienced army that had recently won its own long war. Finally, Democratic Kampuchea was isolated: apart from China, it had almost no allies, and China did not send troops to defend it. These factors combined, so Phnom Penh fell on 7 January 1979, about two weeks after the invasion began.",
         markScheme: [
           { point: "Purges of their own party/army weakened the regime (Eastern Zone, 1978)", keywords: ["purge", "purges", "own cadres", "own soldiers", "eastern zone", "paranoia", "paranoid", "1978"] },
           { point: "Defectors such as Heng Samrin / Hun Sen returned with Vietnam", keywords: ["heng samrin", "hun sen", "defected", "fled", "defectors", "rebels"] },

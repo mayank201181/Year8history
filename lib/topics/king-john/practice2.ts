@@ -34,7 +34,7 @@ export const morePapers: Paper[] = [
         solution: ["The barons were to elect **25** of their number.", "If John broke the charter, the 25 could seize his castles and lands until he put things right."],
         difficulty: "warmup",
         guideRef: "magna-carta",
-        hints: ["It is a quarter of a hundred."],
+        hints: ["It was a large committee — more than twenty barons, chosen by the rebels themselves."],
       },
       {
         kind: "mcq",
@@ -52,12 +52,12 @@ export const morePapers: Paper[] = [
       {
         kind: "short",
         id: "king-john-p3-q04",
-        question: "After losing Normandy, John was given a mocking nickname suggesting he was weak in war. What was it?",
+        question: "As king, John was given a mocking nickname suggesting he was weak in war. It was first used after he gave up land to Philip II in 1200, and losing Normandy in 1204 made it stick. What was it?",
         answer: { type: "text", accept: ["Softsword", "Soft Sword", "Soft-sword", "Mollegladium", "John Softsword"], display: "Softsword" },
         traps: [
           { spec: { type: "text", accept: ["Lackland", "Lack Land", "Lack-land"] }, feedback: "'Lackland' was his nickname as a young man with no lands. Which one mocked his failure in war?" },
         ],
-        solution: ["Critics called him **Softsword** (in Latin, *mollegladium*).", "It contrasted him with his warrior brother, Richard the Lionheart."],
+        solution: ["Critics called him **Softsword** (in Latin, *mollegladium*), first after he gave up land in the Treaty of Le Goulet (1200); the loss of Normandy in 1204 seemed to prove them right.", "It contrasted him with his warrior brother, Richard the Lionheart."],
         difficulty: "warmup",
         guideRef: "losing-normandy",
         hints: ["It is the opposite of a hard, sharp weapon."],
@@ -80,7 +80,7 @@ export const morePapers: Paper[] = [
       {
         kind: "short",
         id: "king-john-p3-q06",
-        question: "In 1948 the United Nations adopted a document that Eleanor Roosevelt hoped would become 'a Magna Carta for all mankind'. Name the document.",
+        question: "In 1948 the United Nations adopted a document that Eleanor Roosevelt said 'may well become the international Magna Carta for all men everywhere'. Name the document.",
         answer: {
           type: "text",
           accept: ["Universal Declaration of Human Rights", "the Universal Declaration of Human Rights", "UDHR", "Universal Declaration", "Declaration of Human Rights", "UN Declaration of Human Rights", "Universal Declaration of Human Rights 1948"],
@@ -106,7 +106,7 @@ export const morePapers: Paper[] = [
         markScheme: [
           { point: "Infers from clause 8 that John forced widows to remarry / sold them the right not to", keywords: ["widows", "forced", "remarry", "marry", "fines", "pay", "sold"] },
           { point: "Infers from clause 49 that John took hostages because he distrusted the barons", keywords: ["hostages", "children", "sons", "distrust", "did not trust", "loyalty", "security"] },
-          { point: "Supports with own knowledge or draws an overall inference (e.g. de Braose; rule felt personal/threatening)", keywords: ["braose", "matilda", "personal", "families", "threatening", "fear", "arbitrary"] },
+          { point: "Supports with own knowledge or draws an overall inference (e.g. de Braose; rule felt personal/threatening)", keywords: ["braose", "briouze", "matilda", "personal", "families", "threatening", "fear", "arbitrary"] },
         ],
         difficulty: "core",
         guideRef: "barons-revolt",
@@ -266,7 +266,7 @@ export const morePapers: Paper[] = [
       {
         kind: "short",
         id: "king-john-p4-q03",
-        question: "In which year did **Simon de Montfort's Parliament** meet, including knights from the counties and townsmen (burgesses) for the first time?",
+        question: "In which year did **Simon de Montfort's Parliament** meet — the first Parliament to include both knights from the counties and townsmen (burgesses)?",
         answer: { type: "number", value: 1265 },
         traps: [
           { spec: { type: "number", value: 1215 }, feedback: "1215 is Magna Carta. De Montfort's Parliament came fifty years later, under John's son Henry III." },
@@ -275,7 +275,7 @@ export const morePapers: Paper[] = [
         solution: ["Simon de Montfort, leading the barons against Henry III, summoned his Parliament in January **1265**.", "It is seen as an important step towards the House of Commons."],
         difficulty: "warmup",
         guideRef: "legacy-of-magna-carta",
-        hints: ["It was exactly fifty years after Magna Carta."],
+        hints: ["It met during the civil war between John's son Henry III and his barons, about half a century after Magna Carta."],
       },
       {
         kind: "mcq",
@@ -298,7 +298,7 @@ export const morePapers: Paper[] = [
       {
         kind: "short",
         id: "king-john-p4-q05",
-        question: "In 1216 the rebel barons invited a French prince to become King of England, and he invaded. What was his first name?",
+        question: "At the end of 1215 the rebel barons invited a French prince to become King of England, and in May 1216 he invaded. What was his first name?",
         answer: { type: "text", accept: ["Louis", "Prince Louis", "Louis VIII", "Louis of France", "Louis the Lion", "Lewis", "Louis 8"], display: "Louis (later Louis VIII)" },
         traps: [
           { spec: { type: "text", accept: ["Philip", "Philip II", "Philip Augustus"] }, feedback: "Philip II was the French **king** — the barons invited his son. What was the son's name?" },
@@ -409,7 +409,7 @@ export const morePapers: Paper[] = [
           { point: "Bad luck: inherited debts, ransom, rising prices/inflation", keywords: ["debts", "ransom", "richard", "inflation", "prices", "inherited"] },
           { point: "Bad luck: Bouvines depended on allies / hostile chroniclers wrote history", keywords: ["bouvines", "allies", "otto", "monks", "chroniclers", "wendover", "reputation"] },
           { point: "Own fault: specific mistakes (Isabella marriage, Arthur, Langton quarrel)", keywords: ["isabella", "marriage", "arthur", "langton", "interdict", "pope", "quarrel", "mistakes"] },
-          { point: "Own fault: cruelty and distrust alienated barons (hostages, de Braose, fines)", keywords: ["cruel", "hostages", "braose", "distrust", "untrustworthy", "fines", "barons"] },
+          { point: "Own fault: cruelty and distrust alienated barons (hostages, de Braose, fines)", keywords: ["cruel", "hostages", "braose", "briouze", "distrust", "untrustworthy", "fines", "barons"] },
           { point: "Reaches a supported judgement (e.g. comparison with Richard)", keywords: ["overall", "agree", "disagree", "mostly", "partly", "richard", "judgement", "conclusion"] },
         ],
         solutions: [

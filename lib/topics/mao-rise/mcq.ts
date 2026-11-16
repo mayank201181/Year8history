@@ -538,29 +538,29 @@ export const mcqPapers: Paper[] = [
           "Is a heroic story always the full truth?",
           "Look for the option that mentions disagreement.",
         ],
-        strategy: "Ask \"how typical?\"",
+        strategy: "Think about purpose",
       },
       {
         kind: "mcq",
         id: "mao-rise-m2-q13",
-        question: "Why did the Guomindang and the communists form the First United Front in the 1920s?",
+        question: "Historians call the First United Front (1924–27) an 'alliance of convenience'. Which evidence best supports that description?",
         options: [
-          "Both wanted to fight the Japanese invasion of 1937",
+          "Both parties joined forces to fight the Japanese invasion of 1937",
           "Chiang Kai-shek admired communism and wanted China to become communist",
-          "Both wanted to defeat the warlords and unify China, and the Soviet Union encouraged the two parties to co-operate",
-          "Both wanted to restore the emperor",
+          "Both wanted to defeat the warlords and unify China, and the Soviet Union pushed them together — but their long-term aims clashed, and the alliance broke apart once the warlords were weakening",
+          "Both parties wanted to restore the emperor",
         ],
         answerIndex: 2,
         explanation:
-          "In the early 1920s both parties wanted to **defeat the warlords** and end foreign domination, and the Soviet Union, which advised and armed the GMD, pushed the small CCP to join it. The 1937 alliance against Japan was the **Second** United Front — mixing up the two is a common error.",
+          "An alliance of convenience rests on a **shared enemy, not shared aims**. In the early 1920s both parties wanted to **defeat the warlords**, and the Soviet Union, which advised and armed the GMD, pushed the small CCP to join it; but the GMD's property-owning backers and the CCP's call for class revolution could not coexist, so the alliance collapsed in the Shanghai Massacre of 1927. The 1937 alliance against Japan was the **Second** United Front — mixing up the two is a common error.",
         difficulty: "challenge",
         guideRef: "nationalists-and-communists",
         hints: [
-          "Check the dates: the First United Front began in the early 1920s.",
-          "What was the biggest obstacle to a united China at that time?",
-          "Which foreign country advised both parties in the 1920s?",
+          "What makes an alliance one of 'convenience' rather than shared beliefs?",
+          "Check the dates: the First United Front lasted from 1924 to 1927.",
+          "Look for the option that explains both why the alliance formed and why it broke.",
         ],
-        strategy: "Avoid hindsight",
+        strategy: "Compare and contrast",
       },
       {
         kind: "mcq",
@@ -568,13 +568,13 @@ export const mcqPapers: Paper[] = [
         question: "A student asks: 'What if Japan had not invaded China in 1937?' Which answer is the best-supported historical argument?",
         options: [
           "Mao would certainly have won anyway, because the communist victory was inevitable",
-          "The communists might well have been destroyed, because the Guomindang had been close to crushing them before the war forced a truce and drew its armies away",
+          "The communists might well have been destroyed, because the Guomindang had been close to crushing them before pressure to resist Japan forced a truce and the war drew its armies away",
           "The Qing emperors would have returned to power",
           "Nothing would have changed, because the Japanese invasion happened after the communists had already won",
         ],
         answerIndex: 1,
         explanation:
-          "In 1934–36 the communists had been driven out of Jiangxi and reduced to a few thousand survivors in Shaanxi. The Japanese invasion forced Chiang into the **Second United Front** and pulled his armies away, giving the communists time to grow. Calling the victory 'inevitable' is hindsight, and the invasion (1937) came long before the victory (1949).",
+          "In 1934–36 the communists had been driven out of Jiangxi and confined to a small, poor base in Shaanxi — only about 8,000 of the main column had arrived in 1935 — and Chiang was preparing a new campaign against them. Anger at Japanese aggression led to the Xi'an Incident (December 1936), and the full-scale invasion forced Chiang into the **Second United Front** and pulled his armies away, giving the communists time to grow. Calling the victory 'inevitable' is hindsight, and the invasion (1937) came long before the victory (1949).",
         difficulty: "challenge",
         guideRef: "why-mao-rose",
         hints: [
@@ -898,7 +898,7 @@ export const mcqPapers: Paper[] = [
         kind: "mcq",
         id: "mao-rise-m3-q15",
         question:
-          "**Source D** — a leaflet produced by the Guomindang government in 1933, written for this exercise in the style of real anti-communist leaflets.\n\n> Do not be fooled by the Red bandits! They steal land that is not theirs and bring only ruin to honest villages.\n\nWhy might a historian find this biased source useful?",
+          "**Source D** — a leaflet written for this exercise in the style of the Guomindang government's anti-communist leaflets of the early 1930s.\n\n> Do not be fooled by the Red bandits! They steal land that is not theirs and bring only ruin to honest villages.\n\nWhy might a historian find this biased source useful?",
         options: [
           "It proves the communists really were bandits",
           "It is useless, because it is biased",
@@ -999,7 +999,7 @@ export const mcqPapers: Paper[] = [
         ],
         answerIndex: 1,
         explanation:
-          "Chiang Kai-shek led the **Northern Expedition** north from Guangzhou (Canton) to defeat the warlords, and by 1928 the Guomindang ruled most of China from Nanjing. The communists' retreat to Shaanxi is the Long March of 1934–35, which went in the opposite direction, from south-east to north-west.",
+          "Chiang Kai-shek led the **Northern Expedition** north from Guangzhou (Canton) to defeat the warlords, and by 1928 the Guomindang ruled most of China, at least in name, from Nanjing. The communists' retreat to Shaanxi is the Long March of 1934–35, which went in the opposite direction, from south-east to north-west.",
         difficulty: "core",
         guideRef: "nationalists-and-communists",
         hints: [

@@ -79,7 +79,7 @@ export const practice: TopicPractice = {
       kind: "short",
       id: "pol-pot-quiz-q05",
       question: "Which **Muslim** ethnic minority in Cambodia had its religion, language and communities deliberately attacked by the Khmer Rouge? Give the group's name.",
-      answer: { type: "text", accept: ["Cham", "the Cham", "Chams", "Cham Muslims", "Cham people", "Khmer Islam"], display: "The Cham" },
+      answer: { type: "text", accept: ["Cham", "the Cham", "Chams", "Cham Muslims", "Cham Muslim", "Cham people", "Khmer Islam"], display: "The Cham" },
       traps: [
         { spec: { type: "text", accept: ["Vietnamese", "ethnic Vietnamese", "the Vietnamese"] }, feedback: "Ethnic Vietnamese were also targeted, but they were not the Muslim minority. Which group was?" },
         { spec: { type: "text", accept: ["Chinese", "ethnic Chinese", "the Chinese"] }, feedback: "Ethnic Chinese people also suffered terribly, but the question asks about the Muslim minority." },
@@ -227,15 +227,15 @@ export const practice: TopicPractice = {
         {
           kind: "short",
           id: "pol-pot-p1-q03",
-          question: "What name did the Khmer Rouge use for 1975, to show that Cambodia's history was being wiped clean and started again?",
+          question: "What two-word name is often given to 1975, to describe the Khmer Rouge attempt to wipe Cambodia's history clean and start again?",
           answer: { type: "text", accept: ["Year Zero", "Year 0", "year zero", "Zero", "Year Nought"], display: "Year Zero" },
           traps: [
             { spec: { type: "text", accept: ["Angkar"] }, feedback: "Angkar ('the Organisation') was the name for the faceless ruling party, not for the year." },
-            { spec: { type: "text", accept: ["Year One", "Year 1"] }, feedback: "Close — but they chose a number that suggests *nothing* came before." },
+            { spec: { type: "text", accept: ["Year One", "Year 1"] }, feedback: "Close — but the phrase uses a number that suggests *nothing* came before." },
           ],
           solution: [
-            "The Khmer Rouge spoke of **Year Zero**: everything before 1975 — money, religion, schools, family traditions — was to be erased.",
-            "Historians use the term to describe the regime's attempt to restart society from nothing.",
+            "**Year Zero** describes the Khmer Rouge aim that everything before 1975 — money, religion, schools, family traditions — was to be erased.",
+            "The phrase was popularised by the French priest François Ponchaud's 1977 book *Cambodia: Year Zero*; historians use it for the regime's attempt to restart society from nothing.",
           ],
           difficulty: "warmup",
           guideRef: "year-zero",
@@ -380,7 +380,7 @@ export const practice: TopicPractice = {
           kind: "short",
           id: "pol-pot-p1-q11",
           question: "S-21 (Tuol Sleng), the Khmer Rouge's main secret prison in Phnom Penh, was set up in a building that had previously been used for what purpose?",
-          answer: { type: "text", accept: ["school", "a school", "high school", "a high school", "secondary school", "lycee", "lycée", "college", "school building"], display: "A (high) school" },
+          answer: { type: "text", accept: ["school", "a school", "schools", "high school", "a high school", "high-school", "secondary school", "lycee", "lycée", "college", "school building"], display: "A (high) school" },
           traps: [
             { spec: { type: "text", accept: ["temple", "pagoda", "monastery", "a temple", "a pagoda"] }, feedback: "Many pagodas were closed or misused under the Khmer Rouge, but S-21 used a different kind of building." },
             { spec: { type: "text", accept: ["prison", "a prison", "police station"] }, feedback: "It was not a prison before 1975 — that is part of what makes it so shocking." },
@@ -575,7 +575,7 @@ export const practice: TopicPractice = {
             "**Source B** — a description of records kept by the Khmer Rouge at S-21 (Tuol Sleng) prison, 1975–79. Guards photographed every prisoner on arrival, kept lists of who was brought in and released almost no one, and forced prisoners to write 'confessions' admitting to plots against Angkar. The files were found by Vietnamese troops in 1979.\n\nHow useful are these records to a historian investigating whom the Khmer Rouge leadership regarded as its enemies? (4 marks)",
           marks: 4,
           modelAnswer:
-            "The S-21 records are very useful for this enquiry because they were made by the Khmer Rouge themselves, for their own use. They were never meant to be seen by outsiders, so they show honestly whom the regime arrested — including many of its own cadres and soldiers, which reveals how paranoid the leadership had become. However, the 'confessions' are not reliable as evidence that prisoners really were spies or traitors: they were forced from prisoners under extreme pressure and torture, so they record what the interrogators wanted to hear. They also come from only one prison in Phnom Penh, so they cannot show the whole country, where most deaths came from hunger, overwork and disease. Overall the records are excellent evidence of the leadership's fears and its targets, but must not be trusted for the 'crimes' they describe.",
+            "The S-21 records are very useful for this enquiry because they were made by the Khmer Rouge themselves, for their own use. They were never meant to be seen by outsiders, so they show honestly whom the regime arrested — including many of its own cadres and soldiers, which reveals how paranoid the leadership had become. However, the 'confessions' are not reliable as evidence that prisoners really were spies or traitors: they were forced from prisoners under extreme pressure and torture, so they record what the interrogators wanted to hear. They also come from only one prison in Phnom Penh, so they cannot show the whole country, where huge numbers also died from hunger, overwork and disease. Overall the records are excellent evidence of the leadership's fears and its targets, but must not be trusted for the 'crimes' they describe.",
           markScheme: [
             { point: "Useful: made by the regime for its own use, so it shows its own thinking/targets", keywords: ["own records", "khmer rouge made", "their own", "for themselves", "not meant", "secret", "shows who", "targets", "regime"] },
             { point: "Uses detail/knowledge, e.g. many prisoners were Khmer Rouge cadres — evidence of paranoia/purges", keywords: ["cadres", "own members", "purge", "purges", "paranoia", "paranoid", "suspicion", "photographs", "lists"] },
@@ -731,7 +731,7 @@ export const practice: TopicPractice = {
       difficulty: "challenge",
       guideRef: "comparing-dictators",
       hints: ["If people were not following Pol Pot, whom — or what — were they following?", "Which famous Cambodian lent his name to the rebels after 1970?", "How could secrecy make a movement seem *more* powerful?"],
-      strategy: "Consider the counter-argument",
+      strategy: "Link the causes",
     },
     {
       kind: "written",
@@ -739,7 +739,7 @@ export const practice: TopicPractice = {
       question: "Compare what Mao and Pol Pot did with power once they had it. Explain **two** similarities and **one** important difference. (5 marks)",
       marks: 5,
       modelAnswer:
-        "One similarity is that both forced peasants into collective farming to transform society quickly. Mao's Great Leap Forward (1958–62) set impossible grain targets in communes, and the Khmer Rouge set impossible rice quotas in rural collectives. In both cases the result was mass famine: tens of millions died in China (estimates range from about 15 to 45 million), and hunger and overwork were the biggest killers in Cambodia. A second similarity is the attack on people seen as class enemies and on 'old' ideas: in China's Cultural Revolution, schools and universities were disrupted and millions of young people were sent to the countryside; in Cambodia, educated people were targeted and everyone was sent to the countryside.\n\nThe key difference is extremity and speed. Mao's China kept cities, money and a functioning state, and changed society over decades. Pol Pot tried to do everything at once from 'Year Zero', emptying the cities within days and abolishing money, markets and schools altogether — so that an estimated 1.5–2 million people, roughly a quarter of the population, died in under four years.",
+        "One similarity is that both forced peasants into collective farming to transform society quickly. Mao's Great Leap Forward (1958–62) set impossible grain targets in communes, and the Khmer Rouge set impossible rice quotas in rural collectives. In both cases the result was mass famine: tens of millions died in China (estimates range from about 15 to 45 million), and hunger, overwork and disease killed huge numbers in Cambodia. A second similarity is the attack on people seen as class enemies and on 'old' ideas: in China's Cultural Revolution, schools and universities were disrupted and millions of young people were sent to the countryside; in Cambodia, educated people were targeted and everyone was sent to the countryside.\n\nThe key difference is extremity and speed. Mao's China kept cities, money and a functioning state, and changed society over decades. Pol Pot tried to do everything at once from 'Year Zero', emptying the cities within days and abolishing money, markets and schools altogether — so that an estimated 1.5–2 million people, roughly a quarter of the population, died in under four years.",
       markScheme: [
         { point: "Similarity 1: forced collectivisation with impossible targets (communes / rice quotas)", keywords: ["collective", "collectives", "communes", "great leap forward", "quotas", "targets", "grain", "rice"] },
         { point: "Supports similarity 1 with famine evidence and ranges", keywords: ["famine", "starvation", "hunger", "tens of millions", "15", "45", "million"] },
@@ -833,7 +833,7 @@ export const practice: TopicPractice = {
       question: "The Khmer Rouge tribunal took about 16 years and cost more than 300 million US dollars, but convicted only three people. Was it worth it? Make a judgement. (4 marks)",
       marks: 4,
       modelAnswer:
-        "There are strong reasons to doubt it. The cost was very high for a poor country, the trials were slow, and only Duch, Nuon Chea and Khieu Samphan were convicted. Pol Pot had already died in 1998, and the most senior leaders were very old, so punishment was limited. Further cases against other suspects were eventually dropped amid disagreements between the judges.\n\nHowever, a tribunal is not only about punishment. It created a detailed official record, tested in court, which makes the crimes much harder to deny. Thousands of survivors took part as civil parties, and the 2018 genocide verdict gave formal recognition to the Vietnamese and Cham victims. It also showed that leaders can be held to account, even decades later.\n\nOverall I think it was worth it, because truth, recognition and remembrance matter for a society recovering from genocide — although the delay meant many victims never saw justice.",
+        "There are strong reasons to doubt it. The cost was very high — money, mostly from foreign donors, that critics argued could have helped Cambodia in other ways — the trials were slow, and only Duch, Nuon Chea and Khieu Samphan were convicted. Pol Pot had already died in 1998, and the most senior leaders were very old, so punishment was limited. Further cases against other suspects were eventually dropped amid disagreements between the judges.\n\nHowever, a tribunal is not only about punishment. It created a detailed official record, tested in court, which makes the crimes much harder to deny. Thousands of survivors took part as civil parties, and the 2018 genocide verdict gave formal recognition to the Vietnamese and Cham victims. It also showed that leaders can be held to account, even decades later.\n\nOverall I think it was worth it, because truth, recognition and remembrance matter for a society recovering from genocide — although the delay meant many victims never saw justice.",
       markScheme: [
         { point: "Argument against: cost, slowness, few convictions, Pol Pot never tried", keywords: ["cost", "expensive", "slow", "only three", "few", "pol pot", "died", "1998", "dropped"] },
         { point: "Argument for: official record of truth / prevents denial", keywords: ["record", "truth", "evidence", "denial", "deny", "history", "official"] },

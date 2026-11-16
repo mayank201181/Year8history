@@ -417,8 +417,18 @@ function ShortBody({ q, mode, restored, onDone, onAnswer, topicId, onNext, nextL
 
 // -------------------------------------------------------------- Written
 export function suggestMarks(q: WrittenQ, text: string): boolean[] {
-  const t = ` ${text.toLowerCase().replace(/\s+/g, " ")} `;
-  return q.markScheme.map((p) => p.keywords.some((k) => k && t.includes(k.toLowerCase())));
+  // Normalise punctuation to spaces so keywords match whole words. Keywords must start at a
+  // word boundary ("luck" matches "lucky", but "war" doesn't match "toward"); short keywords
+  // (≤ 3 letters, e.g. "sa", "1918" is fine) must match a whole word so they can't tick by accident.
+  const norm = (s: string) => s.toLowerCase().normalize("NFKD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9%£$]+/g, " ").trim();
+  const t = ` ${norm(text)} `;
+  return q.markScheme.map((p) =>
+    p.keywords.some((k) => {
+      const kk = norm(k);
+      if (!kk) return false;
+      return kk.length <= 3 ? t.includes(` ${kk} `) : t.includes(` ${kk}`);
+    }),
+  );
 }
 
 function WrittenBody({ q, mode, restored, onDone, onAnswer, topicId, onNext, nextLabel }: QuestionCardProps & { q: WrittenQ }) {

@@ -1,0 +1,475 @@
+import type { Paper } from "../../types.ts";
+
+export const morePapers: Paper[] = [
+  {
+    id: "historians-toolkit-p3",
+    title: "Practice Paper 3",
+    questions: [
+      {
+        kind: "short",
+        id: "historians-toolkit-p3-q01",
+        question: "In which year did King John seal **Magna Carta** at Runnymede?",
+        answer: { type: "number", value: 1215, display: "1215" },
+        traps: [
+          { spec: { type: "number", value: 1066 }, feedback: "1066 is the Battle of Hastings. Magna Carta came almost 150 years later." },
+          { spec: { type: "number", value: 1225 }, feedback: "1225 is when Henry III reissued Magna Carta — the version that became part of English law. The original was sealed ten years earlier." },
+        ],
+        solution: ["King John sealed Magna Carta in **June 1215** at Runnymede, near Windsor."],
+        difficulty: "warmup",
+        guideRef: "chronology",
+        hints: ["It was early in the 13th century, soon after John's allies were defeated at the Battle of Bouvines."],
+        strategy: "Use precise evidence",
+      },
+      {
+        kind: "short",
+        id: "historians-toolkit-p3-q02",
+        question:
+          "Historians group sources into types: written, visual, oral and archaeological. Which **type** of source is the **Bayeux Tapestry** mainly?",
+        answer: { type: "text", accept: ["visual", "a visual source", "visual source", "pictorial", "picture", "pictures", "image", "images", "artwork", "art"], display: "visual" },
+        traps: [
+          { spec: { type: "text", accept: ["written", "a written source", "written source"] }, feedback: "It has short Latin captions, but it tells its story mainly through embroidered pictures — so it is mainly a **visual** source." },
+          { spec: { type: "text", accept: ["archaeological", "archaeology"] }, feedback: "It is a very old object, but historians study it for its pictures, not by digging it up — it is mainly **visual**." },
+        ],
+        solution: ["The Tapestry tells the story of 1066 in about 70 metres of embroidered pictures → a **visual** source.", "Like all visual sources, ask who made it and why: it was probably made for Bishop Odo, William's half-brother."],
+        difficulty: "warmup",
+        guideRef: "sources-and-evidence",
+        hints: ["How does the Tapestry mostly tell its story — words or pictures?"],
+        strategy: "Check the provenance (NOP)",
+      },
+      {
+        kind: "short",
+        id: "historians-toolkit-p3-q03",
+        question:
+          "A monarch whose power is **not** limited by laws, a parliament or elections is called a what kind of monarch? Give the one missing word: \"an ______ monarch\".",
+        answer: { type: "text", accept: ["absolute", "absolute monarch", "absolutist", "an absolute monarch"], display: "absolute" },
+        traps: [
+          { spec: { type: "text", accept: ["constitutional", "constitutional monarch", "limited"] }, feedback: "That is the opposite: a **constitutional** monarch's power is limited by laws and parliament. Unlimited power = **absolute** monarch." },
+        ],
+        solution: ["**Absolute** monarchy = the ruler's power has no legal limits (e.g. Louis XVI before 1789).", "Constitutional monarchy = the monarch reigns but Parliament and the law limit their power (the UK today)."],
+        difficulty: "warmup",
+        guideRef: "power-concepts",
+        hints: ["Think of Louis XVI of France before 1789."],
+        strategy: "Compare and contrast",
+      },
+      {
+        kind: "short",
+        id: "historians-toolkit-p3-q04",
+        question:
+          "In Term 2 you used a model to explain how dictators came to power: **crises**, **weak government** and ______ **leadership**. What is the missing word?",
+        answer: { type: "text", accept: ["charismatic", "charisma", "charismatic leadership", "a charismatic leader", "charismatic leader"], display: "charismatic" },
+        traps: [
+          { spec: { type: "text", accept: ["strong", "strong leadership"] }, feedback: "Close in spirit, but the model's word is **charismatic** — a leader whose personality and speeches attract devoted followers." },
+          { spec: { type: "text", accept: ["weak", "weak leadership"] }, feedback: "Weakness is already in the model (weak *government*). The third factor is **charismatic** leadership." },
+        ],
+        solution: ["The model is **crises + weak government + charismatic leadership**.", "A strong answer shows how the three *link*: crises weaken governments, which creates an opening for a charismatic leader."],
+        difficulty: "core",
+        guideRef: "causation",
+        hints: ["Think about how Hitler's speeches attracted followers.", "The word means having a magnetic, inspiring personality."],
+        strategy: "Link the causes",
+      },
+      {
+        kind: "mcq",
+        id: "historians-toolkit-p3-q05",
+        question: "A TV drama about **Henry VIII** (reigned 1509–47) shows each of these scenes. Which one is an **anachronism**?",
+        options: [
+          "Courtiers discussing Martin Luther's attack on the Catholic Church",
+          "Printed English Bibles being placed in parish churches",
+          "Henry's ministers reading the morning's edition of a daily newspaper",
+          "Cannon firing from Henry's warship, the *Mary Rose*",
+        ],
+        answerIndex: 2,
+        explanation:
+          "An **anachronism** is something placed in the wrong time. England's first daily newspaper, the *Daily Courant*, appeared in **1702** — over 150 years after Henry died. The other scenes fit: Luther's challenge began in 1517, the Great Bible in English was placed in churches from 1539, and the *Mary Rose* carried heavy guns before she sank in 1545. Printed Bibles can look like the odd one out, but printing had reached England in the 1470s.",
+        difficulty: "core",
+        guideRef: "chronology",
+        hints: ["Printing existed in Henry's time — but did *daily* news?", "Check each against 1509–47: Luther began in 1517; the *Mary Rose* sank in 1545."],
+        strategy: "Put it in chronological order",
+      },
+      {
+        kind: "short",
+        id: "historians-toolkit-p3-q06",
+        question:
+          "A pamphlet written by a WSPU supporter in 1912 praises suffragette window-smashing and gives no other point of view. Which one-word **adjective** describes a one-sided source like this?",
+        answer: { type: "text", accept: ["biased", "bias", "one-sided", "one sided", "partial", "prejudiced", "partisan"], display: "biased" },
+        traps: [
+          { spec: { type: "text", accept: ["unreliable", "useless"] }, feedback: "That's a *judgement* you might reach, and it isn't automatic — a one-sided source can still be very useful. The word for one-sided is **biased**." },
+          { spec: { type: "text", accept: ["propaganda"] }, feedback: "It may well count as propaganda — but that is a noun for material made to persuade. The adjective for any one-sided source is **biased**." },
+        ],
+        solution: ["A source that gives only one point of view is **biased**.", "Bias is not the end of the story: this pamphlet is very useful evidence of how WSPU supporters justified militancy."],
+        difficulty: "core",
+        guideRef: "provenance-nop",
+        hints: ["Think of a word meaning 'leaning to one side'.", "It begins with 'b'."],
+        strategy: "Think about purpose",
+      },
+      {
+        kind: "written",
+        id: "historians-toolkit-p3-q07",
+        question:
+          "**Source A** — clause 39 of **Magna Carta** (1215), translated from Latin.\n\n> No free man shall be seized or imprisoned, or stripped of his rights or possessions, or outlawed or exiled… except by the lawful judgement of his equals or by the law of the land.\n\nWhat can you **infer** from Source A about how King John had been treating his barons? Give **two** inferences, each supported by detail from the source. (4 marks)",
+        marks: 4,
+        modelAnswer:
+          "Source A suggests that John had been **punishing people without trial**, using his power unfairly. I can infer this because the barons felt they needed a rule that no free man could be 'seized or imprisoned' or 'stripped of his rights or possessions' except by 'lawful judgement' — you only demand a rule like that if it has been broken. Source A also suggests that the barons wanted the **king himself to be under the law**, rather than above it. The phrase 'by the law of the land' shows they wanted fixed rules that even John had to follow. However, the words 'free man' suggest the barons were protecting people like themselves, not the unfree villeins who made up most of the population.",
+        markScheme: [
+          { point: "Inference 1: John had been punishing/imprisoning people or taking land without fair trial", keywords: ["without trial", "unfairly", "imprisoned", "seized", "took land", "punishing", "arbitrary", "abused"] },
+          { point: "Supports inference 1 with a quoted/referenced detail ('seized or imprisoned', 'stripped of… possessions')", keywords: ["seized", "imprisoned", "stripped", "possessions", "outlawed", "exiled", "lawful judgement"] },
+          { point: "Inference 2: the barons wanted the king to be under the law / limited — or only free men were protected", keywords: ["under the law", "limit", "above the law", "rules", "free men", "only", "villeins", "not everyone"] },
+          { point: "Supports inference 2 with detail ('law of the land', 'judgement of his equals', 'free man')", keywords: ["law of the land", "equals", "free man", "judgement of his equals"] },
+        ],
+        commonError: "Rewriting the clause in modern words (description) without saying what it suggests about John.",
+        difficulty: "core",
+        guideRef: "sources-and-evidence",
+        hints: ["Why would anyone write a rule saying 'don't imprison people without judgement'?", "Who does the clause protect — everyone, or only 'free men'?", "Use 'This suggests that…' then 'I can tell because the source says…'"],
+        strategy: "Make an inference",
+      },
+      {
+        kind: "written",
+        id: "historians-toolkit-p3-q08",
+        question:
+          "**Source B** — from a speech by **Maximilien Robespierre** to the National Convention in February 1794. Robespierre was a leading member of the Committee of Public Safety, which ran the Terror (adapted).\n\n> Terror is nothing other than justice — swift, severe and unbending. It is therefore an expression of virtue.\n\nHow **useful** is Source B to a historian studying the **Terror** (1793–94)? Use the content of the source, its provenance (NOP) and your own knowledge. (6 marks)",
+        marks: 6,
+        modelAnswer:
+          "Source B is very useful for understanding **how the Terror was justified** by those who ran it. Its content shows Robespierre presenting terror not as cruelty but as 'justice' and 'virtue' — the idea that harsh punishment was needed to protect the Revolution. Its origin makes this especially valuable: Robespierre was a leading member of the Committee of Public Safety, so this is the view from the very top. However, its purpose was to **persuade** the Convention to keep supporting the Terror, so it presents it in the best possible light. It tells us nothing about the experience of its victims. From my own knowledge, around 17,000 people were officially executed, many more died in prison or without trial, and the Law of Suspects (September 1793) allowed arrests on very weak evidence. Robespierre himself was overthrown and executed in July 1794, suggesting many revolutionaries had turned against the Terror. Overall, Source B is very useful for the leaders' ideas and motives, but a historian would need other sources, such as trial records and letters of victims, to understand what the Terror was actually like.",
+        markScheme: [
+          { point: "Content: shows how the Terror was justified as justice/virtue to protect the Revolution", keywords: ["justice", "virtue", "justified", "justify", "protect", "revolution", "severe"] },
+          { point: "Origin: Robespierre a leader of the Committee of Public Safety — view from the top", keywords: ["robespierre", "committee of public safety", "leader", "from the top", "ran the terror", "1794"] },
+          { point: "Purpose: to persuade the Convention — presents the Terror positively", keywords: ["persuade", "purpose", "speech", "convention", "positive", "best light", "convince"] },
+          { point: "Limitation: says nothing of victims' experience or scale", keywords: ["victims", "doesn't show", "does not show", "nothing about", "experience", "limit", "one side"] },
+          { point: "Own knowledge (c. 17,000 official executions; Law of Suspects 1793; Robespierre executed July 1794)", keywords: ["17,000", "17000", "law of suspects", "1793", "guillotine", "executed", "july 1794", "thermidor"] },
+          { point: "Supported judgement: useful for X, less for Y; need to cross-reference", keywords: ["overall", "useful for", "cross-reference", "other sources", "judgement", "less useful"] },
+        ],
+        commonError: "Rejecting the source as 'biased so useless' — a leader's justification is exactly what you need to understand *why* the Terror happened.",
+        difficulty: "challenge",
+        guideRef: "provenance-nop",
+        hints: ["What does Robespierre want his audience to think about the Terror?", "Why does it matter that *he* is the speaker?", "What does the source leave out? Whose voices are missing?", "Bring in facts: how many were executed? What happened to Robespierre in July 1794?"],
+        strategy: "Check the provenance (NOP)",
+      },
+      {
+        kind: "written",
+        id: "historians-toolkit-p3-q09",
+        question: "Explain why some women campaigning for the vote turned to **militant** (law-breaking) methods in the early 1900s. (6 marks)",
+        marks: 6,
+        modelAnswer:
+          "One reason was **frustration with peaceful methods**. Women's suffrage societies had campaigned peacefully for decades — the NUWSS, led by Millicent Fawcett, used petitions, meetings and marches — yet Parliament had still not given women the vote. Emmeline Pankhurst founded the WSPU in 1903 with the motto 'Deeds not words', arguing that politeness had failed. A second reason was **the need for publicity**. When Christabel Pankhurst and Annie Kenney were arrested in 1905 after disrupting a Liberal meeting, newspapers gave the cause huge attention, showing that direct action got noticed. A third reason was **anger at broken promises**. The Conciliation Bills of 1910–12, which would have given some women the vote, kept failing, and on 'Black Friday' (November 1910) protesters were roughly treated by police. These reasons were linked: each failure made peaceful campaigning look pointless, so the WSPU escalated from heckling to window-smashing and arson by 1912–14. Overall, the main reason was frustration, because decades of being ignored convinced the suffragettes that only militancy would force the government to act.",
+        markScheme: [
+          { point: "Frustration that decades of peaceful campaigning (NUWSS, Fawcett) had not worked", keywords: ["peaceful", "decades", "nuwss", "fawcett", "suffragists", "petitions", "not worked", "failed", "frustration"] },
+          { point: "WSPU founded 1903 by Emmeline Pankhurst, 'Deeds not words'", keywords: ["wspu", "1903", "pankhurst", "deeds not words", "emmeline"] },
+          { point: "Publicity: militancy got attention (e.g. 1905 arrests of Christabel Pankhurst and Annie Kenney)", keywords: ["publicity", "attention", "newspapers", "1905", "christabel", "annie kenney", "noticed"] },
+          { point: "Broken promises/government opposition (Conciliation Bills 1910–12, Black Friday, Asquith)", keywords: ["conciliation", "1910", "1912", "black friday", "asquith", "government", "promises", "liberal"] },
+          { point: "Explains how reasons linked to escalation (window-smashing, arson 1912–14)", keywords: ["escalated", "escalation", "window", "arson", "linked", "this meant", "because", "so"] },
+          { point: "Supported judgement on the most important reason", keywords: ["overall", "main reason", "most important", "therefore", "judgement"] },
+        ],
+        commonError: "Confusing suffragists (peaceful, NUWSS) with suffragettes (militant, WSPU).",
+        difficulty: "core",
+        guideRef: "causation",
+        hints: ["How long had women been campaigning peacefully — and what had they achieved by 1903?", "What happens when a protest gets into the newspapers?", "What happened to the Conciliation Bills in 1910–12?"],
+        strategy: "Link the causes",
+      },
+      {
+        kind: "mcq",
+        id: "historians-toolkit-p3-q10",
+        question:
+          "**Interpretation** — written for this exercise.\n\n> Women won the vote in 1918 as a reward for their work during the First World War.\n\nWhich piece of evidence most clearly **challenges** this interpretation?",
+        options: [
+          "The 1918 Act gave the vote only to women over 30 who met a property qualification, so many young women who worked in munitions factories could not vote",
+          "Hundreds of thousands of women worked in munitions factories during the war",
+          "Millicent Fawcett's NUWSS had campaigned peacefully since 1897",
+          "Emmeline Pankhurst suspended militant action when war broke out in 1914",
+        ],
+        answerIndex: 0,
+        explanation:
+          "If the vote were a **reward for war work**, the women who did the most dangerous war work should have received it — but many munitions workers were young, working-class women under 30 who were left out in 1918. That is a direct challenge. Munitions work actually *supports* the interpretation. Pankhurst suspending militancy is true, but it fits the 'reward' story rather than challenging it. The NUWSS campaign suggests another cause, but doesn't directly test the 'reward' claim.",
+        difficulty: "core",
+        guideRef: "interpretations",
+        hints: ["If it were a reward, who would you expect to get the vote?", "Which option shows the 'reward' going to the wrong people — or not arriving?"],
+        strategy: "Consider the counter-argument",
+      },
+      {
+        kind: "written",
+        id: "historians-toolkit-p3-q11",
+        question:
+          "Explain one way in which religion in England **changed** and one way it **stayed the same** as a result of Henry VIII's **Break with Rome** (1534). Which was greater — the change or the continuity? (5 marks)",
+        marks: 5,
+        modelAnswer:
+          "One major **change** was who controlled the Church. The Act of Supremacy (1534) made Henry Supreme Head of the Church of England, so the Pope lost all authority in England. This led to further change: the Dissolution of the Monasteries (1536–40) closed hundreds of religious houses, and from 1539 the Great Bible in English was placed in parish churches. However, there was strong **continuity** in what ordinary people believed and did. Henry stayed largely Catholic: the Six Articles (1539) defended Catholic teaching on the Mass, priests still could not marry, and services stayed mostly in Latin. For most people, Sunday worship in their parish church looked much the same. In my judgement, the change was greater **at the top** — power and wealth moved from the Pope and the monasteries to the king — but continuity was greater **in everyday belief**, at least until Edward VI's Protestant reforms after 1547.",
+        markScheme: [
+          { point: "Change: Act of Supremacy 1534 — Henry Supreme Head; Pope's authority ended", keywords: ["act of supremacy", "1534", "supreme head", "pope", "head of the church", "authority"] },
+          { point: "Further change with evidence: Dissolution of the Monasteries (1536–40) or English Bible (1539)", keywords: ["dissolution", "monasteries", "1536", "1540", "english bible", "great bible", "1539"] },
+          { point: "Continuity: Catholic beliefs/practices largely remained (Six Articles 1539, Latin, priests unmarried)", keywords: ["six articles", "catholic", "latin", "mass", "priests", "still", "same", "continuity"] },
+          { point: "Explains the extent of change for different groups (king/Church vs ordinary people)", keywords: ["ordinary people", "at the top", "everyday", "for most people", "king", "wealth", "power"] },
+          { point: "Reaches a supported judgement on whether change or continuity was greater", keywords: ["judgement", "greater", "overall", "more change", "more continuity", "i think"] },
+        ],
+        commonError: "Saying Henry made England Protestant — he broke with the Pope but kept most Catholic beliefs.",
+        difficulty: "challenge",
+        guideRef: "change-continuity-significance",
+        hints: ["Who was head of the English Church before 1534, and who after?", "Did Henry become a Protestant? Think about the Six Articles of 1539.", "Change for whom? Compare the king with an ordinary villager at Sunday service.", "Finish with a clear judgement."],
+        strategy: "Spot change and continuity",
+      },
+      {
+        kind: "written",
+        id: "historians-toolkit-p3-q12",
+        question:
+          "Write **one PEEL paragraph** arguing that **weak government** helped Mao's Communists win power in China by **1949**. (4 marks)",
+        marks: 4,
+        modelAnswer:
+          "**Point:** One important reason the Communists won power by 1949 was the weakness of Chiang Kai-shek's Guomindang (GMD) government. **Evidence:** The GMD was riddled with corruption, and in the late 1940s runaway inflation made money almost worthless, while harsh conscription forced peasants into the army. It had also been badly weakened by the war against Japan (1937–45). **Explain:** This meant that millions of Chinese people lost faith in the GMD, and many of its poorly treated soldiers deserted or surrendered, sometimes joining the Communists. By comparison, the Communists looked disciplined and honest. **Link:** Therefore, the GMD's weakness was a key reason the Communists won the civil war and Mao could proclaim the People's Republic in October 1949.",
+        markScheme: [
+          { point: "Point: clearly states that GMD weakness helped the Communists", keywords: ["guomindang", "kuomintang", "gmd", "kmt", "chiang", "weak", "weakness", "one reason"] },
+          { point: "Evidence: precise detail (corruption, inflation, conscription, war with Japan 1937–45)", keywords: ["corruption", "corrupt", "inflation", "conscription", "japan", "1937", "1945", "deserted"] },
+          { point: "Explain: how this weakness helped the Communists (lost support, desertions, comparison)", keywords: ["this meant", "lost faith", "lost support", "deserted", "surrendered", "compared", "by comparison", "because"] },
+          { point: "Link back to the question and 1949", keywords: ["therefore", "1949", "won", "civil war", "people's republic", "so"] },
+        ],
+        commonError: "Writing about Mao's leadership instead of the *government's* weakness — stick to the point you were asked to argue.",
+        difficulty: "core",
+        guideRef: "writing-like-a-historian",
+        hints: ["Which government was in charge of China before 1949?", "Give two precise pieces of evidence of its weakness — money? the army?", "Explain *how* this helped the Communists, then link back to 1949."],
+        strategy: "Use precise evidence",
+      },
+    ],
+  },
+  {
+    id: "historians-toolkit-p4",
+    title: "Practice Paper 4",
+    questions: [
+      {
+        kind: "short",
+        id: "historians-toolkit-p4-q01",
+        question: "In which year was **Hitler** appointed Chancellor of Germany?",
+        answer: { type: "number", value: 1933, display: "1933" },
+        traps: [
+          { spec: { type: "number", value: 1934 }, feedback: "In August 1934, after President Hindenburg died, Hitler made himself Führer. He became Chancellor the year before." },
+          { spec: { type: "number", value: 1939 }, feedback: "1939 is the start of the Second World War in Europe. Hitler became Chancellor six years earlier." },
+        ],
+        solution: ["President Hindenburg appointed Hitler Chancellor on **30 January 1933**."],
+        commonError: "Thinking Hitler seized power in a coup — he was legally appointed.",
+        difficulty: "warmup",
+        guideRef: "chronology",
+        hints: ["It was a few years after the Wall Street Crash of 1929, and before the Second World War."],
+        strategy: "Put it in chronological order",
+      },
+      {
+        kind: "short",
+        id: "historians-toolkit-p4-q02",
+        question:
+          "Communism and fascism are each a set of ideas and beliefs about how society should be organised and run. What one word describes a set of ideas like this?",
+        answer: { type: "text", accept: ["ideology", "an ideology", "ideologies", "political ideology", "a political ideology"], display: "ideology" },
+        traps: [
+          { spec: { type: "text", accept: ["propaganda"] }, feedback: "Propaganda *spreads* ideas. The set of ideas itself is an **ideology**." },
+          { spec: { type: "text", accept: ["dictatorship", "regime"] }, feedback: "That's a type of government. The set of beliefs behind it is an **ideology**." },
+        ],
+        solution: ["An **ideology** is a system of ideas about how society should work — e.g. communism (class equality, no private property) or fascism (extreme nationalism, one strong leader)."],
+        difficulty: "warmup",
+        guideRef: "power-concepts",
+        hints: ["It contains the word 'idea'."],
+        strategy: "Compare and contrast",
+      },
+      {
+        kind: "short",
+        id: "historians-toolkit-p4-q03",
+        question:
+          "Historians test sources for two different things: how **useful** they are for a question, and how far you can **trust** what they say. What single word describes the second of these — how trustworthy a source is?",
+        answer: { type: "text", accept: ["reliability", "reliable", "trustworthiness", "trustworthy", "accuracy"], display: "reliability" },
+        traps: [
+          { spec: { type: "text", accept: ["usefulness", "useful", "utility"] }, feedback: "Usefulness is the *first* test — how much a source helps answer your question. Trustworthiness is **reliability**." },
+          { spec: { type: "text", accept: ["provenance"] }, feedback: "Provenance (NOP) is what you examine *to judge* reliability. The quality itself is **reliability**." },
+        ],
+        solution: ["**Reliability** = can we trust what it says? **Usefulness** = does it help answer my question?", "An unreliable source can still be useful — e.g. propaganda shows what a regime wanted people to believe."],
+        difficulty: "warmup",
+        guideRef: "provenance-nop",
+        hints: ["Can you *rely* on it?"],
+        strategy: "Check the provenance (NOP)",
+      },
+      {
+        kind: "short",
+        id: "historians-toolkit-p4-q04",
+        question:
+          "One weakness of the Weimar Republic was an article of its constitution that let the President rule by **emergency decree**, bypassing the Reichstag. From 1930 it was used again and again. What was the **number** of this article?",
+        answer: { type: "text", accept: ["48", "article 48", "art 48", "art. 48", "forty-eight", "forty eight", "article forty-eight"], display: "Article 48" },
+        traps: [
+          { spec: { type: "text", accept: ["231", "article 231"] }, feedback: "Article 231 was the 'war guilt' clause of the Treaty of Versailles. The emergency-powers article of the Weimar constitution was **Article 48**." },
+        ],
+        solution: ["**Article 48** let the President govern by decree in an emergency.", "From 1930 Chancellors relied on it because coalitions could not agree — so democracy was already weakening before Hitler arrived."],
+        difficulty: "core",
+        guideRef: "causation",
+        hints: ["It's a two-digit number.", "It is between 40 and 50."],
+        strategy: "Use precise evidence",
+      },
+      {
+        kind: "short",
+        id: "historians-toolkit-p4-q05",
+        question:
+          "Singapore won internal self-government in 1959, but Britain still controlled its defence and foreign affairs. In which year did Singapore become a **fully independent** country?",
+        answer: { type: "number", value: 1965, display: "1965" },
+        traps: [
+          { spec: { type: "number", value: 1963 }, feedback: "In 1963 Singapore joined Malaysia, ending British rule. It separated from Malaysia and became fully independent two years later." },
+          { spec: { type: "number", value: 1959 }, feedback: "1959 brought self-government — but Britain still controlled defence and foreign affairs. Full independence came later." },
+        ],
+        solution: ["Self-government 1959 → merger with Malaysia 1963 → full independence on **9 August 1965**.", "A good example of gradual change rather than one sudden turning point."],
+        difficulty: "core",
+        guideRef: "change-continuity-significance",
+        hints: ["It came after Singapore's two years as part of Malaysia (from 1963).", "Singapore's National Day is 9 August — of which year?"],
+        strategy: "Spot change and continuity",
+      },
+      {
+        kind: "mcq",
+        id: "historians-toolkit-p4-q06",
+        question:
+          "**Source A** — a description, written for this exercise, of *The Tennis Court Oath*, a drawing made in 1791 by the revolutionary artist Jacques-Louis David. It shows the event of 20 June 1789.\n\n> Hundreds of deputies crowd together, stretching their arms towards their leader, who reads out the oath. Some embrace; one clutches his heart. Above them, wind blows the curtains through the high windows.\n\nWhich statement is an **inference** from Source A, rather than a description?",
+        options: [
+          "The deputies are stretching out their arms towards their leader",
+          "David's drawing suggests the oath was seen as a heroic, united moment of patriotic excitement",
+          "The drawing was made in 1791",
+          "Everyone in France supported the Revolution in 1789",
+        ],
+        answerIndex: 1,
+        explanation:
+          "An **inference** works out what the source *suggests*: the embraces, outstretched arms and dramatic wind suggest David wanted to show the oath as heroic and united. Stretched-out arms is simply a **description** of what we can see, and the date 1791 is a fact about provenance. Claiming everyone in France supported the Revolution is an **over-claim** — one drawing by a revolutionary artist cannot prove what a whole country thought.",
+        difficulty: "core",
+        guideRef: "sources-and-evidence",
+        hints: ["A description says what you can *see*; an inference says what it *suggests*.", "Which option goes beyond the picture without going too far beyond the evidence?"],
+        strategy: "Make an inference",
+      },
+      {
+        kind: "written",
+        id: "historians-toolkit-p4-q07",
+        question:
+          "**Source B** — a description, written for this exercise, of a type of anti-suffrage postcard that was common in Britain around 1910.\n\n> A miserable husband in an apron struggles to feed a crying baby while dirty dishes pile up. Through the window, his wife marches off to a suffrage meeting carrying a 'Votes for Women' banner.\n\nWhat can you **infer** from Source B about opposition to votes for women in the early 1900s? Give **two** inferences, each supported by a detail from the source. (4 marks)",
+        marks: 4,
+        modelAnswer:
+          "Source B suggests that opponents feared votes for women would **overturn traditional roles** in the family. I can infer this because the husband is shown doing 'women's work' — wearing an apron, feeding the baby and facing the dishes — while the wife goes off to campaign, which is presented as a disaster. Source B also suggests that opponents used **mockery and humour** rather than serious argument to undermine the campaign. I can tell this because the husband is drawn as miserable and comic, inviting people to laugh at the idea of women in politics. Finally, the fact that such postcards were common suggests that votes for women was a big, widely discussed issue by 1910.",
+        markScheme: [
+          { point: "Inference 1: opponents feared changes to traditional gender roles/the family", keywords: ["traditional", "roles", "home", "family", "women's work", "housework", "gender", "place"] },
+          { point: "Supports inference 1 with detail (apron, baby, dishes, wife leaving)", keywords: ["apron", "baby", "dishes", "husband", "wife", "marches off", "meeting"] },
+          { point: "Inference 2: opponents used mockery/ridicule — or suffrage was a widely debated issue", keywords: ["mock", "mockery", "ridicule", "humour", "laugh", "joke", "big issue", "widely", "common", "debated"] },
+          { point: "Supports inference 2 with detail (miserable comic husband, postcards were common)", keywords: ["miserable", "struggles", "comic", "funny", "postcard", "common", "crying"] },
+        ],
+        commonError: "Describing the cartoon in detail without stating what it suggests about the *opponents*.",
+        difficulty: "core",
+        guideRef: "sources-and-evidence",
+        hints: ["What does the cartoonist think will happen if women get involved in politics?", "Is the postcard making a serious argument or a joke? Why might that work?", "What does it tell you that *many* postcards like this were sold?"],
+        strategy: "Make an inference",
+      },
+      {
+        kind: "written",
+        id: "historians-toolkit-p4-q08",
+        question:
+          "**Source C** — from *From the Kaiserhof to the Reich Chancellery*, a book of diary entries by **Joseph Goebbels**, published in 1934. Goebbels had been the Nazis' chief propagandist and became Minister of Propaganda in March 1933. This entry is for 30 January 1933 (adapted).\n\n> It is almost like a dream. Hitler is Chancellor. The whole nation is on its feet, cheering. We have reached our goal; the German revolution has begun.\n\nHow **useful** is Source C to a historian studying how Hitler became Chancellor? Use its content and provenance. (6 marks)",
+        marks: 6,
+        modelAnswer:
+          "Source C is useful for showing **how the Nazi leadership felt and how they wanted the event remembered**. Its content shows Goebbels' excitement that Hitler was Chancellor and presents it as the start of a 'German revolution'. Its origin gives it value: Goebbels was at the heart of the Nazi leadership in January 1933, so he knew what was happening at the top. However, its provenance seriously limits its reliability. It was **published in 1934** by the Minister of Propaganda, so the entries were edited for the public with the purpose of glorifying the Nazis' rise. The claim that 'the whole nation' was cheering is exaggerated: the Nazis had won only about 33% of the vote in November 1932, and Hitler was appointed by President Hindenburg after backroom deals with Franz von Papen, not swept in by a national uprising. A historian would need to cross-reference it with election results and accounts of the January 1933 negotiations. Overall, it is useful as evidence of Nazi propaganda and attitudes, but not reliable on how Hitler actually came to power.",
+        markScheme: [
+          { point: "Content: shows Nazi excitement and their framing of the event as a 'revolution'", keywords: ["dream", "excitement", "revolution", "cheering", "goal", "celebrating", "triumph"] },
+          { point: "Origin: Goebbels was at the centre of the Nazi leadership — insider knowledge", keywords: ["goebbels", "insider", "leadership", "at the top", "knew", "present", "close to hitler"] },
+          { point: "Nature/purpose: published 1934 by the Propaganda Minister — edited to glorify", keywords: ["published", "1934", "propaganda", "minister", "edited", "glorify", "public", "purpose"] },
+          { point: "Tests content against own knowledge (33% in Nov 1932; appointed by Hindenburg after deal with Papen)", keywords: ["33%", "november 1932", "hindenburg", "papen", "appointed", "deal", "exaggerated", "not the whole nation"] },
+          { point: "Explains how provenance affects usefulness for this question (useful for attitudes, unreliable for events)", keywords: ["useful for", "attitudes", "not reliable", "unreliable", "limits", "affects"] },
+          { point: "Supported judgement with cross-referencing", keywords: ["overall", "cross-reference", "election results", "other sources", "judgement"] },
+        ],
+        commonError: "Treating a diary as automatically honest — this one was published by the Minister of Propaganda.",
+        difficulty: "challenge",
+        guideRef: "provenance-nop",
+        hints: ["Diaries are often private — but was this one?", "Who published it, when, and what was his job by then?", "Test 'the whole nation is cheering': what share of the vote did the Nazis win in November 1932?", "Useful *for what*? Split your judgement."],
+        strategy: "Check the provenance (NOP)",
+      },
+      {
+        kind: "written",
+        id: "historians-toolkit-p4-q09",
+        question: "Explain why William I ordered the **Domesday survey** at Christmas **1085**. (4 marks)",
+        marks: 4,
+        modelAnswer:
+          "One reason was the **threat of invasion**. In 1085 King Cnut IV of Denmark was preparing to invade England, and William brought a large army of mercenaries across from France. He needed to know how much land and wealth there was, so he could work out how to feed and pay his soldiers and raise enough tax. A second reason was **control**. Nearly twenty years after the Conquest, land had changed hands many times as English lords were replaced by Normans, leading to disputes. The survey recorded who held each piece of land, what it was worth and what it owed the king, so William knew exactly what he owned and who owed him service. These reasons were linked: knowing the kingdom's resources helped him tax it and defend it. Overall, Domesday was a tool of power, showing how thoroughly the Normans had taken control of England.",
+        markScheme: [
+          { point: "Reason: invasion threat from Denmark (Cnut) and the need to pay/support soldiers", keywords: ["denmark", "danish", "cnut", "canute", "invasion", "threat", "soldiers", "army", "mercenaries"] },
+          { point: "Reason: tax — to know how much wealth there was and what could be raised", keywords: ["tax", "taxes", "geld", "money", "wealth", "worth"] },
+          { point: "Reason: control — record who held land after disputes / what was owed to the king", keywords: ["control", "who owned", "who held", "land", "disputes", "owed", "barons", "service"] },
+          { point: "Explains links or reaches a judgement about Domesday as a tool of power", keywords: ["linked", "because", "this meant", "overall", "power", "tool", "so"] },
+        ],
+        commonError: "Describing what the Domesday Book recorded (pigs, ploughs, mills) without explaining *why* William wanted it.",
+        difficulty: "core",
+        guideRef: "causation",
+        hints: ["What was happening across the North Sea in 1085?", "How do you pay for an army?", "After twenty years of Norman takeover, why might William not know who held which land?"],
+        strategy: "Long-term vs short-term causes",
+      },
+      {
+        kind: "mcq",
+        id: "historians-toolkit-p4-q10",
+        question:
+          "In the 1600s, some English radicals (such as the Levellers) said the Norman Conquest had placed a 'Norman Yoke' on the English, taking away their ancient freedoms. Some Victorian writers in the 1800s, such as Thomas Carlyle, praised the Conquest for bringing order and strong government. Which is the **best** explanation of why these interpretations differ?",
+        options: [
+          "The 1600s writers had seen evidence that the Victorians later lost",
+          "Only one group used evidence; the other group made up its story",
+          "The Victorians were more reliable because they wrote with more modern methods, so the radicals must be wrong",
+          "Each group was shaped by the concerns of its own time: the radicals wanted to argue that ordinary English people had lost ancient rights, while Victorian writers such as Carlyle admired order and strong government",
+        ],
+        answerIndex: 3,
+        explanation:
+          "Interpretations reflect **the time and purpose** of their authors. The Levellers were campaigning for wider rights during the political upheavals of the 1640s, so a story of lost Anglo-Saxon freedoms supported their arguments. Victorian writers such as Carlyle valued order, discipline and strong government, so they admired William's achievements. Both groups used real features of 1066 — dispossession of English landholders, and strong Norman rule — and selected what suited their questions. Saying one group simply 'made it up' misses how interpretations select and emphasise evidence.",
+        difficulty: "core",
+        guideRef: "interpretations",
+        hints: ["What were the Levellers campaigning for in their own time?", "What did Victorian writers such as Carlyle value in government?", "Could both groups have used real facts but chosen different ones?"],
+        strategy: "Think about purpose",
+      },
+      {
+        kind: "written",
+        id: "historians-toolkit-p4-q11",
+        question:
+          "Using **at least two** significance criteria (Remarkable, Remembered, Resonant, Resulting in change, Revealing), explain how significant the **Enabling Act** (March 1933) was. (4 marks)",
+        marks: 4,
+        modelAnswer:
+          "The Enabling Act was highly significant because it **resulted in change** on a huge scale. Passed on 23 March 1933, it allowed Hitler's government to make laws without the Reichstag for four years, which turned his position as Chancellor into a dictatorship. Within months trade unions were banned (May 1933) and Germany became a one-party state (July 1933). It is also **revealing**: it shows that Hitler destroyed democracy by apparently legal means — the Act was passed by the Reichstag itself, but only after Communist deputies had been arrested or kept away and with SA men surrounding the building to intimidate deputies. Overall, it was one of the most significant steps in Hitler's rise, because it removed the last legal check on his power.",
+        markScheme: [
+          { point: "Resulting in change: let the government make laws without the Reichstag — dictatorship", keywords: ["without the reichstag", "make laws", "dictatorship", "four years", "resulting in change", "power"] },
+          { point: "Precise evidence of consequences (unions banned May 1933, one-party state July 1933)", keywords: ["trade unions", "unions", "one-party", "one party", "july 1933", "may 1933", "banned"] },
+          { point: "Second criterion (e.g. Revealing: 'legal' route but with intimidation; Communists excluded; SA)", keywords: ["revealing", "legal", "legally", "intimidation", "sa", "communists", "arrested", "remarkable"] },
+          { point: "Supported judgement on how significant it was", keywords: ["overall", "highly significant", "most significant", "judgement", "turning point", "removed"] },
+        ],
+        commonError: "Describing what the Act said without using criteria to judge *how* significant it was.",
+        difficulty: "core",
+        guideRef: "change-continuity-significance",
+        hints: ["What could Hitler do after the Act that he couldn't do before?", "What happened to trade unions and other parties in the months that followed?", "How was the Act passed — and what does that reveal about how Hitler took power?"],
+        strategy: "Judge significance",
+      },
+      {
+        kind: "written",
+        id: "historians-toolkit-p4-q12",
+        question:
+          "\"The French Revolution (1789–94) was a **success** for democracy and human rights.\" How far do you agree? (6 marks)",
+        marks: 6,
+        modelAnswer:
+          "There is strong evidence that the Revolution advanced democracy and rights. In August 1789 the National Assembly abolished feudal privileges and issued the Declaration of the Rights of Man, stating that men are 'born and remain free and equal in rights'. In 1792 France became a republic, and the National Convention was elected by almost all adult men. In 1794 slavery was abolished in France's colonies. However, there were major limits. Women were excluded from voting, and the 1791 constitution had already divided men into 'active' and 'passive' citizens. Most seriously, during the Terror (1793–94) basic rights were crushed: the Law of Suspects allowed arrests on flimsy evidence and around 17,000 people were officially executed, many without fair trials. Overall, I only partly agree. The Revolution was a success for democratic **ideas**, which inspired later movements, but by 1794 it had failed to protect the very rights it proclaimed — and in 1799 Napoleon took power.",
+        markScheme: [
+          { point: "Supports the statement with evidence: Declaration of the Rights of Man / end of feudal privileges (Aug 1789)", keywords: ["declaration", "rights of man", "1789", "privileges", "feudal", "equal"] },
+          { point: "Further support: republic 1792 / Convention elected by all men / slavery abolished 1794", keywords: ["republic", "1792", "convention", "all men", "universal", "slavery", "1794"] },
+          { point: "Counter-argument: exclusions (women, active/passive citizens)", keywords: ["women", "passive", "active", "excluded", "olympe de gouges", "not everyone"] },
+          { point: "Counter-argument: the Terror crushed rights (Law of Suspects, c. 17,000 executions, no fair trials)", keywords: ["terror", "law of suspects", "17,000", "executed", "guillotine", "robespierre", "no trial"] },
+          { point: "Weighs the sides (ideas vs practice; short vs long term)", keywords: ["however", "whereas", "ideas", "in practice", "long term", "short term", "weigh", "on the other hand"] },
+          { point: "Reaches a clear, supported judgement on 'how far'", keywords: ["overall", "partly agree", "i agree", "i disagree", "to some extent", "judgement"] },
+        ],
+        commonError: "Writing only about the Terror (or only about the Declaration) — a 'how far' answer must weigh both sides before reaching a judgement.",
+        difficulty: "challenge",
+        guideRef: "writing-like-a-historian",
+        hints: ["List the gains for democracy and rights in 1789–94 — think of documents, elections and slavery.", "Who was left out? What happened to rights during the Terror?", "Is there a difference between the Revolution's *ideas* and what happened in *practice*?", "Finish with a clear verdict and your main reason."],
+        strategy: "Weigh factors",
+        solutions: [
+          {
+            label: "Argument: mainly a success",
+            steps: [
+              "The Declaration of the Rights of Man (1789) set out ideas of equal rights that inspired the world.",
+              "France became a republic (1792) with a Convention elected by almost all adult men.",
+              "Slavery in the colonies was abolished in 1794.",
+              "Judgement: the Terror was a terrible setback, but the ideas outlasted it.",
+            ],
+          },
+          {
+            label: "Argument: mainly a failure",
+            steps: [
+              "Women never gained the vote, and poorer men were 'passive citizens' in 1791.",
+              "The Terror destroyed the rights the Revolution proclaimed: arrests without evidence and around 17,000 official executions.",
+              "By 1799 Napoleon had seized power.",
+              "Judgement: the Revolution promised rights it failed to protect.",
+            ],
+          },
+        ],
+      },
+    ],
+  },
+];

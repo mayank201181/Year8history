@@ -32,7 +32,7 @@ export const morePapers: Paper[] = [
           { spec: { type: "text", accept: ["barons", "baron"] }, feedback: "'Baron' is the term used for William's Norman tenants-in-chief **after** 1066. What were Godwin and Harold called?" },
           { spec: { type: "text", accept: ["sheriffs", "sheriff"] }, feedback: "Sheriffs ran single shires. These nobles ran much bigger regions made up of several shires." },
         ],
-        solution: ["The leading nobles were **earls** — Harold was Earl of Wessex, Tostig Earl of Northumbria.", "By 1066 the Godwin family held most of the earldoms, which is why Harold was so powerful."],
+        solution: ["The leading nobles were **earls** — Harold was Earl of Wessex, and Tostig had been Earl of Northumbria until 1065.", "By 1066 Harold and his brothers Gyrth and Leofwine held the richest earldoms in the south and east, which is why Harold was so powerful."],
         difficulty: "warmup",
         guideRef: "england-before-1066",
         hints: ["Harold Godwinson's title before he became king was '____ of Wessex'."],
@@ -309,7 +309,7 @@ export const morePapers: Paper[] = [
         answer: { type: "number", value: 1042 },
         traps: [
           { spec: { type: "number", value: 1066 }, feedback: "1066 is the year Edward **died**. He had reigned for about 24 years by then." },
-          { spec: { type: "number", value: 1016 }, feedback: "1016 is when the Danish king Cnut conquered England — and when young Edward went into exile." },
+          { spec: { type: "number", value: 1016 }, feedback: "1016 is when the Danish king Cnut conquered England — young Edward spent the Danish kings' reigns in exile in Normandy." },
         ],
         solution: ["Edward became king in **1042**, after the death of Harthacnut.", "He reigned until 5 January 1066 — about 24 years."],
         difficulty: "core",
@@ -437,7 +437,7 @@ export const morePapers: Paper[] = [
         question: "The Battle of Hastings lasted most of the day — unusually long for a medieval battle. Explain why the English held out for so long, **and** why they eventually lost. (4 marks)",
         marks: 4,
         modelAnswer:
-          "The English held out because of their **strong position and tactics**. Harold's army stood in a tight **shield wall** along the top of a ridge, so Norman cavalry had to charge uphill into a wall of shields and axes. The **housecarls** were highly trained, and early Norman attacks failed — at one point a rumour spread that William was dead and part of his army fled.\n\nThey eventually lost because the shield wall was **worn down**. Some English soldiers broke ranks to chase retreating Normans and were cut down, and Norman writers say William then used **feigned retreats** deliberately to draw more men out. Norman **archers** kept up pressure, and the English had few archers of their own. Finally, **Harold was killed** late in the day, along with his brothers, and without leaders the English army collapsed.",
+          "The English held out because of their **strong position and tactics**. Harold's army stood in a tight **shield wall** along the top of a ridge, so Norman cavalry had to charge uphill into a wall of shields and axes. The **housecarls** were highly trained, and early Norman attacks failed — at one point a rumour spread that William was dead and part of his army fled.\n\nThey eventually lost because the shield wall was **worn down**. Some English soldiers broke ranks to chase retreating Normans and were cut down, and Norman writers say William then used **feigned retreats** deliberately to draw more men out. Norman **archers** kept up pressure, and the English had few archers of their own. Finally, **Harold was killed** late in the day — his brothers Gyrth and Leofwine had already fallen — and without leaders the English army collapsed.",
         markScheme: [
           { point: "Held out: strong defensive position on a ridge / shield wall", keywords: ["ridge", "hill", "uphill", "shield wall", "position", "defensive", "high ground"] },
           { point: "Held out: trained housecarls / early Norman attacks failed", keywords: ["housecarls", "trained", "axes", "failed", "fled", "rumour", "william was dead"] },

@@ -170,14 +170,14 @@ export const morePapers: Paper[] = [
         kind: "written",
         id: "hitler-rise-p3-q09",
         question:
-          "**Source B** — Nazi results in Reichstag elections.\n\n| Election | Nazi share of the vote | Nazi seats |\n|---|---|---|\n| May 1928 | 2.6% | 12 |\n| September 1930 | 18.3% | 107 |\n| July 1932 | 37.3% | 230 |\n| November 1932 | 33.1% | 196 |\n| March 1933 | 43.9% | 288 |\n\nHow useful is Source B for explaining **why Hitler became Chancellor in January 1933**? (4 marks)",
+          "**Source B** — Nazi results in Reichstag elections (official figures).\n\n| Election | Nazi share of the vote | Nazi seats |\n|---|---|---|\n| May 1928 | 2.6% | 12 |\n| September 1930 | 18.3% | 107 |\n| July 1932 | 37.3% | 230 |\n| November 1932 | 33.1% | 196 |\n| March 1933 | 43.9% | 288 |\n\nHow useful is Source B for explaining **why Hitler became Chancellor in January 1933**? (4 marks)",
         marks: 4,
         modelAnswer:
           "Source B is useful because it shows the Nazis' dramatic rise from a fringe party (2.6% in 1928) to the **largest party** (37.3% and 230 seats in July 1932). This explains why Hitler could not be ignored and why conservatives thought they needed his support.\n\nIt is also useful because it shows the Nazi vote **fell** in November 1932, which helps explain why Papen and Hindenburg believed Hitler was weaker and could be controlled.\n\nHowever, the table has limits. It shows **what** happened to the vote, but not **why** people voted Nazi; it says nothing about the Depression, propaganda or fear of communism. It also cannot show the **backroom deal** that actually made Hitler Chancellor. Finally, the March 1933 result came **after** his appointment, in an atmosphere of fear following the Reichstag Fire, so it is not relevant to why he was appointed and was not a fully free election.",
         markScheme: [
           { point: "Useful: shows the rise to largest party (2.6% to 37.3%), so Hitler could not be ignored", keywords: ["largest", "biggest", "rise", "rose", "2.6", "37.3", "230", "ignored"] },
           { point: "Useful: shows the fall in November 1932, linked to elites thinking they could control him", keywords: ["fell", "fall", "33.1", "november", "control", "weaker", "papen", "hindenburg"] },
-          { point: "Limitation: shows what happened, not why people voted Nazi (Depression, propaganda)", keywords: ["why", "reasons", "depression", "propaganda", "communism", "doesn't show", "does not show"] },
+          { point: "Limitation: shows what happened, not why people voted Nazi (Depression, propaganda)", keywords: ["why people voted", "why they voted", "reasons", "depression", "propaganda", "communism", "doesn't show", "does not show"] },
           { point: "Limitation: cannot show the backroom deal / March 1933 came after his appointment and was not free", keywords: ["deal", "backroom", "after", "march 1933", "not free", "fear", "reichstag fire", "intimidation"] },
         ],
         commonError: "Saying 'it is useful because it has lots of numbers' without explaining what the numbers show about the question.",
@@ -200,7 +200,7 @@ export const morePapers: Paper[] = [
           "One reason is that the takeover **looked legal**. Hitler had been appointed by the President, and the Enabling Act was passed by the Reichstag, so many Germans accepted the changes as lawful rather than as a revolution.\n\nA second reason is **fear**. After the Reichstag Fire decree, opponents could be arrested without trial, thousands of communists and socialists were sent to camps such as Dachau, and the SA used violence on the streets. Resisting was very dangerous.\n\nA third reason is that opposition was **destroyed or divided**. The Communists and Social Democrats had refused to work together before 1933, trade unions were banned in May 1933 and all other parties by July 1933, leaving no organisation to lead resistance.\n\nFinally, some Germans **welcomed** the Nazis, hoping for jobs, order and an end to the communist threat, helped by Nazi propaganda.",
         markScheme: [
           { point: "The takeover appeared legal (appointment, Enabling Act passed by Reichstag)", keywords: ["legal", "lawful", "appointed", "enabling act", "reichstag", "president"] },
-          { point: "Fear and terror (Reichstag Fire decree, arrests, camps, SA violence)", keywords: ["fear", "terror", "arrested", "dachau", "camps", "sa", "violence", "decree"] },
+          { point: "Fear and terror (Reichstag Fire decree, arrests, camps, SA violence)", keywords: ["fear", "terror", "arrested", "dachau", "camps", "the sa", "stormtroopers", "violence", "decree"] },
           { point: "Opposition banned or divided (unions, parties banned; left divided)", keywords: ["banned", "trade unions", "parties", "divided", "one-party", "communists", "social democrats"] },
           { point: "Some genuine support / propaganda / hope for jobs and order", keywords: ["support", "welcomed", "jobs", "order", "propaganda", "communism", "hope"] },
         ],
@@ -431,7 +431,7 @@ export const morePapers: Paper[] = [
         kind: "short",
         id: "hitler-rise-p4-q07",
         question: "By 1932, roughly how many Germans were unemployed? Give your answer as a number of **millions** (for example, write 3 for 3 million).",
-        answer: { type: "number", value: 6, tolerance: 0.5, display: "About 6 million" },
+        answer: { type: "number", value: 6, tolerance: 1, display: "About 6 million" },
         traps: [
           { spec: { type: "number", value: 3 }, feedback: "About 3 million was the figure in 1930. Unemployment kept climbing for two more years." },
           { spec: { type: "number", value: 1.4 }, feedback: "About 1.4 million was the 1928 figure, before the Depression." },
@@ -479,7 +479,7 @@ export const morePapers: Paper[] = [
         markScheme: [
           { point: "Provenance: made in the 1930s, years later, in Nazi Germany", keywords: ["1930s", "later", "years later", "nazi germany", "controlled", "not at the time"] },
           { point: "Purpose: propaganda to turn failure into a heroic legend", keywords: ["propaganda", "purpose", "heroic", "legend", "glorify", "myth", "persuade"] },
-          { point: "Own knowledge contradicts the content (Hitler fled, injured, arrested; 16 Nazis killed)", keywords: ["fled", "ran", "shoulder", "arrested", "16", "sixteen", "failed", "police"] },
+          { point: "Own knowledge contradicts the content (Hitler fled, injured, arrested; 16 Nazis killed)", keywords: ["fled", "ran away", "shoulder", "arrested", "16", "sixteen", "failed", "police"] },
           { point: "Judgement: useful for how the Nazis remembered/used the putsch, not for what happened", keywords: ["useful for", "how the nazis", "remembered", "martyrs", "depends", "different enquiry", "propaganda value"] },
         ],
         commonError: "Saying 'it is useless because it is biased'. It is weak evidence for events, but strong evidence for Nazi propaganda.",
@@ -528,7 +528,7 @@ export const morePapers: Paper[] = [
           { point: "Reichstag Fire and emergency decree used against communists / freedoms", keywords: ["reichstag fire", "decree", "communists", "free speech", "arrested", "february 1933"] },
           { point: "Enabling Act: how it was passed and why it was crucial", keywords: ["enabling act", "two-thirds", "march 1933", "without the reichstag", "centre party", "make laws"] },
           { point: "One-party state: unions and parties banned (1933)", keywords: ["trade unions", "unions", "banned", "parties", "one-party", "july 1933", "may 1933"] },
-          { point: "Night of the Long Knives secured the army's support", keywords: ["night of the long knives", "röhm", "rohm", "sa", "army", "june 1934"] },
+          { point: "Night of the Long Knives secured the army's support", keywords: ["night of the long knives", "röhm", "rohm", "the sa", "army", "june 1934"] },
           { point: "Hindenburg's death: Führer and the army oath", keywords: ["hindenburg", "died", "death", "führer", "fuhrer", "oath", "august 1934"] },
           { point: "Explains why it was so fast (legal appearance, each step building on the last, divided opposition, fear)", keywords: ["legal", "legally", "built on", "each step", "divided", "fear", "quickly", "so fast"] },
         ],
