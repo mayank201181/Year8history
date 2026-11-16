@@ -164,7 +164,7 @@ function ClauseExplorer() {
       caption={
         allRevealed ? (
           <p>
-            <strong>The pattern:</strong> clauses that solved the 1215 emergency — hostages, the 25 barons, John's taxes for his war — were dropped as soon as John was dead. Clauses that stated a general principle (justice not for sale, no punishment without the law) were kept, because a boy king's regents wanted the barons' loyalty and these promises cost little. Those general principles are what made Magna Carta famous centuries later.
+            <strong>The pattern:</strong> clauses that solved the 1215 emergency — hostages, the 25 barons, John’s taxes for his war — were dropped as soon as John was dead. Clauses that stated a general principle (justice not for sale, no punishment without the law) were kept, because a boy king’s regents wanted the barons’ loyalty and these promises cost little. Those general principles are what made Magna Carta famous centuries later.
           </p>
         ) : revealed ? (
           <p>
@@ -455,7 +455,7 @@ function PressureGauge() {
           )}
           {done ? (
             <p>
-              <strong>Runnymede, 15 June 1215.</strong> Notice the Church line: by 1215 the Pope was on John's side, and France had already won. The pressure that forced Magna Carta came from the barons — built up over years of taxes, broken trust and lost wars, then triggered by the disaster of 1214.
+              <strong>Runnymede, 15 June 1215.</strong> Notice the Church line: by 1215 the Pope was on John’s side, and France had already won. The pressure that forced Magna Carta came from the barons — built up over years of taxes, broken trust and lost wars, then triggered by the disaster of 1214.
             </p>
           ) : null}
           <p className="text-xs text-ink-2">The 0–10 levels are a teaching model — a judgement about how angry each group was, not a historical measurement.</p>

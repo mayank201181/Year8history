@@ -57,11 +57,11 @@ const PRESETS: { y: number; label: string }[] = [
 
 const TL_W = 360;
 const tx = (y: number) => 10 + ((y - MIN_Y) / (MAX_Y - MIN_Y)) * (TL_W - 20);
-const BANDS: { from: number; to: number; name: string; cls: string }[] = [
-  { from: MIN_Y, to: 476, name: "Ancient", cls: "fill-accent-soft" },
-  { from: 476, to: 1500, name: "Medieval", cls: "fill-brand-soft" },
-  { from: 1500, to: 1750, name: "Early mod.", cls: "fill-warn-soft" },
-  { from: 1750, to: MAX_Y, name: "Modern", cls: "fill-good-soft" },
+const BANDS: { from: number; to: number; name: string[]; cls: string }[] = [
+  { from: MIN_Y, to: 476, name: ["Ancient"], cls: "fill-accent-soft" },
+  { from: 476, to: 1500, name: ["Medieval"], cls: "fill-brand-soft" },
+  { from: 1500, to: 1750, name: ["Early", "modern"], cls: "fill-warn-soft" },
+  { from: 1750, to: MAX_Y, name: ["Mod-", "ern"], cls: "fill-good-soft" },
 ];
 
 function CenturyCalculator() {
@@ -134,9 +134,11 @@ function CenturyCalculator() {
 
         <svg viewBox={`0 0 ${TL_W} 80`} className="h-auto w-full" role="img" aria-label={`Timeline from 800 BC to AD 2030 with ${fmtYear(year)} marked in the ${period.name.toLowerCase()} period and ${fmtYear(other)} as the comparison year`}>
           {BANDS.map((b) => (
-            <g key={b.name}>
-              <rect x={tx(b.from)} y={22} width={tx(b.to) - tx(b.from)} height={22} className={`${b.cls} stroke-line`} strokeWidth={1} />
-              <text x={(tx(b.from) + tx(b.to)) / 2} y={37} fontSize={9} textAnchor="middle" className="fill-ink-2">{b.name}</text>
+            <g key={b.name.join("")}>
+              <rect x={tx(b.from)} y={20} width={tx(b.to) - tx(b.from)} height={26} className={`${b.cls} stroke-line`} strokeWidth={1} />
+              {b.name.map((line, i) => (
+                <text key={line} x={(tx(b.from) + tx(b.to)) / 2} y={b.name.length === 1 ? 37 : 31 + i * 10} fontSize={b.name.length === 1 ? 10 : 8.5} textAnchor="middle" className="fill-ink-2">{line}</text>
+              ))}
             </g>
           ))}
           <line x1={tx(0)} x2={tx(0)} y1={16} y2={50} className="stroke-ink" strokeWidth={1.5} strokeDasharray="2 2" />
@@ -394,7 +396,7 @@ function SourceDetective() {
                       <span className="mt-0.5 block text-ink-2">{f.why}</span>
                     </>
                   ) : (
-                    <span className="text-ink-2">Hidden — tap to reveal a {f.nop.toLowerCase()} detail</span>
+                    <span className="text-ink-2">Hidden — tap to reveal {f.nop === "Origin" ? "an" : "a"} {f.nop.toLowerCase()} detail</span>
                   )}
                 </button>
               );

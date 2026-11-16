@@ -26,11 +26,11 @@ interface Place {
   anchor: "start" | "middle" | "end";
 }
 const PL = {
-  london: { name: "London", at: [51.51, -0.13], dx: -12, dy: 4, anchor: "end" },
+  london: { name: "London", at: [51.51, -0.13], dx: 0, dy: 22, anchor: "middle" },
   york: { name: "York", at: [53.96, -1.08], dx: -8, dy: -4, anchor: "end" },
   fulford: { name: "Gate Fulford", at: [53.93, -1.07], dx: -8, dy: 10, anchor: "end" },
   stamford: { name: "Stamford Bridge", at: [53.99, -0.91], dx: 8, dy: -6, anchor: "start" },
-  riccall: { name: "Riccall", at: [53.83, -1.06], dx: 6, dy: 12, anchor: "start" },
+  riccall: { name: "Riccall", at: [53.83, -1.06], dx: 11, dy: 12, anchor: "start" },
   tadcaster: { name: "Tadcaster", at: [53.88, -1.26], dx: -11, dy: 10, anchor: "end" },
   scarborough: { name: "Scarborough", at: [54.28, -0.4], dx: 7, dy: 4, anchor: "start" },
   pevensey: { name: "Pevensey", at: [50.82, 0.34], dx: -6, dy: 14, anchor: "end" },
@@ -55,6 +55,9 @@ type Army = "H" | "N" | "W";
 
 interface Step {
   date: string;
+  /** Day of the year 1066 (approximate when `vague`). */
+  d: number;
+  vague?: boolean;
   title: string;
   text: string;
   /** Waypoints travelled during this step (the last one is where the army ends up). */
@@ -70,6 +73,7 @@ interface Step {
 const STEPS: Step[] = [
   {
     date: "5–6 January",
+    d: 5,
     title: "Edward dies; Harold is crowned",
     text: "Edward the Confessor dies on 5 January with no children. The next day the Witan's choice, Harold Godwinson, is crowned. In Normandy, William says the crown was promised to him; in Norway, Harald Hardrada has a claim of his own.",
     H: [PL.london.at],
@@ -78,18 +82,23 @@ const STEPS: Step[] = [
   },
   {
     date: "24 April",
+    d: 114,
     title: "A “long-haired star”",
     text: "Halley's Comet blazes in the sky for about a week. The Anglo-Saxon Chronicle records it, and the Bayeux Tapestry later shows people pointing at it in alarm — many saw it as an omen.",
     labels: ["london", "rouen"],
   },
   {
     date: "May",
+    d: 135,
+    vague: true,
     title: "Tostig raids the coast",
     text: "Harold's exiled brother Tostig raids the south and east coasts. Earls Edwin and Morcar drive him off and he flees to Scotland — he will be back with Hardrada.",
     labels: ["london"],
   },
   {
     date: "Summer",
+    d: 225,
+    vague: true,
     title: "Waiting for the invasion",
     text: "Harold guards the south coast all summer with the fyrd and his fleet, based around the Isle of Wight. William's fleet gathers at Dives-sur-Mer but stays in port: the sources say the winds were against him (some historians think he was also waiting for the right moment).",
     H: [PL.wight.at],
@@ -98,6 +107,7 @@ const STEPS: Step[] = [
   },
   {
     date: "8 September",
+    d: 251,
     title: "The fyrd goes home",
     text: "Food runs out. Harold sends the fyrd home and returns to London; the fleet sails there too, and many ships are lost on the way. Around the same time William moves his fleet up the coast to Saint-Valery-sur-Somme. The south coast is now unguarded.",
     H: [PL.london.at],
@@ -106,6 +116,8 @@ const STEPS: Step[] = [
   },
   {
     date: "Mid-September",
+    d: 258,
+    vague: true,
     title: "The Vikings land",
     text: "Harald Hardrada and Tostig, with around 300 ships, burn Scarborough, sail up the Humber and the River Ouse, and land at Riccall, about 10 miles from York. Harold hears the news and gathers his housecarls to march north.",
     N: [NORTH_SEA, PL.scarborough.at, [53.75, 0.25], [53.66, -0.2], [53.71, -0.65], PL.riccall.at],
@@ -113,6 +125,7 @@ const STEPS: Step[] = [
   },
   {
     date: "20 September",
+    d: 263,
     title: "Battle of Gate Fulford",
     text: "Hardrada defeats Earls Edwin and Morcar just south of York. York surrenders and agrees to hand over hostages at Stamford Bridge. Meanwhile Harold is racing north, gathering men as he goes.",
     N: [PL.fulford.at],
@@ -122,6 +135,7 @@ const STEPS: Step[] = [
   },
   {
     date: "24 September",
+    d: 267,
     title: "Harold reaches Tadcaster",
     text: "Harold arrives at Tadcaster, near York, having covered roughly 185 miles from London in a few days — an astonishing march. The Norwegians, back with their ships at Riccall, have no idea he is coming.",
     H: [PL.tadcaster.at],
@@ -130,6 +144,7 @@ const STEPS: Step[] = [
   },
   {
     date: "25 September",
+    d: 268,
     title: "Battle of Stamford Bridge",
     text: "Hardrada goes to Stamford Bridge to collect the hostages. Harold marches through York and takes the Norwegians by surprise — according to later Norse sagas, many had left their mail armour at their ships. Hardrada and Tostig are both killed. The survivors need only 24 of their ships to sail home.",
     H: [PL.york.at, PL.stamford.at],
@@ -140,6 +155,7 @@ const STEPS: Step[] = [
   },
   {
     date: "28 September",
+    d: 271,
     title: "William lands at Pevensey",
     text: "The wind changes. William's fleet crosses overnight and lands unopposed at Pevensey — no English army or fleet is there to stop him. He builds a fort inside the old Roman walls, then moves to Hastings, builds a wooden castle and raids the countryside: Harold's own family lands.",
     W: [[50.5, 1.0], PL.pevensey.at, PL.hastings.at],
@@ -147,6 +163,8 @@ const STEPS: Step[] = [
   },
   {
     date: "Early October",
+    d: 277,
+    vague: true,
     title: "Harold races south",
     text: "News reaches Harold in the north, probably around 1 October. He hurries back to London — about 200 miles — arriving by about 6 October. He waits only a few days for more troops before setting off again.",
     H: [PL.york.at, ROAD_NORTH, PL.london.at],
@@ -154,6 +172,7 @@ const STEPS: Step[] = [
   },
   {
     date: "13 October",
+    d: 286,
     title: "The armies face each other",
     text: "Harold marches about 60 miles from London and gathers his army at the “hoary apple tree” on Caldbec Hill, near Hastings. According to the chronicler John of Worcester, many of his men had not yet arrived.",
     H: [PL.battle.at],
@@ -161,6 +180,7 @@ const STEPS: Step[] = [
   },
   {
     date: "14 October",
+    d: 287,
     title: "Battle of Hastings",
     text: "From about 9 a.m. until dusk the English shield wall holds the ridge. Norman archers, cavalry and (according to William of Poitiers) feigned retreats slowly break it. Late in the day Harold is killed, with his brothers Gyrth and Leofwine.",
     W: [PL.battle.at],
@@ -170,6 +190,8 @@ const STEPS: Step[] = [
   },
   {
     date: "Late Oct – Nov",
+    d: 305,
+    vague: true,
     title: "William secures the south-east",
     text: "The English do not surrender. In London the Witan chooses the teenage Edgar Ætheling as king — but he is never crowned. William takes Romney, Dover and Canterbury, securing the ports he needs.",
     W: [PL.hastings.at, ROMNEY, PL.dover.at, PL.canterbury.at],
@@ -177,6 +199,8 @@ const STEPS: Step[] = [
   },
   {
     date: "Late Nov – early Dec",
+    d: 335,
+    vague: true,
     title: "Round London",
     text: "William burns Southwark but cannot cross London Bridge. He circles west, crosses the Thames at Wallingford, and at Berkhamsted the English leaders — Edgar, Archbishop Ealdred and Earls Edwin and Morcar — submit to him.",
     W: [[51.49, -0.08], PL.wallingford.at, PL.berkhamsted.at],
@@ -184,6 +208,7 @@ const STEPS: Step[] = [
   },
   {
     date: "25 December",
+    d: 359,
     title: "Coronation",
     text: "Archbishop Ealdred crowns William in Westminster Abbey. Norman guards outside hear the crowd shouting, think it is an attack and set fire to nearby houses — a tense start to the new reign.",
     W: [PL.london.at],
@@ -222,6 +247,8 @@ const ARMY_STYLE: Record<Army, { name: string; line: string; dot: string; dash?:
   N: { name: "Hardrada", line: "stroke-bad", dot: "fill-bad", dash: "6 4", letter: "N" },
   W: { name: "William", line: "stroke-accent", dot: "fill-accent", dash: "2 3", letter: "W" },
 };
+
+const HASTINGS = 287; // 14 October = day 287 of 1066
 
 const BATTLES: { at: PlaceId; step: number }[] = [
   { at: "fulford", step: 6 },
@@ -295,7 +322,11 @@ function CampaignMap() {
         </div>
 
         <div className="grid grid-cols-3 gap-2">
-          <Readout label="Date" value={st.date} tone="ink" />
+          <Readout
+            label={st.d < HASTINGS ? "Days to Hastings" : st.d === HASTINGS ? "Hastings" : "Days after"}
+            value={st.d === HASTINGS ? "Battle day" : `${st.vague ? "≈ " : ""}${Math.abs(HASTINGS - st.d)}`}
+            tone="ink"
+          />
           <Readout label="Harold's march" value={marched ? `≈ ${marched} mi` : "—"} />
           <Readout label={apart !== null ? "Harold ↔ William" : "Invaders in England"} value={apart !== null ? `≈ ${apart} mi` : String(invaders)} tone={invaders ? "bad" : "ink"} />
         </div>
@@ -446,7 +477,8 @@ function WhyWilliamWon() {
     if (w[third] > 0) judgement += ` ${FACTORS[third].name} mattered less, but still played a part.`;
     else judgement += ` You have given ${FACTORS[third].name.toLowerCase()} no weight at all — can you defend that?`;
   }
-  const unsupported = total > 0 && seen(top) === 0;
+  const allEqual = w[top] === w[third];
+  const unsupported = total > 0 && !allEqual && seen(top) === 0;
 
   return (
     <WidgetFrame
