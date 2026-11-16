@@ -59,7 +59,7 @@ SAY = {
     "Emmeline": "Emma-leen",
     "Führer": "Few-rer", "Fuhrer": "Few-rer",
     "Lanfranc": "Lanfrank",
-    "Ms": "Miz",
+    "Ms": "Miss",
     "Henry VIII": "Henry the Eighth", "Henry VII": "Henry the Seventh", "Henry II": "Henry the Second",
     "Louis XVI": "Louis the Sixteenth", "Louis XIV": "Louis the Fourteenth",
     "William I": "William the First", "Richard I": "Richard the First", "Philip II": "Philip the Second",
@@ -147,16 +147,16 @@ def timeline_svg(events, start, end, h=170, title=None, ends=True):
     ay = (h + (20 if title else 0)) // 2 + 4
     X = lambda v: x0 + (x1 - x0) * (v - start) / float(end - start)
     out = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 {h}" font-family="sans-serif">']
-    if title: out.append(f'<text x="260" y="17" fill="{GOLD}" font-size="15" text-anchor="middle">{_esc(title)}</text>')
+    if title: out.append(f'<text x="260" y="18" fill="{GOLD}" font-size="17" text-anchor="middle">{_esc(title)}</text>')
     out.append(f'<line x1="{x0-14}" y1="{ay}" x2="{x1+16}" y2="{ay}" stroke="{INK}" stroke-width="3"/>'
                f'<path d="M{x1+14},{ay-7} L{x1+26},{ay} L{x1+14},{ay+7} Z" fill="{INK}"/>')
     if ends:
         for v in (start, end):
-            out.append(f'<text x="{X(v):.1f}" y="{ay+18}" fill="#94a3b8" font-size="11" text-anchor="middle">{_esc(v)}</text>')
+            out.append(f'<text x="{X(v):.1f}" y="{ay+20}" fill="#94a3b8" font-size="13" text-anchor="middle">{_esc(v)}</text>')
     placed = []   # (side, tier, xa, xb)
     for i, ev in enumerate(events):
         v, label = ev[0], str(ev[1]); col = ev[2] if len(ev) > 2 else [GOLD, SKY, MINT, ROSE, LILAC][i % 5]
-        x = X(v); lines = label.split("\n"); wpx = max(len(l) for l in lines) * 7.6
+        x = X(v); lines = label.split("\n"); wpx = max(len(l) for l in lines) * 9.4
         anchor = "start" if x - wpx / 2 < 8 else "end" if x + wpx / 2 > 512 else "middle"
         xa = x - 4 if anchor == "start" else x + 4 - wpx if anchor == "end" else x - wpx / 2
         xb = xa + wpx
@@ -164,41 +164,41 @@ def timeline_svg(events, start, end, h=170, title=None, ends=True):
         choice = None
         for tier in (0, 1):
             for side in prefer:
-                step = tier * (16 * len(lines) + 6)
-                top = ay - 36 - step - (len(lines) - 1) * 16 if side == "up" else ay + 30 + step
-                bot = ay - 18 - step if side == "up" else ay + 46 + step + (len(lines) - 1) * 16
-                if top < (24 if title else 2) or bot > h - 2: continue
+                step = tier * (19 * len(lines) + 6)
+                top = ay - 38 - step - (len(lines) - 1) * 19 if side == "up" else ay + 30 + step
+                bot = ay - 18 - step if side == "up" else ay + 47 + step + (len(lines) - 1) * 19
+                if top < (26 if title else 2) or bot > h - 2: continue
                 if all(not (sd == side and tr == tier and xa < pb + 6 and pa < xb + 6) for sd, tr, pa, pb in placed):
                     choice = (side, tier); break
             if choice: break
         side, tier = choice or (prefer[0], 1)
         placed.append((side, tier, xa, xb))
-        up = side == "up"; step = tier * (16 * len(lines) + 6)
+        up = side == "up"; step = tier * (19 * len(lines) + 6)
         tip = ay + (-16 - step if up else 26 + step)
         out.append(f'<line x1="{x:.1f}" y1="{ay}" x2="{x:.1f}" y2="{tip}" stroke="{col}" stroke-width="2"/>'
                    f'<circle cx="{x:.1f}" cy="{ay}" r="6" fill="{col}"/>')
         tx = x - 4 if anchor == "start" else x + 4 if anchor == "end" else x
         for j, ln in enumerate(lines):
-            yy = (ay - 22 - step - (len(lines) - 1 - j) * 16) if up else (ay + 42 + step + j * 16)
-            out.append(f'<text x="{tx:.1f}" y="{yy}" fill="{col}" font-size="14" text-anchor="{anchor}">{_esc(ln)}</text>')
+            yy = (ay - 22 - step - (len(lines) - 1 - j) * 19) if up else (ay + 44 + step + j * 19)
+            out.append(f'<text x="{tx:.1f}" y="{yy}" fill="{col}" font-size="17" text-anchor="{anchor}">{_esc(ln)}</text>')
     out.append("</svg>")
     return "".join(out)
 
 def cards_svg(cards, h=190, title=None):
     """cards: [("Heading" or "Two\\nlines", ["short line", ...], colour?) ...] — 2 to 4 side-by-side
-    boxes (claimants, causes, before/after). Keep lines <= ~14 chars when there are 4 cards."""
-    n = len(cards); gap = 10; w = (500 - gap * (n - 1)) / n; top = 28 if title else 4
+    boxes (claimants, causes, before/after). Keep lines <= ~13 chars when there are 4 cards, <= ~18 for 3."""
+    n = len(cards); gap = 8; w = (508 - gap * (n - 1)) / n; top = 28 if title else 4
     out = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 {h}" font-family="sans-serif">']
-    if title: out.append(f'<text x="260" y="17" fill="{GOLD}" font-size="15" text-anchor="middle">{_esc(title)}</text>')
+    if title: out.append(f'<text x="260" y="18" fill="{GOLD}" font-size="17" text-anchor="middle">{_esc(title)}</text>')
     for i, c in enumerate(cards):
         head, lines = str(c[0]).split("\n"), c[1]; col = c[2] if len(c) > 2 else [GOLD, SKY, MINT, ROSE][i % 4]
-        x = 10 + i * (w + gap)
+        x = 6 + i * (w + gap)
         out.append(f'<rect x="{x:.1f}" y="{top}" width="{w:.1f}" height="{h-top-4}" rx="10" fill="{col}" fill-opacity="0.12" stroke="{col}" stroke-width="2"/>')
         for j, hl in enumerate(head):
-            out.append(f'<text x="{x+w/2:.1f}" y="{top+22+j*17}" fill="{col}" font-size="15" font-weight="bold" text-anchor="middle">{_esc(hl)}</text>')
-        hy = top + 22 + 17 * (len(head) - 1)
+            out.append(f'<text x="{x+w/2:.1f}" y="{top+24+j*19}" fill="{col}" font-size="17" font-weight="bold" text-anchor="middle">{_esc(hl)}</text>')
+        hy = top + 24 + 19 * (len(head) - 1)
         for j, ln in enumerate(lines):
-            out.append(f'<text x="{x+w/2:.1f}" y="{hy+24+j*18}" fill="{INK}" font-size="13" text-anchor="middle">{_esc(ln)}</text>')
+            out.append(f'<text x="{x+w/2:.1f}" y="{hy+26+j*20}" fill="{INK}" font-size="15" text-anchor="middle">{_esc(ln)}</text>')
     out.append("</svg>")
     return "".join(out)
 

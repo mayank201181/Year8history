@@ -557,7 +557,7 @@ function camera(seg, t) {
     const others = seg.cast.filter(o => o.who !== sp.who).sort((a, b) => Math.abs(a.x - sp.x) - Math.abs(b.x - sp.x));
     const mid = others.length ? (sp.x + others[0].x) / 2 : sp.x; return { cx: mid, cy: 380, s: 1.2 };
   }
-  const s = cs.monster ? 1.45 : 1.6; let cx = sp.x; if (boardOn) cx = sp.x + (sp.x < 640 ? 300 : -300) / s;
+  const s = cs.monster ? 1.45 : 1.6; let cx = sp.x; if (boardOn) cx = sp.x + (boardSide(seg) === 'right' ? 300 : -300) / s;
   return { cx, cy: cs.monster ? GROUND - 195 : headY + 105, s };
 }
 function clampCam(c) { const hw = W / 2 / c.s, hh = H / 2 / c.s; c.cx = clamp(c.cx, hw, W - hw); c.cy = clamp(c.cy, hh, H - hh); return c; }
@@ -589,7 +589,24 @@ function drawStage(seg, t, opts = {}) {
 }
 
 function findSeg(t) { const S = TL.segments; let lo = 0, hi = S.length - 1; if (t < S[0].t0) return S[0]; while (lo < hi) { const m = (lo + hi + 1) >> 1; if (S[m].t0 <= t) lo = m; else hi = m - 1; } return S[lo]; }
-function boardSide(seg) { const sp = seg.kind === 'line' ? speakerAt(seg) : null; if (seg.scene && seg.scene.startsWith('confess')) return 'right'; if (!sp) return 'right'; return sp.x < 640 ? 'right' : 'left'; }
+const _side = new Map();
+function boardSide(seg) {
+  // Put the Time-Board on the side where it hides the fewest faces (never the speaker's).
+  const sp = seg.kind === 'line' ? speakerAt(seg) : null; if (seg.scene && seg.scene.startsWith('confess')) return 'left'; if (!sp) return 'right';
+  if (_side.has(seg)) return _side.get(seg);
+  const def = sp.x < 640 ? 'right' : 'left'; const cs = CH[sp.who];
+  const score = side => {
+    let cam;
+    if (seg.shot === 'wide') cam = { cx: 640, cy: 360, s: 1 };
+    else if (seg.shot === 'two') { const o = seg.cast.filter(c => c.who !== sp.who).sort((a, b) => Math.abs(a.x - sp.x) - Math.abs(b.x - sp.x)); cam = { cx: o.length ? (sp.x + o[0].x) / 2 : sp.x, cy: 380, s: 1.2 }; }
+    else { const s = cs.monster ? 1.45 : 1.6; cam = { cx: sp.x + (side === 'right' ? 300 : -300) / s, cy: 360, s }; }
+    clampCam(cam); const [a, b] = side === 'right' ? [W - 590, W - 30] : [30, 590]; let sc = 0;
+    for (const c of seg.cast) { const sx = (c.x - cam.cx) * cam.s + W / 2; const half = (CH[c.who].monster ? 80 : 55) * cam.s;
+      const cover = Math.max(0, Math.min(b, sx + half) - Math.max(a, sx - half)) / (2 * half); sc += c.who === sp.who ? cover * 100 : cover; }
+    return sc; };
+  const other = def === 'right' ? 'left' : 'right';
+  const r = score(other) + 0.05 < score(def) ? other : def; _side.set(seg, r); return r;
+}
 
 const SHOW_CAPS = 'WHO RULES THE REMOTE?';
 function remoteIcon(x, y, sc) { ctx.save(); ctx.translate(x, y); ctx.scale(sc, sc); rr(-8, -24, 16, 48, 6); ctx.fill(); ctx.restore(); }
@@ -668,7 +685,7 @@ function drawFreeze(seg, t) {
   drawStage(ref, seg.hold, { zoom: 1 + ease(k / 0.3) * 0.08 }); ctx.restore();
   ctx.fillStyle = 'rgba(255,240,200,0.12)'; ctx.fillRect(0, 0, W, H);
   const kk = back((k - 0.25) / 0.35); if (kk > 0) { ctx.save(); ctx.translate(640, 470); ctx.rotate(-0.06); ctx.scale(kk, kk);
-    ctx.fillStyle = '#dc2626'; rr(-330, -60, 660, 120, 14); ctx.fill(); text(seg.text, 0, 4, 70, '#fff'); ctx.restore(); }
+    ctx.fillStyle = '#dc2626'; rr(-330, -60, 660, 120, 14); ctx.fill(); let fs = 70; ctx.font = `700 ${fs}px Fredoka`; while (ctx.measureText(seg.text).width > 620 && fs > 34) { fs -= 2; ctx.font = `700 ${fs}px Fredoka`; } text(seg.text, 0, 4, fs, '#fff'); ctx.restore(); }
   const k2 = ease((k - 1.0) / 0.3); if (k2 > 0 && seg.narrator) { ctx.globalAlpha = k2; const nl = wrap(seg.narrator, 760, 30); ctx.fillStyle = '#111'; rr(240, 600, 800, 64, 10); ctx.fill(); text(nl[0], 640, 632, 30, '#fde047'); ctx.globalAlpha = 1; }
 }
 

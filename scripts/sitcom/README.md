@@ -35,4 +35,5 @@ python3 gen_manifest.py                               # refresh lib/sitcom.ts
 
 `make_episode.sh` installs `kokoro-onnx soundfile faster-whisper` and downloads the Kokoro model files
 on first run. Output: `public/videos/<topic>.mp4`, `public/videos/posters/<topic>.jpg`,
-`out/<topic>/asr.txt`. Rendering takes roughly 2–2.5× real time on a 4-core machine.
+`out/<topic>/asr.txt`. On a 4-core machine the frames render at about real time (≈ 8.5 min for the 9-min pilot); a whole
+`make_episode.sh` run takes ≈ 10 min with cached voices, ≈ 13 min from scratch.

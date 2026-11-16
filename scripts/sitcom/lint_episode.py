@@ -17,7 +17,7 @@ BAD_SPOKEN = [
     (r"[0-9]", "digits left after spoken() — write this number in words"),
     (r"[/×÷=^√π<>≤≥+#@*]", "symbol in spoken text — say it in words"),
     (r"\bnought\b", "say 'zero', not 'nought' (TTS says 'not')"),
-    (r"\b(Sigh|Ugh|Hmm+|Pfft|Tsk|Argh|Ahem|Shh+)\b", "interjection TTS mangles — use a real word"),
+    (r"\b(Sigh|Ugh|Hmm+|Pfft|Tsk|Argh|Ahem|Shh+|Ha|Hah|Aha|Ooh|Ooo+)\b", "interjection TTS mangles — use a real word (Oh, Yes, Well)"),
     (r"\b[IVX]{2,}\b", "Roman numeral — write 'Henry the Eighth' or add it to SAY in common.py"),
     (r"\bMr\.|\bDr\.|\bSt\.", "abbreviation with a dot ends the sentence early — write it out"),
 ]

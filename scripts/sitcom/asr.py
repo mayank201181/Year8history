@@ -28,7 +28,7 @@ for who, text in items:
     segs, _ = m.transcribe(au, language='en', beam_size=1)
     hyp = ' '.join(s.text for s in segs)
     h = norm(hyp)
-    r = max(difflib.SequenceMatcher(None, norm(x), h).ratio() for x in (text, sp))
+    r = max(difflib.SequenceMatcher(None, norm(text), h).ratio(), difflib.SequenceMatcher(None, norm(sp), norm(SP(hyp))).ratio())
     if r < 0.85: bad.append((round(r, 2), who, text, hyp))
 for x in sorted(bad): print(x)
 print('checked', len(items), 'flagged', len(bad))
