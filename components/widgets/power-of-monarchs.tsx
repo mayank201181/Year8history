@@ -289,7 +289,7 @@ const CRITERIA: { id: string; label: string; cells: Record<King, { text: string;
     cells: {
       william: { text: "Castles and a loyal Norman army, land for his followers, the Harrying of the North, Norman bishops, the Domesday survey (1086).", tags: ["force", "nobles", "church", "money"] },
       john: { text: "Heavy taxes, scutage and fines; hostages from barons; royal courts; castles and paid soldiers.", tags: ["money", "law", "force"] },
-      henry: { text: "Acts of Parliament (Supremacy and Treasons Acts, 1534), Thomas Cromwell's government, executions, monastery wealth, portraits and ceremony.", tags: ["law", "church", "money", "image"] },
+      henry: { text: "Acts of Parliament (Supremacy and Treasons Acts, 1534), Thomas Cromwell's government, executions, monastery wealth, portraits and ceremony.", tags: ["law", "church", "money", "image", "force"] },
     },
   },
   {

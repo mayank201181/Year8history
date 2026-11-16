@@ -292,17 +292,17 @@ export const paper: ExamPaper = {
       guideRef: "utility-and-reliability",
       difficulty: "core",
       question:
-        "Read this source:\n\n> “Foul as it is, Hell itself is made fouler by the presence of John.” — Matthew Paris, a monk of St Albans Abbey, writing in the mid-1200s\n\nWhat is the best reason for a historian to be cautious about using this source as evidence of what John was really like?",
+        "Read this source:\n\n> “…we will write of him as we, who have looked upon him and once lived at his court, perceived him. … He was gentle to the good men who loved God, and stern beyond all measure to those who resisted his will.” — The Anglo-Saxon Chronicle, entry for 1087, the year William I died; written by an unnamed English chronicler (modern translation, abridged)\n\nWhy is this source especially valuable to a historian studying what William I was like?",
       options: [
-        "It is a primary source, so it is bound to be biased",
-        "Matthew Paris was a monk writing after John's death, and the Church had clashed bitterly with John",
-        "Monks could not read or write well enough to keep accurate records",
-        "Matthew Paris was one of the barons who fought John at Runnymede",
+        "It is a primary source, so everything it says must be true",
+        "The writer says he saw William and lived at his court, and as an Englishman he is not simply repeating Norman propaganda",
+        "It was written by William himself, so it shows his true intentions",
+        "It was written centuries after William's death, so the writer could look back calmly",
       ],
       answerIndex: 1,
       explanation:
-        "The provenance is the problem: Paris was a monk, and the Church had suffered under John (the interdict, John taking Church income), and he wrote decades after John died, relying on stories. Being a primary source does not make a source biased — that is a classic mistake. Monks were among the best-educated people of the age, and Paris was not a baron.",
-      hints: ["Use NOP: Nature, Origin, Purpose. Who wrote it, and when?", "Think about John's quarrel with the Pope from 1208 to 1213."],
+        "The provenance is the strength: the writer claims first-hand knowledge of William, and he is English — one of the conquered — yet gives a balanced verdict, praising William's piety while condemning his harshness. That makes it a useful check on Norman sources such as the Bayeux Tapestry. Being a primary source does not make a source true — that is a classic mistake; it is still one churchman's view. The writer was not William, and he wrote in the year William died, not centuries later.",
+      hints: ["Use NOP: Nature, Origin, Purpose. Who wrote it, when, and how did he know?", "Most sources about William were Norman. Why does an English view matter?"],
       strategy: "Check the provenance (NOP)",
     },
     {

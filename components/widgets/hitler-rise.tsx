@@ -23,7 +23,7 @@ const PARTIES: Party[] = [
   { key: "spd", short: "SPD", name: "Social Democrats (SPD)", fill: "fill-bad", bg: "bg-bad", stance: "the Republic's strongest defenders" },
   { key: "lib", short: "Liberals", name: "Liberals (DDP/DStP + DVP)", fill: "fill-s-geometry", bg: "bg-s-geometry", stance: "middle-class parties that collapsed after 1930" },
   { key: "centre", short: "Centre", name: "Catholic Centre (Zentrum + BVP)", fill: "fill-s-number", bg: "bg-s-number", stance: "Catholic parties, Brüning's base" },
-  { key: "dnvp", short: "DNVP", name: "Nationalists (DNVP)", fill: "fill-s-ratio", bg: "bg-s-ratio", stance: "conservative nationalists, Hugenberg's party" },
+  { key: "dnvp", short: "DNVP", name: "Nationalists (DNVP)", fill: "fill-accent", bg: "bg-accent", stance: "conservative nationalists, Hugenberg's party" },
   { key: "nsdap", short: "Nazis", name: "Nazis (NSDAP)", fill: "fill-ink", bg: "bg-ink", stance: "wanted to destroy the Republic" },
   { key: "other", short: "Others", name: "All other small parties", fill: "fill-ink-2", bg: "bg-ink-2", stance: "regional and single-issue parties" },
 ];

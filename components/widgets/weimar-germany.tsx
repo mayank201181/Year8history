@@ -466,7 +466,7 @@ function CoalitionBuilder() {
                 <p>
                   {options.length} smallest workable combination{options.length === 1 ? "" : "s"}. The simplest: <strong>{names(options[0])}</strong>.
                 </p>
-                {withoutNazis.length === 0 ? (
+                {!e.seats.NSDAP && !e.seats.NSFB ? null : withoutNazis.length === 0 ? (
                   <p className="text-bad">
                     <strong>Every possible majority needed the Nazis</strong> — and Hitler would only join as Chancellor.
                   </p>
