@@ -224,7 +224,7 @@ export const practice: TopicPractice = {
           solution: ["The Ho Chi Minh trail carried troops and supplies from North Vietnam to the south.", "Because it ran through Cambodia, the USA bombed eastern Cambodia from 1969."],
           difficulty: "core",
           guideRef: "war-spills-over",
-          hints: ["It was named after North Vietnam's leader.", "His first name was Ho."],
+          hints: ["It was named after North Vietnam's leader.", "His name begins with 'Ho'."],
         },
         {
           kind: "written",
@@ -273,7 +273,7 @@ export const practice: TopicPractice = {
           solution: ["The Khmer Rouge state was called Democratic Kampuchea (1975–79)."],
           difficulty: "warmup",
           guideRef: "khmer-rouge-take-power",
-          hints: ["'Kampuchea' is the Khmer name for Cambodia; the first word is ironic, since there were no elections."],
+          hints: ["'Kampuchea' is the Khmer name for Cambodia; the first word is ironic, since the regime was anything but democratic."],
         },
         {
           kind: "short",
@@ -354,7 +354,7 @@ export const practice: TopicPractice = {
             "In 1997 Khmer Rouge commanders turned against Pol Pot and held him under house arrest in the jungle; he died there in 1998. The ECCC did not begin work until 2006, so it never tried him.",
           difficulty: "warmup",
           guideRef: "genocide-and-fall",
-          hints: ["He was never tried in a real court — the ECCC only began in 2006."],
+          hints: ["The ECCC only began work in 2006 — eight years after his death."],
         },
         {
           kind: "written",
@@ -488,7 +488,7 @@ export const practice: TopicPractice = {
           solution: ["Sihanouk went to Beijing, China.", "From there he formed a united front with the Khmer Rouge and called on Cambodians to join the fight."],
           difficulty: "core",
           guideRef: "war-spills-over",
-          hints: ["It was a large communist country that also supplied the Khmer Rouge.", "Its capital is Beijing."],
+          hints: ["It was a large communist country that also supplied the Khmer Rouge.", "Sihanouk had close ties with its leaders, Mao Zedong and Zhou Enlai."],
         },
         {
           kind: "mcq",
@@ -739,17 +739,17 @@ export const practice: TopicPractice = {
     {
       kind: "short",
       id: "pol-pot-ch-q05",
-      question: "Two Khmer Rouge leaders were convicted of genocide in November 2018. How many whole years was this after the Khmer Rouge captured Phnom Penh in April 1975?",
-      answer: { type: "number", value: 43 },
+      question: "A website claims: \"Pol Pot ruled Cambodia for 23 years, from 1975 until his death in 1998.\" Spot the flaw in this claim, then work out the correct figure: for how many **whole** years did the Khmer Rouge rule Cambodia from Phnom Penh?",
+      answer: { type: "number", value: 3, display: "3 (3 years, 8 months and about 3 weeks)" },
       traps: [
-        { spec: { type: "number", value: 39 }, feedback: "39 years is counted from 1979, when the regime fell. The question asks from when it took power in April 1975." },
-        { spec: { type: "number", value: 44 }, feedback: "Check your subtraction: 2018 − 1975 = 43, and April to November does not add another full year." },
+        { spec: { type: "number", value: 23 }, feedback: "That is the website's mistake. Pol Pot lived until 1998, but Khmer Rouge rule of the country ended when Vietnamese forces captured Phnom Penh on 7 January 1979. After that the movement survived in the jungle — it did not govern Cambodia." },
+        { spec: { type: "number", value: 4 }, feedback: "1979 − 1975 = 4, but check the months: rule ran from 17 April 1975 to 7 January 1979 — 3 years and almost 9 months. The fourth full year was never completed." },
       ],
-      solution: ["Khmer Rouge captured Phnom Penh: April 1975. Genocide verdict: 16 November 2018.", "2018 − 1975 = 43 years (April to November adds only months)."],
-      commonError: "Starting the count from 1979 instead of 1975.",
+      solution: ["The flaw: the website confuses surviving as an armed movement (until the late 1990s) with ruling the country.", "Khmer Rouge rule ran from 17 April 1975 to 7 January 1979.", "That is 3 years, 8 months and about 3 weeks — so 3 whole years. Cambodians often remember it as 'three years, eight months and twenty days'."],
+      commonError: "Subtracting 1975 from 1979 without checking the months, or counting up to Pol Pot's death in 1998.",
       difficulty: "challenge",
       guideRef: "justice-and-memory",
-      hints: ["You need two dates: when the Khmer Rouge took power and when the genocide verdict came.", "The verdict came in 2018.", "Subtract 1975 from 2018."],
+      hints: ["First decide what the website has confused: when did Khmer Rouge *rule* end, and when did Pol Pot die?", "Rule ended when Vietnamese forces captured Phnom Penh — find that exact date.", "Count from 17 April 1975 to 7 January 1979. Has a fourth full year been completed?"],
       strategy: "Use the chronology",
     },
     {

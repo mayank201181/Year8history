@@ -400,10 +400,14 @@ function checkText(spec: Extract<AnswerSpec, { type: "text" }>, input: string): 
   const w = normWords(input);
   if (w && spec.accept.some((a) => normWords(a) === w)) return { status: "correct" };
   // Forgive small spelling slips in names and words (but never in numbers/years).
+  // Regnal numbers must match exactly (Henry VII ≠ Henry VIII, Elizabeth I ≠ Elizabeth II).
+  const numerals = (x: string) => (x.match(/\b[ivxlc]+\b/gi) ?? []).map((t) => t.toLowerCase()).join(" ");
+  const inNum = numerals(input);
   if (w.length >= 5 && !/\d/.test(w)) {
     const near = spec.accept.find((a) => {
       const t = normWords(a);
       if (/\d/.test(t) || t.length < 5) return false;
+      if (numerals(a) !== inNum) return false;
       return w[0] === t[0] && editDistance(w, t) <= 1;
     });
     if (near) return { status: "correct", feedback: `Correct — watch the spelling: ${near}.` };

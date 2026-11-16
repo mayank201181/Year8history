@@ -175,6 +175,10 @@ test("history text answers: spelling slips forgiven, confusions not", () => {
   assert.equal(st({ type: "number", value: 1066 }, "1066 AD"), "correct");
   const trap = checkWithTraps({ type: "text", accept: ["Harald Hardrada", "Harald"] }, "Harold", [{ spec: { type: "text", accept: ["Harold"] }, feedback: "t" }]);
   assert.equal(trap.status, "incorrect");
+  assert.equal(st({ type: "text", accept: ["Henry VIII"] }, "Henry VII"), "incorrect");
+  assert.equal(st({ type: "text", accept: ["Elizabeth I"] }, "Elizabeth II"), "incorrect");
+  assert.equal(st({ type: "text", accept: ["Elizabeth I"] }, "Elisabeth I"), "correct");
+  assert.equal(st({ type: "text", accept: ["Clement VII"] }, "Clement VIII"), "incorrect");
 });
 
 test("self-check of display answers", () => {

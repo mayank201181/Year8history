@@ -39,7 +39,7 @@ export const practice: TopicPractice = {
         "Clause 61 set up a council of 25 barons who could seize the king's lands and castles if he broke the charter. 12, 39 and 61 are clause numbers, not the size of the council — easy to mix up.",
       difficulty: "warmup",
       guideRef: "magna-carta",
-      hints: ["It was a quarter of a hundred."],
+      hints: ["Don't confuse the size of the council with a clause number — it was a group of barons, more than twenty of them."],
     },
     {
       kind: "written",
@@ -171,12 +171,15 @@ export const practice: TopicPractice = {
           id: "king-john-p1-q01",
           question: "In what year was John born?",
           answer: { type: "number", value: 1166 },
-          traps: [{ spec: { type: "number", value: 1066 }, feedback: "1066 is the Norman Conquest — a century earlier. John was born on 24 December 1166." }],
+          traps: [
+            { spec: { type: "number", value: 1066 }, feedback: "1066 is the Norman Conquest — a century earlier. John was born on 24 December 1166." },
+            { spec: { type: "number", value: 1167 }, feedback: "1199 − 32 gives 1167, but John's birthday was on 24 December: he had already turned 32 in December 1198, so he was born in December 1166." },
+          ],
           solution: ["John was born on 24 December 1166, the youngest son of Henry II and Eleanor of Aquitaine."],
           commonError: "Writing 1066 by habit.",
           difficulty: "warmup",
           guideRef: "angevin-inheritance",
-          hints: ["He was 32 when he became king in 1199."],
+          hints: ["He was 32 when he became king in May 1199 — but his birthday was on Christmas Eve, so take care when you subtract."],
           strategy: "Use the chronology",
         },
         {
@@ -342,7 +345,10 @@ export const practice: TopicPractice = {
           id: "king-john-p1-q13",
           question: "Which French prince did the rebel barons invite to be King of England, who landed in May 1216?",
           answer: { type: "text", accept: ["Louis", "Prince Louis", "Louis of France", "Prince Louis of France", "Louis VIII", "Louis the Lion"], display: "Prince Louis (later Louis VIII)" },
-          traps: [{ spec: { type: "text", accept: ["Philip II", "Philip", "Philip Augustus"] }, feedback: "Philip II was the King of France. The barons invited his son, the prince." }],
+          traps: [
+            { spec: { type: "text", accept: ["Philip II", "Philip", "Philip Augustus"] }, feedback: "Philip II was the King of France. The barons invited his son, the prince." },
+            { spec: { type: "text", accept: ["Louis VII", "King Louis VII"] }, feedback: "Louis VII was Philip II's father (and Eleanor of Aquitaine's first husband); he died in 1180. The prince invited in 1216 was Philip's son Louis, later Louis VIII." },
+          ],
           solution: ["Prince Louis, son of Philip II (later King Louis VIII of France).", "He held London but went home in 1217 after royalist victories at Lincoln and at sea."],
           difficulty: "core",
           guideRef: "magna-carta",
@@ -586,7 +592,7 @@ export const practice: TopicPractice = {
             "> “No free man shall be seized or imprisoned, or stripped of his rights or possessions, or outlawed or exiled, or deprived of his standing in any other way, nor will we proceed with force against him, or send others to do so, except by the lawful judgement of his equals or by the law of the land.” — Magna Carta, clause 39, 1215 (modern English translation)\n\nHow useful is this clause for understanding the barons' complaints against King John? (3 marks)",
           marks: 3,
           modelAnswer:
-            "The clause is useful because it shows what the barons feared: being seized, imprisoned or stripped of their lands by the king without a trial — which fits what happened to the de Braose family and to barons whose sons were held as hostages. Its provenance adds to its usefulness, because it was written by the rebel barons' side in the 1215 negotiations, so it shows their grievances directly. However, it is limited: it does not name any actual events, and it shows only the barons' side, so it must be cross-referenced with other evidence to see how far John really acted this way.",
+            "The clause is useful because it shows what the barons feared: being seized, imprisoned or stripped of their lands by the king without a trial — which fits what happened to the de Braose family and to barons whose sons were held as hostages. Its provenance adds to its usefulness, because the charter was drawn up from the rebel barons' demands during the 1215 negotiations, so it shows their grievances directly. However, it is limited: it does not name any actual events, and it shows only the barons' side, so it must be cross-referenced with other evidence to see how far John really acted this way.",
           markScheme: [
             { point: "Uses the content to identify a complaint (arbitrary imprisonment, seizure of lands, no trial)", keywords: ["imprison", "seized", "trial", "without", "lands", "lawful judgement", "punish"] },
             { point: "Uses provenance (written for the barons in 1215 negotiations) to explain utility", keywords: ["barons", "1215", "runnymede", "negotiat", "written by", "rebels", "their side"] },
@@ -608,7 +614,7 @@ export const practice: TopicPractice = {
           commonError: "Mixing up the two St Albans chroniclers, Wendover and Paris.",
           difficulty: "warmup",
           guideRef: "johns-reputation",
-          hints: ["His surname is also the name of a French capital."],
+          hints: ["He continued Roger of Wendover's chronicle at St Albans Abbey, writing into the 1250s."],
         },
         {
           kind: "mcq",
@@ -734,19 +740,19 @@ export const practice: TopicPractice = {
     {
       kind: "mcq",
       id: "king-john-ch-q06",
-      question: "Spot the flawed argument. Which statement about Magna Carta is historically wrong because it reads modern ideas back into 1215?",
+      question: "Spot the flawed argument. Three of these statements about Magna Carta are accurate, even if some sound surprising. Which one is historically wrong because it reads a later idea back into 1215?",
       options: [
-        "Magna Carta was annulled by the Pope within about ten weeks",
-        "Clause 39 protected “free men”, which left out the unfree majority",
-        "Magna Carta made England a democracy by giving ordinary people a vote in Parliament",
-        "Later reissues dropped the clause setting up a council of 25 barons",
+        "The Pope, John's overlord since 1213, annulled the charter within about ten weeks",
+        "Clause 39 protected only “free men”, which left out the unfree majority of the population",
+        "Clause 12 meant that Parliament had to agree before the king could charge scutage",
+        "The reissues of 1216, 1217 and 1225 dropped the clause setting up a council of 25 barons",
       ],
       answerIndex: 2,
       explanation:
-        "In 1215 there was no Parliament and no idea of votes for ordinary people; the charter was a deal between the king and the elite. Its ideas *later* helped Parliament grow, which is why the anachronism is tempting. The other statements are accurate: the charter was annulled on 24 August 1215, clause 39 covered only free men, and clause 61 was dropped from the reissues.",
+        "There was no Parliament in 1215: the word was first used for the king's great assemblies in the 1230s. Clause 12 required the “common counsel of the kingdom” — a meeting of bishops, abbots, earls and greater barons summoned by the king (clause 14 explains how). Reading Parliament into it is tempting precisely because the idea of consent to taxation *later* helped Parliament grow. The other statements are accurate, surprising as they may sound: the Pope annulled the charter on 24 August 1215, clause 39 covered only free men, and clause 61 was left out of every reissue.",
       difficulty: "challenge",
       guideRef: "magna-carta",
-      hints: ["Three of these are accurate facts about 1215–1225.", "Did Parliament exist in 1215?", "Separate what the charter did then from how it was used later."],
+      hints: ["Test each statement for a word, institution or idea that did not yet exist in 1215.", "Who exactly gave the “common counsel of the kingdom” that clause 12 asked for?", "The word “Parliament” was first used for royal assemblies in the 1230s — after Magna Carta."],
       strategy: "Spot the anachronism",
     },
     {

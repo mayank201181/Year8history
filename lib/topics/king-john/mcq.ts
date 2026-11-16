@@ -234,8 +234,8 @@ export const mcqPapers: Paper[] = [
         ],
         answerIndex: 1,
         explanation:
-          "Wendover was a monk of St Albans writing in the 1220s–30s, after John's death. John had seized Church income and lived through the Interdict, so churchmen had reasons to be hostile, and Wendover used rumour. If he had been John's paid propagandist, he would have praised John, not attacked him.",
-        difficulty: "challenge",
+          "Wendover was a monk of St Albans writing in the 1220s–30s, after John's death. John had seized Church income during the Interdict, so churchmen had reasons to be hostile, and Wendover used rumour. If he had been John's paid propagandist, he would have praised John, not attacked him.",
+        difficulty: "core",
         guideRef: "johns-reputation",
         hints: ["Check the provenance: who wrote it, and when?", "What had John done to the Church between 1208 and 1213?", "Would a writer paid by John attack him?"],
         strategy: "Check the provenance (NOP)",
@@ -253,7 +253,7 @@ export const mcqPapers: Paper[] = [
         answerIndex: 2,
         explanation:
           "Significance often comes later. The charter was reissued in 1216, 1217 and 1225; the 1225 version became law, so people could keep appealing to it — Parliament, opponents of Charles I and the US Bill of Rights all drew on its ideas. Votes for everyone came many centuries later, so that option reads modern ideas back into 1215.",
-        difficulty: "challenge",
+        difficulty: "core",
         guideRef: "johns-reputation",
         hints: ["Something can fail at first but matter later — how?", "What happened in 1216, 1217 and 1225?", "Rule out any option that is anachronistic."],
         strategy: "Zoom out to the big picture",
@@ -503,7 +503,7 @@ export const mcqPapers: Paper[] = [
         answerIndex: 0,
         explanation:
           "John's government kept copies of its letters and charters on parchment rolls, which survive in their thousands and show an energetic, hard-working king. No personal diary of John exists, and Shakespeare's play is drama, not evidence — it does not even mention Magna Carta.",
-        difficulty: "challenge",
+        difficulty: "core",
         guideRef: "johns-reputation",
         hints: ["Different interpretations often come from different evidence.", "What kind of documents did John's government produce?", "Which options are not real evidence?"],
         strategy: "Cross-reference sources",
@@ -593,7 +593,7 @@ export const mcqPapers: Paper[] = [
         answerIndex: 3,
         explanation:
           "Bouvines wrecked John's grand plan: the money squeezed from barons since 1204 had been spent for nothing, and he came home defeated. That weakness let resentment turn into rebellion in 1215. It was a defeat, not a victory, and John was never captured — that was Richard I.",
-        difficulty: "challenge",
+        difficulty: "core",
         guideRef: "losing-normandy",
         hints: ["Think about what John had been raising money *for* since 1204.", "How would barons react to paying for a war that was lost?", "Link the defeat to what happened in May 1215."],
         strategy: "Link the factors",

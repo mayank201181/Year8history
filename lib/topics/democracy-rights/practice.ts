@@ -211,7 +211,7 @@ export const practice: TopicPractice = {
         {
           kind: "short",
           id: "democracy-rights-p1-q02",
-          question: "Which Dutch prince, married to James II's daughter Mary, was invited to take the English throne in 1688?",
+          question: "Which Dutch prince, married to James II's daughter Mary, was invited to England in 1688 and then became king?",
           answer: { type: "text", accept: ["William of Orange", "William III", "William", "Prince William of Orange", "King William III"], display: "William of Orange (William III)" },
           traps: [
             { spec: { type: "text", accept: ["James II", "James"] }, feedback: "James II was the king who was replaced. The prince invited to take over was his son-in-law, William of Orange." },
@@ -434,7 +434,7 @@ export const practice: TopicPractice = {
           marks: 4,
           modelAnswer:
             "The Declaration claimed that 'all men are created equal' and have rights to 'Life, Liberty and the pursuit of Happiness'. Yet slavery continued in the new United States: roughly one person in five in the colonies was enslaved, and Thomas Jefferson, its main author, enslaved more than 600 people during his life. Slavery was not abolished until 1865. Women and Native Americans were also excluded from these rights. However, the contradiction is also what made the words powerful: abolitionists and later campaigners such as Martin Luther King in 1963 quoted the Declaration to demand that its promise be applied to everyone.",
-      markScheme: [
+          markScheme: [
             { point: "States the Declaration's ideal accurately", keywords: ["all men are created equal", "equal", "rights", "liberty", "happiness"] },
             { point: "Uses precise evidence of slavery to show the contradiction", keywords: ["slavery", "slaves", "enslaved", "jefferson", "600", "1865"] },
             { point: "Identifies other excluded groups", keywords: ["women", "native", "property"] },
@@ -821,7 +821,7 @@ export const practice: TopicPractice = {
       question: "How far was the period 1642–1689 a turning point in the power of Parliament? (5 marks)",
       marks: 5,
       modelAnswer:
-        "Before 1642 the Crown was dominant: Charles I believed in the Divine Right of Kings and ruled without Parliament from 1629 to 1640, raising Ship Money without its consent. The Civil War changed this dramatically — Parliament's army won, and in 1649 Charles was tried and executed, showing that a king could be held to account. However, this first change did not last: the republic depended on Cromwell and the army, and the monarchy was restored in 1660; James II then tried to rule without Parliament's consent. The lasting change came in 1688–89, when Parliament invited William and Mary to take the throne and made them accept the Bill of Rights: no taxes, no peacetime army and no suspending of laws without Parliament. Overall, the period was a turning point for Parliament's power, because after 1689 no monarch could govern without it. But it was not a turning point for democracy: Parliament itself was still elected by a small minority of wealthy men.",
+        "Before 1642 the Crown was dominant: Charles I believed in the Divine Right of Kings and ruled without Parliament from 1629 to 1640, raising Ship Money without its consent. The Civil War changed this dramatically — Parliament's army won, and in 1649 Charles was tried and executed, showing that a king could be held to account. However, this first change did not last: the republic depended on Cromwell and the army, and the monarchy was restored in 1660; James II then tried to rule without Parliament's consent. The lasting change came in 1688–89, when leading politicians invited William of Orange to intervene and Parliament then offered the crown to William and Mary on the terms of the Bill of Rights: no taxes, no peacetime army and no suspending of laws without Parliament. Overall, the period was a turning point for Parliament's power, because after 1689 no monarch could govern without it. But it was not a turning point for democracy: Parliament itself was still elected by a small minority of wealthy men.",
       markScheme: [
         { point: "Describes the 'before': royal power (Divine Right, Personal Rule, Ship Money)", keywords: ["divine right", "personal rule", "ship money", "before", "1629"] },
         { point: "Explains the change of 1642–49 (war, trial and execution of the king)", keywords: ["civil war", "executed", "1649", "trial", "removed"] },

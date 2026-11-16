@@ -50,7 +50,7 @@ const WIVES: Wife[] = [
     dates: "married January 1533 – executed May 1536",
     rhyme: "Beheaded",
     ended: "Executed at the Tower of London on 19 May 1536 on charges of adultery and treason that most historians believe were false.",
-    children: "Elizabeth (born September 1533). Later pregnancies ended in miscarriage.",
+    children: "Elizabeth (born September 1533). At least one later pregnancy ended in miscarriage, in January 1536.",
     politics: "To marry her, Henry broke with Rome. Anne favoured religious reform and her family rose to power — and fell with her.",
     fill: "fill-bad",
   },
@@ -156,7 +156,9 @@ function SixWives() {
         <div className="space-y-2">
           <p>
             <strong>{fmt(t)}.</strong> Henry is about {age}.{" "}
-            {active.length === 0
+            {t >= T_MAX
+              ? "Henry dies on 28 January 1547, leaving Catherine Parr a widow."
+              : active.length === 0
               ? latest
                 ? `He is unmarried — his last marriage, to ${latest.name}, has ended.`
                 : "He is not yet married."
