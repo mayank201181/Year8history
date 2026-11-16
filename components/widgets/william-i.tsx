@@ -36,7 +36,7 @@ const PL = {
   pevensey: { name: "Pevensey", at: [50.82, 0.34], dx: -6, dy: 14, anchor: "end" },
   hastings: { name: "Hastings", at: [50.86, 0.57], dx: 7, dy: 12, anchor: "start" },
   battle: { name: "Battle (Senlac)", at: [50.92, 0.48], dx: 6, dy: -6, anchor: "start" },
-  dives: { name: "Dives-sur-Mer", at: [49.29, -0.1], dx: 0, dy: 14, anchor: "middle" },
+  dives: { name: "Dives-sur-Mer", at: [49.29, -0.1], dx: 6, dy: -6, anchor: "start" },
   stvalery: { name: "St-Valery", at: [50.18, 1.63], dx: -6, dy: 14, anchor: "end" },
   rouen: { name: "Rouen", at: [49.44, 1.1], dx: 6, dy: 4, anchor: "start" },
   wight: { name: "Isle of Wight", at: [50.69, -1.3], dx: 0, dy: 16, anchor: "middle" },
@@ -51,14 +51,18 @@ const NORTH_SEA: Pt = [55.25, 0.9];
 const ROAD_NORTH: Pt = [52.9, -0.75];
 const ROMNEY: Pt = [50.98, 0.94];
 
+type Army = "H" | "N" | "W";
+
 interface Step {
   date: string;
   title: string;
   text: string;
-  /** Waypoints travelled during this step (the last one is where the army ends up). null = army gone. */
-  H?: Pt[] | null;
-  N?: Pt[] | null;
-  W?: Pt[] | null;
+  /** Waypoints travelled during this step (the last one is where the army ends up). */
+  H?: Pt[];
+  N?: Pt[];
+  W?: Pt[];
+  /** Armies destroyed or leaderless at the end of this step. */
+  gone?: Army[];
   battle?: PlaceId;
   labels: PlaceId[];
 }
@@ -119,17 +123,18 @@ const STEPS: Step[] = [
   {
     date: "24 September",
     title: "Harold reaches Tadcaster",
-    text: "Harold arrives at Tadcaster, near York, having covered roughly 185 miles from London in a few days — an astonishing march. The Norwegians, not expecting him, move to Stamford Bridge to collect their hostages.",
+    text: "Harold arrives at Tadcaster, near York, having covered roughly 185 miles from London in a few days — an astonishing march. The Norwegians, back with their ships at Riccall, have no idea he is coming.",
     H: [PL.tadcaster.at],
-    N: [PL.york.at, PL.stamford.at],
-    labels: ["tadcaster", "york", "stamford"],
+    N: [PL.riccall.at],
+    labels: ["tadcaster", "york", "riccall"],
   },
   {
     date: "25 September",
     title: "Battle of Stamford Bridge",
-    text: "Harold marches through York and takes the Norwegians by surprise — according to later Norse sagas, many had left their mail armour at their ships. Hardrada and Tostig are both killed. The survivors need only 24 of their ships to sail home.",
+    text: "Hardrada goes to Stamford Bridge to collect the hostages. Harold marches through York and takes the Norwegians by surprise — according to later Norse sagas, many had left their mail armour at their ships. Hardrada and Tostig are both killed. The survivors need only 24 of their ships to sail home.",
     H: [PL.york.at, PL.stamford.at],
-    N: null,
+    N: [PL.stamford.at],
+    gone: ["N"],
     battle: "stamford",
     labels: ["stamford", "york", "fulford"],
   },
@@ -158,8 +163,8 @@ const STEPS: Step[] = [
     date: "14 October",
     title: "Battle of Hastings",
     text: "From about 9 a.m. until dusk the English shield wall holds the ridge. Norman archers, cavalry and (according to William of Poitiers) feigned retreats slowly break it. Late in the day Harold is killed, with his brothers Gyrth and Leofwine.",
-    H: null,
     W: [PL.battle.at],
+    gone: ["H"],
     battle: "battle",
     labels: ["battle", "hastings", "pevensey"],
   },
@@ -186,18 +191,16 @@ const STEPS: Step[] = [
   },
 ];
 
-type Army = "H" | "N" | "W";
-
 function trail(army: Army, upTo: number): { pts: Pt[]; here: Pt | null } {
   const pts: Pt[] = [];
   let here: Pt | null = null;
   for (let i = 0; i <= upTo; i++) {
     const m = STEPS[i][army];
-    if (m === null) here = null;
-    else if (m) {
+    if (m) {
       for (const p of m) if (!pts.length || pts[pts.length - 1] !== p) pts.push(p);
       here = m[m.length - 1];
     }
+    if (STEPS[i].gone?.includes(army)) here = null;
   }
   return { pts, here };
 }
@@ -247,13 +250,13 @@ function CampaignMap() {
 
   const st = STEPS[step];
   const armies = (["N", "H", "W"] as Army[]).map((a) => ({ a, ...trail(a, step) }));
-  const harold = armies.find((x) => x.a === "H")!;
-  const william = armies.find((x) => x.a === "W")!;
-  const hardrada = armies.find((x) => x.a === "N")!;
-  // Harold's land marching from mid-September (step 5) onwards.
-  const haroldMarch = trail("H", step).pts.slice(trail("H", 4).pts.length - 1);
+  const harold = trail("H", step);
+  const william = trail("W", step);
+  const hardrada = trail("N", step);
+  // Harold's marching from London after 8 September (step 4) onwards.
+  const haroldMarch = harold.pts.slice(trail("H", 4).pts.length - 1);
   const marched = step >= 6 ? Math.round(miles(haroldMarch) / 5) * 5 : 0;
-  const invaders = (hardrada.here ? 1 : 0) + (william.here && px(william.here) && william.here[0] > 50.5 && step >= 9 ? 1 : 0);
+  const invaders = (hardrada.here ? 1 : 0) + (step >= 9 ? 1 : 0);
   const apart = harold.here && william.here && step >= 9 ? Math.round(miles([harold.here, william.here]) / 5) * 5 : null;
   const labelSet = new Set<PlaceId>(st.labels);
 
@@ -302,7 +305,7 @@ function CampaignMap() {
           <path d={shape(IOW)} className="fill-surface stroke-ink-2" strokeWidth={1} />
           <path d={shape(FR)} className="fill-surface stroke-ink-2" strokeWidth={1} />
           <text x={135} y={210} fontSize={13} fontWeight={800} textAnchor="middle" className="fill-ink-2" opacity={0.5}>ENGLAND</text>
-          <text x={295} y={418} fontSize={11} fontWeight={800} textAnchor="middle" className="fill-ink-2" opacity={0.5}>NORMANDY</text>
+          <text x={205} y={424} fontSize={11} fontWeight={800} textAnchor="middle" className="fill-ink-2" opacity={0.5}>NORMANDY</text>
           <text x={300} y={34} fontSize={10} textAnchor="middle" className="fill-ink-2">North Sea</text>
           <text x={300} y={46} fontSize={10} textAnchor="middle" className="fill-ink-2">(to Norway ↗)</text>
 
@@ -399,7 +402,7 @@ interface Card {
 }
 
 const CARDS: Card[] = [
-  { factor: "luck", title: "The wind", text: "William's fleet waited for weeks. When it finally crossed (27–28 September), Harold was 250 miles away in the north. (Some historians think William chose to wait.)", link: "skill" },
+  { factor: "luck", title: "The wind", text: "William's fleet waited for weeks. When it finally crossed (27–28 September), Harold was more than 200 miles away in the north. (Some historians think William chose to wait.)", link: "skill" },
   { factor: "luck", title: "Hardrada's timing", text: "The Norwegians invaded in September, dragging Harold north just days before William landed." },
   { factor: "luck", title: "The fyrd goes home", text: "On 8 September Harold had to send the fyrd home because food had run out after guarding the coast all summer.", link: "harold" },
   { factor: "luck", title: "Harold's death", text: "Harold was killed late in the day — perhaps by a chance arrow, perhaps by Norman knights (the sources disagree). With his brothers also dead, the English had no leader." },
