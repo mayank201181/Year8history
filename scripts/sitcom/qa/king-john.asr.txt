@@ -1,0 +1,9 @@
+(0.0, 'ticktock', 'Bouvines.', ' Boozane')
+(0.65, 'mum', 'Clause 40. To no one will we sell, deny or delay justice. Or the remote.', ' Clause 40 to know one will be celled in eye or delayed justice, or the remote.')
+(0.67, 'ticktock', 'Runnymede, by the Thames.', ' Runny Mad by the Thames')
+(0.71, 'ticktock', 'Three. The Interdict and Bouvines leave him weak.', ' 3. The Interdact and Bovin leave him weak.')
+(0.78, 'tara', 'Patient rival, next door. Mum and the bedroom TV.', ' Patient rival, next door.  Mom in the bedroom TV.')
+(0.8, 'tara', "The charter's on the fridge. Reissued by Mum, minus the soft toys.", ' The charter is on the fridge, reissued by mom minus the soft toys.')
+(0.82, 'teacher', 'Matthew Paris, writing after John died. He copied an earlier monk, Roger of Wendover. Queen story too.', ' Matthew Parris, writing after John died.  He coppered an earlier monk, Roger of Wendover.  Queen Story 2.')
+(0.84, 'ticktock', 'Two. 1204: Normandy lost. Then he squeezes England for money.', ' 2.1204, Normandy lost. Then he squeezes England for money.')
+checked 91 flagged 8
