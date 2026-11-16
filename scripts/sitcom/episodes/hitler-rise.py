@@ -55,7 +55,7 @@ L("chrono", "Two. Fear of Communism. Businesses and farmers dreaded a revolution
 L("chrono", "Three. Goebbels's propaganda. Rallies, posters, and flights so Hitler could speak in several cities a day.", mood="teach", shot="close", board="3. Propaganda (Goebbels)")
 L("chrono", "Four. Hitler's speeches, promising something to everyone.", mood="teach", shot="close", board="4. Hitler's speeches + promises to all")
 L("tara", "He promised to fix everything.", mood="thinking", shot="close")
-L("chrono", "Five. S A violence. And note. In free elections, the Nazis never won a majority.", mood="serious", shot="close", board="5. SA violence    (no majority, ever)")
+L("chrono", "Five. S A violence. And remember, in free elections the Nazis never won a majority.", mood="serious", shot="close", board="5. SA violence    (no majority, ever)")
 
 confess("dad", "VIKRAM RAO · Dad · Campaign Manager · Unelected")
 L("dad", "I have designed our slogan. Tara Rao. She's fine.", mood="smug")
