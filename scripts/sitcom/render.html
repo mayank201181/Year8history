@@ -269,7 +269,7 @@ function drawChrono(x, st) {
   // face on the top bulb
   const look = clamp(st.look || 0, -1, 1), blink = blinkAt(t, st.seed);
   const ex = 30, ey = -256, erx = 21, ery = mood === 'shock' ? 28 : 24;
-  const open = { bored: 0.45, eyeroll: 0.5, deadpan: 0.5, smug: 0.6, serious: 0.82, sad: 0.72, annoyed: 0.7, determined: 0.75 }[mood] ?? 1;
+  const open = { bored: 0.45, eyeroll: 0.88, deadpan: 0.5, smug: 0.6, serious: 0.82, sad: 0.72, annoyed: 0.7, determined: 0.75 }[mood] ?? 1;
   const [bi, bo] = brows(mood); const grump = ['shock', 'happy', 'excited', 'worried', 'sad', 'serious', 'thinking'].includes(mood) ? 0 : 4;
   for (const side of [-1, 1]) {
     const x = side * ex;

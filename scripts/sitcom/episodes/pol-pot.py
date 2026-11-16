@@ -33,7 +33,7 @@ title()
 scene("living", [("tara", 380)])
 L("tara", "Chrono? I need your help. Properly.", mood="serious", shot="wide")
 poof("chrono", 860)
-L("chrono", "I heard. For this one, the sarcasm stays in the clock. Let's start before the war.", mood="serious", shot="close")
+L("chrono", "For this one, the sarcasm stays in the clock. Let's start before the war.", mood="serious", shot="close")
 L("chrono", "Cambodia is home to the Khmer people. Their empire built Angkor Wat in the twelfth century, still the largest religious monument in the world.", mood="teach", shot="close", boardClear=True, board="Khmer Empire · Angkor Wat (12th century)")
 L("chrono", "France ruled Cambodia from eighteen sixty three. It became independent in nineteen fifty three, under King Norodom Sihanouk.", mood="teach", shot="close", board="1863–1953  French rule → independence")
 L("chrono", "Sihanouk tried to keep Cambodia neutral in the Vietnam War. Most Cambodians were poor rice farmers, far from the capital, Phnom Penh.", mood="teach", shot="close", board="Sihanouk: neutral · rural poverty")
@@ -42,7 +42,7 @@ L("chrono", "Born Saloth Sar, he studied in Paris and became a communist. Back h
 L("chrono", "Sihanouk called them the Khmer Rouge. The Red Khmers.", mood="teach", shot="close", gap=0.4)
 serious()
 L("chrono", "Then the Vietnam War spilled over. North Vietnam ran supply routes through eastern Cambodia. From nineteen sixty nine, the United States bombed them, at first in secret.", mood="serious", shot="close", boardClear=True, board="1953 to 1979", diagram=TIMELINE)
-L("chrono", "The bombing lasted until nineteen seventy three. It devastated the countryside, and historians estimate it killed many thousands of civilians.", mood="serious", shot="close")
+L("chrono", "The bombing lasted until nineteen seventy three. It devastated the countryside, and historians estimate it killed tens of thousands of people, perhaps many more.", mood="serious", shot="close")
 L("chrono", "Many villagers lost homes and families. The Khmer Rouge used their anger and fear to recruit.", mood="serious", shot="close")
 L("chrono", "In March nineteen seventy, while Sihanouk was abroad, General Lon Nol took power in a coup. Sihanouk then backed the Khmer Rouge, and many villagers who loved him followed.", mood="serious", shot="close", board="1970  Lon Nol's coup · civil war")
 L("chrono", "Five years of civil war followed. Lon Nol's American-backed government was weak and corrupt. Refugees crowded into Phnom Penh.", mood="serious", shot="close")
@@ -63,7 +63,7 @@ L("chrono", "Anyone seen as an enemy was targeted. Teachers, doctors, monks, the
 L("mum", "Sophea's mother was a New Person. She was nine. She told Sophea she missed school most of all.", mood="sad", shot="close", gap=0.8)
 L("chrono", "Between nineteen seventy five and nineteen seventy nine, around one and a half to two million people died. About a quarter of Cambodia's population.", mood="serious", shot="close", boardClear=True, board="1975–79: about 1.5–2 million died (~1 in 4)")
 L("chrono", "They died from execution, starvation, overwork and untreated disease. This was genocide, and crimes against humanity.", mood="serious", shot="close")
-L("chrono", "A former high school in Phnom Penh became a prison, S twenty one, also called Tuol Sleng. Very few of the thousands held there survived.", mood="serious", shot="close", board="S-21 (Tuol Sleng) prison")
+L("chrono", "A former high school in Phnom Penh became a prison, S twenty one, also called Tuol Sleng. Very few of the many thousands held there survived.", mood="serious", shot="close", board="S-21 (Tuol Sleng) prison")
 L("chrono", "Many were killed at Choeung Ek, one of the killing fields. Today it is a memorial.", mood="serious", shot="close", board="Choeung Ek: killing field, now a memorial")
 L("tara", "Every number is a person. A grandparent. A teacher. A child who missed school.", mood="sad", shot="close", gap=1.5)
 L("chrono", "Yes. Always remember that.", mood="sad", shot="close", gap=1.0)
@@ -99,7 +99,7 @@ L("chrono", "And finally. Justice came late, through the courts and through memo
 
 # ---------------- TAG (light) ----------------
 scene("living", [("tara", 260), ("mum", 560), ("dad", 860)])
-L("tara", "Ms Lim said it was thoughtful and respectful. And Sophea's mother sent a message to say thank you.", mood="happy", shot="close")
+L("tara", "Ms Lim said it was thoughtful and respectful. And Sophea's mother sent a thank you message.", mood="happy", shot="close")
 L("mum", "I'm very proud of you.", mood="happy", shot="close")
 L("dad", "I brought the mango. Completely normal mango. No drum roll.", mood="happy", shot="close", prop="plate")
 L("tara", "Perfect mango, Dad.", mood="happy", shot="close")
@@ -111,9 +111,9 @@ card("PAUSE AND REFLECT", "Three questions to check your understanding.", 3.0)
 challenge(1, "On what date did the Khmer Rouge take Phnom Penh?", "17 April 1975", "The city was emptied within days",
   "Question one. On what date did the Khmer Rouge take Phnom Penh?",
   "The seventeenth of April, nineteen seventy five. Within days, the whole city was forced out.")
-challenge(2, "Roughly what share of Cambodia's people died, 1975–79?", "About 1 in 4", "About 1.5–2 million people",
-  "Question two. Roughly what share of Cambodia's people died under the Khmer Rouge?",
-  "About one in four. Around one and a half to two million people. Each one a person, with a name and a family.")
+challenge(2, "What did the Khmer Rouge call their plan to restart society from nothing?", "Year Zero", "No money, schools, religion or property",
+  "Question two. What did the Khmer Rouge call restarting society from nothing?",
+  "Year Zero. Money, schools and religion were abolished, and families split up. Around one and a half to two million people died.")
 challenge(3, "Hitler was appointed. How did Pol Pot gain power?", "Civil war", "Won by force, 1970–75, against Lon Nol",
   "Question three. Hitler was appointed to power. How did Pol Pot gain power?",
   "By winning a civil war. The Khmer Rouge took power by force.")

@@ -5,7 +5,7 @@ EP = dict(topic="why-dictatorships", logline="The condo lift breaks, the water g
 
 # ---------------- COLD OPEN ----------------
 scene("living", [("tara", 300), ("mum", 760)])
-L("mum", "Condo emergency! The lift is broken and the water pump has failed. No lift. No water.", mood="worried", shot="close", prop="phone")
+L("mum", "Condo emergency! The lift is broken and the water pump has failed.", mood="worried", shot="close", prop="phone")
 L("tara", "We live on the twenty third floor.", mood="deadpan", shot="close")
 L("mum", "The committee chat has four hundred messages. The chairman just resigned. By voice note. From the stairwell.", mood="shock", shot="two", prop="phone")
 L("tara", "Four hundred messages. Nobody has phoned the lift company.", mood="deadpan", shot="close", gap=0.4)
@@ -43,7 +43,7 @@ confess("chrono", "CHRONO · Hourglass Monster · Approx. 950 Years Old")
 L("chrono", "Was I there for all of history? Well. My sand was. Including one terrible decade inside a board game. Nobody read the rules. Everybody argued about them. Then someone flipped the table.", mood="bored", gap=0.5)
 
 scene("kitchen", [("tara", 380), ("chrono", 860)])
-L("chrono", "Factor one. Crisis. When people are hungry and scared, they stop asking, is this fair? They ask, who can fix this, fast?", mood="teach", shot="close",
+L("chrono", "Factor one. Crisis. When people are hungry and scared, they stop asking, is this fair? They ask, who can fix this, fast? Usually while holding buckets.", mood="teach", shot="close",
   boardClear=True, board="FACTOR 1: CRISIS")
 L("chrono", "Germany. Defeat in nineteen eighteen. Versailles. Hyperinflation in nineteen twenty three. Then the Depression, with about six million unemployed.", mood="teach", shot="close",
   board="Germany: defeat, 1923, Depression")
@@ -94,7 +94,7 @@ L("chrono", "This part is not funny, so I'll say it plainly. Terror. The Gestapo
   boardClear=True, board="CONTROL: terror · propaganda · youth")
 L("chrono", "Propaganda and a cult of personality. Control of schools and young people. Rivals removed. The press silenced.", mood="serious", shot="close",
   board="Cult of personality · rivals removed")
-L("chrono", "The Nazis murdered six million Jews in the Holocaust, and millions of others. In China, historians estimate tens of millions died in the famine after the Great Leap Forward.", mood="sad", shot="close")
+L("chrono", "The Nazis murdered six million Jews in the Holocaust, and millions of others. In China, historians estimate tens of millions died in the famine caused by the Great Leap Forward.", mood="sad", shot="close")
 L("chrono", "In Cambodia, around one and a half to two million people died. About a quarter of the population.", mood="sad", shot="close")
 L("tara", "Every one of those numbers was a person. With a name, and a family.", mood="sad", shot="close", gap=1.0)
 serious(False)
@@ -132,7 +132,7 @@ L("chrono", "Fourth. Leadership got them in. Terror and propaganda kept them the
 L("chrono", "And finally. No single cause. Link the factors. Then judge.", mood="smug", board="5. Link the factors, then JUDGE", gap=0.5)
 
 scene("living", [("tara", 260), ("mum", 560), ("dad", 840)])
-L("dad", "Exciting news. I've been elected Chair of the karaoke sub committee.", mood="excited", shot="close")
+L("dad", "Big news. I've been elected Chair of the karaoke sub committee.", mood="excited", shot="close")
 L("tara", "How many votes?", mood="deadpan", shot="close")
 L("dad", "One. Mine. There were no other candidates. It was still very tense.", mood="smug", shot="close")
 L("dad", "I'll take it.", mood="smug", shot="close")
@@ -142,8 +142,8 @@ L("chrono", "Put me back in the clock. And somebody hide that microphone.", mood
 # ---------------- PAUSE CHALLENGE ----------------
 card("PAUSE CHALLENGE", "Chrono gives you 5 seconds. Then he sighs.", 3.0)
 challenge(1, "A state that tries to control ALL of life, even thoughts, is called…?", "Totalitarian", "More extreme than 'authoritarian'",
-  "Question one. A state that controls every part of life, even what people think, is called what?", "Totalitarian. It goes further than authoritarian, and tries to control everything.")
-challenge(2, "Which article of the Weimar constitution let the President rule by decree?", "Article 48", "Used by chancellors from 1930 onwards",
+  "Question one. A state that controls every part of life, even what people think, is called what?", "Totalitarian. More extreme than authoritarian. It tries to control everything.")
+challenge(2, "Which article of the Weimar constitution let the President rule by decree?", "Article 48", "Used again and again from 1930 onwards",
   "Question two. Which Weimar article let the President rule by emergency decree?", "Article forty eight. Ruling by decree instead of through parliament. A sign of weak government.")
 challenge(3, "Britain and the USA had the Depression but stayed democracies. What does that show about crisis?", "Not enough", "Crisis + weak govt + leader → dictatorship",
   "Question three. Britain and the USA also had the Depression, but stayed democracies. What does that show about crisis?", "Crisis alone wasn't enough. It needed weak government and a ruthless leader too. If you said crisis explains everything, go and sit with Dad.")

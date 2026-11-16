@@ -404,7 +404,7 @@ function checkText(spec: Extract<AnswerSpec, { type: "text" }>, input: string): 
     const near = spec.accept.find((a) => {
       const t = normWords(a);
       if (/\d/.test(t) || t.length < 5) return false;
-      return editDistance(w, t) <= (t.length >= 9 ? 2 : 1);
+      return w[0] === t[0] && editDistance(w, t) <= 1;
     });
     if (near) return { status: "correct", feedback: `Correct — watch the spelling: ${near}.` };
   }

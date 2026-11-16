@@ -85,6 +85,8 @@ L("chrono", "Historians still debate it. She had a return train ticket. Some thi
 L("tara", "She was forty years old, and she had given years of her life to the cause.", mood="sad", shot="close", gap=1.0)
 serious(False)
 
+card("LATER THAT EVENING", "", 2.0)
+scene("living", [("tara", 260), ("mum", 520), ("dad", 780), ("chrono", 1040)])
 L("dad", "In my defence, lots of people agreed with me.", mood="worried", shot="close")
 L("chrono", "They did. The Women's National Anti Suffrage League began in nineteen oh eight. One of its leaders was a woman, the novelist Mary Ward.", mood="teach", shot="close",
   boardClear=True, board="1908: Anti-Suffrage League (Mary Ward)")
@@ -102,7 +104,7 @@ L("tara", "In one week, Mum paid the bills, fixed the tap and booked a holiday. 
 poof("chrono", 1080)
 L("chrono", "Nineteen fourteen. War. Suffragettes stopped militancy, suffragists backed war work. Women worked in munitions, transport and nursing.", mood="teach", shot="close",
   boardClear=True, board="WW1: munitions, transport, nursing")
-L("dad", "Fine. The committee has decided. Mum gets a vote. But only if she's over thirty. And owns property.", mood="smug", shot="close")
+L("dad", "Fine. Mum gets a vote. If she's over thirty. And owns property.", mood="smug", shot="close")
 L("mum", "I'm over thirty. And I own the car.", mood="smug", shot="close")
 L("chrono", "Nineteen eighteen. The Representation of the People Act. Women over thirty with property, about eight point four million. And all men over twenty one.", mood="teach", shot="close",
   board="1918: women 30+ with property, men 21+")
@@ -115,7 +117,7 @@ L("chrono", "Nineteen twenty eight. The Equal Franchise Act. Women over twenty o
 L("tara", "So why did women win? Was it the war?", mood="thinking", shot="close", boardClear=True, board="Why did women win the vote?")
 L("chrono", "Weigh it. A fifty year campaign changed minds. Suffragettes kept it in the headlines. The war showed what women could do. And voting had to be reformed for soldiers anyway.", mood="teach", shot="close",
   board="Campaign + publicity + war + reform")
-L("chrono", "The war was the final push. But the long campaign built the road.", mood="teach", shot="close")
+L("chrono", "The war was the final push. The long campaign built the road. New Zealand got there first, in eighteen ninety three.", mood="teach", shot="close", board="New Zealand first: 1893")
 L("tara", "And in Singapore, women voted in the very first elections, in nineteen forty eight. And the Women's Charter of nineteen sixty one protected their rights in marriage.", mood="happy", shot="close",
   board="Singapore: women vote 1948 · Charter 1961")
 
@@ -143,5 +145,5 @@ challenge(1, "'Deeds not words': suffragists or suffragettes?", "Suffragettes", 
 challenge(2, "In 1918, women over what age could vote (with property)?", "30", "Men could vote at 21",
   "Question two. In nineteen eighteen, women over what age could vote, if they had property?", "Thirty. Men could vote at twenty one. So it wasn't equal yet.")
 challenge(3, "In what year did women get the vote on equal terms with men?", "1928", "Equal Franchise Act: women 21+",
-  "Question three. In what year did women get the vote on the same terms as men?", "Nineteen twenty eight. The Equal Franchise Act. If you said nineteen eighteen, that was only women over thirty.")
+  "Question three. In what year did women get the vote on the same terms as men?", "Nineteen twenty eight. If you said nineteen eighteen, that was only women over thirty.")
 end_card()

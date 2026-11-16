@@ -715,6 +715,207 @@ export const practice: TopicPractice = {
   ],
   // ============================================================= CHALLENGE
   challenge: [
-    //@@CH@@
+    {
+      kind: "short",
+      id: "historians-toolkit-ch-q01",
+      question:
+        "The Roman emperor Augustus was born in 63 BC and died in AD 14, about a month **before** his birthday that year. How old was he when he died?",
+      answer: { type: "number", value: 75 },
+      traps: [
+        { spec: { type: "number", value: 77 }, feedback: "You added 63 + 14. But there was no year 0, and he died before his birthday in AD 14 — so subtract one for each." },
+        { spec: { type: "number", value: 76 }, feedback: "Good — you remembered there was no year 0. Now remember he died a month BEFORE his birthday in AD 14, so he had not yet reached that age." },
+      ],
+      solution: [
+        "From his birth in 63 BC to his birthday in 1 BC: 62 birthdays → aged 62.",
+        "AD 1 to AD 13: 13 more birthdays → aged 75.",
+        "He died in AD 14 before that year's birthday, so he was 75. (Shortcut: 63 + 14 − 1 for no year 0 = 76, then −1 because the birthday hadn't come = 75.)",
+      ],
+      commonError: "Adding the BC and AD numbers (63 + 14 = 77) and forgetting there was no year 0.",
+      difficulty: "challenge",
+      guideRef: "chronology-and-periods",
+      hints: [
+        "Counting across BC and AD is a trap: what comes straight after 1 BC?",
+        "First work out how old he would have been on his birthday in AD 14.",
+        "There was no year 0, so 63 + 14 is one too many. Then: had he had his birthday yet?",
+      ],
+      strategy: "Use the chronology",
+    },
+    {
+      kind: "written",
+      id: "historians-toolkit-ch-q02",
+      question:
+        "Study the sources. Both are **invented sources for practice**, but the events they describe are real.\n\n> **Source A** (an invented source for practice): “The people have taken the Bastille! The fortress of tyranny has fallen and liberty is born in Paris.” — letter from a Parisian shopkeeper to his brother, 15 July 1789\n\n> **Source B** (an invented source for practice): “A violent mob broke into the fortress, killed its governor and released the prisoners. Order in the capital has collapsed.” — report from a royal official to the court at Versailles, 15 July 1789\n\nExplain why these sources describe the same event so differently, and what a historian can still conclude from them together. (5 marks)",
+      marks: 5,
+      modelAnswer:
+        "The sources differ because of their origin and purpose. Source A was written by a Parisian who sympathised with the Revolution, writing privately to his brother, so he celebrates the event as the fall of 'tyranny' and the birth of 'liberty'. Source B was written by a royal official for the court, so he presents the crowd as a 'violent mob' and stresses disorder — perhaps to warn the king or to justify a forceful response.\n\nEven so, the two sources corroborate each other on the basic facts: both agree that crowds in Paris captured the Bastille on 14 July 1789. Because the writers were on opposite sides, they had no reason to agree, which makes this core fact very likely to be true — and it fits my own knowledge that the Bastille fell on 14 July and its governor was killed.\n\nTheir differences are also useful evidence. Together they show that people at the time saw the same event in completely different ways — as liberation or as anarchy — which helps explain why the Revolution divided France so deeply.",
+      markScheme: [
+        { point: "Explains Source A's view through its origin/purpose (revolutionary sympathiser, private letter, celebrating liberty)", keywords: ["shopkeeper", "supporter", "sympathis", "celebrat", "liberty", "tyranny", "revolution"] },
+        { point: "Explains Source B's view through its origin/purpose (royal official, report to the court, hostile, stresses disorder)", keywords: ["royal", "official", "king", "versailles", "court", "mob", "disorder", "hostile"] },
+        { point: "Identifies what the sources corroborate (the Bastille was captured by crowds on 14 July 1789)", keywords: ["both", "agree", "corroborat", "captured", "taken", "14 july", "fell"] },
+        { point: "Explains why agreement between opposing sources is strong evidence", keywords: ["opposite", "opposing", "no reason", "different sides", "likely to be true", "reliable"] },
+        { point: "Explains that the differences are themselves useful (show how differently people saw the Revolution)", keywords: ["different views", "attitudes", "divided", "useful", "how people saw", "liberation", "anarchy"] },
+      ],
+      commonError: "Deciding that one source is 'right' and the other 'wrong', instead of explaining the difference and using both.",
+      difficulty: "challenge",
+      guideRef: "sources-and-evidence",
+      hints: [
+        "Apply NOP to each source: who wrote it, for whom, and why?",
+        "What facts do BOTH sources agree on, despite their opposite views?",
+        "Why is agreement between two enemies stronger evidence than agreement between two friends?",
+        "Can the disagreement itself tell a historian something?",
+      ],
+      strategy: "Cross-reference sources",
+    },
+    {
+      kind: "written",
+      id: "historians-toolkit-ch-q03",
+      question:
+        "The Bayeux Tapestry was probably made in the decade or so after 1066 for Bishop Odo, William the Conqueror's half-brother. How useful is it for an enquiry into **why William won the Battle of Hastings**? (5 marks)",
+      marks: 5,
+      modelAnswer:
+        "The Tapestry is useful for this enquiry because its content shows several reasons for William's victory. It shows Norman cavalry and archers alongside the infantry, which helps explain how William's mixed army could break the English shield wall, and it shows William lifting his helmet to prove he was still alive, showing the importance of his leadership.\n\nIts provenance is both a strength and a weakness. It was made soon after 1066, for William's half-brother, so its makers had good knowledge of Norman weapons and tactics. But it was made for the Normans, so it tells the story to justify the Conquest — for example, it shows Harold swearing an oath to William, presenting him as an oath-breaker who deserved to lose.\n\nUsing my own knowledge, its biggest limitation is what it leaves out: it does not show Harold's victory over Harald Hardrada at Stamford Bridge three weeks earlier or the forced march south, so it misses a key reason why Harold's army was tired. Its stitching has also been restored over the centuries, which is why details such as Harold's death are debated.\n\nOverall, it is very useful for William's tactics and for how the Normans explained their victory, but only partly useful for a full answer, because it leaves out the English side and Harold's problems.",
+      markScheme: [
+        { point: "Uses content relevant to why William won (cavalry, archers, William's leadership/helmet scene, Harold's death)", keywords: ["cavalry", "archers", "horses", "helmet", "leadership", "shield wall", "harold's death"] },
+        { point: "Uses provenance as a strength (made soon after, for Norman insiders — detailed knowledge)", keywords: ["soon after", "1070s", "odo", "half-brother", "close to", "knowledge"] },
+        { point: "Uses provenance as a weakness (Norman viewpoint, justifies the Conquest, oath scene)", keywords: ["norman", "justify", "oath", "bias", "one-sided", "propaganda", "oath-breaker"] },
+        { point: "Uses own knowledge to identify an omission (e.g. Stamford Bridge, Harold's tired army, the wind/luck) or restoration", keywords: ["stamford", "hardrada", "tired", "march", "wind", "left out", "restored"] },
+        { point: "Reaches a judgement on how useful it is for THIS enquiry", keywords: ["overall", "very useful", "partly useful", "useful for", "however"] },
+      ],
+      commonError: "Saying the Tapestry is useless because it is Norman propaganda — or describing it without linking it to the enquiry.",
+      difficulty: "challenge",
+      guideRef: "utility-and-reliability",
+      hints: [
+        "Content: what does it actually show about the battle and the armies?",
+        "Provenance: being made for the Normans — a strength for some things, a weakness for others?",
+        "Own knowledge: what reason for William's victory does it NOT show? (Think about where Harold was in late September 1066.)",
+        "Judge: useful for which parts of the enquiry, and less useful for which?",
+      ],
+      strategy: "Ask \"useful for what?\"",
+    },
+    {
+      kind: "written",
+      id: "historians-toolkit-ch-q04",
+      question:
+        "Interpretation A: “Hitler was carried to power by millions of desperate voters during the Depression.”\n\nInterpretation B: “Hitler was handed power by a small group of conservative politicians.”\n\nWhich interpretation is more convincing? Use evidence to support your answer. (5 marks)",
+      marks: 5,
+      modelAnswer:
+        "Interpretation A is supported by the election results. The Nazis won only about 2.6% of the vote in 1928, but after the Depression left about six million Germans unemployed they became the largest party in July 1932 with about 37%. Without this mass support Hitler could never have been considered for Chancellor.\n\nInterpretation B is supported by what happened next. Hitler never won a majority: in November 1932 the Nazi vote actually fell, to about 33%. He became Chancellor not by winning an election but because Franz von Papen and other conservatives persuaded President Hindenburg to appoint him in January 1933, believing they could control him.\n\nOverall, B is more convincing as an explanation of how Hitler actually got power in January 1933, because voters alone did not give him the job — his support was falling when he was appointed. But A explains why the conservatives needed him at all. The best interpretation combines them: mass support made Hitler impossible to ignore, and a backroom deal turned that support into power.",
+      markScheme: [
+        { point: "Supports A with evidence (2.6% in 1928, 37% July 1932, largest party, unemployment, propaganda)", keywords: ["2.6", "37", "largest party", "votes", "unemployed", "depression", "six million"] },
+        { point: "Supports B with evidence (Papen, Hindenburg, deal, January 1933, appointed not elected)", keywords: ["papen", "hindenburg", "appointed", "deal", "conservative", "control", "january"] },
+        { point: "Uses evidence that weakens one interpretation (e.g. Nazi vote fell to about 33% in November 1932; never won a majority)", keywords: ["33", "november", "fell", "majority", "never won", "declined"] },
+        { point: "Explains how the two interpretations relate or link", keywords: ["both", "linked", "combined", "without", "needed", "because"] },
+        { point: "Reaches a substantiated judgement on which is more convincing", keywords: ["overall", "more convincing", "i think", "judgement", "because"] },
+      ],
+      commonError: "Agreeing with one interpretation without testing it against evidence that supports the other.",
+      difficulty: "challenge",
+      guideRef: "interpretations",
+      hints: [
+        "Find the strongest evidence for each interpretation first.",
+        "Check the timing: was Nazi support rising or falling when Hitler was appointed?",
+        "Do the interpretations explain different parts of the story — the votes, and the appointment?",
+        "Decide which explains 'getting power' better, and say why.",
+      ],
+      strategy: "Weigh both sides, then judge",
+    },
+    {
+      kind: "written",
+      id: "historians-toolkit-ch-q05",
+      question: "“Without Anne Boleyn, there would have been no Break with Rome.” How far do you agree? (5 marks)",
+      marks: 5,
+      modelAnswer:
+        "Anne Boleyn was very important. Henry wanted to marry her, and when she became pregnant in late 1532 he married her secretly in January 1533. That created real urgency: the child had to be born to a lawful wife if it was to be an heir. So Henry's archbishop, Thomas Cranmer, declared his first marriage invalid in 1533 without waiting for the Pope.\n\nHowever, the Break with Rome had deeper causes. Henry's first wife, Catherine of Aragon, had given him only one surviving child, Mary, and he feared that without a son the civil wars of the 15th century could return. The Pope, Clement VII, would not annul the marriage, partly because he was under the power of Catherine's nephew, the Emperor Charles V. There were also motives of power and money: by becoming Supreme Head of the Church in 1534, Henry gained control of the Church and, later, its wealth through the Dissolution of the Monasteries. Advisers such as Cromwell and Cranmer were influenced by Protestant ideas that challenged the Pope's authority.\n\nOverall, I partly agree. Anne explains the timing — why the break came in 1533–34 — but the need for an heir, the Pope's position and the attraction of power and wealth meant that a clash with Rome was likely anyway. Anne was the trigger rather than the root cause.",
+      markScheme: [
+        { point: "Explains Anne Boleyn's role (Henry wanted to marry her; pregnancy and secret marriage 1533; urgency)", keywords: ["anne", "marry", "pregnant", "1533", "secret", "heir"] },
+        { point: "Explains the need for a male heir / fear of civil war (only Mary survived)", keywords: ["male heir", "son", "mary", "civil war", "wars of the roses", "catherine"] },
+        { point: "Explains another factor (Pope controlled by Charles V; power; Church wealth; Protestant ideas; Cromwell and Cranmer)", keywords: ["pope", "charles v", "clement", "power", "wealth", "money", "monasteries", "protestant", "cromwell", "cranmer"] },
+        { point: "Uses a causal concept to compare (trigger vs long-term/root cause; necessary; timing)", keywords: ["trigger", "timing", "long-term", "root", "necessary", "anyway"] },
+        { point: "Reaches a substantiated 'how far' judgement", keywords: ["overall", "partly agree", "agree", "disagree", "to some extent", "because"] },
+      ],
+      commonError: "Writing only about Anne Boleyn, or listing other causes without weighing them against her.",
+      difficulty: "challenge",
+      guideRef: "causation-and-consequence",
+      hints: [
+        "Counterfactual: imagine Henry had never met Anne. Would he still have had a problem with Catherine and the Pope?",
+        "Sort the causes: individual (Anne, Henry), political (heir, power), economic (Church wealth), religious (Protestant ideas).",
+        "Is Anne better described as a trigger or a long-term cause?",
+        "Finish with 'Overall… because…'.",
+      ],
+      strategy: "Consider the counterfactual",
+    },
+    {
+      kind: "written",
+      id: "historians-toolkit-ch-q06",
+      question:
+        "How significant was 9 August 1965 — the day Singapore separated from Malaysia and became an independent nation? Use at least two of Counsell's 5 Rs in your answer. (5 marks)",
+      marks: 5,
+      modelAnswer:
+        "9 August 1965 was highly significant because it resulted in change. Singapore became a sovereign nation for the first time: it joined the United Nations in September 1965 and had to build its own defence, introducing National Service in 1967. A small island with no natural resources and no hinterland had to find its own way to survive.\n\nIt is also remembered: every year Singapore celebrates National Day on 9 August with a parade, so the date sits at the centre of the nation's memory.\n\nIt is revealing too. Lee Kuan Yew called it 'a moment of anguish', which reveals that separation was not what Singapore's leaders had planned and that there had been deep political tensions inside Malaysia.\n\nHowever, there was also continuity: the same leaders stayed in power and Singapore kept its parliamentary system and English common law from the colonial era. Overall it was extremely significant — it created a new nation — even though some institutions carried on unchanged, which shows that a turning point does not have to change everything.",
+      markScheme: [
+        { point: "Uses 'Resulting in change' with evidence (independence, UN membership 1965, National Service 1967, own defence)", keywords: ["independent", "united nations", "un", "national service", "1967", "defence", "sovereign", "own country"] },
+        { point: "Uses a second R with evidence (Remembered — National Day parade; Revealing — Lee's 'anguish', tensions with Malaysia)", keywords: ["national day", "parade", "remembered", "revealing", "anguish", "tensions", "lee kuan yew"] },
+        { point: "Explains WHY the evidence makes it significant (not just describing)", keywords: ["this shows", "because", "meant that", "so", "significant because"] },
+        { point: "Recognises limits or continuity (same leaders, parliamentary system, common law)", keywords: ["continuity", "same", "still", "parliament", "common law", "carried on", "however"] },
+        { point: "Reaches a substantiated judgement on how significant", keywords: ["overall", "highly significant", "very significant", "extremely", "because"] },
+      ],
+      commonError: "Describing what happened in 1965 without using criteria to explain WHY it was significant.",
+      difficulty: "challenge",
+      guideRef: "significance-and-change",
+      hints: [
+        "Pick your two or three Rs first and write one paragraph for each.",
+        "What did Singapore have to do for itself after 1965 that it had not done before?",
+        "How is the date remembered today? What does Lee Kuan Yew's 'anguish' reveal?",
+        "Weigh it: what stayed the same? Then give your overall verdict.",
+      ],
+      strategy: "Weigh both sides, then judge",
+    },
+    {
+      kind: "mcq",
+      id: "historians-toolkit-ch-q07",
+      question: "Which of these arguments contains a **flaw** in historical reasoning?",
+      options: [
+        "The Nazi vote rose sharply only after the Depression began, which suggests the Depression helped the Nazis.",
+        "Hindenburg appointed Hitler after his advisers persuaded him, so their decision was the trigger for Hitler becoming Chancellor.",
+        "The Nazis became the largest party after Hitler made many speeches, so his speeches must have been the cause of their success.",
+        "The Nazi vote fell from about 37% in July 1932 to about 33% in November 1932, so Nazi support was not simply growing all the time.",
+      ],
+      answerIndex: 2,
+      explanation:
+        "The flaw is assuming that because one thing came after another, the first caused the second. Hitler had been giving powerful speeches since the early 1920s, yet the Nazis won only about 2.6% in 1928 — so speeches alone cannot explain the rise. The argument about the vote rising only after the Depression might look like the same flaw, but it is carefully worded ('suggests', 'helped') and fits a pattern you can test against the 1928 result.",
+      difficulty: "challenge",
+      guideRef: "causation-and-consequence",
+      hints: [
+        "Check each argument: does the evidence really prove the conclusion?",
+        "Watch out for 'it happened after, so it must have been caused by'.",
+        "Were Hitler's speeches new in 1930–32? What was the Nazi vote in 1928, when he was already speaking?",
+      ],
+      strategy: "Consider the counterfactual",
+    },
+    {
+      kind: "written",
+      id: "historians-toolkit-ch-q08",
+      question:
+        "Compare how William of Normandy came to power in England in 1066 with how Hitler came to power in Germany in 1933. Explain the most important similarity and the most important difference. (5 marks)",
+      marks: 5,
+      modelAnswer:
+        "The most important similarity is that both men took advantage of a crisis. In 1066 Edward the Confessor died without an heir, leaving a succession crisis with several claimants. In 1933 Germany was in the Depression, with about six million unemployed and a series of weak governments. In both cases the crisis gave an ambitious outsider an opportunity. Both also wanted their power to look legitimate: William claimed Edward had promised him the crown and, according to Norman sources, fought under a banner sent by the Pope, while Hitler was legally appointed Chancellor by President Hindenburg.\n\nThe most important difference is how they actually gained power. William won the throne by invasion and battle: he defeated and killed Harold at Hastings on 14 October 1066 and was crowned on Christmas Day. Hitler came to power through the system — by winning votes and being appointed in January 1933 — and only afterwards used laws like the Enabling Act and violence to make himself a dictator.\n\nSo both exploited a crisis and sought legitimacy, but William took power by force first and then ruled, whereas Hitler gained power legally first and then used force to keep and extend it.",
+      markScheme: [
+        { point: "Identifies a valid similarity (both exploited a crisis / both sought to look legitimate)", keywords: ["crisis", "both", "legitimate", "claim", "opportunity", "similar"] },
+        { point: "Supports the similarity with precise detail from BOTH cases (Edward died without heir 1066; Depression/unemployment; Pope's banner; appointed by Hindenburg)", keywords: ["edward", "heir", "depression", "unemployed", "pope", "banner", "hindenburg", "appointed"] },
+        { point: "Identifies a valid difference (force/invasion vs legal appointment)", keywords: ["force", "invasion", "battle", "legal", "elections", "votes", "appointed", "difference"] },
+        { point: "Supports the difference with precise detail (Hastings 14 Oct 1066, crowned Christmas Day; Chancellor Jan 1933, Enabling Act)", keywords: ["hastings", "1066", "christmas", "1933", "enabling act", "chancellor"] },
+        { point: "Explains why these are the MOST important similarity/difference, or draws an overall comparison", keywords: ["most important", "whereas", "overall", "so both", "while", "because"] },
+      ],
+      commonError: "Writing two separate stories — one about William, one about Hitler — without directly comparing them.",
+      difficulty: "challenge",
+      guideRef: "causation-and-consequence",
+      hints: [
+        "Make a two-column table: William 1066 | Hitler 1933. Fill in: crisis? claim to legitimacy? method of taking power?",
+        "Look for a row where they match — that's your similarity.",
+        "Look for the row where they differ most — think 'force first' vs 'legal first'.",
+        "Use comparison words: 'both', 'whereas', 'unlike'.",
+      ],
+      strategy: "Compare case studies",
+    },
   ],
 };
