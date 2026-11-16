@@ -325,7 +325,7 @@ function Block({ id, icon, title, intro, children }: { id: string; icon: string;
 
 const isWebUrl = (u: string) => /^https?:\/\//i.test(u);
 
-const EMPTY: LearnSmartData = { flashcards: [], mustKnow: [], misconceptions: [], examMistakes: [], mnemonics: [], realWorld: [], videos: [], formulas: [] };
+const EMPTY: LearnSmartData = { flashcards: [], mustKnow: [], misconceptions: [], examMistakes: [], mnemonics: [], realWorld: [], videos: [], keyDates: [], keyTerms: [] };
 
 // ---------------------------------------------------------------------------
 // The Revise tab
@@ -335,7 +335,8 @@ export function LearnSmart({ topic }: { topic: Topic }) {
   const L = { ...EMPTY, ...(topic.learn ?? {}) };
   const flashcards = L.flashcards ?? [];
   const mustKnow = L.mustKnow ?? [];
-  const formulas = L.formulas ?? [];
+  const keyDates = L.keyDates ?? [];
+  const keyTerms = L.keyTerms ?? [];
   const myths = L.misconceptions ?? [];
   const mistakes = L.examMistakes ?? [];
   const mnemonics = L.mnemonics ?? [];
@@ -345,7 +346,8 @@ export function LearnSmart({ topic }: { topic: Topic }) {
   const nav = [
     { id: "rv-cards", label: "Flashcards", show: flashcards.length > 0 },
     { id: "rv-canyou", label: "Can you…?", show: mustKnow.length > 0 },
-    { id: "rv-formulas", label: "Formulas", show: formulas.length > 0 },
+    { id: "rv-dates", label: "Key dates", show: keyDates.length > 0 },
+    { id: "rv-terms", label: "Key terms", show: keyTerms.length > 0 },
     { id: "rv-myths", label: "Myth vs fact", show: myths.length > 0 },
     { id: "rv-mistakes", label: "Exam mistakes", show: mistakes.length > 0 },
     { id: "rv-tricks", label: "Memory tricks", show: mnemonics.length > 0 },
@@ -390,23 +392,44 @@ export function LearnSmart({ topic }: { topic: Topic }) {
         </Block>
       ) : null}
 
-      {formulas.length ? (
-        <Block id="rv-formulas" icon="📐" title="Formulas & key facts">
-          <ul className="grid gap-3 sm:grid-cols-2">
-            {formulas.map((f, i) => (
-              <li key={i} className="card p-4">
-                <div className="text-sm font-bold text-ink-2">
-                  <RichInline text={f.name} />
-                </div>
-                <Rich text={f.formula} className="mt-1 text-lg font-semibold" />
-                {f.note ? (
-                  <p className="mt-1 text-sm text-ink-2">
-                    <RichInline text={f.note} />
-                  </p>
-                ) : null}
+      {keyDates.length ? (
+        <Block id="rv-dates" icon="🕰️" title="Key dates" intro="Cover the right-hand side and test yourself.">
+          <ol className="card divide-y divide-line p-0">
+            {keyDates.map((d, i) => (
+              <li key={i} className="flex gap-3 p-3 sm:p-4">
+                <span className="w-28 shrink-0 font-black tabular-nums text-brand">
+                  <RichInline text={d.date} />
+                </span>
+                <span className="min-w-0">
+                  <span className="font-bold">
+                    <RichInline text={d.event} />
+                  </span>
+                  {d.note ? (
+                    <span className="mt-0.5 block text-sm text-ink-2">
+                      <RichInline text={d.note} />
+                    </span>
+                  ) : null}
+                </span>
               </li>
             ))}
-          </ul>
+          </ol>
+        </Block>
+      ) : null}
+
+      {keyTerms.length ? (
+        <Block id="rv-terms" icon="📖" title="Key terms">
+          <dl className="grid gap-3 sm:grid-cols-2">
+            {keyTerms.map((k, i) => (
+              <div key={i} className="card p-4">
+                <dt className="font-extrabold">
+                  <RichInline text={k.term} />
+                </dt>
+                <dd className="mt-1 text-sm text-ink-2">
+                  <RichInline text={k.definition} />
+                </dd>
+              </div>
+            ))}
+          </dl>
         </Block>
       ) : null}
 
@@ -471,7 +494,7 @@ export function LearnSmart({ topic }: { topic: Topic }) {
       ) : null}
 
       {realWorld.length ? (
-        <Block id="rv-real" icon="🌍" title="Maths in the real world">
+        <Block id="rv-real" icon="🌍" title="Why it matters today">
           <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {realWorld.map((r, i) => (
               <li key={i} className="card p-4">

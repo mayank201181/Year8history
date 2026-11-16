@@ -17,7 +17,7 @@ const NAV = [
 
 const DESKTOP_NAV = [
   { href: "/topics", label: "Topics" },
-  { href: "/watch", label: "🎬 Watch" },
+  { href: "/episodes", label: "🎬 Watch" },
   { href: "/episodes", label: "📺 Sitcom" },
   { href: "/daily", label: "Daily 5" },
   { href: "/review", label: "Review" },
@@ -59,9 +59,9 @@ export function SiteHeader() {
       <div className="mx-auto flex h-14 max-w-5xl items-center gap-3 px-4">
         <Link href="/" className="flex items-center gap-2 font-black tracking-tight">
           <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-br from-brand to-brand-2 text-lg text-white" aria-hidden>
-            π
+            ⏳
           </span>
-          <span className="hidden sm:inline">Maths Lab</span>
+          <span className="hidden sm:inline">History Lab</span>
         </Link>
 
         <nav className="ml-2 hidden items-center gap-1 md:flex" aria-label="Main">
@@ -73,7 +73,7 @@ export function SiteHeader() {
         </nav>
 
         <div className="ml-auto flex items-center gap-2">
-          <Link href="/watch" className="chip border-brand/30 bg-brand-soft text-brand text-sm md:hidden" title="Studio Masterclasses & Beast Sitcom TV">
+          <Link href="/episodes" className="chip border-brand/30 bg-brand-soft text-brand text-sm md:hidden" title="Sitcom episodes">
             🎬 <span className="hidden sm:inline">Watch</span>
           </Link>
 
@@ -98,20 +98,20 @@ export function SiteHeader() {
             {open ? (
               <div role="menu" className="card absolute right-0 top-12 z-40 w-60 p-2 text-sm">
                 <div className="px-3 py-2 text-xs text-ink-2">{mode === "guest" ? "Guest — saved on this device only" : `${account?.name ?? ""} family`}</div>
-                <Link role="menuitem" href="/watch" className="block rounded-lg px-3 py-2 font-bold text-brand hover:bg-surface-2">
-                  🎬 Studio &amp; Beast Sitcom TV
+                <Link role="menuitem" href="/episodes" className="block rounded-lg px-3 py-2 font-bold text-brand hover:bg-surface-2">
+                  📺 Sitcom episodes
                 </Link>
                 <Link role="menuitem" href="/skills" className="block rounded-lg px-3 py-2 hover:bg-surface-2">
                   🧩 Skills &amp; mastery
                 </Link>
                 <Link role="menuitem" href="/sprint" className="block rounded-lg px-3 py-2 hover:bg-surface-2">
-                  ⚡ Fluency sprint
+                  ⚡ Date Dash
                 </Link>
                 <Link role="menuitem" href="/exam" className="block rounded-lg px-3 py-2 hover:bg-surface-2">
                   📝 The Big Exam
                 </Link>
-                <Link role="menuitem" href="/formulas" className="block rounded-lg px-3 py-2 hover:bg-surface-2">
-                  📋 Formula sheet
+                <Link role="menuitem" href="/timeline" className="block rounded-lg px-3 py-2 hover:bg-surface-2">
+                  🕰️ Timeline &amp; glossary
                 </Link>
                 <hr className="my-1 border-line" />
                 {mode === "cloud" ? (

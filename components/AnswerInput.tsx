@@ -7,16 +7,16 @@ import { normalizeInput } from "@/lib/mathParse";
 
 // No π for number answers: they want the decimal value (exact "in terms of π" answers are expressions).
 const KEYS_BY_TYPE: Record<AnswerSpec["type"], string[]> = {
-  number: ["−", "/", ".", "×10^"],
+  number: [],
   fraction: ["−", "/", "␣"],
   list: [",", "−", "/", "(", ")"],
   ratio: [":", "/", "."],
   expression: ["x", "y", "n", "^", "(", ")", "−", "/", "√", "π"],
-  text: ["<", ">", "≤", "≥", "−", "x"],
+  text: [],
 };
 
 const PLACEHOLDER: Record<AnswerSpec["type"], string> = {
-  number: "e.g. 12, −3.5 or 3/4",
+  number: "e.g. 1066",
   fraction: "e.g. 3/4 or 1 2/3",
   list: "e.g. 28, 35",
   ratio: "e.g. 3 : 4",

@@ -28,11 +28,10 @@ export interface StrandStyle {
 }
 
 export const STRAND_STYLES: Record<string, StrandStyle> = {
-  Number: { slug: "number", text: "text-s-number", bg: "bg-s-number", soft: "bg-s-number/15", border: "border-s-number" },
-  "Ratio & Proportion": { slug: "ratio", text: "text-s-ratio", bg: "bg-s-ratio", soft: "bg-s-ratio/15", border: "border-s-ratio" },
-  Algebra: { slug: "algebra", text: "text-s-algebra", bg: "bg-s-algebra", soft: "bg-s-algebra/15", border: "border-s-algebra" },
-  "Geometry & Measure": { slug: "geometry", text: "text-s-geometry", bg: "bg-s-geometry", soft: "bg-s-geometry/15", border: "border-s-geometry" },
-  "Statistics & Probability": { slug: "stats", text: "text-s-stats", bg: "bg-s-stats", soft: "bg-s-stats/15", border: "border-s-stats" },
+  "Historian\'s Toolkit": { slug: "number", text: "text-s-number", bg: "bg-s-number", soft: "bg-s-number/15", border: "border-s-number" },
+  "Kings & Power": { slug: "ratio", text: "text-s-ratio", bg: "bg-s-ratio", soft: "bg-s-ratio/15", border: "border-s-ratio" },
+  Dictatorships: { slug: "algebra", text: "text-s-algebra", bg: "bg-s-algebra", soft: "bg-s-algebra/15", border: "border-s-algebra" },
+  "Democracy & Rights": { slug: "geometry", text: "text-s-geometry", bg: "bg-s-geometry", soft: "bg-s-geometry/15", border: "border-s-geometry" },
 };
 
 const FALLBACK_STYLE: StrandStyle = { slug: "other", text: "text-brand", bg: "bg-brand", soft: "bg-brand-soft", border: "border-brand" };

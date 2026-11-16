@@ -165,6 +165,18 @@ test("text", () => {
   assert.equal(st({ type: "text", accept: ["x <= 4"] }, "x ≤ 4"), "correct");
 });
 
+test("history text answers: spelling slips forgiven, confusions not", () => {
+  const h: AnswerSpec = { type: "text", accept: ["Paul von Hindenburg", "Hindenburg"] };
+  assert.equal(st(h, "Hindenberg"), "correct");
+  assert.equal(st(h, "the hindenburg"), "correct");
+  assert.equal(st(h, "Hitler"), "incorrect");
+  assert.equal(st({ type: "text", accept: ["suffragettes"] }, "suffragists"), "incorrect");
+  assert.equal(st({ type: "text", accept: ["Bastille"] }, "Bastile"), "correct");
+  assert.equal(st({ type: "number", value: 1066 }, "1066 AD"), "correct");
+  const trap = checkWithTraps({ type: "text", accept: ["Harald Hardrada", "Harald"] }, "Harold", [{ spec: { type: "text", accept: ["Harold"] }, feedback: "t" }]);
+  assert.equal(trap.status, "incorrect");
+});
+
 test("self-check of display answers", () => {
   const specs: AnswerSpec[] = [
     { type: "number", value: -2.5 },

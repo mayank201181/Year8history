@@ -88,17 +88,6 @@ const TIPS = [
 
 // ---------------------------------------------------------------- pieces
 
-function CalcBadge({ calculator }: { calculator: boolean }) {
-  return calculator ? (
-    <span className="chip border-0 bg-info-soft text-info">
-      <span aria-hidden>🧮</span> Calculator
-    </span>
-  ) : (
-    <span className="chip border-0 bg-bad-soft text-bad">
-      <span aria-hidden>🚫🧮</span> Non-calculator
-    </span>
-  );
-}
 
 function StatusChip({ status }: { status: PaperStatus }) {
   if (status.kind === "new") return <span className="chip">Not started</span>;
@@ -191,14 +180,8 @@ export function ExamView({ papers, topicTitles, practiceTopics = [] }: ExamViewP
           <button type="button" className="btn btn-ghost btn-sm min-h-10" onClick={exit}>
             ← All papers
           </button>
-          <CalcBadge calculator={active.calculator} />
           <span className="chip">{running.timed ? `⏱ Timed · ${active.minutes} min` : "Untimed"}</span>
         </div>
-        {!active.calculator ? (
-          <p className="rounded-xl bg-surface-2 px-4 py-2.5 text-sm text-ink-2">
-            <strong className="text-ink">Non-calculator paper:</strong> put the calculator away — every question can be done with mental or written methods.
-          </p>
-        ) : null}
         <PaperRunner
           key={`${active.id}:${running.timed ? "timed" : "untimed"}`}
           attemptKey={attemptKey(active)}
@@ -263,7 +246,7 @@ export function ExamView({ papers, topicTitles, practiceTopics = [] }: ExamViewP
         <>
           <ol className="grid gap-3 sm:grid-cols-3" aria-label="How it works">
             {[
-              { n: 1, title: "Choose a paper", text: "Calculator or non-calculator, timed or not." },
+              { n: 1, title: "Choose a paper", text: "Pick a paper — timed or not." },
               { n: 2, title: "Answer everything", text: "Nothing is marked as you go — jump between questions freely." },
               { n: 3, title: "Mark & review", text: "Get your score, mark written answers, and see which topics to revise." },
             ].map((s) => (
@@ -301,7 +284,6 @@ export function ExamView({ papers, topicTitles, practiceTopics = [] }: ExamViewP
                         <StatusChip status={st} />
                       </div>
                       <div className="mt-2 flex flex-wrap gap-1.5">
-                        <CalcBadge calculator={paper.calculator} />
                         <span className="chip">⏱ {paper.minutes} min</span>
                         <span className="chip">
                           {total} question{total === 1 ? "" : "s"}
@@ -344,7 +326,7 @@ export function ExamView({ papers, topicTitles, practiceTopics = [] }: ExamViewP
                             <Switch checked={useTimer && timerAvailable} onChange={setUseTimer} disabled={!timerAvailable} labelledBy={`${headingId}-timer`} describedBy={`${headingId}-timer-desc`} />
                           </div>
                           <ul className="mt-3 list-disc space-y-0.5 pl-5 text-sm text-ink-2">
-                            <li>{paper.calculator ? "You may use a calculator." : "No calculator — have scrap paper and a pencil ready."}</li>
+                            <li>Have scrap paper ready to plan your longer answers.</li>
                             <li>Answers are marked when you press “Finish & mark”. Written answers are marked by you against the mark scheme.</li>
                           </ul>
                           <div className="mt-4 flex flex-wrap gap-2">

@@ -16,14 +16,15 @@ export default function AppleIcon() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          background: "linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%)",
+          background: "linear-gradient(135deg, #9f1239 0%, #c2410c 100%)",
         }}
       >
         <svg width={100} height={100} viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style={{ marginTop: 4 }}>
           <g fill="none" stroke="#ffffff" strokeWidth={12} strokeLinecap="round" strokeLinejoin="round">
-            <path d="M17 37 C 20 28 26 25 34 25 L 84 25" />
-            <path d="M41 27 C 41 50 38 65 29 77" />
-            <path d="M65 27 L 65 64 C 65 74 70 77 79 73" />
+            <path d="M22 12 L 78 12" />
+            <path d="M22 88 L 78 88" />
+            <path d="M30 13 C 30 38 46 44 50 50 C 54 56 70 62 70 87" />
+            <path d="M70 13 C 70 38 54 44 50 50 C 46 56 30 62 30 87" />
           </g>
         </svg>
         <div
@@ -35,7 +36,7 @@ export default function AppleIcon() {
             padding: "2px 14px",
             borderRadius: 999,
             background: "#ffffff",
-            color: "#4f46e5",
+            color: "#9f1239",
             fontSize: 22,
             letterSpacing: 2,
           }}

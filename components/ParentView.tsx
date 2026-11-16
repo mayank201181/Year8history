@@ -209,7 +209,7 @@ export function ParentView({ summaries }: { summaries: TopicSummary[] }) {
         ) : (
           <>
             <p className="mt-3 text-ink-2">
-              Family accounts aren&apos;t switched on for this copy of the Maths Lab, so progress is saved on this device only. You can still see it all on the Progress page.
+              Family accounts aren&apos;t switched on for this copy of the History Lab, so progress is saved on this device only. You can still see it all on the Progress page.
             </p>
             <div className="mt-6">
               <Link href="/progress" className="btn btn-primary">
@@ -582,7 +582,7 @@ function LearnerPanel({ learner, summaries, now, pin, onSaved }: { learner: Lear
 
       {!hasProgress ? (
         <p className="card p-4 text-sm text-ink-2">
-          {profile.name} hasn&apos;t used the Maths Lab yet. Once they do, their practice, skills and topics will show up here. You can already set focus topics and a daily goal
+          {profile.name} hasn&apos;t used the History Lab yet. Once they do, their practice, skills and topics will show up here. You can already set focus topics and a daily goal
           below.
         </p>
       ) : (
@@ -1028,7 +1028,7 @@ function ReportedQuestions({ flags, titleOf }: { flags: Record<string, { at: num
     <section className="card p-4 sm:p-5" aria-label="Reported questions">
       <h3 className="section-title">Questions they reported</h3>
       <p className="mt-1 text-sm text-ink-2">
-        Your child tapped &ldquo;Something wrong?&rdquo; on these. Worth a look together — spotting a flaw is good maths too.
+        Your child tapped &ldquo;Something wrong?&rdquo; on these. Worth a look together — spotting a flaw is good history too.
       </p>
       <ul className="mt-3 space-y-2">
         {ids.map((id) => (

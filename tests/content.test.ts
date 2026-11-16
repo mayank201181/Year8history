@@ -36,10 +36,10 @@ test("all topics validate and ids are globally unique", async () => {
     for (const i of issues) problems.push(`${i.where}: ${i.problem}`);
   }
   const sections = Object.fromEntries(TOPIC_META.map((t) => [t.id, t.sections.map((s) => s.id)]));
-  for (const e of ["exam-n1", "exam-c1", "exam-n2", "exam-c2"]) {
+  for (const e of ["exam-1", "exam-2", "exam-3"]) {
     const paper = await load<ExamPaper>(`lib/exam/${e}.ts`, "paper");
     if (!paper) continue;
-    const { issues } = validateExamPaper(paper, sections, 30);
+    const { issues } = validateExamPaper(paper, sections, 26);
     for (const i of issues) problems.push(`${i.where}: ${i.problem}`);
     for (const q of paper.questions) {
       if (seen.has(q.id)) problems.push(`${q.id}: duplicate id`);

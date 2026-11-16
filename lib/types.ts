@@ -1,5 +1,5 @@
 // ---------------------------------------------------------------------------
-// Content data model for the Year 8 History Lab (engine shared with the Year 8 Maths Lab).
+// Content data model for the Year 8 History Lab (engine shared with the Year 8 History Lab).
 //
 // Audited exam content lives in lib/topics/<id>/{guide,mcq,practice}.ts.
 // Engagement extras live in lib/extras/<id>.ts and never touch audited files.

@@ -8,8 +8,8 @@ export const runtime = "nodejs";
 const MIN = 48;
 const MAX = 1024;
 const FALLBACK = 512;
-const BRAND = "#4f46e5";
-const BRAND_2 = "#7c3aed";
+const BRAND = "#9f1239";
+const BRAND_2 = "#c2410c";
 
 function sizeFrom(raw: string | null): number {
   const n = Number(raw);
@@ -17,15 +17,17 @@ function sizeFrom(raw: string | null): number {
   return Math.round(Math.min(MAX, Math.max(MIN, n)));
 }
 
-/** A bold, hand-drawn π (stroked paths), so no font is needed. */
+/** A bold hourglass (stroked paths), so no font is needed. */
 function Pi({ px }: { px: number }) {
   return (
     <svg width={px} height={px} viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-      <g fill="none" stroke="#ffffff" strokeWidth={11.5} strokeLinecap="round" strokeLinejoin="round">
-        <path d="M17 37 C 20 28 26 25 34 25 L 84 25" />
-        <path d="M41 27 C 41 50 38 65 29 77" />
-        <path d="M65 27 L 65 64 C 65 74 70 77 79 73" />
+      <g fill="none" stroke="#ffffff" strokeWidth={9} strokeLinecap="round" strokeLinejoin="round">
+        <path d="M22 12 L 78 12" />
+        <path d="M22 88 L 78 88" />
+        <path d="M30 13 C 30 38 46 44 50 50 C 54 56 70 62 70 87" />
+        <path d="M70 13 C 70 38 54 44 50 50 C 46 56 30 62 30 87" />
       </g>
+      <path d="M38 80 L 62 80 L 50 66 Z" fill="#ffffff" />
     </svg>
   );
 }

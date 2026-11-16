@@ -5,7 +5,7 @@ export const dynamic = "force-static";
 
 export const metadata: Metadata = {
   title: "Fluency sprint",
-  description: "Quick-fire mental maths — times tables, negative numbers, fractions, decimals and percentages, powers and roots — timed or untimed.",
+  description: "Date Dash: quick-fire key dates from every Year 8 History topic — timed or untimed.",
 };
 
 export default function SprintPage() {

@@ -45,11 +45,10 @@ const parseTab = (v: string | null): TopicTab => (TABS.some((t) => t.id === v) ?
 const HEADER_OFFSET = 57;
 
 const STRAND_STYLE: Record<string, { text: string; soft: string; border: string; bar: string }> = {
-  Number: { text: "text-s-number", soft: "bg-s-number/10", border: "border-s-number/30", bar: "bg-s-number" },
-  "Ratio & Proportion": { text: "text-s-ratio", soft: "bg-s-ratio/10", border: "border-s-ratio/30", bar: "bg-s-ratio" },
-  Algebra: { text: "text-s-algebra", soft: "bg-s-algebra/10", border: "border-s-algebra/30", bar: "bg-s-algebra" },
-  "Geometry & Measure": { text: "text-s-geometry", soft: "bg-s-geometry/10", border: "border-s-geometry/30", bar: "bg-s-geometry" },
-  "Statistics & Probability": { text: "text-s-stats", soft: "bg-s-stats/10", border: "border-s-stats/30", bar: "bg-s-stats" },
+  "Historian\'s Toolkit": { text: "text-s-number", soft: "bg-s-number/10", border: "border-s-number/30", bar: "bg-s-number" },
+  "Kings & Power": { text: "text-s-ratio", soft: "bg-s-ratio/10", border: "border-s-ratio/30", bar: "bg-s-ratio" },
+  Dictatorships: { text: "text-s-algebra", soft: "bg-s-algebra/10", border: "border-s-algebra/30", bar: "bg-s-algebra" },
+  "Democracy & Rights": { text: "text-s-geometry", soft: "bg-s-geometry/10", border: "border-s-geometry/30", bar: "bg-s-geometry" },
 };
 
 /** In-app URL for a topic tab (optionally with an open practice runner or a hash). */

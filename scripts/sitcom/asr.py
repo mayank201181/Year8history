@@ -11,7 +11,7 @@ norm=lambda s: re.sub(r"[^a-z0-9 ]","",s.lower().replace('-',' ')).split()
 items=[]
 for b in ns['B']:
     if b['type']=='line': items.append((b['who'],b['text']))
-    if b['type']=='challenge': items += [('centi',b['qs']),('centi',b['as_'])]
+    if b['type']=='challenge': items += [('chrono',b['qs']),('chrono',b['as_'])]
 bad=[]
 for who,text in items:
     key=hashlib.sha1(json.dumps([V[who],text]).encode()).hexdigest()[:16]

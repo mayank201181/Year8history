@@ -22,11 +22,10 @@ const CERT_PCT = 80;
 type Theme = "system" | "light" | "dark";
 
 const STRAND_DOT: Record<string, string> = {
-  Number: "bg-s-number",
-  "Ratio & Proportion": "bg-s-ratio",
-  Algebra: "bg-s-algebra",
-  "Geometry & Measure": "bg-s-geometry",
-  "Statistics & Probability": "bg-s-stats",
+  "Historian\'s Toolkit": "bg-s-number",
+  "Kings & Power": "bg-s-ratio",
+  Dictatorships: "bg-s-algebra",
+  "Democracy & Rights": "bg-s-geometry",
 };
 
 function fmtDuration(ms: number): string {
@@ -150,7 +149,7 @@ export function ProgressView({ summaries }: { summaries: TopicSummary[] }) {
     <div className="space-y-6">
       <header>
         <h1 className="text-2xl font-black sm:text-3xl">{name ? `${name}'s progress` : "Your progress"}</h1>
-        <p className="mt-1 text-ink-2">Everything you&apos;ve done in the Maths Lab, in one place.</p>
+        <p className="mt-1 text-ink-2">Everything you&apos;ve done in the History Lab, in one place.</p>
       </header>
 
       <RankCard stars={data.stars} />

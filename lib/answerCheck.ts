@@ -395,6 +395,8 @@ function editDistance(a: string, b: string): number {
 function checkText(spec: Extract<AnswerSpec, { type: "text" }>, input: string): CheckResult {
   const n = normText(input);
   if (spec.accept.some((a) => normText(a) === n)) return { status: "correct" };
+  // Symbols carry meaning in maths-style answers (x > 3 vs x ≥ 3): only loosen plain words.
+  if (/[<>≤≥=≠+*/^]/.test(input) || spec.accept.some((a) => /[<>≤≥=≠+*/^]/.test(a))) return { status: "incorrect" };
   const w = normWords(input);
   if (w && spec.accept.some((a) => normWords(a) === w)) return { status: "correct" };
   // Forgive small spelling slips in names and words (but never in numbers/years).
@@ -412,6 +414,14 @@ function checkText(spec: Extract<AnswerSpec, { type: "text" }>, input: string): 
 /** Check an answer, then (if wrong) look for a matching trap to give targeted feedback. */
 export function checkWithTraps(spec: AnswerSpec, raw: string, traps?: { spec: AnswerSpec; feedback: string }[]): CheckResult {
   const r = checkAnswer(spec, raw);
+  // A spelling-forgiven match must not swallow a classic confusion (Harold vs Harald):
+  // if the input is exactly a trap's answer, the trap wins.
+  if (r.status === "correct" && r.feedback && traps?.length) {
+    const w = normWords(raw);
+    for (const t of traps) {
+      if (t.spec.type === "text" && t.spec.accept.some((a) => normWords(a) === w)) return { status: "incorrect", feedback: t.feedback };
+    }
+  }
   if (r.status !== "incorrect" || !traps?.length) return r;
   for (const t of traps) {
     try {

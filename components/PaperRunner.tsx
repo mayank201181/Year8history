@@ -4,7 +4,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { Question } from "@/lib/types";
 import type { AttemptState, QResult } from "@/lib/profileTypes";
-import { checkAnswer } from "@/lib/answerCheck";
+import { checkWithTraps } from "@/lib/answerCheck";
 import { useStore } from "@/lib/store";
 import { QuestionCard, type QuestionOutcome } from "./QuestionCard";
 
@@ -116,7 +116,7 @@ export function PaperRunner(props: PaperRunnerProps) {
         results[x.id] = { r: correct ? 1 : 0, h: 0, t: 1 };
         store.recordAnswer({ qid: x.id, topicId: x.topicId ?? topicId, difficulty: x.difficulty, correct, hints: 0, tries: 1, solutionShown: false });
       } else if (x.kind === "short") {
-        const correct = typeof a === "string" && a.trim() !== "" && checkAnswer(x.answer, a).status === "correct";
+        const correct = typeof a === "string" && a.trim() !== "" && checkWithTraps(x.answer, a, x.traps).status === "correct";
         results[x.id] = { r: correct ? 1 : 0, h: 0, t: 1 };
         store.recordAnswer({ qid: x.id, topicId: x.topicId ?? topicId, difficulty: x.difficulty, correct, hints: 0, tries: 1, solutionShown: false });
       }

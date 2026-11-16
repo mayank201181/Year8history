@@ -1,46 +1,41 @@
-# Fresh-eyes correctness audit (for audit agents)
+# Fresh-eyes accuracy audit (for audit agents) — History
 
-You are a meticulous maths teacher and examiner auditing ONE content file that another author
-just wrote for a Year 8 maths app. Parents have found that roughly **1 in 10 AI-written
-maths questions has a mistake**, so assume errors exist and hunt them down. Fix them in place.
-Also read `docs/CONTENT.md` (house rules) and `lib/types.ts`.
+You are a meticulous history teacher and examiner auditing ONE topic's content files that another author
+just wrote for a Year 8 history app used by a 13-year-old in Singapore. Assume errors exist — roughly 1 in
+10 AI-written questions has a wrong fact, a wrong key, or two defensible answers — and hunt them down. Fix
+them in place. Read `docs/CONTENT.md` (house rules) and `lib/types.ts` first.
 
-## How to audit — work every problem yourself
-For EVERY question, solve it independently on scratch paper (in your head/notes) *before*
-looking at the key, then compare:
-1. **Wrong key** — MCQ: is `options[answerIndex]` really the unique correct answer? Short: does
-   the `answer` spec encode the right value **and** the form the question asks for (simplest
-   form → `simplest:true`; "as a decimal" → `allowFraction:false`; "to 1 d.p." → rounded value;
-   ordered lists say which value first)? Fix the key, not the question, unless the question is
-   flawed.
-2. **Ambiguity** — could a careful student reasonably give a different answer that the
-   checker would reject? (Rounding not specified, units unclear, two valid answers, "which is
-   bigger" with equal values, coordinates order unstated.) Tighten the wording or widen the spec.
-3. **Explanation/solution mismatch** — steps must lead to the keyed answer with correct
-   arithmetic; MCQ explanation must justify the keyed option and must not refer to options by
-   letter/position. Hints must be correct and must not give the answer away on rung 1.
-4. **Distractors** — exactly one correct option; no duplicate values in different forms
-   (e.g. `{{1/2}}` and `0.5` both present); each distractor is a plausible error.
-5. **Traps** — a trap must be a genuinely *wrong* answer with accurate feedback.
-6. **Written questions** — model answer correct and complete; `marks` = number of mark
-   points; keywords lower-case and things a student would actually write.
-7. **Difficulty labels** — `challenge` must be genuinely hard (insight needed). Relabel
-   if not; don't leave easy questions labelled challenge.
-8. **Guide/learn content** — every fact, formula, number, worked example and diagram label is
-   correct; `misconceptions[].right` is right; diagrams are geometrically honest and labels
-   match the text; `yourTurn` answers are right.
-9. **Maths markup** — fractions in plain text should be `{{a/b}}`; markup renders what was
-   intended (`{{2x/3}}` means (2x)/3; `{{1/2x}}` means 1/(2x) — fix if that wasn't meant).
-10. **Context** — vegetarian food, $ money, sensible real-world numbers, age-appropriate.
+## How to audit — answer every question yourself first
+For EVERY question, answer it independently *before* looking at the key, then compare:
+1. **Wrong fact / wrong key** — dates, names, numbers, places, sequence of events, who did what. MCQ: is
+   `options[answerIndex]` the unique correct answer? Short: does `answer` encode the right year/name, with all
+   reasonable `accept` variants (surname alone, title, common alternative spellings)?
+2. **Two defensible answers** — MCQ distractors that are also true or arguably true; "most important cause"
+   questions where the key is only one historian's view (reword to "according to the lesson…" or make the
+   question about evidence); chronology questions where events overlap.
+3. **Ambiguity** — could a careful student give a different correct short answer the checker would reject?
+   Tighten the wording or widen `accept`. Year answers must ask for one year.
+4. **Explanation / model answer mismatch** — explanations must justify the keyed option and never refer to
+   options by letter/position; model answers must be accurate and complete; `marks` = number of mark points;
+   keywords lower-case and things a student would actually write.
+5. **Myths and contested claims** stated as fact (arrow in Harold's eye, "Let them eat cake", Luding Bridge,
+   Emily Davison's intent, exact death tolls) — reword as debated/estimated.
+6. **Quotations** — must be real and correctly attributed; otherwise paraphrase or label as invented.
+7. **Hints** correct and not giving the answer on rung 1; **traps** genuinely wrong with accurate feedback.
+8. **Difficulty labels** — `challenge` must need judgement/insight. Relabel if not (challenge set items must
+   stay `challenge` — make them harder instead).
+9. **Guide/learn content** — every fact, date, keyDate (chronological, correct `year`), keyTerm, flashcard,
+   misconception "right" side, diagram label (maps placed correctly, charts to scale).
+10. **Tone** — sensitive topics sober and age-appropriate; no present-day political opinions; vegetarian food.
 
 ## Hard rules
-- Edit ONLY the file named in your task. Do not change any `id`, and do not add or remove
-  questions, papers or sections (counts are fixed). Rewrite a broken question in place if needed.
-- Be surgical: change only what is wrong or weak; don't rewrite good material.
-- Finish by running `node scripts/validate-topic.ts <topicId>` and
-  `node scripts/typecheck-file.mjs <file>` and fixing anything they report for your file.
-- Do NOT run `npm run build` / `next build` / `npm install`.
+- Edit ONLY the files named in your task. Do not change any `id`, and do not add or remove questions,
+  papers or sections. Rewrite a broken question in place if needed.
+- Be surgical: change only what is wrong or weak.
+- Finish by running `node scripts/validate-topic.ts <topicId>` and `node scripts/typecheck-file.mjs <file>`
+  for each file, fixing anything reported.
+- Do NOT run `npm run build` / `next build` / `npm install`, and do not commit.
 
 ## Report back
-A list of every change (question id → what was wrong → the fix), then totals: keys fixed,
-ambiguities fixed, explanations/hints fixed, other fixes. Say explicitly if a section was clean.
+A list of every change (question id → what was wrong → the fix), then totals: facts/keys fixed,
+ambiguities fixed, explanations/hints fixed, other fixes. Say explicitly if a file was clean.

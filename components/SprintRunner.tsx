@@ -87,7 +87,7 @@ function clock(): number {
 const RETRY_GAP = [3, 5] as const;
 
 function idleRun(): Run {
-  return { mode: "tables", timed: true, score: 0, answered: 0, misses: [], queue: [], recent: [], current: null, startedAt: 0, endAt: 0, finished: true };
+  return { mode: "mixed", timed: true, score: 0, answered: 0, misses: [], queue: [], recent: [], current: null, startedAt: 0, endAt: 0, finished: true };
 }
 
 /** Next fact: a due retry first, otherwise a fresh one that isn't a recent repeat. */
@@ -117,7 +117,7 @@ export function SprintRunner() {
   const store = useStore();
   const [phase, setPhase] = useState<Phase>("pick");
   const [timed, setTimed] = useState(true);
-  const [mode, setMode] = useState<SprintMode>("tables");
+  const [mode, setMode] = useState<SprintMode>("mixed");
   const [cur, setCur] = useState<Current | null>(null);
   const [value, setValue] = useState("");
   const [score, setScore] = useState(0);
