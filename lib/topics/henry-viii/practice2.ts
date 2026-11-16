@@ -49,8 +49,9 @@ export const morePapers: Paper[] = [
         kind: "short",
         id: "henry-viii-p3-q03",
         question: "What is the name for a religious community of monks led by an abbot — the kind of house Henry VIII closed between 1536 and 1540?",
-        answer: { type: "text", accept: ["abbey", "an abbey", "monastery", "a monastery", "monasteries", "abbeys", "priory", "religious house"], display: "abbey (monastery)" },
+        answer: { type: "text", accept: ["abbey", "an abbey", "monastery", "a monastery", "monasteries", "abbeys", "religious house"], display: "abbey (monastery)" },
         traps: [
+          { spec: { type: "text", accept: ["priory", "a priory"] }, feedback: "A priory was also a monastery, but it was led by a *prior*. A house led by an abbot was called an …?" },
           { spec: { type: "text", accept: ["cathedral", "a cathedral"] }, feedback: "A cathedral is the main church of a bishop's area. Monks living in a community under an abbot lived in an …?" },
         ],
         solution: [
@@ -59,7 +60,7 @@ export const morePapers: Paper[] = [
         ],
         difficulty: "warmup",
         guideRef: "dissolution-of-monasteries",
-        hints: ["The word for the place is very close to the word 'abbot'."],
+        hints: ["Think of famous ruins such as Fountains or Rievaulx in Yorkshire — what kind of religious house were they, and who was in charge?"],
         strategy: "Use precise evidence",
       },
       {
@@ -97,7 +98,7 @@ export const morePapers: Paper[] = [
         guideRef: "young-henry",
         hints: [
           "He was a young, glamorous Renaissance king — Henry's great rival.",
-          "His name is the French form of Francis.",
+          "Five years later, in 1525, he was captured by Charles V's army at the Battle of Pavia.",
         ],
         strategy: "Use precise evidence",
       },
@@ -123,10 +124,10 @@ export const morePapers: Paper[] = [
         kind: "written",
         id: "henry-viii-p3-q07",
         question:
-          "**Source A** — a description, written for this exercise, of Hans Holbein's famous full-length image of Henry VIII. It comes from the wall painting Holbein made for Whitehall Palace in 1537, when Henry was 46; many copies were made. Holbein was the King's Painter, paid by Henry.\n\n> Henry stands facing us, feet planted wide apart, hands near his hips. His shoulders are made enormous by padded, jewelled clothes. He stares straight at the viewer, calm and confident. There is no sign of the leg wound that had troubled him since his jousting accident in 1536.\n\nHow useful is Source A for finding out what Henry VIII **really looked like** in 1537? (4 marks)",
+          "**Source A** — a description, written for this exercise, of Hans Holbein's famous full-length image of Henry VIII. It comes from the wall painting Holbein made for Whitehall Palace in 1537, when Henry was 46; many copies were made. Holbein was the King's Painter, paid by Henry.\n\n> Henry stands facing us, feet planted wide apart, hands near his hips. His shoulders are made enormous by padded, jewelled clothes. He stares straight at the viewer, calm and confident. There is no sign of the painful leg ulcers that had grown worse since his jousting accident in 1536.\n\nHow useful is Source A for finding out what Henry VIII **really looked like** in 1537? (4 marks)",
         marks: 4,
         modelAnswer:
-          "Source A is useful in some ways. Holbein was a highly skilled painter who saw Henry in person, so the face is probably a good likeness, and the clothes show the fashions Henry really wore.\n\nHowever, Holbein was the King's Painter, paid by Henry, and the painting was made for the royal palace. Its purpose was to impress — to make Henry look strong, masculine and in control. The shoulders are made 'enormous' by padding, the pose is deliberately powerful, and the leg wound from 1536 is hidden. By 1537 Henry was heavier and in pain, so the body is idealised.\n\nOverall, Source A is of limited use for what Henry *really* looked like, but extremely useful for a different enquiry: how Henry *wanted* to be seen. It is royal propaganda, and the many copies show it worked.",
+          "Source A is useful in some ways. Holbein was a highly skilled painter who saw Henry in person, so the face is probably a good likeness, and the clothes show the fashions Henry really wore.\n\nHowever, Holbein was the King's Painter, paid by Henry, and the painting was made for the royal palace. Its purpose was to impress — to make Henry look strong, masculine and in control. The shoulders are made 'enormous' by padding, the pose is deliberately powerful, and his painful leg is hidden. By 1537 Henry was heavier and in pain, so the body is idealised.\n\nOverall, Source A is of limited use for what Henry *really* looked like, but extremely useful for a different enquiry: how Henry *wanted* to be seen. It is royal propaganda, and the many copies show it worked.",
         markScheme: [
           { point: "Useful: Holbein was skilled and saw Henry in person — face and clothes probably accurate", keywords: ["face", "likeness", "saw", "in person", "skilled", "realistic", "clothes", "detail"] },
           { point: "Provenance: King's Painter, paid by Henry, for a royal palace — purpose to impress (propaganda)", keywords: ["paid", "king's painter", "propaganda", "purpose", "impress", "image", "commissioned"] },
@@ -215,19 +216,19 @@ export const morePapers: Paper[] = [
         question: "Edward was born in 1537, but the succession still worried Henry in the 1540s. Explain why. (4 marks)",
         marks: 4,
         modelAnswer:
-          "First, Henry had only one legitimate son. Many children died young in Tudor times, and if Edward died the Tudor line would depend on daughters again.\n\nSecondly, Edward would inherit as a child. A boy king could not rule himself, so powerful nobles might fight to control him — the kind of rivalry that had fuelled the Wars of the Roses.\n\nThirdly, Henry's later marriages — to Anne of Cleves, Catherine Howard and Catherine Parr — produced no more children.\n\nFinally, Mary and Elizabeth had both been declared illegitimate. To give the dynasty a back-up, the Third Act of Succession (1544) put them back in line after Edward, and Henry's will set up a council to govern for Edward. These steps show how anxious Henry still was.",
+          "First, Henry had only one legitimate son. Many children died young in Tudor times, and if Edward died the Tudor line would depend on daughters again.\n\nSecondly, Edward would inherit as a child. A boy king could not rule himself, so powerful nobles might fight to control him — the kind of rivalry that had fuelled the Wars of the Roses.\n\nThirdly, Henry's later marriages — to Anne of Cleves, Catherine Howard and Catherine Parr — produced no more children.\n\nFinally, Mary and Elizabeth had both been declared illegitimate. To give the dynasty a back-up, the Third Act of Succession (1543) put them back in line after Edward, and Henry's will set up a council to govern for Edward. These steps show how anxious Henry still was.",
         markScheme: [
           { point: "Only one son — if Edward died, the line would be in danger", keywords: ["only one", "edward", "one son", "died", "sickly", "child mortality"] },
           { point: "A child king — risk of nobles fighting for control (minority)", keywords: ["child", "minority", "young", "nine", "regent", "council", "nobles", "rivals"] },
           { point: "Later marriages produced no more children", keywords: ["no children", "no more children", "marriages", "catherine parr", "anne of cleves", "catherine howard"] },
-          { point: "Mary and Elizabeth illegitimate — Third Act of Succession (1544) / Henry's will", keywords: ["mary", "elizabeth", "illegitimate", "third act", "1544", "act of succession", "will"] },
+          { point: "Mary and Elizabeth illegitimate — Third Act of Succession (1543) / Henry's will", keywords: ["mary", "elizabeth", "illegitimate", "third act", "1543", "1544", "act of succession", "will"] },
         ],
         difficulty: "core",
         guideRef: "six-wives",
         hints: [
           "How safe was it in Tudor times to rely on one child surviving?",
           "How old would Edward be when Henry died? Why could that be dangerous?",
-          "What did Parliament do about Mary and Elizabeth in 1544?",
+          "What did Parliament do about Mary and Elizabeth in the Third Act of Succession (1543)?",
         ],
         strategy: "Think about consequences",
       },
@@ -334,7 +335,7 @@ export const morePapers: Paper[] = [
         ],
         difficulty: "warmup",
         guideRef: "six-wives",
-        hints: ["Henry married Jane Seymour in 1536; Edward was born the following year."],
+        hints: ["Edward's mother was Jane Seymour. Work out when she became queen — and remember she died soon after giving birth."],
         strategy: "Put it in chronological order",
       },
       {
@@ -352,7 +353,7 @@ export const morePapers: Paper[] = [
         ],
         difficulty: "warmup",
         guideRef: "young-henry",
-        hints: ["'Divine' means 'from God'."],
+        hints: ["Historians use the same phrase for the Stuart kings, such as Charles I, who claimed they answered only to God, not to Parliament."],
         strategy: "Use precise evidence",
       },
       {
@@ -498,7 +499,7 @@ export const morePapers: Paper[] = [
       {
         kind: "written",
         id: "henry-viii-p4-q12",
-        question: "Explain how the Wars of the Roses (1455–1485) help to explain Henry VIII's 'Great Matter' in the late 1520s. (4 marks)",
+        question: "Explain how the Wars of the Roses (1455–1487) help to explain Henry VIII's 'Great Matter' in the late 1520s. (4 marks)",
         marks: 4,
         modelAnswer:
           "The Wars of the Roses were decades of on-and-off civil war between the houses of Lancaster and York over who should be king. Kings were overthrown and killed, and nobles fought for power.\n\nThe Tudors had come out of these wars only in 1485, when Henry VII won the crown in battle with a weak claim. So in the 1520s the dynasty was still new and felt insecure.\n\nThis is why Henry VIII was so desperate for a son. No woman had ever been crowned to rule England in her own right, and the last attempt — Matilda in the 12th century — had led to civil war. Henry feared that leaving only his daughter Mary could restart the fighting.\n\nSo the Wars of the Roses were a long-term cause: they created the fear of a disputed succession, which turned Catherine's failure to have a son into a crisis — the short-term trigger being Henry's love for Anne Boleyn.",

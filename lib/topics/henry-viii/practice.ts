@@ -55,7 +55,7 @@ export const practice: TopicPractice = {
       difficulty: "core",
       guideRef: "young-henry",
       hints: [
-        "In 1521 Henry was on the Pope's side, defending the Catholic Church.",
+        "In 1521 Henry was the Pope's loyal ally, not his enemy — the title praised what his book had done for the Church.",
         "The title describes what he was doing: protecting the Catholic faith.",
         "Look at a British coin: the letters 'FD' stand for this title.",
       ],
@@ -210,7 +210,7 @@ export const practice: TopicPractice = {
           ],
           solution: [
             "**Richard III**, the last Yorkist king, was killed at Bosworth on 22 August 1485.",
-            "Henry Tudor was crowned Henry VII — the first Tudor monarch.",
+            "Henry Tudor was proclaimed king on the battlefield and crowned **Henry VII** in October 1485 — the first Tudor monarch.",
           ],
           difficulty: "warmup",
           guideRef: "tudor-rise",
@@ -415,7 +415,7 @@ export const practice: TopicPractice = {
           question: "Thomas More was executed in 1535. Explain why More chose to die rather than accept Henry as Supreme Head of the Church, and why Henry would not spare him. (4 marks)",
           marks: 4,
           modelAnswer:
-            "More was a devout Catholic who believed that the Pope was head of the Church on earth. His conscience would not let him swear that a king could replace the Pope, because he believed that would put his soul in danger. He had already resigned as Lord Chancellor in 1532.\n\nHenry would not spare him because More was famous across Europe as a scholar and had been Henry's own chief minister. His silence was a dangerous example: if More could refuse, others might follow. The Treason Act of 1534 made it treason to deny the King's title, so Henry used it. Executing More in July 1535 sent a clear message — nobody, however close to the King, could defy the Supreme Head.",
+            "More was a devout Catholic who believed that the Pope was head of the Church on earth. His conscience would not let him swear that a king could replace the Pope, because he believed that would put his soul in danger. He had already resigned as Lord Chancellor in 1532.\n\nHenry would not spare him because More was famous across Europe as a scholar and had been Henry's own Lord Chancellor. His silence was a dangerous example: if More could refuse, others might follow. The Treason Act of 1534 made it treason to deny the King's title, so Henry used it. Executing More in July 1535 sent a clear message — nobody, however close to the King, could defy the Supreme Head.",
           markScheme: [
             { point: "More's conscience: he believed the Pope was head of the Church and would not swear otherwise", keywords: ["conscience", "pope", "catholic", "soul", "faith", "believed", "oath"] },
             { point: "More's importance: former Lord Chancellor, famous scholar across Europe", keywords: ["lord chancellor", "famous", "respected", "scholar", "europe", "utopia"] },
@@ -734,7 +734,7 @@ export const practice: TopicPractice = {
       question: "Compare how William of Normandy (1066) and Henry Tudor (1485) became king. Explain one important **similarity** and one important **difference**, and say which man had the stronger claim to the throne. (5 marks)",
       marks: 5,
       modelAnswer:
-        "The biggest similarity is that both men won the crown in battle by killing the reigning king: William defeated Harold at Hastings in 1066, and Henry Tudor defeated Richard III at Bosworth in 1485. Both also looked for the Church's blessing — William fought under a papal banner, and Henry was crowned and had his title recognised by Parliament and supported by the Pope.\n\nAn important difference is that William was a foreign duke invading with a Norman army, while Henry, born in Wales, was a Lancastrian exile returning with French help and the support of many English people. Henry then married Elizabeth of York to unite the rival claims, whereas William relied far more on force — castles and the Harrying of the North.\n\nBoth claims were weak. William said Edward the Confessor had promised him the throne and Harold had sworn an oath to support him; Henry's claim came through his mother, from a family line once barred from the throne. I think William's claim was slightly stronger, because he could point to a promise and an oath, while Henry's depended almost entirely on victory.",
+        "The biggest similarity is that both men won the crown in battle by killing the reigning king: William defeated Harold at Hastings in 1066, and Henry Tudor defeated Richard III at Bosworth in 1485. Both also looked for the Church's blessing — William fought under a papal banner, and Henry was crowned and had his title recognised by Parliament and supported by the Pope.\n\nAn important difference is that William was a foreign duke invading with a Norman army, while Henry, born in Wales, was a Lancastrian exile returning with French help, Welsh support and, at the decisive moment, English nobles such as the Stanleys. Henry then married Elizabeth of York to unite the rival claims, whereas William relied far more on force — castles and the Harrying of the North.\n\nBoth claims were weak. William said Edward the Confessor had promised him the throne and Harold had sworn an oath to support him; Henry's claim came through his mother, from a family line once barred from the throne. I think William's claim was slightly stronger, because he could point to a promise and an oath, while Henry's depended almost entirely on victory.",
       markScheme: [
         { point: "Similarity: both won in battle and killed the reigning king (Hastings/Harold; Bosworth/Richard)", keywords: ["battle", "hastings", "bosworth", "killed", "harold", "richard", "conquest", "won"] },
         { point: "Similarity or link: both sought Church/legal blessing (papal banner; coronation, Parliament, Pope)", keywords: ["pope", "banner", "church", "crowned", "coronation", "parliament", "blessing"] },
@@ -851,7 +851,7 @@ export const practice: TopicPractice = {
       question: "Some historians argue that Henry's queens rose and fell because of rival groups (*factions*) at court, not simply because of Henry's own wishes. Using the falls of Anne Boleyn (1536) and Catherine Howard (1542), explain how far the evidence supports this view. (5 marks)",
       marks: 5,
       modelAnswer:
-        "There is strong evidence for faction. Anne Boleyn had clashed with Thomas Cromwell, and in 1536 Cromwell, working with the Seymour family and religious conservatives, gathered the evidence that brought her down. Catherine Howard rose because her family, led by her uncle the Duke of Norfolk, pushed her forward after Cromwell's fall; she was brought down when reformers, through Archbishop Cranmer, told Henry about her past and her meetings with Thomas Culpeper.\n\nHowever, factions only succeeded when Henry was ready to listen. Anne had failed to give Henry a son — she miscarried a boy in January 1536 — and Henry already wanted to marry Jane Seymour. Catherine Howard's fall depended on Henry's own anger and humiliation.\n\nOverall, factions provided the evidence and the opportunity, but the final decision was always Henry's. That shows power was still at the centre: rivals could only win by persuading the King.",
+        "There is strong evidence for faction. Anne Boleyn had clashed with Thomas Cromwell, and in 1536 Cromwell, working with the Seymour family and religious conservatives, gathered the evidence that brought her down. Catherine Howard rose because her family, led by her uncle the Duke of Norfolk, pushed her forward in 1540 as part of their campaign against Cromwell; she was brought down in 1541 when reformers, through Archbishop Cranmer, told Henry about her past, and the investigation that followed uncovered her secret meetings with Thomas Culpeper.\n\nHowever, factions only succeeded when Henry was ready to listen. Anne had failed to give Henry a son — she miscarried a boy in January 1536 — and Henry already wanted to marry Jane Seymour. Catherine Howard's fall depended on Henry's own anger and humiliation.\n\nOverall, factions provided the evidence and the opportunity, but the final decision was always Henry's. That shows power was still at the centre: rivals could only win by persuading the King.",
       markScheme: [
         { point: "Anne Boleyn: Cromwell and the Seymours/conservatives organised her fall", keywords: ["cromwell", "seymour", "faction", "plotted", "enemies", "conservatives"] },
         { point: "Anne Boleyn: Henry's own wishes — no son, miscarriage of 1536, wanted Jane", keywords: ["son", "miscarriage", "jane", "henry wanted", "heir"] },

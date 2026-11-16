@@ -30,7 +30,7 @@ export const morePapers: Paper[] = [
         ],
         difficulty: "warmup",
         guideRef: "suffragettes",
-        hints: ["It was passed in the same year as Emily Wilding Davison's protest at the Derby — the year before the war began."],
+        hints: ["It came at the height of WSPU militancy, a few years after hunger strikes began in 1909 — but before the war."],
         strategy: "Put it in chronological order",
       },
       {
@@ -55,7 +55,7 @@ export const morePapers: Paper[] = [
         ],
         difficulty: "warmup",
         guideRef: "britain-becomes-democratic",
-        hints: ["The town had decayed away to almost nothing — like fruit that has gone bad."],
+        hints: ["The name was an insult: think about what had happened to the town itself over the centuries."],
         strategy: "Use precise evidence",
       },
       {
@@ -77,7 +77,7 @@ export const morePapers: Paper[] = [
         id: "womens-suffrage-p3-q04",
         question:
           "In 1906, which country became the first in Europe to give women the vote in national elections — and in 1907 elected the world's first women MPs?",
-        answer: { type: "text", accept: ["Finland"], display: "Finland" },
+        answer: { type: "text", accept: ["Finland", "Grand Duchy of Finland"], display: "Finland" },
         traps: [
           {
             spec: { type: "text", accept: ["New Zealand"] },
@@ -409,7 +409,7 @@ export const morePapers: Paper[] = [
         ],
         difficulty: "warmup",
         guideRef: "suffragists",
-        hints: ["It was formed in the 1890s — six years before the Pankhursts founded the WSPU in 1903."],
+        hints: ["It was formed in the late 1890s, a few years before the Pankhursts founded the WSPU."],
         strategy: "Put it in chronological order",
       },
       {
@@ -434,7 +434,7 @@ export const morePapers: Paper[] = [
         ],
         difficulty: "warmup",
         guideRef: "war-and-the-vote",
-        hints: ["It was an 'army' — but it worked on the land, not the battlefield."],
+        hints: ["Its name made it sound like a military force — but these women never went near a battlefield. Where did they work?"],
         strategy: "Use precise evidence",
       },
       {
@@ -510,6 +510,7 @@ export const morePapers: Paper[] = [
         difficulty: "core",
         guideRef: "women-in-victorian-britain",
         hints: [
+          "She later founded a hospital for women in London and, in 1908, became England's first woman mayor.",
           "Her maiden name was the same as Millicent Fawcett's — Garrett.",
           "She took her husband's surname, Anderson, after she married.",
         ],
@@ -533,7 +534,7 @@ export const morePapers: Paper[] = [
         ],
         solution: [
           "Singapore's first election was held on **20 March 1948**, for six elected seats on the Legislative Council; most members were still appointed.",
-          "Only British subjects could register and turnout was small — but women could vote from the very first election, in the same year as the Universal Declaration of Human Rights.",
+          "Only British subjects could register, and only about 22,000 people did — but women could vote on the same terms as men from the very first election, in the same year as the Universal Declaration of Human Rights.",
         ],
         difficulty: "core",
         guideRef: "why-women-won",

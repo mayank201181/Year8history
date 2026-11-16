@@ -75,7 +75,7 @@ export const mcqPapers: Paper[] = [
         ],
         answerIndex: 1,
         explanation:
-          "The 1832 Act scrapped many **rotten boroughs** and gave seats to growing towns like **Manchester** and **Birmingham**; the electorate grew, but still only about 1 man in 7 (or fewer) could vote. The **secret ballot** came later, in **1872**. Far from helping women, the 1832 Act was the first to say voters must be **\"male persons\"**.",
+          "The 1832 Act scrapped many **rotten boroughs** and gave seats to growing towns like **Manchester** and **Birmingham**; the electorate grew, but still only about 1 adult man in 5 in England and Wales could vote. The **secret ballot** came later, in **1872**. Far from helping women, the 1832 Act was the first to say voters must be **\"male persons\"**.",
         difficulty: "core",
         guideRef: "britain-becomes-democratic",
         hints: [
@@ -292,7 +292,7 @@ export const mcqPapers: Paper[] = [
         ],
         answerIndex: 0,
         explanation:
-          "1928 brought **equal franchise** at 21, a huge change — but there was continuity too: **plural voting** (extra votes for business owners and university graduates) lasted until 1948, and the voting age fell to **18** only in **1969**. Equal voting did not mean equal pay or equal rights everywhere, and the story was full of protest, from Peterloo to the suffragettes.",
+          "1928 brought **equal franchise** at 21, a huge change — but there was continuity too: **plural voting** (extra votes for business owners and university graduates) was not abolished until 1948, and the voting age fell to **18** only in **1969**. Equal voting did not mean equal pay or equal rights everywhere, and the story was full of protest, from Peterloo to the suffragettes.",
         difficulty: "challenge",
         guideRef: "why-women-won",
         hints: [
@@ -898,7 +898,7 @@ export const mcqPapers: Paper[] = [
         ],
         answerIndex: 3,
         explanation:
-          "Britain's democracy was built **gradually, through Parliament** — 1832, 1867, 1884, 1918, 1928 — while France's **Revolution** swept away the old system much more suddenly. But \"no protest or violence\" is wrong: Peterloo, the Chartists and the suffragettes show change in Britain was fought over too. French women did not vote until 1944.",
+          "Britain's democracy was built **gradually, through Parliament** — 1832, 1867, 1884, 1918, 1928 — while France's **Revolution** swept away the old system much more suddenly. But \"no protest or violence\" is wrong: Peterloo, the Chartists and the suffragettes show change in Britain was fought over too. French women did not win the vote until 1944.",
         difficulty: "challenge",
         guideRef: "why-women-won",
         hints: [
@@ -1128,7 +1128,7 @@ export const mcqPapers: Paper[] = [
         ],
         answerIndex: 2,
         explanation:
-          "The **1867** Act gave the vote to male **householders in towns**, roughly doubling the electorate to about 2 million. Countryside workers such as farm labourers had to wait until the **Third Reform Act of 1884**, and all men over 21 only got the vote in **1918**.",
+          "The **1867** Act gave the vote to male **householders in towns**, roughly doubling the electorate in England and Wales to about 2 million. Countryside workers such as farm labourers had to wait until the **Third Reform Act of 1884**, and all men over 21 only got the vote in **1918**.",
         difficulty: "core",
         guideRef: "britain-becomes-democratic",
         hints: [

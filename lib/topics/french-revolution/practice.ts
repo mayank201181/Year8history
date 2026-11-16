@@ -6,7 +6,7 @@ export const practice: TopicPractice = {
     {
       kind: "mcq",
       id: "french-revolution-quiz-q01",
-      question: "What was the main reason Louis XVI agreed in 1788 to call the **Estates-General**, which had not met for 175 years?",
+      question: "What was the main reason Louis XVI agreed in 1788 to call the **Estates-General**, which had not met since the early 1600s?",
       options: [
         "The government was effectively bankrupt and he needed new taxes to be approved",
         "The Third Estate had already declared France a republic",
@@ -144,7 +144,7 @@ export const practice: TopicPractice = {
       commonError: "Confusing the coup (1799) with becoming Emperor (1804).",
       difficulty: "warmup",
       guideRef: "napoleon-and-legacy",
-      hints: ["It was exactly ten years after the Revolution began."],
+      hints: ["It was about a decade after the Revolution began, and a few years before he crowned himself Emperor."],
     },
     {
       kind: "written",
@@ -368,7 +368,7 @@ export const practice: TopicPractice = {
           question: "Explain why the French monarchy was abolished in 1792. (6 marks)",
           marks: 6,
           modelAnswer:
-            "One reason was the Flight to Varennes in June 1791. The royal family tried to escape to the border in disguise, so many people concluded that Louis could not be trusted to accept the constitution. A second reason was the war that began in April 1792. When France went to war with Austria (Marie Antoinette's home country) and Prussia, the king and queen were suspected of helping the enemy, and Louis's use of his veto against emergency laws made this worse. The Brunswick Manifesto (July 1792) threatened Paris with destruction if the royal family was harmed, which seemed to prove the king was on the enemy side. Finally, the Paris crowds — the sans-culottes — and National Guards stormed the Tuileries palace on 10 August 1792. The king was imprisoned and a new Convention, elected by all adult men, abolished the monarchy in September. The war was the key link: it turned distrust after Varennes into a belief that the king was a traitor.",
+            "One reason was the Flight to Varennes in June 1791. The royal family tried to escape to the border in disguise, so many people concluded that Louis could not be trusted to accept the constitution. A second reason was the war that began in April 1792. When France went to war with Austria (Marie Antoinette's home country) and Prussia, the king and queen were suspected of helping the enemy, and Louis's use of his veto against emergency laws made this worse. The Brunswick Manifesto (July 1792) threatened Paris with destruction if the royal family was harmed, which seemed to prove the king was on the enemy side. Finally, the Paris crowds — the sans-culottes — and National Guards stormed the Tuileries palace on 10 August 1792. The king was imprisoned and a new Convention, elected by almost all men aged 21+, abolished the monarchy in September. The war was the key link: it turned distrust after Varennes into a belief that the king was a traitor.",
           markScheme: [
             { point: "Flight to Varennes destroyed trust in the king", keywords: ["varennes", "flight", "escape", "fled", "1791", "trust", "betray"] },
             { point: "War with Austria/Prussia made the king and queen look like traitors", keywords: ["war", "austria", "prussia", "traitor", "enemy", "marie antoinette", "1792"] },
@@ -497,7 +497,7 @@ export const practice: TopicPractice = {
             { spec: { type: "text", accept: ["Girondins", "Girondists", "the Girondins"] }, feedback: "The Girondins were the Jacobins' rivals — many were executed in 1793. Which club did Robespierre lead?" },
             { spec: { type: "text", accept: ["sans-culottes", "sans culottes"] }, feedback: "The sans-culottes were Paris's working people, not a club. Which club did Robespierre belong to?" },
           ],
-          solution: ["The **Jacobins** met in a former Dominican (Jacobin) monastery.", "Under Robespierre they dominated the Convention and the Committee of Public Safety in 1793–94."],
+          solution: ["The **Jacobins** met in the Paris friary of the Dominican monks, who were nicknamed 'Jacobins'.", "Under Robespierre they dominated the Convention and the Committee of Public Safety in 1793–94."],
           difficulty: "core",
           guideRef: "radical-revolution",
           hints: ["Their rivals were the Girondins.", "The name begins with 'J'."],
@@ -514,7 +514,7 @@ export const practice: TopicPractice = {
           solution: ["It had last met in **1614** — 175 years earlier.", "So nobody alive knew how it should work, which helped cause the voting dispute in May 1789."],
           difficulty: "core",
           guideRef: "causes-of-revolution",
-          hints: ["It was 175 years before 1789.", "1789 − 175 = ?"],
+          hints: ["It was in the early 17th century, under Louis XIII.", "It was 175 years before 1789: 1789 − 175 = ?"],
         },
         {
           kind: "mcq",
@@ -607,7 +607,7 @@ export const practice: TopicPractice = {
           question: "Describe two features of life for peasants under the Ancien Régime. (4 marks)",
           marks: 4,
           modelAnswer:
-            "One feature was the heavy burden of payments. Peasants paid the taille to the king, the gabelle on salt, a tithe of around a tenth of their produce to the Church, and feudal dues to their local lord — while nobles and clergy were largely exempt from the main taxes. A second feature was the power of the lords. Peasants had to do unpaid labour such as the corvée on the roads, use the lord's mill and oven for a fee, and could not stop the lord's hunting, even when game ruined their crops. In bad years, like 1788, high bread prices meant many went hungry.",
+            "One feature was the heavy burden of payments. Peasants paid the taille to the king, the gabelle on salt, a tithe of around a tenth of their produce to the Church, and feudal dues to their local lord — while nobles and clergy were largely exempt from the main taxes. A second feature was the power of the lords. Peasants owed their lord unpaid labour (the corvée), had to use the lord's mill and oven for a fee, and could not stop the lord's hunting, even when game ruined their crops. In bad years, like 1788, high bread prices meant many went hungry.",
           markScheme: [
             { point: "Identifies the tax burden (taille, gabelle, tithe)", keywords: ["taille", "gabelle", "tithe", "tax", "taxes", "salt"] },
             { point: "Supports with detail (who paid / exemptions / amount)", keywords: ["tenth", "church", "king", "exempt", "nobles", "clergy", "did not pay"] },
@@ -625,10 +625,10 @@ export const practice: TopicPractice = {
           question: "'The French Revolution created democracy in France.' How far do you agree? Explain your answer. (6 marks)",
           marks: 6,
           modelAnswer:
-            "In some ways the Revolution laid the foundations of democracy. The Declaration of the Rights of Man (1789) said sovereignty belonged to the nation and that all citizens should share in making the law. In 1792 the Convention was elected by all adult men — one of the widest votes in the world at the time — and in 1794 slavery was abolished. However, the Revolution did not create a lasting democracy. The 1791 Constitution let only 'active citizens' vote; women were excluded throughout and their clubs were banned in 1793; and during the Terror rights such as free speech and fair trials were suspended. By 1804 Napoleon was Emperor, ruling as a dictator with censorship and plebiscites that gave the appearance, not the reality, of consent. French women did not vote until 1945. Overall I partly agree: the Revolution created the *ideas* of democracy — rights, citizenship, the sovereign nation — but not a working democracy.",
+            "In some ways the Revolution laid the foundations of democracy. The Declaration of the Rights of Man (1789) said sovereignty belonged to the nation and that all citizens should share in making the law. In 1792 the Convention was elected by almost all men aged 21+ — one of the widest votes in the world at the time — and in 1794 slavery was abolished. However, the Revolution did not create a lasting democracy. The 1791 Constitution let only 'active citizens' vote; women were excluded throughout and their clubs were banned in 1793; and during the Terror rights such as free speech and fair trials were suspended. By 1804 Napoleon was Emperor, ruling as a dictator with censorship and plebiscites that gave the appearance, not the reality, of consent. French women did not win the vote until 1944, and first voted in 1945. Overall I partly agree: the Revolution created the *ideas* of democracy — rights, citizenship, the sovereign nation — but not a working democracy.",
           markScheme: [
             { point: "Agrees: new democratic ideas/principles (Declaration, sovereignty of the nation, rights)", keywords: ["declaration", "rights", "sovereignty", "nation", "citizens", "equality", "1789"] },
-            { point: "Agrees with evidence of wider participation (1792 universal male suffrage, abolition of slavery 1794)", keywords: ["1792", "all men", "universal", "male suffrage", "convention", "slavery", "1794", "republic"] },
+            { point: "Agrees with evidence of wider participation (1792 near-universal male suffrage, abolition of slavery 1794)", keywords: ["1792", "all men", "universal", "male suffrage", "convention", "slavery", "1794", "republic"] },
             { point: "Disagrees: limits on who could vote (active/passive, women excluded)", keywords: ["active", "passive", "women", "excluded", "gouges", "property", "1791"] },
             { point: "Disagrees: Terror suspended rights", keywords: ["terror", "robespierre", "executed", "guillotine", "suspects", "free speech", "trials"] },
             { point: "Disagrees: ended in Napoleon's dictatorship (1799/1804), plebiscites, censorship", keywords: ["napoleon", "dictator", "emperor", "1804", "1799", "censorship", "plebiscite"] },
@@ -649,7 +649,7 @@ export const practice: TopicPractice = {
               label: "Argument: yes — the Revolution created democracy's foundations",
               steps: [
                 "The 1789 Declaration made the nation, not the king, the source of power.",
-                "In 1792 all adult men could vote for the Convention, and slavery was abolished in 1794.",
+                "In 1792 almost all men aged 21+ could vote for the Convention, and slavery was abolished in 1794.",
                 "These ideas outlived Napoleon and inspired later reformers in France and beyond, so the Revolution is where French democracy began.",
               ],
             },
@@ -658,7 +658,7 @@ export const practice: TopicPractice = {
               steps: [
                 "Even at its height, most people (women, the poor before 1792, enslaved people before 1794) were excluded.",
                 "The Terror suspended rights in the name of defending them.",
-                "By 1804 France had an emperor and censorship; real democracy came much later (women voted only from 1945).",
+                "By 1804 France had an emperor and censorship; real democracy came much later (women won the vote in 1944 and first voted in 1945).",
               ],
             },
             {
@@ -694,7 +694,7 @@ export const practice: TopicPractice = {
             "The source shows *how* people were caught. Does it explain *why* the government wanted this law?",
             "Think: war, revolts, the sans-culottes, Robespierre.",
           ],
-          strategy: "Cross-reference sources",
+          strategy: "Use precise evidence",
         },
       ],
     },
@@ -768,7 +768,7 @@ export const practice: TopicPractice = {
         { point: "Agrees: specific rights broken (free speech, fair trial, arrest without crime)", keywords: ["free speech", "fair trial", "trial", "arrest", "suspects", "liberty", "law"] },
         { point: "Agrees with precise evidence (Law of Suspects, 22 Prairial, ~17,000 executions, de Gouges)", keywords: ["law of suspects", "prairial", "17,000", "17000", "guillotine", "gouges", "tribunal", "executed"] },
         { point: "Disagrees: circumstances of war/revolt — defending the Revolution", keywords: ["war", "invasion", "vendee", "vendée", "revolt", "defend", "protect", "survive", "emergency"] },
-        { point: "Disagrees: rights extended at the same time (abolition of slavery 1794 / universal male suffrage)", keywords: ["slavery", "1794", "abolished", "extended", "all men", "universal"] },
+        { point: "Disagrees: rights extended at the same time (abolition of slavery 1794 / the 1793 Constitution promised votes for all men, though it was suspended)", keywords: ["slavery", "1794", "abolished", "extended", "all men", "universal"] },
         { point: "Uses Robespierre's / Jacobins' reasoning (virtue and terror) or historians' views", keywords: ["robespierre", "virtue", "jacobins", "historians", "interpretation", "justice"] },
         { point: "Reaches a judgement on 'how far' and 'complete'", keywords: ["how far", "largely", "partly", "complete", "overall", "judgement", "to some extent"] },
       ],
@@ -872,11 +872,11 @@ export const practice: TopicPractice = {
       question: "'The rights won in the French Revolution were for some people, not for all.' How far do you agree? Consider at least three groups. (6 marks)",
       marks: 6,
       modelAnswer:
-        "For much of the period I agree. Under the 1791 Constitution only 'active citizens' — men over 25 who paid enough tax — could vote, leaving millions of poorer 'passive citizens' without a voice. Women were excluded throughout: Olympe de Gouges demanded equal rights in 1791, but women's clubs were banned in 1793 and she was executed. However, rights did expand for some groups. Protestants and then Jewish people gained full citizenship by 1791, which was rare in Europe. In 1792 the vote was extended to all adult men. Most strikingly, after the enslaved people of Saint-Domingue rose up, the Convention abolished slavery in 1794. Yet many of these gains were reversed: Napoleon restored slavery in 1802, and his Code made wives legally subordinate to husbands. Overall I largely agree: the language of rights was universal, but in practice rights were extended unevenly — and often only when the excluded fought for them.",
+        "For much of the period I agree. Under the 1791 Constitution only 'active citizens' — men over 25 who paid enough tax — could vote, leaving millions of poorer 'passive citizens' without a voice. Women were excluded throughout: Olympe de Gouges demanded equal rights in 1791, but women's clubs were banned in 1793 and she was executed. However, rights did expand for some groups. Protestants and then Jewish people gained full citizenship by 1791, which was rare in Europe. In 1792 the vote was extended to almost all men aged 21+. Most strikingly, after the enslaved people of Saint-Domingue rose up, the Convention abolished slavery in 1794. Yet many of these gains were reversed: Napoleon restored slavery in colonies such as Guadeloupe in 1802 (his army failed to restore it in Saint-Domingue, which became independent Haiti), and his Code made wives legally subordinate to husbands. Overall I largely agree: the language of rights was universal, but in practice rights were extended unevenly — and often only when the excluded fought for them.",
       markScheme: [
         { point: "Poorer men: active vs passive citizens (1791) — and change in 1792", keywords: ["active", "passive", "poor", "property", "tax", "1791", "1792", "all men"] },
         { point: "Women excluded (de Gouges, clubs banned 1793, Napoleonic Code)", keywords: ["women", "gouges", "clubs", "1793", "wives", "husbands", "code"] },
-        { point: "Enslaved people: slavery abolished 1794 after Saint-Domingue revolt, restored 1802", keywords: ["slavery", "enslaved", "1794", "1802", "haiti", "saint-domingue", "toussaint"] },
+        { point: "Enslaved people: slavery abolished 1794 after Saint-Domingue revolt, restored by Napoleon in colonies such as Guadeloupe in 1802", keywords: ["slavery", "enslaved", "1794", "1802", "haiti", "saint-domingue", "toussaint"] },
         { point: "Religious minorities gained rights (Protestants, Jews)", keywords: ["jews", "jewish", "protestants", "religious", "religion", "minorities"] },
         { point: "Analyses the pattern (rights extended unevenly / reversed / won by struggle)", keywords: ["reversed", "unevenly", "changed over time", "fought", "struggle", "theory", "practice", "universal"] },
         { point: "Reaches a supported judgement on how far", keywords: ["how far", "largely", "partly", "overall", "judgement", "to some extent"] },
@@ -892,7 +892,7 @@ export const practice: TopicPractice = {
       strategy: "Spot change and continuity",
       solutions: [
         { label: "Argument: mostly true — rights for property-owning men", steps: ["Voting rights depended on wealth in 1791.", "Women never gained political rights.", "Napoleon reversed abolition and limited wives' rights, so the beneficiaries stayed narrow."] },
-        { label: "Argument: overstated — rights spread further than ever before", steps: ["All adult men could vote in 1792.", "Jewish people and Protestants gained citizenship; slavery was abolished in 1794.", "No other major European state went so far at the time."] },
+        { label: "Argument: overstated — rights spread further than ever before", steps: ["Almost all men aged 21+ could vote in 1792.", "Jewish people and Protestants gained citizenship; slavery was abolished in 1794.", "No other major European state went so far at the time."] },
       ],
     },
     {
@@ -900,7 +900,7 @@ export const practice: TopicPractice = {
       id: "french-revolution-ch-q08",
       question:
         "At the Estates-General the First and Second Estates each had about **300** deputies and the Third Estate about **600** (about 1,200 in all). Suppose voting was **by head**, and every Third Estate deputy plus just **1 in 10** of the clergy and noble deputies voted for reform. How many votes would reform get?",
-      answer: { type: "number", value: 660, display: "660 votes — a majority of about 1,200" },
+      answer: { type: "number", value: 660, display: "660 votes (a majority of about 1,200)" },
       traps: [
         { spec: { type: "number", value: 600 }, feedback: "That's only the Third Estate. Add the 1 in 10 of the 600 clergy and nobles who joined them." },
         { spec: { type: "number", value: 1 }, feedback: "One vote out of three is what the Third Estate got under voting *by order*. This question is about voting by head." },

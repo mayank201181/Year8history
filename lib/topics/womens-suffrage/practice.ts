@@ -45,7 +45,7 @@ export const practice: TopicPractice = {
       ],
       answerIndex: 1,
       explanation:
-        "Under the motto **\"Deeds not words\"**, the WSPU moved on to **window smashing (1912) and arson (1912–14)** — attacks on property that broke the law. The NUWSS refused to break the law. Lobbying MPs is tempting because the WSPU also targeted politicians, but lobbying, petitions and peaceful marches were the suffragists' core methods, so they do not separate the two groups.",
+        "Under the motto **\"Deeds not words\"**, the WSPU moved on to **window smashing (from 1908, with mass raids in 1911–12) and arson (1912–14)** — attacks on property that broke the law. The NUWSS refused to break the law. Lobbying MPs is tempting because the WSPU also targeted politicians, but lobbying, petitions and peaceful marches were the suffragists' core methods, so they do not separate the two groups.",
       difficulty: "warmup",
       guideRef: "suffragettes",
       hints: ["Which method breaks the law?"],
@@ -70,7 +70,7 @@ export const practice: TopicPractice = {
       commonError: "Confusing suffragists (NUWSS, peaceful, from 1897) with suffragettes (WSPU, militant, from 1903).",
       difficulty: "warmup",
       guideRef: "suffragettes",
-      hints: ["The word ends in a way that suggested 'small' or 'silly' — like 'kitchenette'."],
+      hints: ["The newspaper took the word 'suffrage' and added an ending meant to make the women sound small or silly."],
       strategy: "Use precise evidence",
     },
     {
@@ -85,7 +85,7 @@ export const practice: TopicPractice = {
       ],
       answerIndex: 2,
       explanation:
-        "In summer 1913 thousands of NUWSS suffragists walked for up to six weeks along routes from across England and Wales, holding meetings in every town, before a mass rally in **Hyde Park on 26 July**. It was designed to show that suffragists were **law-abiding**. The arson answer is tempting because 1913 was also the peak of WSPU arson — which is exactly why the NUWSS wanted to show the public a peaceful alternative. There were no munition workers yet: the war began in 1914.",
+        "In summer 1913 thousands of NUWSS suffragists walked for up to six weeks along routes from across England and Wales, holding meetings in every town, before a mass rally in **Hyde Park on 26 July**. It was designed to show that suffragists were **law-abiding**. The arson answer is tempting because 1913 was also the peak of WSPU arson — which is exactly why the NUWSS wanted to show the public a peaceful alternative. There were no wartime women munition workers yet: the war began in 1914.",
       difficulty: "core",
       guideRef: "suffragists",
       hints: [
@@ -288,12 +288,12 @@ export const practice: TopicPractice = {
           ],
           solution: [
             "Peterloo happened on **16 August 1819** at St Peter's Field, Manchester.",
-            "Cavalry charged a peaceful crowd of around 60,000 who had come to hear Henry Hunt demand parliamentary reform; about 15–18 people were killed and hundreds injured.",
+            "Cavalry charged a peaceful crowd of an estimated 60,000 or more who had come to hear Henry Hunt demand parliamentary reform; about 15–18 people were killed and hundreds injured.",
             "The name mocked the soldiers by comparing the attack with the Battle of Waterloo (1815).",
           ],
           difficulty: "warmup",
           guideRef: "britain-becomes-democratic",
-          hints: ["The name is a bitter joke based on the Battle of Waterloo (1815) — it happened four years after that battle."],
+          hints: ["The name is a bitter joke based on the Battle of Waterloo (1815), so it came a few years after that battle — but well before the Great Reform Act of 1832."],
           strategy: "Put it in chronological order",
         },
         {
@@ -618,7 +618,7 @@ export const practice: TopicPractice = {
           question: "How democratic was Britain after the Third Reform Act of 1884? Explain your answer. (5 marks)",
           marks: 5,
           modelAnswer:
-            "In some ways Britain was much more democratic than in 1800. After the Reform Acts of 1867 and 1884, around 60% of men could vote, including working-class householders in towns and the countryside. The Ballot Act of 1872 meant voting was secret, so landlords and employers could no longer bully or bribe voters as easily.\n\nHowever, Britain was still far from a democracy. No women could vote in general elections, so about half of adults were excluded completely. Around 40% of men — lodgers, servants and sons living with their parents — still had no vote because they were not householders, while some wealthy men had more than one vote. The House of Lords was unelected and MPs were unpaid until 1911, making it hard for working men to stand.\n\nOverall, Britain was more democratic but only partly so: probably fewer than a third of adults could vote.",
+            "In some ways Britain was much more democratic than in 1800. After the Reform Acts of 1867 and 1884, around 60% of men could vote, including working-class householders in towns and the countryside. The Ballot Act of 1872 meant voting was secret, so landlords and employers could no longer bully or bribe voters as easily.\n\nHowever, Britain was still far from a democracy. No women could vote in general elections, so about half of adults were excluded completely. Around 40% of men — many lodgers, servants and sons living with their parents — still had no vote because they were not householders, while some wealthy men had more than one vote. The House of Lords was unelected and MPs were unpaid until 1911, making it hard for working men to stand.\n\nOverall, Britain was more democratic but only partly so: probably fewer than a third of adults could vote.",
           markScheme: [
             {
               point: "Progress: about 60% of men could vote, including working-class men (1867, 1884)",
@@ -674,11 +674,11 @@ export const practice: TopicPractice = {
           ],
           solution: [
             "Emmeline Pankhurst founded the WSPU in Manchester in **October 1903**.",
-            "Frustrated by decades of slow progress, it promised 'Deeds not words'; militancy began in 1905 when Christabel Pankhurst and Annie Kenney were arrested after heckling a Liberal minister.",
+            "Frustrated by decades of slow progress, it promised 'Deeds not words'; militancy began in 1905 when Christabel Pankhurst and Annie Kenney were arrested after heckling the leading Liberal politician Sir Edward Grey at a meeting in Manchester.",
           ],
           difficulty: "warmup",
           guideRef: "suffragettes",
-          hints: ["It was early in the 20th century — a couple of years after Queen Victoria died in 1901."],
+          hints: ["It was early in Edward VII's reign (1901–10) — before the WSPU's militancy began in 1905."],
           strategy: "Put it in chronological order",
         },
         {
@@ -703,7 +703,7 @@ export const practice: TopicPractice = {
           ],
           difficulty: "warmup",
           guideRef: "britain-becomes-democratic",
-          hints: ["The movement was named after the document — what does 'Chartist' come from?"],
+          hints: ["Its title said whose rights it spoke for: ordinary working people, not the propertied few."],
           strategy: "Use precise evidence",
         },
         {
@@ -1006,7 +1006,7 @@ export const practice: TopicPractice = {
             "Compare the methods of the NUWSS and the WSPU. Which do you think did more to win public support for votes for women before 1914? (5 marks)",
           marks: 5,
           modelAnswer:
-            "The NUWSS used peaceful, law-abiding methods: petitions, meetings, lobbying MPs and marches such as the 1907 Mud March and the 1913 Great Pilgrimage. From 1912 its Election Fighting Fund backed Labour candidates. The WSPU, under the motto 'Deeds not words', heckled ministers, chained themselves to railings, smashed windows (1912) and set fire to property (1912–14), and its prisoners went on hunger strike.\n\nThe WSPU won enormous publicity, and force-feeding won some sympathy, but by 1912–14 arson alienated many MPs and members of the public. The NUWSS grew steadily, to over 50,000 members, and its respectable image won support among MPs and the Labour Party.\n\nOverall, I think the NUWSS did more to win lasting public support, though the WSPU's publicity made the issue impossible to ignore — and some people joined the NUWSS because militancy had made them think about the vote.",
+            "The NUWSS used peaceful, law-abiding methods: petitions, meetings, lobbying MPs and marches such as the 1907 Mud March and the 1913 Great Pilgrimage. From 1912 its Election Fighting Fund backed Labour candidates. The WSPU, under the motto 'Deeds not words', heckled ministers, chained themselves to railings, smashed windows (from 1908, in mass raids by 1911–12) and set fire to property (1912–14), and its prisoners went on hunger strike.\n\nThe WSPU won enormous publicity, and force-feeding won some sympathy, but by 1912–14 arson alienated many MPs and members of the public. The NUWSS grew steadily, to over 50,000 members, and its respectable image won support among MPs and the Labour Party.\n\nOverall, I think the NUWSS did more to win lasting public support, though the WSPU's publicity made the issue impossible to ignore — and some people joined the NUWSS because militancy had made them think about the vote.",
           markScheme: [
             {
               point: "Describes NUWSS methods accurately",
@@ -1072,7 +1072,7 @@ export const practice: TopicPractice = {
         "\"Both the French Revolution and the campaign for women's suffrage in Britain show that democracy is won from below by ordinary people, not given from above by those in power.\" How far do you agree? Use examples from both topics. (6 marks)",
       marks: 6,
       modelAnswer:
-        "There is strong evidence that democracy was won from below. In France, crowds stormed the Bastille in 1789 and women marched on Versailles, forcing the king to accept the National Assembly. In Britain, the Chartists, the suffragists' petitions and the suffragettes' militancy kept pressure on Parliament for decades.\n\nHowever, in both countries the final decisions were made from above, by those in power and often for their own reasons. In 1918 an all-male Parliament gave women the vote partly because soldiers' votes forced a new law, and set the age at 30 so that women would not be a majority. In France, the revolutionaries who proclaimed the Rights of Man excluded women entirely: Olympe de Gouges was executed in 1793 and French women did not vote until 1944 — pressure from below did not guarantee rights for everyone.\n\nOverall, I partly agree: pressure from below was essential to force change, but those above decided how far it went and who was included.",
+        "There is strong evidence that democracy was won from below. In France, crowds stormed the Bastille in 1789 and women marched on Versailles in October 1789, forcing the king to approve the Declaration of the Rights of Man and move to Paris. In Britain, the Chartists, the suffragists' petitions and the suffragettes' militancy kept pressure on Parliament for decades.\n\nHowever, in both countries the final decisions were made from above, by those in power and often for their own reasons. In 1918 an all-male Parliament gave women the vote partly because soldiers' votes forced a new law, and set the age at 30 so that women would not be a majority. In France, the revolutionaries who proclaimed the Rights of Man excluded women entirely: Olympe de Gouges was executed in 1793 and French women did not win the vote until 1944 — pressure from below did not guarantee rights for everyone.\n\nOverall, I partly agree: pressure from below was essential to force change, but those above decided how far it went and who was included.",
       markScheme: [
         {
           point: "Evidence of pressure from below in France",
@@ -1189,18 +1189,18 @@ export const practice: TopicPractice = {
         },
         {
           spec: { type: "number", value: 1918 },
-          feedback: "1918 is when some British women won the vote. France was much later — after another world war.",
+          feedback: "1918 is when some British women won the vote. France was much later — near the end of another world war.",
         },
       ],
       solution: [
-        "French women were given the vote by General de Gaulle's provisional government in **1944**, as France was being liberated in the Second World War.",
+        "French women were given the vote in April **1944** by the Free French authorities led by General de Gaulle, as France was being liberated in the Second World War.",
         "They first voted in 1945 — more than 150 years after de Gouges's *Declaration of the Rights of Woman*, and long after British women. The country of the 'Rights of Man' was slow to include women.",
       ],
       commonError: "Assuming revolutionary France gave women the vote early. The Revolution excluded women, and de Gouges was executed in 1793.",
       difficulty: "challenge",
       guideRef: "why-women-won",
       hints: [
-        "It was later than Britain — after another world war.",
+        "It was much later than Britain — during another world war.",
         "Think of France being liberated from German occupation.",
         "It was the year of D-Day.",
       ],
@@ -1357,6 +1357,8 @@ export const practice: TopicPractice = {
           "elections every year",
           "a general election every year",
           "an election every year",
+          "annual general election",
+          "annually elected parliaments",
         ],
         display: "annual parliaments (a general election every year)",
       },
@@ -1392,7 +1394,7 @@ export const practice: TopicPractice = {
         "\"From 1789 to 1928, democracy developed through steady progress.\" How far do you agree? Use examples from France and Britain. (6 marks)",
       marks: 6,
       modelAnswer:
-        "There was certainly progress. The Declaration of the Rights of Man (1789) proclaimed that sovereignty belonged to the nation, and in Britain the Reform Acts of 1832, 1867 and 1884, the Ballot Act (1872) and the Acts of 1918 and 1928 widened the vote until all adults could vote.\n\nBut the progress was not steady. In France, near-universal male suffrage in 1792 was followed by the Terror, property qualifications returned in 1795, and Napoleon crowned himself emperor in 1804 — democracy went backwards. In Britain, Peterloo (1819) and the rejection of the Chartist petitions show reform was resisted. Big changes often came suddenly, in crises: revolution in 1789–92 and world war in 1914–18.\n\nThere was also strong continuity: women were excluded throughout the French Revolution and did not vote in France until 1944, while British women waited until 1918, and then only over 30.\n\nOverall, I disagree. Democracy did develop, but unevenly, through struggle and crisis, with setbacks along the way.",
+        "There was certainly progress. The Declaration of the Rights of Man (1789) proclaimed that sovereignty belonged to the nation, and in Britain the Reform Acts of 1832, 1867 and 1884, the Ballot Act (1872) and the Acts of 1918 and 1928 widened the vote until almost all adults over 21 could vote.\n\nBut the progress was not steady. In France, near-universal male suffrage in 1792 was followed by the Terror, property qualifications returned in 1795, and Napoleon crowned himself emperor in 1804 — democracy went backwards. In Britain, Peterloo (1819) and the rejection of the Chartist petitions show reform was resisted. Big changes often came suddenly, in crises: revolution in 1789–92 and world war in 1914–18.\n\nThere was also strong continuity: women were excluded throughout the French Revolution and did not win the vote in France until 1944, while British women waited until 1918, and then only over 30.\n\nOverall, I disagree. Democracy did develop, but unevenly, through struggle and crisis, with setbacks along the way.",
       markScheme: [
         {
           point: "Evidence of progress in both countries",
@@ -1424,7 +1426,7 @@ export const practice: TopicPractice = {
           label: "Argument: progress was real and lasting",
           steps: [
             "Each British Reform Act widened the vote and none was reversed.",
-            "By 1928 every adult in Britain could vote — an enormous change since 1800.",
+            "By 1928 almost every adult over 21 in Britain could vote — an enormous change since 1800.",
             "Even France's setbacks did not stop the ideas of 1789 spreading.",
           ],
         },

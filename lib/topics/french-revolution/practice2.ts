@@ -77,7 +77,7 @@ export const morePapers: Paper[] = [
           { spec: { type: "number", value: 1789 }, feedback: "The 1789 Declaration said men are 'born free', but slavery continued in the colonies for several more years." },
           { spec: { type: "number", value: 1848 }, feedback: "1848 is when France abolished slavery for good — after Napoleon had restored it in 1802. When was it first abolished?" },
         ],
-        solution: ["The National Convention abolished slavery on **4 February 1794**, after the uprising of enslaved people in Saint-Domingue.", "Napoleon restored it in 1802; final abolition came in 1848."],
+        solution: ["The National Convention abolished slavery on **4 February 1794**, after the uprising of enslaved people in Saint-Domingue.", "Napoleon restored it in colonies such as Guadeloupe in 1802 (his army failed to restore it in Saint-Domingue); final abolition came in 1848."],
         commonError: "Assuming the 1789 Declaration ended slavery straight away.",
         difficulty: "core",
         guideRef: "rights-of-man",
@@ -220,7 +220,7 @@ export const morePapers: Paper[] = [
         question: "How significant was the Women's March on Versailles (5–6 October 1789)? Explain your answer. (5 marks)",
         marks: 5,
         modelAnswer:
-          "The march was highly significant. Thousands of Parisian women, angry about bread shortages, walked about 20 km to Versailles, later joined by the National Guard. Its first consequence was immediate: Louis was forced to accept the August decrees and the Declaration of the Rights of Man, which he had been delaying. Its biggest consequence was that the royal family was brought back to Paris and lived in the Tuileries, followed by the Assembly. From then on the king was effectively under the eye of the Paris crowd, which made the Flight to Varennes and the events of 1792 possible. It also showed that ordinary women could change national politics. However, its significance for women's rights was limited: women still did not gain the vote. Overall it was a turning point in power, though not in women's rights.",
+          "The march was highly significant. Thousands of Parisian women, angry about bread shortages, walked about 20 km to Versailles, later joined by the National Guard. Its first consequence was immediate: Louis was forced to accept the August decrees and the Declaration of the Rights of Man, which he had been delaying. Its biggest consequence was that the royal family was brought back to Paris and lived in the Tuileries, followed by the Assembly. From then on the king was effectively under the eye of the Paris crowd, which helps explain why he tried to escape in the Flight to Varennes (1791) and why Paris crowds could topple him in 1792. It also showed that ordinary women could change national politics. However, its significance for women's rights was limited: women still did not gain the vote. Overall it was a turning point in power, though not in women's rights.",
         markScheme: [
           { point: "Describes the event accurately (bread, women of Paris, Versailles, National Guard)", keywords: ["bread", "women", "march", "versailles", "national guard", "market"] },
           { point: "Consequence: king forced to accept the August decrees / Declaration", keywords: ["accept", "declaration", "august decrees", "rights of man", "signed", "approve"] },
@@ -285,7 +285,7 @@ export const morePapers: Paper[] = [
         solution: ["*Liberté, Égalité, Fraternité* — Liberty, Equality, **Fraternity** (brotherhood).", "It became the official motto of France much later, in the 19th century, but its ideas come from the Revolution."],
         difficulty: "warmup",
         guideRef: "rights-of-man",
-        hints: ["The French word is *Fraternité*."],
+        hints: ["The third ideal is about citizens treating one another as brothers and sisters."],
       },
       {
         kind: "short",
@@ -327,7 +327,7 @@ export const morePapers: Paper[] = [
         ],
         answerIndex: 0,
         explanation:
-          "Tens of thousands of cahiers survive from every part of France, giving a snapshot of grievances — taxes, feudal dues, privilege — at the very moment the crisis began. It is tempting to think they show a demand to abolish the monarchy, but most were respectful of the king; they asked for reform, not a republic, which warns us against hindsight.",
+          "Tens of thousands of cahiers were drawn up across France, and many survive, giving a snapshot of grievances — taxes, feudal dues, privilege — at the very moment the crisis began. It is tempting to think they show a demand to abolish the monarchy, but most were respectful of the king; they asked for reform, not a republic, which warns us against hindsight.",
         difficulty: "core",
         guideRef: "causes-of-revolution",
         hints: ["When were they written, and by whom?", "Did most people in spring 1789 want to get rid of the king?"],
@@ -340,7 +340,7 @@ export const morePapers: Paper[] = [
           "**Source A** — from the decree of the National Convention, 4 February 1794 (adapted).\n\n> The National Convention declares that slavery is abolished in all the colonies. As a result, it decrees that all men living in the colonies, without distinction of colour, are French citizens and shall enjoy all the rights guaranteed by the Constitution.\n\nWhat can you infer from Source A about how ideas of equality had developed since 1789? (3 marks)",
         marks: 3,
         modelAnswer:
-          "I can infer that the idea of equality had widened. In 1789 the Declaration said men were 'born free and equal', yet slavery continued in the colonies; by 1794 the Convention declared that men of every colour were 'French citizens' with 'all the rights' of the Constitution. This suggests equality was now being applied to people who had been excluded. The phrase 'without distinction of colour' suggests racial difference had been used to deny rights. My own knowledge shows this change was forced partly by the uprising of the enslaved people of Saint-Domingue from 1791, so equality was extended because people fought for it — and it did not last, as Napoleon restored slavery in 1802.",
+          "I can infer that the idea of equality had widened. In 1789 the Declaration said men were 'born free and equal', yet slavery continued in the colonies; by 1794 the Convention declared that men of every colour were 'French citizens' with 'all the rights' of the Constitution. This suggests equality was now being applied to people who had been excluded. The phrase 'without distinction of colour' suggests racial difference had been used to deny rights. My own knowledge shows this change was forced partly by the uprising of the enslaved people of Saint-Domingue from 1791, so equality was extended because people fought for it — and it did not last, as Napoleon restored slavery in colonies such as Guadeloupe in 1802 (though not in Saint-Domingue, which became independent Haiti).",
         markScheme: [
           { point: "Infers equality was extended to people previously excluded (enslaved / people of colour)", keywords: ["extended", "wider", "widened", "included", "now", "colour", "enslaved", "slaves", "citizens"] },
           { point: "Supports with source detail and comparison with 1789 ('without distinction of colour', 'all the rights')", keywords: ["without distinction", "all the rights", "1789", "born free", "declaration", "quote"] },
@@ -422,7 +422,7 @@ export const morePapers: Paper[] = [
         question: "'Between 1789 and 1804 the lives of ordinary French people saw more change than continuity.' How far do you agree? (6 marks)",
         marks: 6,
         modelAnswer:
-          "There were major changes. On 4 August 1789 feudal dues, the tithe and noble tax privileges were abolished, so peasants no longer paid their lord or the Church, and many bought former Church land. Everyone became equal before the law, and careers were 'open to talent', confirmed by Napoleon's Code in 1804. However, there was also strong continuity. Most people were still poor peasants working the land, and taxes still had to be paid; war brought a new burden of conscription that took millions of young men. Women's lives changed little — the Napoleonic Code made wives obey their husbands. By 1804 people were again ruled by one man with censorship, and the Catholic Church was restored by the Concordat of 1801. Overall I agree to a large extent: in daily life the end of feudalism and privilege was a permanent change, while the continuities were mostly in politics and in the lives of women.",
+          "There were major changes. On 4 August 1789 feudal dues, the tithe and noble tax privileges were abolished, so peasants no longer paid their lord or the Church, and many bought former Church land. Everyone became equal before the law — confirmed by Napoleon's Civil Code in 1804 — and careers were 'open to talent'. However, there was also strong continuity. Most people were still poor peasants working the land, and taxes still had to be paid; war brought a new burden of conscription that took hundreds of thousands of young men. Women's lives changed little — the Napoleonic Code made wives obey their husbands. By 1804 people were again ruled by one man with censorship, and the Catholic Church was restored by the Concordat of 1801. Overall I agree to a large extent: in daily life the end of feudalism and privilege was a permanent change, while the continuities were mostly in politics and in the lives of women.",
         markScheme: [
           { point: "Change: feudal dues, tithe and privileges abolished (4 August 1789)", keywords: ["feudal", "tithe", "privilege", "4 august", "dues", "abolished", "peasants"] },
           { point: "Change: equality before the law / careers open to talent / Napoleonic Code / Church land", keywords: ["equal", "equality", "law", "talent", "merit", "napoleonic code", "church land"] },
@@ -441,7 +441,7 @@ export const morePapers: Paper[] = [
         ],
         strategy: "Spot change and continuity",
         solutions: [
-          { label: "Argument: more change", steps: ["The end of feudalism and the tithe changed peasants' everyday lives permanently.", "Equality before the law and careers open to talent were confirmed by the Napoleonic Code.", "Even Napoleon did not restore noble privilege."] },
+          { label: "Argument: more change", steps: ["The end of feudalism and the tithe changed peasants' everyday lives permanently.", "Equality before the law was confirmed by the Napoleonic Code, and careers stayed open to talent.", "Even Napoleon did not restore noble privilege."] },
           { label: "Argument: more continuity", steps: ["Most people remained poor farmers, still paying taxes.", "War and conscription made life harder for many families.", "Women gained little, and by 1804 France was again ruled by one man with an official Church."] },
         ],
       },
@@ -452,7 +452,7 @@ export const morePapers: Paper[] = [
           "Read these two interpretations (written for this exercise).\n\n**Interpretation 1:** 'Louis XVI was a weak and indecisive king. His poor choices turned a crisis into a revolution.'\n\n**Interpretation 2:** 'Louis XVI inherited problems that no king could have solved. The Revolution would have happened whoever was on the throne.'\n\nWhich interpretation is more convincing? Use your knowledge to explain your answer. (5 marks)",
         marks: 5,
         modelAnswer:
-          "Interpretation 1 has strong support. Louis repeatedly changed course: he backed reforming ministers like Calonne, then abandoned them; he dithered over voting at the Estates-General; he gathered troops and sacked Necker in July 1789, then backed down after the Bastille fell. The Flight to Varennes in 1791 destroyed trust that a more skilful king might have kept. However, Interpretation 2 is also convincing. Louis inherited huge debts from earlier wars, a tax system the privileged refused to change, and Enlightenment ideas that questioned absolute monarchy; the bad harvest of 1788 was not his fault. Overall I find Interpretation 1 more convincing about the *outcome*: the crisis was not his fault, but his indecision helped turn demands for reform into the end of the monarchy. A crisis was probably unavoidable; a revolution that killed the king was not.",
+          "Interpretation 1 has strong support. Louis repeatedly changed course: he backed reforming ministers like Calonne, then abandoned them; he dithered over voting at the Estates-General; he gathered troops and sacked Necker in July 1789, then backed down after the Bastille fell. The Flight to Varennes in 1791 destroyed trust that a more skilful king might have kept. However, Interpretation 2 is also convincing. Louis inherited huge debts from earlier wars such as the Seven Years' War (though his own decision to help the Americans added greatly to them), a tax system the privileged refused to change, and Enlightenment ideas that questioned absolute monarchy; the bad harvest of 1788 was not his fault. Overall I find Interpretation 1 more convincing about the *outcome*: the crisis was not only his fault, but his indecision helped turn demands for reform into the end of the monarchy. A crisis was probably unavoidable; a revolution that killed the king was not.",
         markScheme: [
           { point: "Supports Interpretation 1 with evidence of indecision/poor choices (Calonne, voting, Necker, troops)", keywords: ["indecisive", "weak", "dithered", "changed his mind", "calonne", "necker", "troops", "voting"] },
           { point: "Uses Varennes (or veto) as evidence of poor judgement", keywords: ["varennes", "flight", "fled", "veto", "trust"] },
@@ -470,7 +470,7 @@ export const morePapers: Paper[] = [
         strategy: "Consider the counter-argument",
         solutions: [
           { label: "Argument: Interpretation 1 — the king's choices mattered", steps: ["Louis lurched between reform and resistance, losing everyone's trust.", "His use of troops in July 1789 provoked the Bastille.", "Varennes showed he could not be trusted as a constitutional king."] },
-          { label: "Argument: Interpretation 2 — the problems were structural", steps: ["The debt came largely from wars before and beyond his control.", "The privileged blocked every reform, so no minister could fix the finances.", "Hunger and new ideas would have pushed any king into crisis."] },
+          { label: "Argument: Interpretation 2 — the problems were structural", steps: ["Debt from earlier wars, a tax system the privileged defended and new ideas all existed before he became king in 1774.", "The privileged blocked every reform, so no minister could fix the finances.", "Hunger and new ideas would have pushed any king into crisis."] },
         ],
       },
     ],

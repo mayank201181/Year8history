@@ -424,10 +424,13 @@ function checkText(spec: Extract<AnswerSpec, { type: "text" }>, input: string): 
   if (spec.accept.some((a) => looseText(a) === l)) return { status: "correct" };
   // Forgive a small spelling slip in longer words (names like Hardrada, Robespierre),
   // but never for short answers or anything containing digits (dates must be exact).
+  // Regnal numbers (Henry VII vs Henry VIII, William I vs William II) are facts, not spelling.
+  const roman = (s: string) => (s.toLowerCase().match(/\b[ivxl]+\b/g) ?? []).join(" ");
   if (!/\d/.test(l)) {
     for (const a of spec.accept) {
       const k = looseText(a);
       if (k.length < 5 || /\d/.test(k)) continue;
+      if (roman(input) !== roman(a)) continue;
       const allowed = k.length >= 9 ? 2 : 1;
       if (editDistance(l, k) <= allowed) {
         return { status: "correct", feedback: `Accepted — watch the spelling: ${spec.display ?? a}.` };
