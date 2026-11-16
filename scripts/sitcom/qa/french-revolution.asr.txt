@@ -1,0 +1,10 @@
+(0.55, 'uncle', "Vikram, your face is on the residents' committee noticeboard, lah.", ' Vic Ram, your face is on the Residence Committee Notice Board Law.')
+(0.67, 'tara', 'Like Louis sacking Necker. Bold.', ' Like Louis Sackingnecker, bold.')
+(0.67, 'tara', 'Next week, Ticktock.', ' Next week, TikTok.')
+(0.67, 'ticktock', 'Question three. Why did Olympe de Gouges rewrite the Rights of Man?', ' Question 3. Why did Olampe de Guj write the rights of man?')
+(0.75, 'teacher', 'A judgement, with reasons.', ' A judgment with reasons.')
+(0.78, 'dad', 'One teh tarik, Uncle. Quickly. I am in disguise.', ' 1-Tay-Tahrick uncle quickly. I am in disguise.')
+(0.84, 'guide', "Saint-Domingue, today Haiti: France's richest colony, worked by around half a million enslaved Africans.", " Send Domingue to Day Haiti, France's richest colony, worked by around half a million enslaved  Africans.")
+(0.84, 'tara', 'So in 1791 Olympe de Gouges wrote the Rights of Woman. Woman is born free and lives equal to man in her rights.', ' So in 1791, Olamp Duggus wrote the rights of women.  Woman is born free and lives equal to man in her rights.')
+(0.84, 'ticktock', 'Four. Rights had limits: women, poor men, enslaved people.', ' Four rights had limits, women poor men and slaved people.')
+checked 89 flagged 9
