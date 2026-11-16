@@ -1,5 +1,5 @@
 "use client";
-// "Ask Professor Pi" — AoPS-style AI tutor panel. Gives hints, not answers.
+// "Ask Professor Quill" — Socratic AI history tutor panel. Gives hints and questions, not answers.
 import { useEffect, useRef, useState } from "react";
 import { useStore } from "@/lib/store";
 import { Rich } from "./Rich";
@@ -11,9 +11,9 @@ interface Turn {
 
 const PRESETS: { label: string; prompt: string }[] = [
   { label: "Give me a hint", prompt: "Can you give me a hint for the next step? Don't tell me the answer." },
-  { label: "Explain simply", prompt: "Can you explain this idea simply, with an example?" },
-  { label: "Why does it work?", prompt: "Why does this method work?" },
-  { label: "Another example", prompt: "Can you give me a similar example to try myself?" },
+  { label: "Explain simply", prompt: "Can you explain this simply, with an example from the period?" },
+  { label: "Help me plan a PEEL paragraph", prompt: "Can you help me plan a PEEL paragraph for this? Ask me questions — don't write it for me." },
+  { label: "Check my judgement", prompt: "How could I make my judgement stronger and better supported?" },
 ];
 
 export function AskAI({ context, compact }: { context: string; compact?: boolean }) {
@@ -40,10 +40,10 @@ export function AskAI({ context, compact }: { context: string; compact?: boolean
     try {
       const r = await fetch("/api/ai", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ messages: next, context }) });
       const j = await r.json().catch(() => ({}));
-      if (!r.ok || typeof j.reply !== "string") setError(typeof j.error === "string" ? j.error : "Professor Pi couldn't answer just now.");
+      if (!r.ok || typeof j.reply !== "string") setError(typeof j.error === "string" ? j.error : "Professor Quill couldn't answer just now.");
       else setTurns([...next, { role: "assistant", content: j.reply }]);
     } catch {
-      setError("Couldn't reach Professor Pi. Check your internet connection.");
+      setError("Couldn't reach Professor Quill. Check your internet connection.");
     } finally {
       setBusy(false);
     }
@@ -52,31 +52,31 @@ export function AskAI({ context, compact }: { context: string; compact?: boolean
   if (!open) {
     return (
       <button type="button" className={compact ? "btn btn-ghost btn-sm" : "btn btn-secondary"} onClick={() => setOpen(true)}>
-        🦉 Ask Professor Pi
+        🪶 Ask Professor Quill
       </button>
     );
   }
 
   return (
-    <div className="w-full basis-full rounded-2xl border border-line bg-surface p-3 sm:p-4" role="region" aria-label="Professor Pi tutor">
+    <div className="w-full basis-full rounded-2xl border border-line bg-surface p-3 sm:p-4" role="region" aria-label="Professor Quill tutor">
       <div className="mb-2 flex items-center justify-between">
-        <div className="font-extrabold">🦉 Professor Pi</div>
+        <div className="font-extrabold">🪶 Professor Quill</div>
         <button type="button" className="btn btn-ghost btn-sm" onClick={() => setOpen(false)} aria-label="Close tutor">
           ✕
         </button>
       </div>
       {mode === "guest" ? (
-        <p className="text-sm text-ink-2">Professor Pi is available with a family account (so a grown-up can keep an eye on usage). Sign in from the menu to use it.</p>
+        <p className="text-sm text-ink-2">Professor Quill is available with a family account (so a grown-up can keep an eye on usage). Sign in from the menu to use it.</p>
       ) : (
         <>
-          <p className="text-xs text-ink-2">I give hints and explanations — you do the thinking! 🧠</p>
+          <p className="text-xs text-ink-2">I ask questions and give hints — you do the thinking and the writing.</p>
           <div className="mt-2 max-h-80 space-y-2 overflow-y-auto">
             {turns.map((t, i) => (
               <div key={i} className={t.role === "user" ? "ml-8 rounded-xl bg-brand-soft px-3 py-2 text-sm" : "mr-4 rounded-xl bg-surface-2 px-3 py-2 text-sm"}>
                 {t.role === "assistant" ? <Rich text={t.content} /> : t.content}
               </div>
             ))}
-            {busy ? <div className="mr-4 rounded-xl bg-surface-2 px-3 py-2 text-sm text-ink-2">Professor Pi is thinking…</div> : null}
+            {busy ? <div className="mr-4 rounded-xl bg-surface-2 px-3 py-2 text-sm text-ink-2">Professor Quill is thinking…</div> : null}
             {error ? <div className="rounded-xl bg-bad-soft px-3 py-2 text-sm">{error}</div> : null}
             <div ref={endRef} />
           </div>

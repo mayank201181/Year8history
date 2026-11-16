@@ -1,5 +1,5 @@
 "use client";
-// The Revise tab: flashcards, a "Can you…?" checklist, formulas, myth vs fact,
+// The Revise tab: flashcards, a "Can you…?" checklist, key dates & facts, myth vs fact,
 // exam mistakes, memory tricks, real-world links and videos.
 import { useCallback, useId, useMemo, useRef, useState, useSyncExternalStore, type KeyboardEvent, type MouseEvent, type ReactNode } from "react";
 import type { Flashcard, LearnSmart as LearnSmartData, Topic } from "@/lib/types";
@@ -345,11 +345,11 @@ export function LearnSmart({ topic }: { topic: Topic }) {
   const nav = [
     { id: "rv-cards", label: "Flashcards", show: flashcards.length > 0 },
     { id: "rv-canyou", label: "Can you…?", show: mustKnow.length > 0 },
-    { id: "rv-formulas", label: "Formulas", show: formulas.length > 0 },
+    { id: "rv-formulas", label: "Key dates", show: formulas.length > 0 },
     { id: "rv-myths", label: "Myth vs fact", show: myths.length > 0 },
     { id: "rv-mistakes", label: "Exam mistakes", show: mistakes.length > 0 },
     { id: "rv-tricks", label: "Memory tricks", show: mnemonics.length > 0 },
-    { id: "rv-real", label: "Real world", show: realWorld.length > 0 },
+    { id: "rv-real", label: "Why it matters", show: realWorld.length > 0 },
     { id: "rv-videos", label: "Videos", show: videos.length > 0 },
   ].filter((n) => n.show);
 
@@ -391,14 +391,14 @@ export function LearnSmart({ topic }: { topic: Topic }) {
       ) : null}
 
       {formulas.length ? (
-        <Block id="rv-formulas" icon="📐" title="Formulas & key facts">
+        <Block id="rv-formulas" icon="🗓️" title="Key dates & facts" intro="The dates and facts to know cold. They all appear on the Timeline page too.">
           <ul className="grid gap-3 sm:grid-cols-2">
             {formulas.map((f, i) => (
               <li key={i} className="card p-4">
                 <div className="text-sm font-bold text-ink-2">
                   <RichInline text={f.name} />
                 </div>
-                <Rich text={f.formula} className="mt-1 text-lg font-semibold" />
+                <Rich text={f.formula} className="mt-1 font-semibold" />
                 {f.note ? (
                   <p className="mt-1 text-sm text-ink-2">
                     <RichInline text={f.note} />
@@ -471,7 +471,7 @@ export function LearnSmart({ topic }: { topic: Topic }) {
       ) : null}
 
       {realWorld.length ? (
-        <Block id="rv-real" icon="🌍" title="Maths in the real world">
+        <Block id="rv-real" icon="🌍" title="Why it matters today">
           <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {realWorld.map((r, i) => (
               <li key={i} className="card p-4">

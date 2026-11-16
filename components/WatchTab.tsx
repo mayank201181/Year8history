@@ -1,63 +1,14 @@
 "use client";
-import { useEffect, useRef, useState, useSyncExternalStore } from "react";
-import { useSearchParams } from "next/navigation";
+// The Watch tab: this topic's sitcom episode (MP4), or a "coming soon" card
+// while it is being made, plus the topic's hand-picked explainer videos.
+import { useEffect } from "react";
 import Link from "next/link";
 import type { Topic } from "@/lib/types";
 import { useStore } from "@/lib/store";
-import { sitcomEpisodeFor } from "@/lib/sitcom";
+import { SHOW_NAME, episodeFor } from "@/lib/show";
 import { EpisodePlayer, formatDuration, useWatchedEpisodes } from "./EpisodePlayer";
 
-export type WatchMode = "episode" | "masterclass" | "sitcom";
-
-function subscribeTheme(onChange: () => void): () => void {
-  if (typeof document === "undefined") return () => {};
-  const obs = new MutationObserver(onChange);
-  obs.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
-  const mq = window.matchMedia("(prefers-color-scheme: dark)");
-  mq.addEventListener("change", onChange);
-  return () => {
-    obs.disconnect();
-    mq.removeEventListener("change", onChange);
-  };
-}
-
-function getThemeSnapshot(): "light" | "dark" {
-  if (typeof document === "undefined") return "light";
-  const attr = document.documentElement.getAttribute("data-theme");
-  if (attr === "dark" || attr === "light") return attr;
-  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-}
-
-function getServerThemeSnapshot(): "light" | "dark" {
-  return "light";
-}
-
-function subscribeWatchProgress(onChange: () => void): () => void {
-  if (typeof window === "undefined") return () => {};
-  const onMsg = (ev: MessageEvent) => {
-    const d = ev.data as { type?: string } | null;
-    if (d && d.type === "y8m2-watch-progress") onChange();
-  };
-  window.addEventListener("message", onMsg);
-  window.addEventListener("storage", onChange);
-  return () => {
-    window.removeEventListener("message", onMsg);
-    window.removeEventListener("storage", onChange);
-  };
-}
-
-function getWatchProgressSnapshot(): string {
-  if (typeof window === "undefined") return "";
-  try {
-    return localStorage.getItem("y8m2:watch-v1") ?? "";
-  } catch {
-    return "";
-  }
-}
-
-function getServerWatchProgressSnapshot(): string {
-  return "";
-}
+const isWebUrl = (u: string) => /^https?:\/\//i.test(u);
 
 export function WatchTab({
   topic,
@@ -68,157 +19,99 @@ export function WatchTab({
   onPractise: () => void;
   onChallenge: () => void;
 }) {
-  const searchParams = useSearchParams();
-  const episode = sitcomEpisodeFor(topic.id);
-  const rawMode = searchParams.get("mode");
-  const urlMode: WatchMode =
-    rawMode === "sitcom" || rawMode === "masterclass" ? rawMode : episode ? "episode" : "masterclass";
-  const [override, setOverride] = useState<{ forUrl: WatchMode; picked: WatchMode } | null>(null);
-  const mode: WatchMode = override && override.forUrl === urlMode ? override.picked : urlMode;
-
-  const theme = useSyncExternalStore(subscribeTheme, getThemeSnapshot, getServerThemeSnapshot);
-  const rawProgress = useSyncExternalStore(subscribeWatchProgress, getWatchProgressSnapshot, getServerWatchProgressSnapshot);
-
-  const frameRef = useRef<HTMLIFrameElement>(null);
-  const watchedEpisodes = useWatchedEpisodes();
-  const episodeDone = !!watchedEpisodes[topic.id];
+  const episode = episodeFor(topic.id);
+  const watched = useWatchedEpisodes();
+  const episodeDone = !!watched[topic.id];
   const { setBest } = useStore();
-
-  let mcDone = false;
-  let sitcomDone = false;
-  if (rawProgress) {
-    try {
-      const parsed = JSON.parse(rawProgress) as {
-        completedMc?: Record<string, boolean>;
-        completedSitcom?: Record<string, boolean>;
-      };
-      mcDone = !!parsed.completedMc?.[topic.id];
-      sitcomDone = !!parsed.completedSitcom?.[topic.id];
-    } catch {
-      // Ignore malformed storage JSON
-    }
-  }
+  const videos = (topic.learn?.videos ?? []).filter((v) => isWebUrl(v.url));
 
   useEffect(() => {
-    frameRef.current?.contentWindow?.postMessage({ type: "y8m2-theme", theme }, "*");
-  }, [theme]);
-
-  useEffect(() => {
-    const count = (mcDone ? 1 : 0) + (sitcomDone ? 1 : 0) + (episodeDone ? 1 : 0);
-    if (count > 0) setBest(`watch:${topic.id}`, count);
-  }, [mcDone, sitcomDone, episodeDone, topic.id, setBest]);
-
-  const src = `/coaching/index.html?topic=${encodeURIComponent(topic.id)}&mode=${mode}&embed=1&theme=${theme}`;
-  const fullUrl = `/coaching/index.html?topic=${encodeURIComponent(topic.id)}&mode=${mode}`;
+    if (episodeDone) setBest(`watch:${topic.id}`, 1);
+  }, [episodeDone, topic.id, setBest]);
 
   return (
-    <div className="space-y-4">
-      <div className={`grid gap-3 ${episode ? "sm:grid-cols-3" : "sm:grid-cols-2"}`}>
-        {episode ? (
-          <button
-            type="button"
-            onClick={() => setOverride({ forUrl: urlMode, picked: "episode" })}
-            className={`card flex items-start gap-3 p-4 text-left transition-colors ${
-              mode === "episode" ? "border-2 border-brand bg-brand-soft/40" : "hover:bg-surface-2"
-            }`}
-          >
-            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#7c3aed] text-xl text-white" aria-hidden>
-              📺
-            </span>
-            <div className="min-w-0 flex-1">
-              <div className="flex items-center justify-between gap-2">
-                <span className="font-extrabold">Sitcom Episode</span>
-                {episodeDone ? <span className="chip border-0 bg-good-soft text-good">Done ✓</span> : null}
-              </div>
-              <p className="mt-0.5 text-xs text-ink-2">
-                Totally Raotional Ep {episode.num}: &ldquo;{episode.title}&rdquo; · {formatDuration(episode.durationSec)} · perfect for dinner.
-              </p>
-            </div>
-          </button>
-        ) : null}
-        <button
-          type="button"
-          onClick={() => setOverride({ forUrl: urlMode, picked: "masterclass" })}
-          className={`card flex items-start gap-3 p-4 text-left transition-colors ${
-            mode === "masterclass" ? "border-2 border-brand bg-brand-soft/40" : "hover:bg-surface-2"
-          }`}
-        >
-          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand text-xl text-white" aria-hidden>
-            🎓
-          </span>
-          <div className="min-w-0 flex-1">
-            <div className="flex items-center justify-between gap-2">
-              <span className="font-extrabold">Studio Masterclass Whiteboard</span>
-              {mcDone ? <span className="chip border-0 bg-good-soft text-good">Done ✓</span> : null}
-            </div>
-            <p className="mt-0.5 text-xs text-ink-2">
-              Professor Pi&apos;s interactive visual proof, live parameter slider &amp; checkpoint quiz.
-            </p>
-          </div>
-        </button>
-
-        <button
-          type="button"
-          onClick={() => setOverride({ forUrl: urlMode, picked: "sitcom" })}
-          className={`card flex items-start gap-3 p-4 text-left transition-colors ${
-            mode === "sitcom" ? "border-2 border-brand bg-brand-soft/40" : "hover:bg-surface-2"
-          }`}
-        >
-          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-accent text-xl text-[#171a2f]" aria-hidden>
-            👾
-          </span>
-          <div className="min-w-0 flex-1">
-            <div className="flex items-center justify-between gap-2">
-              <span className="font-extrabold">Beast-Mode Cartoon Sitcom</span>
-              {sitcomDone ? <span className="chip border-0 bg-good-soft text-good">Done ✓</span> : null}
-            </div>
-            <p className="mt-0.5 text-xs text-ink-2">
-              Zara, Groggle &amp; Pippa comic episode with Confessional Cam &amp; Trap-or-Truth roast game!
-            </p>
-          </div>
-        </button>
-      </div>
-
-      {mode === "episode" && episode ? (
-        <div className="card overflow-hidden p-1 sm:p-2">
+    <div className="space-y-5">
+      {episode ? (
+        <section className="card overflow-hidden p-1 sm:p-2" aria-labelledby="ep-h">
           <EpisodePlayer episode={episode} />
-          {episode.logline ? <p className="px-2 pt-2 text-sm text-ink-2">{episode.logline}</p> : null}
-        </div>
+          <div className="flex flex-wrap items-start justify-between gap-2 px-2 pt-3 pb-1">
+            <div className="min-w-0">
+              <p className="text-xs font-bold uppercase tracking-wide text-brand">
+                {SHOW_NAME} · Episode {episode.num} · {formatDuration(episode.durationSec)}
+              </p>
+              <h2 id="ep-h" className="text-lg font-extrabold">
+                &ldquo;{episode.title}&rdquo;
+              </h2>
+              {episode.logline ? <p className="text-sm text-ink-2">{episode.logline}</p> : null}
+            </div>
+            {episodeDone ? <span className="chip shrink-0 border-0 bg-good-soft text-good">Watched ✓</span> : null}
+          </div>
+        </section>
       ) : (
-      <div className="card overflow-hidden p-1 sm:p-2">
-        <iframe
-          ref={frameRef}
-          key={`${topic.id}-${mode}`}
-          src={src}
-          title={`${topic.title} — ${mode === "sitcom" ? "Beast-Mode Cartoon Sitcom" : "Studio Masterclass Whiteboard"}`}
-          className="w-full rounded-xl border-0 bg-bg"
-          style={{ height: mode === "sitcom" ? "880px" : "820px" }}
-          allow="autoplay"
-        />
-      </div>
+        <section className="card flex flex-col items-start gap-3 p-5 sm:flex-row sm:items-center sm:p-6" aria-labelledby="soon-h">
+          <span aria-hidden className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-brand-soft text-3xl">
+            📺
+          </span>
+          <div className="min-w-0 flex-1">
+            <h2 id="soon-h" className="text-lg font-extrabold">
+              Episode coming soon
+            </h2>
+            <p className="mt-0.5 text-sm text-ink-2">
+              The <em>{SHOW_NAME}</em> episode for {topic.title} is still being made.
+              {videos.length ? " In the meantime, the videos below are a good way in." : " In the meantime, the lesson and flashcards will get you started."}
+            </p>
+          </div>
+          <Link href="/episodes" className="btn btn-secondary btn-sm shrink-0">
+            See all episodes
+          </Link>
+        </section>
       )}
+
+      {videos.length ? (
+        <section aria-labelledby="next-h">
+          <h2 id="next-h" className="section-title">
+            Watch next
+          </h2>
+          <p className="mt-0.5 text-sm text-ink-2">Hand-picked explainers. They open on YouTube in a new tab.</p>
+          <ul className="mt-3 grid gap-3 sm:grid-cols-2">
+            {videos.map((v, i) => (
+              <li key={i}>
+                <a href={v.url} target="_blank" rel="noopener noreferrer" className="card flex min-h-16 items-center gap-3 p-4 hover:bg-surface-2">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-bad-soft text-bad" aria-hidden>
+                    ▶
+                  </span>
+                  <span className="min-w-0 flex-1">
+                    <span className="block font-bold leading-snug">{v.title}</span>
+                    <span className="block text-sm text-ink-2">{v.channel}</span>
+                  </span>
+                  <span aria-hidden className="text-ink-2">
+                    ↗
+                  </span>
+                  <span className="sr-only">(opens in a new tab)</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
 
       <div className="flex flex-wrap items-center justify-between gap-2">
         <div className="flex flex-wrap items-center gap-2">
-          {mode === "episode" && episode ? (
+          {episode ? (
             <Link href={`/episodes?ep=${episode.num}`} className="btn btn-secondary btn-sm">
-              📺 All sitcom episodes
+              📺 All episodes
             </Link>
-          ) : (
-            <a href={fullUrl} target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-sm">
-              ⛶ Full screen player
-            </a>
-          )}
+          ) : null}
           <Link href="/watch" className="btn btn-ghost btn-sm">
             🍿 Watch hub
           </Link>
         </div>
         <div className="flex flex-wrap items-center gap-2">
           <button type="button" className="btn btn-secondary btn-sm" onClick={onPractise}>
-            ✏️ Practise skills
+            ✏️ Practise
           </button>
           <button type="button" className="btn btn-primary btn-sm" onClick={onChallenge}>
-            🧗 AoPS Challenge →
+            🧗 Enquiry Challenge →
           </button>
         </div>
       </div>

@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
-import { TOPICS } from "@/lib/server/content";
+import { topicSummaries } from "@/lib/server/content";
 import { WatchHub } from "@/components/WatchHub";
 
 export const metadata: Metadata = {
-  title: "Watch — Studio Masterclasses & Beast Sitcoms",
-  description: "20 interactive Studio Masterclass whiteboards and 20 Beast-Mode cartoon sitcom episodes for Year 8 Maths.",
+  title: "Watch",
+  description: "Animated sitcom episodes and hand-picked explainer videos for every Year 8 History topic.",
 };
 
 export default function WatchPage() {
-  const items = TOPICS.map((t, idx) => ({
+  const items = topicSummaries().filter((t) => t.ready).map((t, idx) => ({
     id: t.id,
     num: idx + 1,
     title: t.title,

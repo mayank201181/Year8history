@@ -1,7 +1,7 @@
 "use client";
 // One topic: header with mastery, then six tabs -
-// Learn (lesson) · Watch (studio whiteboard & beast sitcom) · Practise ·
-// Challenge · Explore (interactive widgets) · Revise (flashcards & revision lists).
+// Learn (lesson) · Watch (sitcom episode & videos) · Practise ·
+// Challenge (enquiry questions) · Explore (interactive widgets) · Revise (flashcards & revision lists).
 // The tab (and an open practice runner) live in the URL: ?tab=...&open=...
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
@@ -11,6 +11,7 @@ import type { AttemptState } from "@/lib/profileTypes";
 import type { Drill } from "@/lib/drills/types";
 import { useStore } from "@/lib/store";
 import { metaById } from "@/lib/topics/meta";
+import { strandEnquiry, strandLabel, strandStyle } from "@/lib/strands";
 import { drillsForTopic } from "@/lib/drills";
 import { isRusty, skillLevel } from "@/lib/learning";
 import { topicMastery, type TopicMastery, type TopicShape } from "@/lib/mastery";
@@ -44,13 +45,6 @@ const parseTab = (v: string | null): TopicTab => (TABS.some((t) => t.id === v) ?
 /** Sticky site header height (h-14 + 1px border). */
 const HEADER_OFFSET = 57;
 
-const STRAND_STYLE: Record<string, { text: string; soft: string; border: string; bar: string }> = {
-  Number: { text: "text-s-number", soft: "bg-s-number/10", border: "border-s-number/30", bar: "bg-s-number" },
-  "Ratio & Proportion": { text: "text-s-ratio", soft: "bg-s-ratio/10", border: "border-s-ratio/30", bar: "bg-s-ratio" },
-  Algebra: { text: "text-s-algebra", soft: "bg-s-algebra/10", border: "border-s-algebra/30", bar: "bg-s-algebra" },
-  "Geometry & Measure": { text: "text-s-geometry", soft: "bg-s-geometry/10", border: "border-s-geometry/30", bar: "bg-s-geometry" },
-  "Statistics & Probability": { text: "text-s-stats", soft: "bg-s-stats/10", border: "border-s-stats/30", bar: "bg-s-stats" },
-};
 
 /** In-app URL for a topic tab (optionally with an open practice runner or a hash). */
 function topicHref(id: string, tab: TopicTab, open?: string | null, hash?: string): string {
@@ -209,7 +203,7 @@ function PractiseTab({
             <h2 id="pr-drills" className="section-title">
               🎯 Skill drills
             </h2>
-            <p className="text-sm text-ink-2">Endless fresh questions that adapt as you go. Get each skill to Secure, then Mastered.</p>
+            <p className="text-sm text-ink-2">Quick questions on dates, people, key terms and causes that adapt as you go. Get each skill to Secure, then Mastered.</p>
           </div>
           {drills.length > 1 ? (
             <button type="button" className="btn btn-secondary shrink-0" onClick={() => onOpen("mix")}>
@@ -324,9 +318,9 @@ function ChallengeTab({ topic }: { topic: Topic }) {
           </span>
           <div className="min-w-0 flex-1">
             <h2 id="ch-intro" className="section-title">
-              Challenge problems
+              Enquiry Challenge
             </h2>
-            <p className="text-ink-2">AoPS-style problems that need an idea, not just a method — use the hints, they&apos;re part of the training.</p>
+            <p className="text-ink-2">Big questions that need an argument, not just a fact: plan, weigh the evidence and reach a judgement. Use the hints — they&apos;re part of the training.</p>
           </div>
         </div>
         {total ? (
@@ -353,9 +347,9 @@ function ChallengeTab({ topic }: { topic: Topic }) {
         ) : null}
       </section>
       {total ? (
-        <PaperRunner key={`challenge:${topic.id}`} attemptKey={`challenge:${topic.id}`} title="Challenge problems" questions={topic.challenge} topicId={topic.id} />
+        <PaperRunner key={`challenge:${topic.id}`} attemptKey={`challenge:${topic.id}`} title="Enquiry Challenge" questions={topic.challenge} topicId={topic.id} />
       ) : (
-        <div className="card p-6 text-center text-ink-2">Challenge problems for this topic are on their way.</div>
+        <div className="card p-6 text-center text-ink-2">Challenge questions for this topic are on their way.</div>
       )}
     </div>
   );
@@ -428,7 +422,8 @@ export function TopicView({
 
   const drills = useMemo(() => drillsForTopic(topic.id), [topic.id]);
   const runner = useMemo(() => resolveRunner(topic, drills, openParam), [topic, drills, openParam]);
-  const strand = STRAND_STYLE[topic.strand] ?? STRAND_STYLE.Number;
+  const strand = strandStyle(topic.strand);
+  const enquiry = strandEnquiry(topic.strand);
 
   const shape = useMemo<TopicShape>(() => {
     const meta = metaById(topic.id);
@@ -539,7 +534,7 @@ export function TopicView({
         </Link>
         <div className={`flex items-start gap-3 sm:gap-4 ${focusMode ? "mt-1" : "mt-2"}`}>
           <div
-            className={`flex shrink-0 items-center justify-center rounded-2xl border ${strand.soft} ${strand.border} ${focusMode ? "h-11 w-11 text-2xl" : "h-14 w-14 text-3xl sm:h-16 sm:w-16 sm:text-4xl"}`}
+            className={`flex shrink-0 items-center justify-center rounded-2xl border ${strand.tint} ${strand.borderSoft} ${focusMode ? "h-11 w-11 text-2xl" : "h-14 w-14 text-3xl sm:h-16 sm:w-16 sm:text-4xl"}`}
             aria-hidden
           >
             {topic.icon}
@@ -547,7 +542,7 @@ export function TopicView({
           <div className="min-w-0 flex-1">
             {!focusMode ? (
               <div className="flex flex-wrap items-center gap-1.5">
-                <span className={`chip ${strand.soft} ${strand.text} ${strand.border}`}>{topic.strand}</span>
+                <span className={`chip ${strand.tint} ${strand.text} ${strand.borderSoft}`}>{strandLabel(topic.strand)}</span>
                 {topic.stretch ? <span className="chip border-0 bg-accent-soft text-warn">Stretch topic</span> : null}
               </div>
             ) : null}
@@ -557,9 +552,15 @@ export function TopicView({
                 <RichInline text={topic.summary} />
               </p>
             ) : null}
+            {!focusMode && enquiry ? (
+              <p className={`mt-2 border-l-4 pl-3 text-sm ${strand.borderL}`}>
+                <span className="font-bold text-ink-2">Enquiry: </span>
+                <span className="italic">{enquiry}</span>
+              </p>
+            ) : null}
           </div>
         </div>
-        {!focusMode ? <MasteryCard m={mastery} challengeTotal={topic.challenge.length} barClass={strand.bar} /> : null}
+        {!focusMode ? <MasteryCard m={mastery} challengeTotal={topic.challenge.length} barClass={strand.bg} /> : null}
       </header>
 
       <div ref={anchorRef} aria-hidden />

@@ -8,6 +8,7 @@ import type { Drill } from "@/lib/drills/types";
 import type { SkillState } from "@/lib/profileTypes";
 import { ALL_DRILLS } from "@/lib/drills";
 import { STRANDS, TOPIC_META, metaById, type TopicMeta } from "@/lib/topics/meta";
+import { strandLabel, strandStyle } from "@/lib/strands";
 import { isRusty, LEVEL_NAMES, skillLevel, type MasteryLevel } from "@/lib/learning";
 import { todayISO } from "@/lib/dates";
 import { useStore } from "@/lib/store";
@@ -27,21 +28,7 @@ interface TopicGroup {
   rows: Row[];
 }
 
-const STRAND_DOT: Record<Strand, string> = {
-  Number: "bg-s-number",
-  "Ratio & Proportion": "bg-s-ratio",
-  Algebra: "bg-s-algebra",
-  "Geometry & Measure": "bg-s-geometry",
-  "Statistics & Probability": "bg-s-stats",
-};
 
-const STRAND_BORDER: Record<Strand, string> = {
-  Number: "border-l-s-number",
-  "Ratio & Proportion": "border-l-s-ratio",
-  Algebra: "border-l-s-algebra",
-  "Geometry & Measure": "border-l-s-geometry",
-  "Statistics & Probability": "border-l-s-stats",
-};
 
 /** Same palette as LevelBadge (soft chip) plus a solid colour for the stacked bar. */
 const LEVEL_CHIP = ["bg-surface-2 text-ink-2", "bg-info-soft text-info", "bg-good-soft text-good", "bg-accent-soft text-warn"];
@@ -154,7 +141,7 @@ function TopicCard({ group, ready }: { group: TopicGroup; ready: boolean }) {
   const mastered = rows.filter((r) => r.level === 3).length;
   return (
     <article className="card overflow-hidden" aria-labelledby={`skills-topic-${meta.id}`}>
-      <header className={`flex items-center gap-3 border-b border-l-4 border-line px-4 py-3 ${STRAND_BORDER[meta.strand]}`}>
+      <header className={`flex items-center gap-3 border-b border-l-4 border-line px-4 py-3 ${strandStyle(meta.strand).borderL}`}>
         <span className="text-2xl" aria-hidden>
           {meta.icon}
         </span>
@@ -349,7 +336,7 @@ export function SkillsMap({ readyTopicIds }: { readyTopicIds?: string[] }) {
                   <strong className="text-ink">◔ Practising</strong> — you&apos;ve started; keep going.
                 </li>
                 <li>
-                  <strong className="text-ink">◑ Secure</strong> — 8 of your last 10 right, including level 2 questions.
+                  <strong className="text-ink">◑ Secure</strong> — 8 of your last 10 right, including some harder (level 2) questions.
                 </li>
                 <li>
                   <strong className="text-ink">★ Mastered</strong> — secure, and right again in your Daily 5 on two days at least 3 days apart.
@@ -387,8 +374,8 @@ export function SkillsMap({ readyTopicIds }: { readyTopicIds?: string[] }) {
             strands.map(({ strand, topics }) => (
               <section key={strand} className="space-y-3" aria-labelledby={strandId(strand)}>
                 <h2 id={strandId(strand)} className="section-title flex items-center gap-2">
-                  <span className={`h-3 w-3 rounded-full ${STRAND_DOT[strand]}`} aria-hidden />
-                  {strand}
+                  <span className={`h-3 w-3 rounded-full ${strandStyle(strand).bg}`} aria-hidden />
+                  {strandLabel(strand)}
                 </h2>
                 {topics.map((g) => (
                   <TopicCard key={g.meta.id} group={g} ready={!ready || ready.has(g.meta.id)} />

@@ -5,8 +5,8 @@ import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import type { TopicSummary } from "@/lib/server/content";
-import { STRANDS } from "@/lib/topics/meta";
-import { TopicCard, STRAND_STYLES, strandStyle } from "./TopicCard";
+import { STRANDS, STRAND_STYLES, STRAND_TERM, strandEnquiry, strandStyle } from "@/lib/strands";
+import { TopicCard } from "./TopicCard";
 
 const ALL = "all";
 
@@ -38,11 +38,11 @@ const LEGEND = [
   { label: "Skills", weight: 45, text: "Practise the skill drills until they're Secure, then get them right in mixed practice to reach Mastered." },
   { label: "Questions", weight: 25, text: "Solve quiz and practice-paper questions — this part is full at 60 solved." },
   { label: "Lessons", weight: 15, text: "Mark each lesson section as understood." },
-  { label: "Challenge", weight: 15, text: "Crack challenge problems — this part is full at 5 solved." },
+  { label: "Challenge", weight: 15, text: "Tackle the challenge questions — this part is full at 5 solved." },
 ] as const;
 
 export function TopicsBrowser({ summaries }: { summaries: TopicSummary[] }) {
-  // The strand filter lives in the URL (/topics?strand=algebra) so it can be linked and survives reloads.
+  // The strand filter lives in the URL (/topics?strand=dictatorship) so it can be linked and survives reloads.
   const params = useSearchParams();
   const urlSlug = params?.get("strand") ?? "";
   const urlStrand = STRANDS.find((s) => STRAND_STYLES[s]?.slug === urlSlug) ?? ALL;
@@ -125,7 +125,7 @@ export function TopicsBrowser({ summaries }: { summaries: TopicSummary[] }) {
       <header>
         <h1 className="text-2xl font-black tracking-tight sm:text-3xl">All topics</h1>
         <p className="mt-1 text-ink-2">
-          {summaries.length} topics across {strandCount} strands{comingSoon > 0 ? ` (${comingSoon} coming soon)` : ""}. Open one for its lessons, practice questions, skill drills and challenge problems.
+          {summaries.length} topics across {strandCount} strands{comingSoon > 0 ? ` (${comingSoon} coming soon)` : ""}. Open one for its lessons, practice questions, skill drills and challenge questions.
         </p>
       </header>
 
@@ -146,7 +146,7 @@ export function TopicsBrowser({ summaries }: { summaries: TopicSummary[] }) {
             autoComplete="off"
             spellCheck={false}
             className="input pl-10 pr-12"
-            placeholder="Search, e.g. “percentages” or “bearings”"
+            placeholder="Search, e.g. “Magna Carta” or “propaganda”"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={(e) => {
@@ -162,7 +162,7 @@ export function TopicsBrowser({ summaries }: { summaries: TopicSummary[] }) {
           </span>
         </div>
 
-        <div role="group" aria-label="Filter by strand" className="nav-scroll -mx-4 flex gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0">
+        <div role="group" aria-label="Filter by strand" className="nav-scroll relative -mx-4 flex gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0">
           {chips.map((s) => {
             const on = strand === s;
             const st = s === ALL ? null : strandStyle(s);
@@ -197,26 +197,43 @@ export function TopicsBrowser({ summaries }: { summaries: TopicSummary[] }) {
 
       {/* ------------------------------------------------ grid */}
       {results.length > 0 ? (
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {results.map(({ summary, sections }) => (
-            <TopicCard key={summary.id} summary={summary} headingLevel={2}>
-              {summary.ready && sections.length > 0 ? (
-                <div className="border-t border-line pt-2">
-                  <p className="text-xs font-bold text-ink-2">Matching lessons</p>
-                  <ul className="mt-1 space-y-0.5">
-                    {sections.map((x) => (
-                      <li key={x.id}>
-                        <Link href={`/topic/${summary.id}?tab=learn#sec-${x.id}`} className="inline-flex min-h-10 items-center text-sm font-semibold text-brand hover:underline">
-                          {x.heading}
-                          {x.stretch ? <span className="ml-1.5 text-xs font-bold text-ink-2">(stretch)</span> : null}
-                        </Link>
-                      </li>
+        <div className="space-y-8">
+          {STRANDS.map((st) => {
+            const group = results.filter((r) => r.summary.strand === st);
+            if (!group.length) return null;
+            const style = strandStyle(st);
+            return (
+              <section key={st} aria-labelledby={`grp-${style.slug}`}>
+                <h2 id={`grp-${style.slug}`} className="flex flex-wrap items-center gap-x-2 text-lg font-extrabold">
+                  <span aria-hidden className={`h-5 w-1.5 rounded-full ${style.bg}`} />
+                  <span className="text-xs font-bold uppercase tracking-wide text-ink-2">{STRAND_TERM[st]}</span>
+                  <span className={style.text}>{st}</span>
+                </h2>
+                <p className="mt-0.5 pl-3.5 text-sm italic text-ink-2">{strandEnquiry(st)}</p>
+                <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                  {group.map(({ summary, sections }) => (
+                      <TopicCard key={summary.id} summary={summary} headingLevel={3} showStrand={false}>
+                        {summary.ready && sections.length > 0 ? (
+                          <div className="border-t border-line pt-2">
+                            <p className="text-xs font-bold text-ink-2">Matching lessons</p>
+                            <ul className="mt-1 space-y-0.5">
+                              {sections.map((x) => (
+                                <li key={x.id}>
+                                  <Link href={`/topic/${summary.id}?tab=learn#sec-${x.id}`} className="inline-flex min-h-10 items-center text-sm font-semibold text-brand hover:underline">
+                                    {x.heading}
+                                    {x.stretch ? <span className="ml-1.5 text-xs font-bold text-ink-2">(stretch)</span> : null}
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        ) : null}
+                      </TopicCard>
                     ))}
-                  </ul>
                 </div>
-              ) : null}
-            </TopicCard>
-          ))}
+              </section>
+            );
+          })}
         </div>
       ) : (
         <div className="card flex flex-col items-center gap-2 p-8 text-center">

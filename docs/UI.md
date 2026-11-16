@@ -1,4 +1,4 @@
-# Year 8 Maths Lab — UI architecture & page specs (for page-building agents)
+# Year 8 History Lab — UI architecture & page specs (for page-building agents)
 
 Next.js **16.3** App Router, React **19**, TypeScript strict, Tailwind v4. Read
 `node_modules/next/dist/docs/` for anything framework-specific (params are a Promise:
@@ -18,12 +18,14 @@ semantic headings, labelled controls, `aria-live` for feedback, keyboard friendl
 Tokens via Tailwind utilities: `bg-bg bg-surface bg-surface-2 text-ink text-ink-2 border-line
 bg-brand text-brand bg-brand-soft bg-brand-2 text-good bg-good-soft text-bad bg-bad-soft
 text-warn bg-warn-soft text-info bg-info-soft text-accent bg-accent-soft`, strand colours
-`text-s-number text-s-ratio text-s-algebra text-s-geometry text-s-stats` (and `bg-…`, `border-…`).
+`text-s-toolkit text-s-kings text-s-dictatorship text-s-democracy` (and `bg-…`, `border-…`) —
+use `strandStyle(strand)` / `strandLabel` / `strandEnquiry` from `lib/strands.ts` rather than
+spelling classes out.
 Component classes: `card`, `btn btn-primary|btn-secondary|btn-ghost|btn-good`, `btn-sm`, `chip`,
 `input`, `kbd`, `section-title`, `muted`. Light + dark mode work automatically through tokens —
 never hard-code colours (except inside content SVGs). Use `no-print` for chrome on printable pages.
-Strand → colour: Number=s-number, Ratio & Proportion=s-ratio, Algebra=s-algebra,
-Geometry & Measure=s-geometry, Statistics & Probability=s-stats.
+Strand → colour: Historian's Toolkit=s-toolkit (teal), Kings & Power=s-kings (purple),
+Dictatorship=s-dictatorship (crimson), Democracy=s-democracy (blue).
 
 ## Data & state
 - **Server content** (`lib/server/content.ts`, server components only — it's large):
@@ -68,6 +70,6 @@ Geometry & Measure=s-geometry, Statistics & Probability=s-stats.
 ## URL map
 `/` home · `/topics` all topics · `/topic/[id]?tab=learn|practise|challenge|explore|revise` ·
 `/daily` Daily 5 · `/review` spaced review · `/skills` mastery map · `/drill/[skillId]` ·
-`/sprint` fluency sprint · `/exam` the Big Exam · `/progress` · `/parent` · `/certificate/[id]` ·
-`/formulas`. Deep link to a lesson section: `/topic/<id>?tab=learn#sec-<sectionId>`.
+`/sprint` Quick-fire round · `/exam` the Big Exam · `/progress` · `/parent` · `/certificate/[id]` ·
+`/timeline` (Timeline & Key Facts; `/formulas` redirects there) · `/watch` · `/episodes`. Deep link to a lesson section: `/topic/<id>?tab=learn#sec-<sectionId>`.
 Call `setLast(href, label, topicId)` when a learner opens a topic tab / paper / drill so Home can offer "Continue".

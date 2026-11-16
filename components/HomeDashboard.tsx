@@ -1,6 +1,6 @@
 "use client";
 // Home: a calm "what next?" dashboard — greeting, today's plan (Daily 5,
-// minutes, weekly goal), continue, review, one suggestion from Professor Pi,
+// minutes, weekly goal), continue, review, one suggestion from Professor Quill,
 // rank, focus topics, quick links and every topic grouped by strand.
 import Link from "next/link";
 import { useMemo, useSyncExternalStore } from "react";
@@ -11,7 +11,8 @@ import { STRANDS, TOPIC_META } from "@/lib/topics/meta";
 import { drillById } from "@/lib/drills";
 import { isRusty, rankFor, skillDue, skillLevel, topicOfQid } from "@/lib/learning";
 import { addDaysISO, dayDiff, localISO, todayISO, weekStartISO } from "@/lib/dates";
-import { ProgressBar, TopicCard, strandStyle } from "./TopicCard";
+import { STRAND_TERM, strandEnquiry, strandStyle } from "@/lib/strands";
+import { ProgressBar, TopicCard } from "./TopicCard";
 
 const TOPIC_IDS = TOPIC_META.map((t) => t.id);
 const DAY_SHORT = ["M", "T", "W", "T", "F", "S", "S"];
@@ -22,10 +23,10 @@ const GUEST_NOTE_KEY = "y8m2:guestNote:dismissed";
 const TIP_PREFIX = "y8m2:tip:";
 
 const QUICK_LINKS = [
-  { href: "/sprint", icon: "⚡", label: "Fluency sprint", blurb: "Quick-fire questions — beat your best" },
+  { href: "/sprint", icon: "⚡", label: "Quick-fire round", blurb: "Dates, people and key terms against the clock" },
   { href: "/skills", icon: "🧩", label: "Skills", blurb: "Your mastery map, skill by skill" },
   { href: "/exam", icon: "📝", label: "Big Exam", blurb: "Mixed papers across every topic" },
-  { href: "/formulas", icon: "📋", label: "Formula sheet", blurb: "Every key fact on one page" },
+  { href: "/timeline", icon: "🗓️", label: "Timeline", blurb: "Every key date and fact, in order" },
 ] as const;
 
 // ---------------------------------------------------------------------------
@@ -172,7 +173,7 @@ function timeAgo(at: number, now: number, today: string): string {
 }
 
 // ---------------------------------------------------------------------------
-// Professor Pi: one suggestion, chosen by priority
+// Professor Quill: one suggestion, chosen by priority
 // ---------------------------------------------------------------------------
 
 interface Tip {
@@ -199,7 +200,7 @@ function chooseTip(data: ProgressDoc, summaries: TopicSummary[], focusIds: strin
       return {
         id: "start",
         title: `Start with ${first.title}`,
-        body: "Lessons start with a puzzle to try before anything is explained. Have a go first — even a wrong guess helps the idea stick when it arrives.",
+        body: "Each lesson opens with a question to think about before anything is explained. Have a go first — even a wrong guess helps the history stick when it arrives.",
         href: `/topic/${first.id}?tab=learn`,
         cta: "Open the first lesson",
       };
@@ -222,7 +223,7 @@ function chooseTip(data: ProgressDoc, summaries: TopicSummary[], focusIds: strin
     return {
       id: "daily",
       title: "Warm up with your Daily 5",
-      body: "Five questions from different topics. Mixing topics feels harder than doing one at a time — that's exactly why it works.",
+      body: "Five questions from different topics and periods. Mixing topics feels harder than doing one at a time — that's exactly why it works.",
       href: "/daily",
       cta: "Start Daily 5",
     };
@@ -240,7 +241,7 @@ function chooseTip(data: ProgressDoc, summaries: TopicSummary[], focusIds: strin
     return {
       id: `weak:${weak.s.id}`,
       title: `Strengthen ${weak.s.title}`,
-      body: `You're getting about ${Math.round(weak.acc * 100)}% right here. Re-read the key points and worked examples, then try again using the hints one at a time — thinking it through beats guessing.`,
+      body: `You're getting about ${Math.round(weak.acc * 100)}% right here. Re-read the key points and model answers, then try again using the hints one at a time — thinking it through beats guessing.`,
       href: `/topic/${weak.s.id}?tab=learn`,
       cta: "Back to the lesson",
     };
@@ -277,18 +278,18 @@ function chooseTip(data: ProgressDoc, summaries: TopicSummary[], focusIds: strin
     return {
       id: `challenge:${pick.id}`,
       title: `Take on a ${pick.title} challenge`,
-      body: "Challenge problems are meant to make you think. Try a few approaches before reaching for a hint — being stuck for a while is where the real learning happens.",
+      body: "Challenge questions ask you to weigh evidence and reach a judgement. Plan your argument before reaching for a hint — wrestling with a big question is where the real learning happens.",
       href: `/topic/${pick.id}?tab=challenge`,
-      cta: "See challenge problems",
+      cta: "See challenge questions",
     };
   }
 
   return {
     id: "sprint",
-    title: "Try a fluency sprint",
-    body: "Quick, accurate number skills free up your brain for the interesting part of every problem.",
+    title: "Try a Quick-fire round",
+    body: "Instant recall of dates, people and key terms frees your mind for the interesting part: explaining, comparing and judging.",
     href: "/sprint",
-    cta: "Start a sprint",
+    cta: "Start Quick-fire",
   };
 }
 
@@ -370,7 +371,7 @@ export function HomeDashboard({ summaries }: { summaries: TopicSummary[] }) {
     return { questions, skills, rusty, total: questions + skills };
   }, [data.srs, data.skills, today]);
 
-  // ---- Professor Pi ----
+  // ---- Professor Quill ----
   const tip = useMemo(() => chooseTip(data, summaries, focusTopics, review.total, dailyDone), [data, summaries, focusTopics, review.total, dailyDone]);
 
   // ---- rank ----
@@ -584,11 +585,11 @@ export function HomeDashboard({ summaries }: { summaries: TopicSummary[] }) {
           <section aria-labelledby="tip-h" className="card flex flex-col border-brand/30 p-4 sm:p-5">
             <div className="flex items-start gap-3">
               <span aria-hidden className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-brand to-brand-2 text-xl font-black text-brand-ink">
-                π
+                🪶
               </span>
               <div className="min-w-0 flex-1">
                 <h2 id="tip-h" className="text-xs font-bold uppercase tracking-wide text-brand">
-                  Professor Pi suggests
+                  Professor Quill suggests
                 </h2>
                 <p className="mt-1 font-extrabold">{tip.title}</p>
                 <p className="mt-1 text-sm text-ink-2">{tip.body}</p>
@@ -697,6 +698,9 @@ export function HomeDashboard({ summaries }: { summaries: TopicSummary[] }) {
             Search all topics <span aria-hidden>&nbsp;→</span>
           </Link>
         </div>
+        <p className="-mt-3 text-sm text-ink-2">
+          This year&apos;s theme is <strong className="text-ink">Dictatorship and Democracy</strong>: how rulers win and keep power — and how ordinary people won a say.
+        </p>
         {STRANDS.map((strand) => {
           const list = summaries.filter((s) => s.strand === strand);
           if (!list.length) return null;
@@ -704,11 +708,13 @@ export function HomeDashboard({ summaries }: { summaries: TopicSummary[] }) {
           const hid = `strand-${st.slug}`;
           return (
             <section key={strand} aria-labelledby={hid}>
-              <h3 id={hid} className="flex items-center gap-2 text-xl font-extrabold">
+              <h3 id={hid} className="flex flex-wrap items-center gap-x-2 text-xl font-extrabold">
                 <span aria-hidden className={`h-6 w-1.5 rounded-full ${st.bg}`} />
+                <span className="text-sm font-bold uppercase tracking-wide text-ink-2">{STRAND_TERM[strand]}</span>
                 <span className={st.text}>{strand}</span>
                 <span className="text-sm font-semibold text-ink-2">· {plural(list.length, "topic")}</span>
               </h3>
+              <p className="mt-1 pl-3.5 text-sm italic text-ink-2">{strandEnquiry(strand)}</p>
               <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
                 {list.map((s) => (
                   <TopicCard key={s.id} summary={s} headingLevel={4} showStrand={false} />

@@ -1,0 +1,462 @@
+import type { Paper } from "../../types.ts";
+
+export const morePapers: Paper[] = [
+  // -------------------------------------------------------------------------
+  // PRACTICE PAPER 3
+  // -------------------------------------------------------------------------
+  {
+    id: "king-john-p3",
+    title: "Practice Paper 3",
+    questions: [
+      {
+        kind: "short",
+        id: "king-john-p3-q01",
+        question: "Name John's nephew, the rival claimant to the throne who disappeared while John's prisoner in 1203. Give his first name.",
+        answer: { type: "text", accept: ["Arthur", "Arthur of Brittany", "Duke Arthur", "Arthur of Britanny", "Arthur Duke of Brittany", "Arthur I of Brittany"], display: "Arthur (of Brittany)" },
+        traps: [
+          { spec: { type: "text", accept: ["Geoffrey", "Geoffrey of Brittany"] }, feedback: "Geoffrey was the nephew's **father** — John's older brother, who died in 1186. What was the son called?" },
+          { spec: { type: "text", accept: ["Henry", "Henry III"] }, feedback: "Henry III was John's **son**, not his nephew." },
+        ],
+        solution: ["**Arthur of Brittany** was the son of John's older brother Geoffrey.", "Captured by John at Mirebeau in 1202, he vanished in 1203 — probably murdered on John's orders."],
+        difficulty: "warmup",
+        guideRef: "becoming-king",
+        hints: ["He shares his name with a legendary British king of the Round Table."],
+      },
+      {
+        kind: "short",
+        id: "king-john-p3-q02",
+        question: "Clause 61 of Magna Carta (the 'security clause') set up a committee of barons to make sure John kept his promises. How many barons were on it?",
+        answer: { type: "number", value: 25 },
+        traps: [
+          { spec: { type: "number", value: 39 }, feedback: "39 is the number of the famous clause about imprisonment, not the size of the committee." },
+          { spec: { type: "number", value: 63 }, feedback: "63 is the number of clauses in the whole charter." },
+        ],
+        solution: ["The barons were to elect **25** of their number.", "If John broke the charter, the 25 could seize his castles and lands until he put things right."],
+        difficulty: "warmup",
+        guideRef: "magna-carta",
+        hints: ["It is a quarter of a hundred."],
+      },
+      {
+        kind: "mcq",
+        id: "king-john-p3-q03",
+        question: "In 1200 John married a young noblewoman who was already promised to Hugh de Lusignan. The Lusignans appealed to Philip II, who in 1202 declared John's French lands forfeit — starting the war in which Normandy was lost. **Who did John marry?**",
+        options: ["Eleanor of Aquitaine", "Isabella of Angoulême", "Isabella of France", "Matilda de Braose"],
+        answerIndex: 1,
+        explanation:
+          "John married **Isabella of Angoulême** in 1200. **Eleanor of Aquitaine** was John's *mother*. Matilda de Braose was the wife of a baron John turned against; she and her son were starved to death in his prison in 1210. Isabella of France lived a century later as the wife of Edward II.",
+        difficulty: "core",
+        guideRef: "losing-normandy",
+        hints: ["Rule out John's mother and the woman John imprisoned.", "Her name comes from a county in south-west France, near the Lusignan lands."],
+        strategy: "Link the causes",
+      },
+      {
+        kind: "short",
+        id: "king-john-p3-q04",
+        question: "After losing Normandy, John was given a mocking nickname suggesting he was weak in war. What was it?",
+        answer: { type: "text", accept: ["Softsword", "Soft Sword", "Soft-sword", "Mollegladium", "John Softsword"], display: "Softsword" },
+        traps: [
+          { spec: { type: "text", accept: ["Lackland", "Lack Land", "Lack-land"] }, feedback: "'Lackland' was his nickname as a young man with no lands. Which one mocked his failure in war?" },
+        ],
+        solution: ["Critics called him **Softsword** (in Latin, *mollegladium*).", "It contrasted him with his warrior brother, Richard the Lionheart."],
+        difficulty: "warmup",
+        guideRef: "losing-normandy",
+        hints: ["It is the opposite of a hard, sharp weapon."],
+      },
+      {
+        kind: "short",
+        id: "king-john-p3-q05",
+        question: "In which year did Pope Innocent III **excommunicate** John?",
+        answer: { type: "number", value: 1209 },
+        traps: [
+          { spec: { type: "number", value: 1208 }, feedback: "1208 is when the **Interdict** began, punishing the whole country. John himself was excommunicated the following year." },
+          { spec: { type: "number", value: 1213 }, feedback: "1213 is when John *submitted* to the Pope, ending the quarrel." },
+        ],
+        solution: ["The Interdict began in 1208; when John still refused to accept Stephen Langton, Innocent excommunicated him personally in **1209**."],
+        difficulty: "core",
+        guideRef: "john-and-the-church",
+        hints: ["The Pope escalated step by step: first the whole country, then the king himself.", "It was the year after the Interdict began."],
+        commonError: "Confusing the Interdict (1208, on the country) with excommunication (1209, on John).",
+      },
+      {
+        kind: "short",
+        id: "king-john-p3-q06",
+        question: "In 1948 the United Nations adopted a document that Eleanor Roosevelt hoped would become 'a Magna Carta for all mankind'. Name the document.",
+        answer: {
+          type: "text",
+          accept: ["Universal Declaration of Human Rights", "the Universal Declaration of Human Rights", "UDHR", "Universal Declaration", "Declaration of Human Rights", "UN Declaration of Human Rights", "Universal Declaration of Human Rights 1948"],
+          display: "the Universal Declaration of Human Rights",
+        },
+        traps: [
+          { spec: { type: "text", accept: ["Declaration of the Rights of Man", "Declaration of the Rights of Man and of the Citizen"] }, feedback: "That is the French Revolution's declaration of 1789. Which document did the UN adopt in 1948?" },
+          { spec: { type: "text", accept: ["Bill of Rights", "US Bill of Rights"] }, feedback: "The US Bill of Rights dates from 1791. The 1948 document was for the whole world." },
+        ],
+        solution: ["The **Universal Declaration of Human Rights** (1948) set out rights for every person.", "Its article on fair trials echoes Magna Carta's clause 39."],
+        difficulty: "core",
+        guideRef: "legacy-of-magna-carta",
+        hints: ["It was meant for everyone everywhere — 'universal'.", "It is a 'declaration' about 'human rights'."],
+      },
+      {
+        kind: "written",
+        id: "king-john-p3-q07",
+        question:
+          "**Source A** — two clauses of Magna Carta, 1215 (modern translation).\n\n> **Clause 8:** No widow shall be compelled to marry, so long as she wishes to remain without a husband…\n\n> **Clause 49:** We will at once return all hostages and charters delivered up to us by Englishmen as security for peace or for loyal service.\n\nWhat can you infer from Source A about how John had treated his barons and their families? (3 marks)",
+        marks: 3,
+        modelAnswer:
+          "From clause 8 I can infer that John had been **forcing widows to remarry**, or making them pay large fines to avoid it — using barons' families as a way to raise money and reward his supporters. From clause 49 I can infer that John **did not trust his barons**: he had taken hostages, often their children, to guarantee their loyalty. This links to what I know about the de Braose family, who fell out with John after Matilda de Braose refused to hand over her son as a hostage. Together the clauses suggest that John's rule felt personal and threatening — it reached into barons' own homes and families.",
+        markScheme: [
+          { point: "Infers from clause 8 that John forced widows to remarry / sold them the right not to", keywords: ["widows", "forced", "remarry", "marry", "fines", "pay", "sold"] },
+          { point: "Infers from clause 49 that John took hostages because he distrusted the barons", keywords: ["hostages", "children", "sons", "distrust", "did not trust", "loyalty", "security"] },
+          { point: "Supports with own knowledge or draws an overall inference (e.g. de Braose; rule felt personal/threatening)", keywords: ["braose", "matilda", "personal", "families", "threatening", "fear", "arbitrary"] },
+        ],
+        difficulty: "core",
+        guideRef: "barons-revolt",
+        hints: ["Each clause is a promise to *stop* doing something. What had been happening?", "Who were hostages usually? What does taking them tell you about trust?", "Can you think of a baron's family that suffered for refusing to give a hostage?"],
+        strategy: "Make an inference",
+      },
+      {
+        kind: "written",
+        id: "king-john-p3-q08",
+        question:
+          "**Source B** — from the *Barnwell chronicle*, written in the 1220s by a canon (a member of a religious community) at Barnwell Priory, near Cambridge (adapted).\n\n> He was indeed a great prince, but hardly a happy one, and like Marius he experienced the ups and downs of fortune.\n\nRoger of Wendover, a monk at St Albans writing in the 1220s–1230s, described John as a cruel tyrant. Explain why Source B might give a **more balanced** view of John than Roger of Wendover. (4 marks)",
+        marks: 4,
+        modelAnswer:
+          "Source B is more balanced in its **content**: it calls John 'a great prince', admitting his ability, but also 'hardly a happy one', recognising his failures and bad luck ('the ups and downs of fortune'). It weighs both sides rather than simply condemning him. Its **provenance** helps explain why. The Barnwell writer was writing within about ten years of John's death and does not seem to have had the same grudge as Roger of Wendover. Wendover's monastery at St Albans was one of many religious houses that had suffered John's heavy demands and the seizure of Church wealth during the Interdict, and Wendover filled his chronicle with dramatic stories designed to show John as wicked. However, both writers were churchmen, so neither is completely neutral, and historians cross-reference both with royal records.",
+        markScheme: [
+          { point: "Uses the content of Source B: 'great prince' and 'hardly a happy one' shows a balanced judgement", keywords: ["great prince", "hardly a happy", "both sides", "balanced", "ability", "fortune", "luck"] },
+          { point: "Explains Wendover's likely bias (Church suffered under John, Interdict, St Albans)", keywords: ["wendover", "church", "interdict", "biased", "st albans", "seized", "grudge", "hostile"] },
+          { point: "Uses the provenance of Source B (close in time, no obvious grudge, different purpose)", keywords: ["1220s", "close", "soon after", "barnwell", "no grudge", "not as hostile", "purpose"] },
+          { point: "Adds a limitation or judgement (both churchmen; need cross-referencing with records)", keywords: ["both", "churchmen", "monks", "cross-reference", "records", "however", "not neutral"] },
+        ],
+        difficulty: "core",
+        guideRef: "bad-king-john",
+        hints: ["Look at the words of Source B: is it all praise, all criticism or both?", "Use NOP on Roger of Wendover: what had John done to the Church?", "Both writers were churchmen — does that matter?"],
+        strategy: "Cross-reference sources",
+        commonError: "Calling Source B 'reliable' just because it is nicer about John.",
+      },
+      {
+        kind: "written",
+        id: "king-john-p3-q09",
+        question: "Explain why John quarrelled with **Pope Innocent III**. (4 marks)",
+        marks: 4,
+        modelAnswer:
+          "The quarrel began over **who would be Archbishop of Canterbury** after Hubert Walter died in 1205. John wanted his own trusted adviser, John de Gray, while the monks of Canterbury chose their own candidate; Innocent rejected both and in 1207 consecrated **Stephen Langton**. The archbishop mattered to John because he crowned kings, advised them, and controlled huge lands and wealth, so John felt his royal rights were being ignored and refused to let Langton into England. A deeper reason was a **clash of power**: Innocent III believed the Pope had authority over kings, while English kings had long expected to control Church appointments. Neither would back down, so the Pope imposed the Interdict in 1208 and excommunicated John in 1209.",
+        markScheme: [
+          { point: "Explains the trigger: dispute over the Archbishop of Canterbury after Hubert Walter died (1205)", keywords: ["archbishop", "canterbury", "hubert walter", "1205", "election", "monks"] },
+          { point: "Names the rival candidates: John de Gray vs Stephen Langton (Pope's choice, 1207)", keywords: ["langton", "stephen langton", "de gray", "john de gray", "1207"] },
+          { point: "Explains why the archbishop mattered (crowned kings, adviser, land and wealth)", keywords: ["crowned", "adviser", "wealth", "land", "powerful", "important", "royal rights"] },
+          { point: "Explains the deeper clash of power between Pope and king, leading to Interdict/excommunication", keywords: ["power", "authority", "pope over kings", "control", "neither", "interdict", "excommunicated", "1208", "1209"] },
+        ],
+        difficulty: "core",
+        guideRef: "john-and-the-church",
+        hints: ["Start with the event that sparked the quarrel in 1205.", "Why would a king care so much who was Archbishop of Canterbury?", "Think bigger: who should have more power — Pope or king?"],
+        strategy: "Long-term vs short-term causes",
+      },
+      {
+        kind: "written",
+        id: "king-john-p3-q10",
+        question: "Explain why **clause 39** of Magna Carta became so important to later generations. (3 marks)",
+        marks: 3,
+        modelAnswer:
+          "Clause 39 said no free man could be imprisoned or punished except by 'the lawful judgement of his equals or by the law of the land'. In 1215 it was meant to protect barons from John's arbitrary punishments, but its words were general enough to be **reinterpreted** as a promise of a fair trial for everyone. Later generations used it against powerful rulers: in the 1620s Parliament cited it against Charles I's imprisonment of people without trial, and its ideas shaped 'due process' in the US Bill of Rights and fair-trial rights in the Universal Declaration of Human Rights (1948). So it became important because it set out the principle that rulers are bound by the law.",
+        markScheme: [
+          { point: "Explains what clause 39 says (no imprisonment without lawful judgement/law of the land)", keywords: ["imprisoned", "lawful judgement", "law of the land", "fair trial", "trial", "equals"] },
+          { point: "Explains that its wording could be reinterpreted to apply to everyone", keywords: ["reinterpreted", "everyone", "general", "all people", "widened", "later meaning"] },
+          { point: "Gives a precise later use (Charles I / US Bill of Rights / UDHR / rule of law)", keywords: ["charles i", "parliament", "petition of right", "bill of rights", "due process", "udhr", "1948", "rule of law", "america"] },
+        ],
+        difficulty: "core",
+        guideRef: "legacy-of-magna-carta",
+        hints: ["What does the clause promise, in your own words?", "Who did it protect in 1215 — and why could later people stretch its meaning?", "Name one later moment when people quoted it against a ruler."],
+        strategy: "Judge significance",
+      },
+      {
+        kind: "written",
+        id: "king-john-p3-q11",
+        question: "Explain why **Richard I's reign** (1189–1199) made John's job as king harder. (5 marks)",
+        marks: 5,
+        modelAnswer:
+          "First, Richard left John **heavy debts and an exhausted country**. The Third Crusade was paid for by selling offices and lands and by the 'Saladin tithe' under Henry II, and Richard's ransom after his capture in 1192 cost 150,000 marks, raised by heavy taxes on England. Barons were already tired of paying when John asked for more.\n\nSecond, Richard left John an **unfinished war with Philip II**. Philip had used Richard's absence to attack the Angevin lands in France, so John inherited a long, costly conflict against a strong, ambitious rival.\n\nThird, Richard's **heroic reputation** made John look worse. Richard was a famous warrior, the 'Lionheart', so every failure John suffered was compared with his brother's success.\n\nThese factors were linked: the debts and the war with Philip meant John needed money just when people least wanted to pay, which made a clash with the barons more likely.",
+        markScheme: [
+          { point: "Explains the debts/taxation caused by the crusade and ransom", keywords: ["debts", "crusade", "ransom", "150,000", "150000", "taxes", "selling offices", "money"] },
+          { point: "Supports with precise detail (capture in 1192, ransom 150,000 marks, Richard absent)", keywords: ["1192", "captured", "austria", "emperor", "150,000 marks", "absent", "six months"] },
+          { point: "Explains the unfinished war with Philip II", keywords: ["philip", "war", "france", "angevin", "lands", "normandy", "attack"] },
+          { point: "Explains the effect of Richard's heroic reputation on how John was judged", keywords: ["lionheart", "reputation", "hero", "compared", "warrior", "worse", "softsword"] },
+          { point: "Links the factors / shows how they made conflict with the barons more likely", keywords: ["linked", "led to", "so", "barons", "tired", "resent", "conflict", "rebellion"] },
+        ],
+        difficulty: "challenge",
+        guideRef: "becoming-king",
+        hints: ["Think about what Richard left behind: money, enemies and reputation.", "How was Richard's ransom paid for? Who had paid it?", "Who had attacked the Angevin lands while Richard was away and in prison?"],
+        strategy: "Long-term vs short-term causes",
+        commonError: "Writing about Richard's adventures on crusade without linking them to John's problems.",
+      },
+      {
+        kind: "written",
+        id: "king-john-p3-q12",
+        question: "**Was the loss of Normandy in 1204 John's own fault?** Explain your answer. (5 marks)",
+        marks: 5,
+        modelAnswer:
+          "Some of the blame lies with John. His marriage to Isabella of Angoulême in 1200 angered the Lusignans and gave **Philip II** a legal excuse to declare his French lands forfeit. The probable murder of **Arthur of Brittany** in 1203 turned many lords in Brittany, Anjou and Normandy against him, and he failed to relieve Château Gaillard, leaving Normandy in late 1203 — which looked like abandoning it.\n\nHowever, there were bigger forces at work. Philip II was a **richer, more determined king** than his predecessors; by around 1200 the French crown's resources had grown greatly. Many Norman lords now saw Philip as the stronger lord and changed sides. John had also inherited debts and war-weariness from Richard.\n\nOverall, Normandy was probably very hard to hold against Philip, but John's own mistakes, especially over Arthur, turned a difficult situation into a rapid collapse.",
+        markScheme: [
+          { point: "John's mistake: marriage to Isabella of Angoulême gave Philip an excuse (forfeit 1202)", keywords: ["isabella", "angouleme", "angoulême", "lusignan", "forfeit", "1202", "excuse", "marriage"] },
+          { point: "John's mistake: Arthur's disappearance lost him support / he left Normandy", keywords: ["arthur", "murder", "support", "lords", "left normandy", "château gaillard", "chateau gaillard", "abandoned"] },
+          { point: "Wider factor: Philip II's growing strength and resources", keywords: ["philip", "stronger", "richer", "resources", "powerful", "determined"] },
+          { point: "Wider factor: Norman lords' changing loyalties / inherited debts and war-weariness", keywords: ["changed sides", "loyalty", "norman lords", "debts", "richard", "war-weary", "tired"] },
+          { point: "Reaches a supported judgement on how far it was John's fault", keywords: ["overall", "partly", "mainly", "to some extent", "judgement", "fault", "conclusion"] },
+        ],
+        solutions: [
+          {
+            label: "Argument: mainly John's fault",
+            steps: [
+              "His marriage handed Philip a legal excuse to attack.",
+              "Arthur's probable murder destroyed trust in him among his French lords.",
+              "He left Normandy before the fighting was over, so its defenders felt abandoned.",
+            ],
+          },
+          {
+            label: "Argument: mainly due to Philip II's strength",
+            steps: [
+              "Philip's income and army were growing, while the Angevins were drained by Richard's wars.",
+              "Philip had already seized Angevin castles in the 1190s while Richard was a prisoner.",
+              "Norman lords switched to the side most likely to win — any Angevin king might have lost.",
+            ],
+          },
+        ],
+        difficulty: "challenge",
+        guideRef: "losing-normandy",
+        hints: ["Make two lists: John's own mistakes, and things outside his control.", "What happened after John's marriage in 1200 — and after Arthur vanished?", "How strong was Philip II compared with earlier French kings?", "Decide 'how far' and give a reason."],
+        strategy: "Weigh factors",
+        commonError: "Blaming everything on John being 'Softsword' without considering Philip II's strength.",
+      },
+    ],
+  },
+
+  // -------------------------------------------------------------------------
+  // PRACTICE PAPER 4
+  // -------------------------------------------------------------------------
+  {
+    id: "king-john-p4",
+    title: "Practice Paper 4",
+    questions: [
+      {
+        kind: "short",
+        id: "king-john-p4-q01",
+        question: "Runnymede, where Magna Carta was agreed, is a meadow beside which river?",
+        answer: { type: "text", accept: ["Thames", "River Thames", "the Thames", "the River Thames", "Thames River"], display: "the River Thames" },
+        traps: [
+          { spec: { type: "text", accept: ["Wash", "the Wash"] }, feedback: "The Wash is where, in legend, John lost his treasure in 1216 — far away in eastern England. Which river flows past Windsor?" },
+        ],
+        solution: ["Runnymede lies beside the **River Thames**, between Windsor and Staines, west of London."],
+        difficulty: "warmup",
+        guideRef: "magna-carta",
+        hints: ["It is the river that flows through London."],
+      },
+      {
+        kind: "short",
+        id: "king-john-p4-q02",
+        question: "Henry II, Richard I and John ruled a huge 'empire' stretching from the Scottish border to the Pyrenees. What adjective do historians use for this family's empire? (The ______ empire.)",
+        answer: { type: "text", accept: ["Angevin", "Angevins", "the Angevin empire", "Angevin empire", "Plantagenet", "Plantagenets", "Plantagenet empire"], display: "Angevin" },
+        traps: [
+          { spec: { type: "text", accept: ["Norman", "Normans", "Norman empire"] }, feedback: "The Normans came before (William I to Henry I's line). Henry II's family came from Anjou — so the empire is named after Anjou." },
+          { spec: { type: "text", accept: ["Tudor", "Tudors"] }, feedback: "The Tudors came three centuries later. Henry II's family came from Anjou." },
+        ],
+        solution: ["The family came from **Anjou** in France, so their lands are called the **Angevin empire**.", "The family is also known as the Plantagenets."],
+        difficulty: "warmup",
+        guideRef: "becoming-king",
+        hints: ["The word comes from the French region of Anjou."],
+      },
+      {
+        kind: "short",
+        id: "king-john-p4-q03",
+        question: "In which year did **Simon de Montfort's Parliament** meet, including knights from the counties and townsmen (burgesses) for the first time?",
+        answer: { type: "number", value: 1265 },
+        traps: [
+          { spec: { type: "number", value: 1215 }, feedback: "1215 is Magna Carta. De Montfort's Parliament came fifty years later, under John's son Henry III." },
+          { spec: { type: "number", value: 1295 }, feedback: "1295 is Edward I's 'Model Parliament'. De Montfort's came thirty years earlier." },
+        ],
+        solution: ["Simon de Montfort, leading the barons against Henry III, summoned his Parliament in January **1265**.", "It is seen as an important step towards the House of Commons."],
+        difficulty: "warmup",
+        guideRef: "legacy-of-magna-carta",
+        hints: ["It was exactly fifty years after Magna Carta."],
+      },
+      {
+        kind: "mcq",
+        id: "king-john-p4-q04",
+        question: "Which of these was a **cause** of the barons' rebellion in 1215, rather than a **consequence** of it?",
+        options: [
+          "Prince Louis of France invading England",
+          "Heavy scutage and fines demanded by John",
+          "The Pope declaring Magna Carta null and void",
+          "John losing his baggage train in the Wash",
+        ],
+        answerIndex: 1,
+        explanation:
+          "**Heavy scutage and fines** angered the barons for years before 1215, so they were a cause. The Pope annulled Magna Carta in August 1215, Louis invaded in 1216 and the baggage was lost in the Wash in October 1216 — all came *after* the rebellion began, so they are consequences, however closely linked.",
+        difficulty: "core",
+        guideRef: "barons-revolt",
+        hints: ["A cause must come *before* the event it causes.", "Put each option on a timeline: which happened before May 1215?"],
+        strategy: "Put it in chronological order",
+      },
+      {
+        kind: "short",
+        id: "king-john-p4-q05",
+        question: "In 1216 the rebel barons invited a French prince to become King of England, and he invaded. What was his first name?",
+        answer: { type: "text", accept: ["Louis", "Prince Louis", "Louis VIII", "Louis of France", "Louis the Lion", "Lewis", "Louis 8"], display: "Louis (later Louis VIII)" },
+        traps: [
+          { spec: { type: "text", accept: ["Philip", "Philip II", "Philip Augustus"] }, feedback: "Philip II was the French **king** — the barons invited his son. What was the son's name?" },
+        ],
+        solution: ["Prince **Louis**, son of Philip II, landed in May 1216 and held London and much of the south-east.", "After John's death, barons drifted back to young Henry III, and Louis gave up his claim in 1217."],
+        difficulty: "core",
+        guideRef: "magna-carta",
+        hints: ["He was the son of John's great enemy, Philip II.", "He later became King of France as the eighth king with this name."],
+      },
+      {
+        kind: "short",
+        id: "king-john-p4-q06",
+        question: "In which year did Pope Innocent III place England under the **Interdict**?",
+        answer: { type: "number", value: 1208 },
+        traps: [
+          { spec: { type: "number", value: 1209 }, feedback: "1209 is when John was **excommunicated**. The Interdict on the whole country came a year earlier." },
+          { spec: { type: "number", value: 1214 }, feedback: "1214 is when the Interdict was *lifted*. When did it begin?" },
+        ],
+        solution: ["The Interdict began in March **1208** and lasted until 1214."],
+        difficulty: "core",
+        guideRef: "john-and-the-church",
+        hints: ["Stephen Langton was consecrated in 1207; John refused to accept him.", "The Pope's punishment came the following year."],
+      },
+      {
+        kind: "written",
+        id: "king-john-p4-q07",
+        question:
+          "**Source A** — a summary, written for this exercise, of entries in King John's financial records.\n\n| Year | Entry |\n|---|---|\n| 1205 | Nicholas de Stuteville offers 10,000 marks to be allowed to inherit his family lands. |\n| 1214 | Geoffrey de Mandeville agrees to pay 20,000 marks to marry Isabella, Countess of Gloucester. |\n| 1214 | Scutage is charged at 3 marks for every knight's fee — an unusually high rate. |\n\nWhat can you infer from Source A about how John raised money? (3 marks)",
+        marks: 3,
+        modelAnswer:
+          "I can infer that John made barons pay **huge, arbitrary sums** for things that were normally theirs by custom, like inheriting family land: 10,000 marks was far more than a baron's normal income for a year, so it would leave him deep in debt to the king. I can also infer that John **used marriages and inheritances as a business**, selling them to the highest bidder, as with Geoffrey de Mandeville's 20,000 marks. Finally, the high 1214 scutage suggests John was pushing demands to their limit to pay for his great campaign in France that year. Together these suggest barons felt John's money-raising was unfair and could ruin them.",
+        markScheme: [
+          { point: "Infers that the sums were huge/arbitrary and created debt", keywords: ["huge", "large", "arbitrary", "debt", "ruin", "unfair", "as high as", "10,000", "20,000"] },
+          { point: "Infers that John sold inheritances and marriages for profit", keywords: ["inherit", "inheritance", "marriage", "marry", "sold", "selling", "highest bidder"] },
+          { point: "Uses the scutage entry / own knowledge to link to the 1214 campaign and barons' anger", keywords: ["scutage", "1214", "campaign", "france", "bouvines", "barons", "anger", "rebellion"] },
+        ],
+        difficulty: "core",
+        guideRef: "losing-normandy",
+        hints: ["Look at what the barons were paying *for*: were these normal taxes?", "Compare the sizes of the payments — what would that do to a baron?", "Why might John have pushed scutage so high in 1214?"],
+        strategy: "Make an inference",
+      },
+      {
+        kind: "written",
+        id: "king-john-p4-q08",
+        question:
+          "**Source B** — clause 20 of Magna Carta, 1215 (modern translation).\n\n> For a trivial offence, a free man shall be fined only in proportion to the degree of his offence, and for a serious offence correspondingly, but not so heavily as to deprive him of his livelihood. In the same way, a merchant shall be spared his merchandise, and a villein the implements of his husbandry, if they fall upon the mercy of a royal court.\n\nHow useful is Magna Carta for a historian studying the lives of **ordinary peasants (villeins)** under John? (4 marks)",
+        marks: 4,
+        modelAnswer:
+          "Source B is of **some** use. It is an authentic document from 1215, and it shows that royal fines could take away a peasant's farming tools — the 'implements of his husbandry' — so it suggests villeins were vulnerable to heavy fines. However, its usefulness is **limited**. Magna Carta was written to settle the barons' grievances, so it tells us mostly about the concerns of barons and free men; most of its 63 clauses ignore villeins. Even this clause may protect villeins partly because their lords depended on their work. It tells us nothing about peasants' daily lives — food, housing, work or religion. A historian would need other sources, such as manor records, to study villeins properly. Overall, it is more useful for the barons' world than for ordinary peasants'.",
+        markScheme: [
+          { point: "Explains what it does show about villeins (tools protected from fines; vulnerable to heavy fines)", keywords: ["tools", "implements", "husbandry", "fines", "fined", "protected", "vulnerable", "livelihood"] },
+          { point: "Uses provenance: written for the barons' grievances, so mostly about barons/free men", keywords: ["barons", "free men", "grievances", "written for", "purpose", "rebels", "not peasants"] },
+          { point: "Explains a further limitation (protection may serve lords; silent on daily life)", keywords: ["lords", "work", "daily life", "nothing about", "food", "housing", "silent", "63 clauses"] },
+          { point: "Reaches a judgement and/or suggests other sources needed", keywords: ["overall", "limited", "some use", "other sources", "manor records", "judgement", "partly"] },
+        ],
+        difficulty: "core",
+        guideRef: "magna-carta",
+        hints: ["Usefulness depends on the question being asked: this one is about peasants, not barons.", "What *does* the clause say about villeins?", "Who wrote Magna Carta's demands, and for whose benefit?"],
+        strategy: "Check the provenance (NOP)",
+        commonError: "Assuming a famous source must be useful for every question.",
+      },
+      {
+        kind: "written",
+        id: "king-john-p4-q09",
+        question: "Explain why Magna Carta became important **after** John's death, even though it had failed in 1215. (5 marks)",
+        marks: 5,
+        modelAnswer:
+          "First, John's death in 1216 left a **nine-year-old king**, Henry III, whose regent William Marshal needed to win the rebel barons back from Prince Louis. Reissuing Magna Carta in 1216 and 1217 showed that the new government would rule fairly, and it helped end the war.\n\nSecond, it was **reissued again in 1225** in return for a tax, and this version became the accepted law of the land. Each reissue, and later confirmations by kings, made it a permanent part of English law rather than a peace treaty.\n\nThird, it established the idea that **the king is under the law**. Barons in Henry III's reign used this idea, leading to Simon de Montfort's Parliament in 1265 and the growth of Parliament. Much later, Parliament quoted Magna Carta against Charles I, and American colonists used it against British taxation. Its importance grew because each generation could reinterpret it for its own struggles.",
+        markScheme: [
+          { point: "Explains the reissues of 1216/1217 under a child king to win back rebels", keywords: ["1216", "1217", "henry iii", "child", "nine", "william marshal", "regent", "win back", "louis"] },
+          { point: "Explains the 1225 reissue (in return for tax) made it accepted law", keywords: ["1225", "tax", "law of the land", "accepted", "permanent", "confirmed"] },
+          { point: "Explains the principle that the king is under the law", keywords: ["under the law", "rule of law", "limits", "king must obey", "principle"] },
+          { point: "Links to the growth of Parliament (Simon de Montfort, 1265)", keywords: ["parliament", "de montfort", "montfort", "1265", "commons"] },
+          { point: "Explains later reinterpretation/use (Charles I, American colonists, human rights)", keywords: ["charles i", "american", "colonists", "reinterpreted", "symbol", "human rights", "bill of rights"] },
+        ],
+        difficulty: "core",
+        guideRef: "legacy-of-magna-carta",
+        hints: ["Who became king in 1216, and how old was he?", "Why would a new government want to reissue the charter?", "Think long-term: which big *idea* did the charter contain?"],
+        strategy: "Judge significance",
+        commonError: "Assuming Magna Carta was important from the moment it was sealed.",
+      },
+      {
+        kind: "written",
+        id: "king-john-p4-q10",
+        question: "Explain how Richard I's absence from England in the 1190s gave John an **opportunity** to seek power. (3 marks)",
+        marks: 3,
+        modelAnswer:
+          "Richard spent most of his reign away on the Third Crusade and then as a **prisoner in Austria and Germany** (1192–1194). With the king absent, John saw a chance to seize the throne: he plotted with **Philip II of France**, offered him lands, and tried to persuade people that Richard would never return. The plan failed — Richard's ransom was paid, he came home in 1194 and the rebellion collapsed — but Richard forgave John. This shows that a king's long absence weakened royal control and let ambitious relatives grab for power, and it later left people doubting John's loyalty.",
+        markScheme: [
+          { point: "Explains Richard was absent (crusade, captivity 1192–1194)", keywords: ["crusade", "captured", "prisoner", "captivity", "germany", "1192", "1194", "away", "absent"] },
+          { point: "Explains John's plotting/alliance with Philip II to seize power", keywords: ["plotted", "plot", "rebellion", "rebelled", "philip", "seize", "throne", "alliance"] },
+          { point: "Explains the outcome or significance (failed, forgiven, showed John as untrustworthy)", keywords: ["failed", "forgave", "forgiven", "ransom", "untrustworthy", "disloyal", "reputation"] },
+        ],
+        difficulty: "core",
+        guideRef: "becoming-king",
+        hints: ["Where was Richard between 1190 and 1194?", "Who did John team up with?", "How did it end — and what did it suggest about John?"],
+        strategy: "Think about who benefited",
+      },
+      {
+        kind: "written",
+        id: "king-john-p4-q11",
+        question: "**'John's failures were mainly due to bad luck.'** How far do you agree? (6 marks)",
+        marks: 6,
+        modelAnswer:
+          "There is a case that John was unlucky. He faced **Philip II**, one of the most able French kings, whose wealth was growing fast. He inherited **debts and war** from Richard, whose ransom had drained England, and **rising prices** meant his income bought less. At Bouvines in 1214 his plan depended on allies; when Otto IV's army was defeated, everything collapsed. Even his reputation was unlucky — the history of his reign was written by monks who hated him.\n\nHowever, many of John's problems were **self-inflicted**. His marriage to Isabella of Angoulême gave Philip an excuse for war; Arthur's probable murder drove French lords away; his quarrel over Stephen Langton brought the Interdict; and his cruelty and hostage-taking made barons fear him. Richard had faced debts and Philip too, yet kept his barons loyal.\n\nOverall, I disagree with the statement. Luck shaped the challenges John faced, but his own suspicious, cruel character turned those challenges into disasters.",
+        markScheme: [
+          { point: "Bad luck: a powerful rival in Philip II", keywords: ["philip", "powerful", "rival", "able", "wealth", "strong"] },
+          { point: "Bad luck: inherited debts, ransom, rising prices/inflation", keywords: ["debts", "ransom", "richard", "inflation", "prices", "inherited"] },
+          { point: "Bad luck: Bouvines depended on allies / hostile chroniclers wrote history", keywords: ["bouvines", "allies", "otto", "monks", "chroniclers", "wendover", "reputation"] },
+          { point: "Own fault: specific mistakes (Isabella marriage, Arthur, Langton quarrel)", keywords: ["isabella", "marriage", "arthur", "langton", "interdict", "pope", "quarrel", "mistakes"] },
+          { point: "Own fault: cruelty and distrust alienated barons (hostages, de Braose, fines)", keywords: ["cruel", "hostages", "braose", "distrust", "untrustworthy", "fines", "barons"] },
+          { point: "Reaches a supported judgement (e.g. comparison with Richard)", keywords: ["overall", "agree", "disagree", "mostly", "partly", "richard", "judgement", "conclusion"] },
+        ],
+        solutions: [
+          {
+            label: "Argument: luck mattered most",
+            steps: [
+              "John's main enemy, Philip II, was stronger than any French king his father had faced.",
+              "Debts, rising prices and Richard's wars left him short of money from the start.",
+              "The decisive defeat at Bouvines was suffered by his allies, not by John personally.",
+              "So any king in John's position would probably have struggled.",
+            ],
+          },
+          {
+            label: "Argument: John's character mattered most",
+            steps: [
+              "His choices (marriage in 1200, Arthur, the Langton quarrel) created new enemies.",
+              "Cruelty and hostage-taking destroyed the barons' trust.",
+              "Richard faced the same rival and debts but kept his barons loyal.",
+              "So bad luck set the stage, but John's own decisions caused the disasters.",
+            ],
+          },
+        ],
+        difficulty: "challenge",
+        guideRef: "bad-king-john",
+        hints: ["Sort John's problems into 'outside his control' and 'his own doing'.", "For luck: think about Philip II, Richard's debts, rising prices and Bouvines.", "For his own fault: think about 1200, 1203, 1207 and how he treated barons' families.", "Compare with Richard: he faced similar problems — did his barons rebel?"],
+        strategy: "Weigh factors",
+        commonError: "Only arguing one side, or ending without saying how far you agree.",
+      },
+      {
+        kind: "written",
+        id: "king-john-p4-q12",
+        question: "The Interdict lasted from 1208 to 1214. Explain why John held out against the Pope for so long — and why he finally gave in in 1213. (5 marks)",
+        marks: 5,
+        modelAnswer:
+          "John held out partly because the Interdict **made him richer**. He seized Church lands and income, collecting very large sums that helped pay for his plans to reconquer Normandy. He also found that his **barons were not much troubled**: government carried on, and most nobles did not rebel over the closed churches. So, for several years, defiance cost him little.\n\nHe gave in in 1213 because the situation changed. In 1212 there was a **plot against his life** by barons and a Welsh rising, showing his position was weakening. Most importantly, **Philip II was preparing to invade England** with the Pope's approval, which would make an attack on John look like a holy cause. By submitting in May 1213 and making England a papal fief, John removed Philip's excuse, gained the Pope as an ally and could focus on his 1214 campaign. So he held out while it paid, and gave in when it became dangerous.",
+        markScheme: [
+          { point: "Explains he profited from seizing Church lands and income", keywords: ["seized", "church lands", "income", "richer", "money", "profit", "wealth"] },
+          { point: "Explains the barons and government were not seriously disrupted", keywords: ["barons", "not troubled", "carried on", "did not rebel", "government", "little cost"] },
+          { point: "Explains the plot of 1212 / Welsh rising weakened his position", keywords: ["plot", "1212", "welsh", "wales", "rebellion", "weakening", "fitzwalter"] },
+          { point: "Explains the threat of a French invasion with papal approval", keywords: ["philip", "invade", "invasion", "france", "pope's approval", "holy", "crusade"] },
+          { point: "Explains how submission in 1213 turned the Pope into an ally / linked judgement", keywords: ["1213", "submitted", "fief", "ally", "removed", "excuse", "1214", "campaign"] },
+        ],
+        difficulty: "challenge",
+        guideRef: "john-and-the-church",
+        hints: ["Split your answer in two: why hold out, then why give in.", "What did John gain from the Church while the Interdict lasted?", "What threats did John face in 1212–1213 — from inside England and from across the Channel?"],
+        strategy: "Long-term vs short-term causes",
+      },
+    ],
+  },
+];

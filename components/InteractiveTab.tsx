@@ -124,7 +124,7 @@ export function InteractiveTab({ topicId, onGoTab }: { topicId: string; onGoTab?
             🛠️
           </div>
           <p className="mt-2 font-bold">No explorables for this topic yet.</p>
-          <p className="mt-1 text-sm text-ink-2">The “Try this first” problems in each lesson and the skill drills are the best hands-on practice for now.</p>
+          <p className="mt-1 text-sm text-ink-2">The “Think about it first” questions in each lesson and the skill drills are the best hands-on practice for now.</p>
           {onGoTab ? (
             <div className="mt-4 flex flex-wrap justify-center gap-2">
               <button type="button" className="btn btn-secondary" onClick={() => onGoTab("learn")}>

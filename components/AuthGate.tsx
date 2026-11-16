@@ -26,11 +26,13 @@ export function AuthGate() {
   return (
     <div className="mx-auto max-w-lg py-8">
       <div className="text-center">
-        <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-3xl bg-gradient-to-br from-brand to-brand-2 text-4xl text-white shadow-lg" aria-hidden>
-          π
+        <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-3xl bg-gradient-to-br from-brand to-brand-2 text-3xl font-black tracking-tight text-brand-ink shadow-lg" aria-hidden>
+          Y8
         </div>
-        <h1 className="mt-4 text-3xl font-black tracking-tight">Year 8 Maths Lab</h1>
-        <p className="mt-2 text-ink-2">Problem-first lessons, auto-marked practice, skill drills and a Daily 5 — built to make you a confident problem solver.</p>
+        <h1 className="mt-4 text-3xl font-black tracking-tight">Year 8 History Lab</h1>
+        <p className="mt-2 text-ink-2">
+          Dictatorship and Democracy: enquiry-led lessons, source skills, auto-marked practice and a Daily 5 — built to help you think, argue and write like a historian.
+        </p>
       </div>
 
       {tab === "welcome" ? (
@@ -48,7 +50,7 @@ export function AuthGate() {
           <button type="button" className="btn btn-ghost w-full" onClick={startGuest}>
             {cloudAvailable ? "Just practise on this device (guest)" : "Start practising"}
           </button>
-          {cloudAvailable ? <p className="text-center text-xs text-ink-2">A family account syncs progress across devices and unlocks the parent dashboard and Professor Pi.</p> : null}
+          {cloudAvailable ? <p className="text-center text-xs text-ink-2">A family account syncs progress across devices and unlocks the parent dashboard and Professor Quill, the AI tutor.</p> : null}
         </div>
       ) : (
         <form className="card mt-8 space-y-4 p-5" onSubmit={submit}>

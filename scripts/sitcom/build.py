@@ -15,7 +15,8 @@ cache = os.path.join(HERE, "tts_cache"); os.makedirs(cache, exist_ok=True)
 ns = {}
 exec(open(os.path.join(HERE, "common.py")).read(), ns)
 exec(open(script_path).read(), ns)
-BEATS, VOICES, EP = ns["B"], ns["VOICES"], ns["EP"]
+BEATS, VOICES, EP, SPOKEN = ns["B"], ns["VOICES"], ns["EP"], ns["spoken"]
+CVOICE = ns.get("CHALLENGE_VOICE", "ticktock")
 
 _k = None
 def kokoro():
@@ -26,6 +27,7 @@ def kokoro():
     return _k
 
 def tts(who, text):
+    text = SPOKEN(text)   # respellings + numbers -> words (common.spoken)
     v = VOICES[who]
     key = hashlib.sha1(json.dumps([v, text]).encode()).hexdigest()[:16]
     f = os.path.join(cache, f"{who}_{key}.wav")
@@ -107,6 +109,27 @@ def sfx_door():
     t = t_(0.5); return (np.sin(2*np.pi*90*t)*np.exp(-t*12) + rng.uniform(-1,1,len(t))*np.exp(-t*30)*0.3) * 0.8
 def sfx_drawer():
     t = t_(0.45); n = rng.uniform(-1, 1, len(t)); return n * (0.15 + 0.1*np.sin(2*np.pi*30*t)) * adsr(len(t), 0.05, 0.1)
+def sfx_fanfare():
+    out = np.zeros(int(1.6*SR))
+    for n, at, d in [(60, 0, .14), (64, .14, .14), (67, .28, .14), (72, .42, 1.0)]:
+        t = t_(d); ph = NOTE(n) * t * (1 + 0.004*np.sin(2*np.pi*5*t))
+        w = sum(np.sin(2*np.pi*k*ph) * (0.8**k) for k in range(1, 9)) * adsr(len(t), 0.02, 0.15) * 0.22
+        i = int(at*SR); out[i:i+len(w)] += w[:len(out)-i]
+    return out
+def sfx_bell():
+    t = t_(3.0); f = 196
+    return sum(a*np.sin(2*np.pi*f*r*t)*np.exp(-t*dk) for r, a, dk in [(1, .5, 1.1), (2.0, .25, 1.6), (2.4, .2, 2.0), (3.0, .12, 2.6), (4.2, .08, 3.5)]) * 0.6
+def sfx_sand():
+    t = t_(0.9); n = rng.uniform(-1, 1, len(t)); y = np.zeros_like(n); a = 0
+    for i in range(len(n)): a += 0.5*(n[i]-a); y[i] = n[i] - a
+    grains = (rng.uniform(0, 1, len(t)) > 0.985) * rng.uniform(-1, 1, len(t))
+    return (y*0.25 + grains*0.6) * np.sin(np.pi*t/0.9) * 0.6
+def sfx_gavel():
+    out = np.zeros(int(0.9*SR))
+    for at in (0, .28):
+        t = t_(0.25); w = (np.sin(2*np.pi*180*t) + 0.6*rng.uniform(-1, 1, len(t))*np.exp(-t*80)) * np.exp(-t*30)
+        i = int(at*SR); out[i:i+len(w)] += w * 0.8
+    return out
 def jingle():
     # bouncy ukulele-ish tune, C major
     mel = [(72,.18),(76,.18),(79,.18),(84,.36),(81,.18),(79,.18),(76,.36),(77,.18),(79,.18),(81,.18),(83,.18),(84,.8)]
@@ -134,7 +157,8 @@ def music_bed(dur):
     return np.tile(loop, reps)[:int(dur*SR)]
 
 SFX = dict(ding=sfx_ding, buzzer=sfx_buzzer, scratch=sfx_scratch, trombone=sfx_trombone, poof=sfx_poof,
-           whoosh=sfx_whoosh, tick=sfx_tick, door=sfx_door, drawer=sfx_drawer)
+           whoosh=sfx_whoosh, tick=sfx_tick, door=sfx_door, drawer=sfx_drawer,
+           fanfare=sfx_fanfare, bell=sfx_bell, sand=sfx_sand, gavel=sfx_gavel)
 _sfx_cache = {}
 def get_sfx(n):
     if n not in _sfx_cache: _sfx_cache[n] = SFX[n]().astype(np.float32)
@@ -153,19 +177,19 @@ def chunks(text, maxlen=95):
     return out
 
 def display_text(text):
-    # spoken -> display tweaks
-    return text.replace("G S T", "GST").replace("Banana Coin", "BananaCoin")
+    # subtitles show the script text as written (spoken() only changes what Kokoro hears)
+    return text
 
 # ---------------- timeline assembly ----------------
 segs, sfx_events, dialog = [], [], []
 t = 0.6
-scene = None; cast = []; caption = None; moods = {}; board = []; music_on = []
+scene = None; cast = []; caption = None; moods = {}; board = []; music_on = []; wearing = {}
 cur_music = None
 
 def push(kind, dur, **kw):
     global t
     seg = dict(kind=kind, t0=round(t, 3), t1=round(t + dur, 3), scene=scene, caption=caption,
-               cast=[dict(c) for c in cast], moods=dict(moods), board=[dict(b) for b in board], **kw)
+               cast=[dict(c) for c in cast], moods=dict(moods), board=[dict(b) for b in board], wear=dict(wearing), **kw)
     segs.append(seg); t += dur; return seg
 
 def set_music(on):
@@ -193,6 +217,21 @@ for b in BEATS:
         moods[b["who"]] = "bored"
         push("poof", 0.7, who=b["who"])
         continue
+    if k == "wear":
+        if b.get("item"): wearing[b["who"]] = b["item"]
+        else: wearing.pop(b["who"], None)
+        continue
+    if k == "solemn":
+        set_music(False)
+        sfx_events.append((t, "bell", 0.45))
+        a = tts(b["who"], b["say"]); d = len(a) / SR
+        st = t + 1.6; dialog.append((st, a))
+        cs = chunks(display_text(b["say"])); tot = sum(len(c) for c in cs); acc = 0; subs = []
+        for c in cs:
+            subs.append(dict(t=round(st + d * acc / tot, 3), text=c)); acc += len(c)
+        push("solemn", 1.6 + d + b.get("hold", 2.0), who=b["who"], title=b["title"], lines=b["lines"], say0=round(st, 3),
+             env=envelope(a), subs=subs)
+        continue
     if k == "sfx":
         sfx_events.append((t, b["name"], 0.9))
         push("gap", 0.35 + b.get("gap", 0)); continue
@@ -213,12 +252,12 @@ for b in BEATS:
                 for i in range(5): sfx_events.append((t + i, "tick", 1.0))
                 push("challenge", 5.2, phase="count", n=b["n"], q=b["q"], a=b["a"], work=b["work"]); continue
             text = b["qs"] if phase == "q" else b["as_"]
-            a = tts("centi", text)
+            a = tts(CVOICE, text)
             if phase == "a": sfx_events.append((t, "ding", 0.7))
             st = t + 0.3; dialog.append((st, a))
             d = len(a)/SR
             push("challenge", 0.3 + d + 0.9, phase=phase, n=b["n"], q=b["q"], a=b["a"], work=b["work"],
-                 who="centi", say0=round(st, 3), env=envelope(a), subs=[], text=display_text(text))
+                 who=CVOICE, say0=round(st, 3), env=envelope(a), subs=[], text=display_text(text))
         continue
     if k == "line":
         who = b["who"]

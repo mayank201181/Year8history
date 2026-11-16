@@ -1,6 +1,6 @@
 "use client";
 // One question of any kind (MCQ / short auto-marked / written self-marked),
-// AoPS style: try first, laddered hints, worked solutions after an attempt.
+// Try first, laddered hints, explanations and model answers after an attempt.
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { MCQ, Question, ShortQ, WrittenQ } from "@/lib/types";
@@ -166,7 +166,7 @@ function AfterPanel({ q, topicId, onNext, nextLabel, answerText }: { q: Question
     <>
       {solutions?.length ? (
         <details className="rounded-xl border border-line bg-surface p-3">
-          <summary className="cursor-pointer font-bold">🔀 Another way to see it</summary>
+          <summary className="cursor-pointer font-bold">🔀 Another line of argument</summary>
           <div className="mt-2 space-y-3">
             {solutions.map((m, i) => (
               <div key={i}>
@@ -373,7 +373,7 @@ function ShortBody({ q, mode, restored, onDone, onAnswer, topicId, onNext, nextL
               aria-live="polite"
             >
               {msg.status === "incorrect" ? <strong>Not quite. </strong> : msg.status === "close" ? <strong>Almost! </strong> : null}
-              {msg.text ?? (msg.status === "incorrect" ? "Check your working and have another go — or take a hint." : null)}
+              {msg.text ?? (msg.status === "incorrect" ? "Have another go — or take a hint." : null)}
               {msg.status === "incorrect" && tries < MAX_TRIES ? <span className="block text-ink-2">You have one more try.</span> : null}
             </div>
           ) : null}
@@ -399,7 +399,7 @@ function ShortBody({ q, mode, restored, onDone, onAnswer, topicId, onNext, nextL
             <RichInline text={displayAnswer(q.answer)} />
           </p>
           <div>
-            <div className="font-bold">Worked solution</div>
+            <div className="font-bold">Explanation</div>
             <ol className="rich-ol mt-1">
               {q.solution.map((s, i) => (
                 <li key={i}>
@@ -438,7 +438,7 @@ function WrittenBody({ q, mode, restored, onDone, onAnswer, topicId, onNext, nex
       <textarea
         className="input min-h-32"
         value={value}
-        placeholder="Write your answer and working here…"
+        placeholder="Write your answer here: make a point, back it with evidence, explain it and link it to the question…"
         onChange={(e) => {
           setValue(e.target.value);
           onAnswer?.(e.target.value);
@@ -453,7 +453,7 @@ function WrittenBody({ q, mode, restored, onDone, onAnswer, topicId, onNext, nex
         className="input min-h-32"
         value={value}
         disabled={phase !== "answer"}
-        placeholder="Write your answer and reasoning here…"
+        placeholder="Write your answer here. Aim for PEEL: Point, Evidence, Explain, Link."
         onChange={(e) => setValue(e.target.value)}
         aria-label="Your written answer"
       />

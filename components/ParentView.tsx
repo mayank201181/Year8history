@@ -114,8 +114,8 @@ function dateOf(iso: string): Date {
 }
 
 const BEST_NAMES: Record<string, string> = {
-  sprint: "Fluency sprint",
-  challenge: "Challenge problems",
+  sprint: "Quick-fire round",
+  challenge: "Challenge questions",
   exam: "Big Exam",
   daily: "Daily 5",
   review: "Review",
@@ -138,10 +138,10 @@ function describeEntry(e: ActivityEntry, titleOf: (id: string) => string | undef
       const [key = "", value = ""] = (e.detail ?? "").split("=");
       const [kind = "", rest = ""] = key.split(":");
       if (kind === "sprint" && isSprintMode(rest)) {
-        return { icon: "🏅", text: `New personal best in the ${SPRINT_MODE_INFO[rest].label} sprint${value ? `: ${value} correct` : ""}` };
+        return { icon: "🏅", text: `New personal best in the ${SPRINT_MODE_INFO[rest].label} quick-fire round${value ? `: ${value} correct` : ""}` };
       }
       if (kind === "challenge" && rest) {
-        return { icon: "🏅", text: `New best for challenge problems in ${titleOf(rest) ?? rest.replace(/-/g, " ")}${value ? `: ${value} solved` : ""}` };
+        return { icon: "🏅", text: `New best for challenge questions in ${titleOf(rest) ?? rest.replace(/-/g, " ")}${value ? `: ${value} solved` : ""}` };
       }
       const what = BEST_NAMES[kind] ?? (kind ? kind.charAt(0).toUpperCase() + kind.slice(1) : "");
       const sub = rest ? titleOf(rest) ?? rest.replace(/-/g, " ") : "";
@@ -151,7 +151,7 @@ function describeEntry(e: ActivityEntry, titleOf: (id: string) => string | undef
     case "flag":
       return { icon: "🚩", text: "Reported a question to be checked" };
     case "challenge":
-      return { icon: "🧩", text: `Solved a challenge problem${inTopic}` };
+      return { icon: "🧩", text: `Solved a challenge question${inTopic}` };
     case "exam":
       return { icon: "📝", text: `Sat the Big Exam${e.detail ? ` (${e.detail})` : ""}` };
     case "paper":
@@ -209,7 +209,7 @@ export function ParentView({ summaries }: { summaries: TopicSummary[] }) {
         ) : (
           <>
             <p className="mt-3 text-ink-2">
-              Family accounts aren&apos;t switched on for this copy of the Maths Lab, so progress is saved on this device only. You can still see it all on the Progress page.
+              Family accounts aren&apos;t switched on for this copy of the History Lab, so progress is saved on this device only. You can still see it all on the Progress page.
             </p>
             <div className="mt-6">
               <Link href="/progress" className="btn btn-primary">
@@ -554,7 +554,7 @@ function LearnerPanel({ learner, summaries, now, pin, onSaved }: { learner: Lear
   else if (dailyAcc !== null && practiceAcc !== null) {
     if (stats.dailyTotal < 10 || stats.practiceAnswered < 10) insight = "Early days — after a few more Daily 5s and practice sessions this will show whether learning is sticking.";
     else if (practiceAcc - dailyAcc >= 15) insight = "Scores are higher straight after practice than in mixed sets. That's normal — things feel easier just after a lesson — and regular Daily 5s close the gap.";
-    else if (dailyAcc < 50 && practiceAcc < 50) insight = "Both scores are low at the moment. Working through the lessons (each starts with a puzzle and worked examples) before practising will help.";
+    else if (dailyAcc < 50 && practiceAcc < 50) insight = "Both scores are low at the moment. Working through the lessons (each starts with a question to think about and model answers) before practising will help.";
     else if (dailyAcc >= practiceAcc - 5) insight = "Mixed-topic scores are holding up well, so what's being learnt is sticking.";
   }
 
@@ -582,7 +582,7 @@ function LearnerPanel({ learner, summaries, now, pin, onSaved }: { learner: Lear
 
       {!hasProgress ? (
         <p className="card p-4 text-sm text-ink-2">
-          {profile.name} hasn&apos;t used the Maths Lab yet. Once they do, their practice, skills and topics will show up here. You can already set focus topics and a daily goal
+          {profile.name} hasn&apos;t used the History Lab yet. Once they do, their practice, skills and topics will show up here. You can already set focus topics and a daily goal
           below.
         </p>
       ) : (
@@ -1028,7 +1028,7 @@ function ReportedQuestions({ flags, titleOf }: { flags: Record<string, { at: num
     <section className="card p-4 sm:p-5" aria-label="Reported questions">
       <h3 className="section-title">Questions they reported</h3>
       <p className="mt-1 text-sm text-ink-2">
-        Your child tapped &ldquo;Something wrong?&rdquo; on these. Worth a look together — spotting a flaw is good maths too.
+        Your child tapped &ldquo;Something wrong?&rdquo; on these. Worth a look together — spotting a flaw in a source is what historians do too.
       </p>
       <ul className="mt-3 space-y-2">
         {ids.map((id) => (

@@ -1,4 +1,4 @@
-// Usage: node scripts/validate-exam.ts <paperId>   (e.g. exam-n1)
+// Usage: node scripts/validate-exam.ts <paperId>   (exam-k1 or exam-s1)
 import { existsSync } from "node:fs";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import path from "node:path";
@@ -17,10 +17,13 @@ if (paper?.id !== id) {
   console.error(`lib/exam/${id}.ts must export \`paper\` with id "${id}"`);
   process.exit(1);
 }
+// Paper 1 (exam-k…): Knowledge & Understanding, 40 questions. Paper 2 (exam-s…): Sources & Judgement, 20.
+const EXPECTED: Record<string, number> = { "exam-k1": 40, "exam-s1": 20 };
+const expected = EXPECTED[id] ?? (id.startsWith("exam-s") ? 20 : 40);
 const sections = Object.fromEntries(TOPIC_META.map((t) => [t.id, t.sections.map((s) => s.id)]));
-const { issues, counts } = validateExamPaper(paper, sections, 30);
+const { issues, counts } = validateExamPaper(paper, sections, expected);
 const missingTopics = TOPIC_META.map((t) => t.id).filter((t) => !counts.byTopic[t]);
-console.log(JSON.stringify({ paper: id, calculator: paper.calculator, minutes: paper.minutes, counts, topicsNotCovered: missingTopics }, null, 1));
+console.log(JSON.stringify({ paper: id, kind: paper.kind, minutes: paper.minutes, expected, counts, topicsNotCovered: missingTopics }, null, 1));
 if (issues.length) {
   console.log(`\n${issues.length} issue(s):`);
   for (const i of issues) console.log(`- ${i.where}: ${i.problem}`);

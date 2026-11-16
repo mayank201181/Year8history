@@ -1,14 +1,14 @@
 "use client";
-// Fluency sprint: quick-fire mental-maths facts, timed (60 s) or untimed.
-// Wrong answers never stop the flow — they come back a few questions later
-// and are listed at the end. Scores are only ever compared with your own best.
+// Quick-fire round: rapid recall of dates, people and key terms from the
+// recall drills, timed (90 s) or untimed. Wrong answers never stop the flow —
+// they come back a few questions later and are listed at the end. Scores are
+// only ever compared with your own best.
 import { useEffect, useEffectEvent, useRef, useState, type FormEvent } from "react";
 import { flushSync } from "react-dom";
 import type { Rng } from "@/lib/drills/types";
 import { makeRng } from "@/lib/drills/rng";
-import { freshSeed } from "@/lib/drills";
-import { checkAnswer } from "@/lib/answerCheck";
-import { parseNumberAnswer } from "@/lib/mathParse";
+import { ALL_DRILLS, freshSeed } from "@/lib/drills";
+import { checkWithTraps, displayAnswer } from "@/lib/answerCheck";
 import { todayISO } from "@/lib/dates";
 import { useStore } from "@/lib/store";
 import {
@@ -17,6 +17,7 @@ import {
   SPRINT_SECONDS,
   sprintAwardKey,
   sprintBestKey,
+  sprintDrills,
   sprintItem,
   sprintStars,
   type SprintItem,
@@ -34,6 +35,9 @@ interface Current {
 
 interface Miss {
   key: string;
+  prompt: string;
+  /** The right answer, for display. */
+  answer: string;
   fact: string;
   /** What the learner typed ("" = passed). */
   given: string;
@@ -60,6 +64,8 @@ interface Run {
 interface Flash {
   n: number;
   ok: boolean;
+  /** The right answer, for display. */
+  answer: string;
   fact: string;
   hint?: string;
 }
@@ -87,37 +93,39 @@ function clock(): number {
 const RETRY_GAP = [3, 5] as const;
 
 function idleRun(): Run {
-  return { mode: "tables", timed: true, score: 0, answered: 0, misses: [], queue: [], recent: [], current: null, startedAt: 0, endAt: 0, finished: true };
+  return { mode: "mixed", timed: true, score: 0, answered: 0, misses: [], queue: [], recent: [], current: null, startedAt: 0, endAt: 0, finished: true };
 }
 
-/** Next fact: a due retry first, otherwise a fresh one that isn't a recent repeat. */
-function draw(run: Run, rng: Rng): Current {
+/** Next question: a due retry first, otherwise a fresh one that isn't a recent repeat. */
+function draw(run: Run, rng: Rng): Current | null {
   const dueIdx = run.queue.findIndex((p) => p.due <= run.answered);
-  let next: Current;
+  let next: Current | null = null;
   if (dueIdx >= 0) {
     const [p] = run.queue.splice(dueIdx, 1);
     next = { item: p.item, retry: true };
   } else {
-    let item = sprintItem(run.mode, rng);
-    for (let i = 0; i < 30 && (run.recent.includes(item.prompt) || run.queue.some((p) => p.item.prompt === item.prompt)); i++) {
-      item = sprintItem(run.mode, rng);
+    let item: SprintItem | null = sprintItem(run.mode, rng, ALL_DRILLS);
+    for (let i = 0; i < 30 && item; i++) {
+      const prompt = item.prompt;
+      if (!run.recent.includes(prompt) && !run.queue.some((p) => p.item.prompt === prompt)) break;
+      item = sprintItem(run.mode, rng, ALL_DRILLS) ?? item;
     }
-    next = { item, retry: false };
+    if (item) next = { item, retry: false };
   }
-  run.recent = [...run.recent, next.item.prompt].slice(-12);
+  if (next) run.recent = [...run.recent, next.item.prompt].slice(-12);
   return next;
 }
 
-/** Plain-text length of a prompt outside the maths spans (to size it). */
+/** Long prompts get a smaller font. */
 function wordy(prompt: string): boolean {
-  return prompt.replace(/\{\{[\s\S]*?\}\}/g, "").trim().length > 6;
+  return prompt.trim().length > 60;
 }
 
 export function SprintRunner() {
   const store = useStore();
   const [phase, setPhase] = useState<Phase>("pick");
   const [timed, setTimed] = useState(true);
-  const [mode, setMode] = useState<SprintMode>("tables");
+  const [mode, setMode] = useState<SprintMode>("mixed");
   const [cur, setCur] = useState<Current | null>(null);
   const [value, setValue] = useState("");
   const [score, setScore] = useState(0);
@@ -145,6 +153,7 @@ export function SprintRunner() {
     const now = clock();
     const run: Run = { mode: m, timed: t, score: 0, answered: 0, misses: [], queue: [], recent: [], current: null, startedAt: now, endAt: now + DURATION_MS, finished: false };
     run.current = draw(run, rng);
+    if (!run.current) return;
     runRef.current = run;
     // Render the run screen synchronously so the answer box can take focus
     // inside this tap (which is what opens the keyboard on phones).
@@ -209,23 +218,15 @@ export function SprintRunner() {
     let ok = false;
     let hint: string | undefined;
     if (raw !== null) {
-      // Every sprint answer is a whole number or a decimal. A fraction typed back
-      // ("63/9", or "3/4" for "write 3/4 as a decimal") isn't an answer yet:
-      // nudge, don't mark.
-      if (parseNumberAnswer(raw)?.frac) {
-        setNote(Number.isInteger(item.answer) ? "Work it out and type the answer as a whole number." : "Type it as a decimal, like 0.75.");
-        inputRef.current?.focus();
-        return;
-      }
-      const res = checkAnswer({ type: "number", value: item.answer, allowFraction: false }, raw);
-      if (res.status === "invalid") {
-        setNote("Type a single number, like 12 or −3.5.");
+      const res = checkWithTraps(item.answer, raw, item.traps);
+      if (res.status === "invalid" || res.status === "close") {
+        // Not marked: e.g. a word typed where a year is wanted.
+        setNote(res.feedback ?? (item.answer.type === "number" ? "Type just the year, like 1066." : "Have another look at your answer."));
         inputRef.current?.focus();
         return;
       }
       ok = res.status === "correct";
-      // Only the sign hint helps here ("close" rounding advice doesn't apply to exact facts).
-      hint = res.status === "incorrect" ? res.feedback : undefined;
+      hint = res.feedback;
     }
     run.answered += 1;
     const miss = run.misses.find((m) => m.key === item.prompt);
@@ -236,13 +237,17 @@ export function SprintRunner() {
       if (miss) {
         miss.given = raw ?? "";
         miss.fixed = false;
-      } else run.misses.push({ key: item.prompt, fact: item.fact, given: raw ?? "", fixed: false });
+      } else run.misses.push({ key: item.prompt, prompt: item.prompt, answer: displayAnswer(item.answer), fact: item.fact, given: raw ?? "", fixed: false });
       // Not straight away — a few questions later, once.
       if (!retry) run.queue.push({ item, due: run.answered + rng.int(RETRY_GAP[0], RETRY_GAP[1]) });
     }
     run.current = draw(run, rng);
     flashSeq.current += 1;
-    setFlash({ n: flashSeq.current, ok, fact: item.fact, hint });
+    setFlash({ n: flashSeq.current, ok, answer: displayAnswer(item.answer), fact: item.fact, hint });
+    if (!run.current) {
+      finish(false);
+      return;
+    }
     setCur(run.current);
     setScore(run.score);
     setAnswered(run.answered);
@@ -261,15 +266,6 @@ export function SprintRunner() {
     answer(raw);
   }
 
-  function toggleMinus() {
-    setValue((v) => (v.startsWith("-") || v.startsWith("−") ? v.slice(1) : `-${v}`));
-    setNote(null);
-    const el = inputRef.current;
-    el?.focus();
-    requestAnimationFrame(() => {
-      if (el) el.setSelectionRange(el.value.length, el.value.length);
-    });
-  }
 
   function backToPick() {
     setPhase("pick");
@@ -317,13 +313,13 @@ export function SprintRunner() {
     const secsLeft = Math.ceil(remaining / 1000);
     const pctLeft = Math.max(0, Math.min(100, (100 * remaining) / DURATION_MS));
     const milestone = !timed ? "" : secsLeft <= 10 ? "10 seconds left" : secsLeft <= 30 ? "30 seconds left" : "";
-    const suffix = cur.item.suffix;
+    const isYear = cur.item.answer.type === "number";
     return (
       <div className="mx-auto max-w-xl space-y-4">
         <div className="flex items-center gap-3">
           <h1 className="min-w-0 flex-1 truncate text-lg font-extrabold">
             <span aria-hidden>{info.icon}</span> {info.label}
-            <span className="sr-only"> — {timed ? "timed sprint" : "untimed practice"}</span>
+            <span className="sr-only"> — {timed ? "timed round" : "untimed practice"}</span>
           </h1>
           <span className="chip border-0 bg-good-soft text-good tabular-nums" aria-label={`${score} correct`}>
             ✓ {score}
@@ -365,7 +361,7 @@ export function SprintRunner() {
             {cur.retry ? <span className="ml-2 rounded-full bg-info-soft px-2 py-0.5 normal-case tracking-normal text-info">Second go</span> : null}
           </p>
           <p
-            className={`mt-3 flex min-h-[4.5rem] items-center justify-center font-extrabold leading-tight ${wordy(cur.item.prompt) ? "text-2xl sm:text-3xl" : "text-4xl sm:text-5xl"}`}
+            className={`mt-3 flex min-h-[4.5rem] items-center justify-center text-balance font-extrabold leading-snug ${wordy(cur.item.prompt) ? "text-lg sm:text-xl" : "text-xl sm:text-2xl"}`}
             aria-live="polite"
             aria-atomic="true"
           >
@@ -374,9 +370,9 @@ export function SprintRunner() {
 
           <form onSubmit={submit} className="mt-5" noValidate>
             <label htmlFor="sprint-answer" className="sr-only">
-              Your answer{suffix === "%" ? " as a percentage" : ""}
+              Your answer{isYear ? " (a year)" : ""}
             </label>
-            <div className="relative mx-auto max-w-xs">
+            <div className="relative mx-auto max-w-sm">
               <input
                 id="sprint-answer"
                 ref={inputRef}
@@ -385,33 +381,18 @@ export function SprintRunner() {
                   setValue(e.target.value);
                   setNote(null);
                 }}
-                inputMode="text"
+                inputMode={isYear ? "numeric" : "text"}
                 enterKeyHint="go"
                 autoComplete="off"
                 autoCorrect="off"
                 autoCapitalize="off"
                 spellCheck={false}
-                placeholder="?"
+                placeholder={isYear ? "Year" : "Answer"}
                 aria-describedby="sprint-feedback"
-                className={`input h-16 text-center text-3xl font-extrabold tabular-nums ${suffix ? "pr-12 pl-12" : ""}`}
+                className="input h-14 text-center text-2xl font-extrabold"
               />
-              {suffix ? (
-                <span className="pointer-events-none absolute inset-y-0 right-4 flex items-center text-2xl font-extrabold text-ink-2" aria-hidden>
-                  {suffix}
-                </span>
-              ) : null}
             </div>
             <div className="mt-3 flex items-center justify-center gap-2">
-              <button
-                type="button"
-                className="kbd h-12 min-w-12 text-xl"
-                onMouseDown={(e) => e.preventDefault()}
-                onClick={toggleMinus}
-                aria-label="Minus sign"
-                title="Type a minus sign"
-              >
-                −
-              </button>
               <button type="submit" className="btn btn-primary h-12 px-6" onMouseDown={(e) => e.preventDefault()}>
                 Enter <span aria-hidden>↵</span>
               </button>
@@ -433,9 +414,14 @@ export function SprintRunner() {
                 <span key={flash.n} className="animate-pop rounded-xl bg-bad-soft px-3 py-1.5 text-left">
                   <span className="font-extrabold text-bad">✗ </span>
                   <span className="font-bold text-ink">
-                    <RichInline text={flash.fact} />
+                    Answer: <RichInline text={flash.answer} />
                   </span>
                   {flash.hint ? <span className="block text-xs text-ink-2">{flash.hint}</span> : null}
+                  {!timed && flash.fact ? (
+                    <span className="block text-sm text-ink-2">
+                      <RichInline text={flash.fact} />
+                    </span>
+                  ) : null}
                 </span>
               )
             ) : null}
@@ -443,7 +429,7 @@ export function SprintRunner() {
         </section>
 
         <p className="text-center text-xs text-ink-2">
-          Press <kbd className="rounded border border-line bg-surface-2 px-1">Enter</kbd> to answer. Missed one? Keep going — it&apos;ll come back in a few questions.
+          Press <kbd className="rounded border border-line bg-surface-2 px-1">Enter</kbd> to answer. Spelling needn&apos;t be perfect, but years must be exact. Missed one? Keep going — it&apos;ll come back.
         </p>
       </div>
     );
@@ -458,13 +444,13 @@ export function SprintRunner() {
       if (summary.newBest && summary.prevBest !== undefined) bestLine = `🏅 New personal best! Up from ${summary.prevBest}.`;
       else if (summary.newBest) bestLine = "🏁 Your first timed score — now you have a best to beat.";
       else if (summary.prevBest !== undefined && summary.score === summary.prevBest) bestLine = `You matched your best of ${summary.prevBest}. That's real consistency.`;
-      else if (summary.prevBest !== undefined) bestLine = `Your best is ${summary.prevBest}. Some days are quicker than others — every run still builds fluency.`;
+      else if (summary.prevBest !== undefined) bestLine = `Your best is ${summary.prevBest}. Some days are quicker than others — every round still builds recall.`;
       else bestLine = "Every run counts. Untimed practice is a great way to build up speed calmly.";
     }
     let starLine: string;
-    if (summary.starsEarned > 0) starLine = `+${summary.starsEarned} ⭐ for today's ${info.label.toLowerCase()} ${summary.timed ? "sprint" : "practice"}.`;
-    else if (summary.starsWanted > 0) starLine = `You've already collected today's stars for ${info.label.toLowerCase()} — the practice still counts.`;
-    else starLine = "Get 5 right in one go to earn a star (up to 5 ⭐ per sprint type each day).";
+    if (summary.starsEarned > 0) starLine = `+${summary.starsEarned} ⭐ for today's ${info.label} ${summary.timed ? "round" : "practice"}.`;
+    else if (summary.starsWanted > 0) starLine = `You've already collected today's stars for ${info.label} — the practice still counts.`;
+    else starLine = "Get 4 right in one go to earn a star (up to 5 ⭐ per round type each day).";
 
     return (
       <div className="mx-auto max-w-xl space-y-4">
@@ -473,7 +459,7 @@ export function SprintRunner() {
             <span aria-hidden>{info.icon}</span> {info.label} · {summary.timed ? "timed" : "untimed"}
           </p>
           <h1 id="sprint-done" ref={doneHeadingRef} tabIndex={-1} className="mt-1 text-2xl font-extrabold outline-none">
-            {summary.timed ? (summary.stoppedEarly ? "Sprint stopped" : "Time’s up!") : "Practice complete"}
+            {summary.timed ? (summary.stoppedEarly ? "Round stopped" : "Time’s up!") : "Practice complete"}
           </h1>
           <p className="mt-4 text-6xl font-black tabular-nums text-brand">{summary.score}</p>
           <p className="mt-1 font-bold">
@@ -496,7 +482,7 @@ export function SprintRunner() {
               Change mode
             </button>
             <button type="button" className="btn btn-ghost" onClick={() => start(summary.mode, !summary.timed)}>
-              {summary.timed ? "Try it untimed" : "Try a timed sprint"}
+              {summary.timed ? "Try it untimed" : "Try a timed round"}
             </button>
           </div>
         </section>
@@ -510,8 +496,18 @@ export function SprintRunner() {
               <ul className="mt-3 divide-y divide-line">
                 {summary.misses.map((m) => (
                   <li key={m.key} className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1 py-2.5">
-                    <span className="text-lg font-bold">
-                      <RichInline text={m.fact} />
+                    <span className="min-w-0 basis-full">
+                      <span className="block text-sm text-ink-2">
+                        <RichInline text={m.prompt} />
+                      </span>
+                      <span className="block font-bold">
+                        <RichInline text={m.answer} />
+                      </span>
+                      {m.fact ? (
+                        <span className="block text-sm text-ink-2">
+                          <RichInline text={m.fact} />
+                        </span>
+                      ) : null}
                     </span>
                     <span className="flex flex-wrap items-center gap-2 text-sm text-ink-2">
                       {m.given ? (
@@ -528,7 +524,7 @@ export function SprintRunner() {
               </ul>
               <p className="mt-3 text-sm text-ink-2">
                 {still
-                  ? "Say each fact out loud a couple of times, cover it, and say it again. Then try another sprint tomorrow — that's how facts stick."
+                  ? "Say each fact out loud a couple of times, cover it, and say it again. Then try another round tomorrow — that's how facts stick."
                   : "You fixed every one when it came back — that's exactly how facts stick."}
               </p>
             </>
@@ -549,10 +545,11 @@ export function SprintRunner() {
     <div className="space-y-6">
       <header>
         <h1 ref={pickHeadingRef} tabIndex={-1} className="text-2xl font-extrabold tracking-tight outline-none sm:text-3xl">
-          <span aria-hidden>⚡</span> Fluency sprint
+          <span aria-hidden>⚡</span> Quick-fire round
         </h1>
         <p className="mt-1 max-w-2xl text-ink-2">
-          Quick-fire facts. When the basics are instant, your brain has more room for the interesting problems. Your only competition is your own best.
+          Dates, people and key terms against the clock. When the facts are instant, your mind is free for the interesting part — explaining, comparing and judging. Your only
+          competition is your own best.
         </p>
       </header>
 
@@ -560,7 +557,7 @@ export function SprintRunner() {
         <legend className="sr-only">Timing</legend>
         <div className="grid grid-cols-2 gap-2">
           {[
-            { t: true, title: "⏱ Timed · 60 s", sub: "How many in a minute?" },
+            { t: true, title: `⏱ Timed · ${SPRINT_SECONDS} s`, sub: `How many in ${SPRINT_SECONDS} seconds?` },
             { t: false, title: "🧘 Untimed practice", sub: "No clock — stop whenever." },
           ].map((o) => {
             const on = timed === o.t;
@@ -578,26 +575,28 @@ export function SprintRunner() {
         </div>
         <p className="mt-3 text-sm text-ink-2">
           {timed
-            ? "Answer as many as you can in 60 seconds. Wrong answers don't stop you — they come back a little later."
+            ? `Answer as many as you can in ${SPRINT_SECONDS} seconds. Wrong answers don't stop you — they come back a little later.`
             : "Untimed practice is just as good for learning: get them right first, and speed follows on its own."}
         </p>
       </fieldset>
 
       <section aria-labelledby="sprint-modes" className="space-y-3">
         <h2 id="sprint-modes" className="section-title">
-          Choose your facts
+          Choose your round
         </h2>
         <div className="grid gap-3 sm:grid-cols-2">
           {SPRINT_MODES.map((m) => {
             const info = SPRINT_MODE_INFO[m];
             const best = store.data.bests[sprintBestKey(m)];
             const starredToday = !!store.data.awarded[sprintAwardKey(m, today)];
+            const ready = sprintDrills(m, ALL_DRILLS).length > 0;
             return (
               <button
                 key={m}
                 type="button"
+                disabled={!ready}
                 onClick={() => start(m, timed)}
-                className={`card flex h-full flex-col items-start gap-2 p-4 text-left transition-colors hover:border-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand ${m === "mixed" ? "sm:col-span-2" : ""}`}
+                className={`card flex h-full flex-col items-start gap-2 p-4 text-left transition-colors enabled:hover:border-brand disabled:opacity-60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand ${m === "mixed" ? "sm:col-span-2" : ""}`}
               >
                 <span className="flex w-full items-center gap-3">
                   <span className="text-3xl" aria-hidden>
@@ -607,12 +606,14 @@ export function SprintRunner() {
                   <span className="chip shrink-0 tabular-nums">{best !== undefined ? `🏅 Best ${best}` : "No best yet"}</span>
                 </span>
                 <span className="text-sm text-ink-2">{info.description}</span>
-                <span className="text-sm">
-                  <span className="sr-only">For example: </span>
-                  <RichInline text={info.example} />
-                </span>
                 <span className="mt-auto flex w-full items-center justify-between gap-2 pt-1 text-sm font-bold">
-                  <span className="text-brand">{timed ? "Start 60-second sprint" : "Start practice"} <span aria-hidden>→</span></span>
+                  {ready ? (
+                    <span className="text-brand">
+                      {timed ? `Start ${SPRINT_SECONDS}-second round` : "Start practice"} <span aria-hidden>→</span>
+                    </span>
+                  ) : (
+                    <span className="text-ink-2">Coming soon</span>
+                  )}
                   {starredToday ? <span className="text-xs font-semibold text-ink-2">⭐ today&apos;s stars collected</span> : null}
                 </span>
               </button>
@@ -626,10 +627,10 @@ export function SprintRunner() {
           How it works
         </h2>
         <ul className="rich-ul mt-2 space-y-1 text-ink-2">
-          <li>Type your answer and press Enter — the next one appears straight away. Use the − button for negatives.</li>
+          <li>Type your answer and press Enter — the next one appears straight away. Years must be exact; small spelling slips in names are forgiven.</li>
           <li>Missed one? Keep going. It comes back a few questions later, and you&apos;ll see every fact to revisit at the end.</li>
-          <li>Earn 1 ⭐ for every 5 correct, up to 5 ⭐ for each type of sprint per day.</li>
-          <li>Personal bests are for timed sprints. Untimed practice is just as valuable — calm, accurate recall is what makes you fast.</li>
+          <li>Earn 1 ⭐ for every 4 correct, up to 5 ⭐ for each type of round per day.</li>
+          <li>Personal bests are for timed rounds. Untimed practice is just as valuable — calm, accurate recall is what makes you fast.</li>
         </ul>
       </section>
     </div>

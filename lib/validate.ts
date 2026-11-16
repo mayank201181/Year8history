@@ -216,7 +216,7 @@ export function validateTopic(t: Topic, seenIds: Set<string> = new Set()): { iss
 
 /** Validate a Big Exam paper (cross-topic): every question needs a valid topicId + guideRef. */
 export function validateExamPaper(
-  paper: { id: string; title: string; calculator: boolean; minutes: number; questions: Question[] },
+  paper: { id: string; title: string; kind?: string; minutes: number; questions: Question[] },
   sectionsByTopic: Record<string, string[]>,
   expectedCount: number,
 ): { issues: Issue[]; counts: Record<string, Record<string, number>> } {
@@ -225,7 +225,8 @@ export function validateExamPaper(
   const byKind: Record<string, number> = {};
   const byDifficulty: Record<string, number> = {};
   const seen = new Set<string>();
-  if (typeof paper.calculator !== "boolean") issues.push({ where: paper.id, problem: "calculator must be true/false" });
+  if (paper.kind !== undefined && paper.kind !== "knowledge" && paper.kind !== "sources") issues.push({ where: paper.id, problem: 'kind must be "knowledge" or "sources"' });
+  if ("calculator" in paper) issues.push({ where: paper.id, problem: "calculator is no longer part of ExamPaper — remove it (use kind)" });
   if (!(paper.minutes > 0)) issues.push({ where: paper.id, problem: "minutes must be > 0" });
   if (paper.questions.length !== expectedCount) issues.push({ where: paper.id, problem: `has ${paper.questions.length} questions, needs ${expectedCount}` });
   paper.questions.forEach((q, i) => {

@@ -89,7 +89,7 @@ export function DrillItemCard({
           {msg ? (
             <div className={`animate-pop mt-3 rounded-xl px-3 py-2 text-sm ${msg.status === "incorrect" ? "animate-shake bg-bad-soft" : msg.status === "close" ? "bg-warn-soft" : "bg-info-soft"}`} role="status" aria-live="polite">
               {msg.status === "incorrect" ? <strong>Not quite. </strong> : msg.status === "close" ? <strong>Almost! </strong> : null}
-              {msg.text ?? (msg.status === "incorrect" ? "Check your working and try once more." : null)}
+              {msg.text ?? (msg.status === "incorrect" ? "Have another look and try once more." : null)}
             </div>
           ) : null}
           {hinted && item.hint ? (

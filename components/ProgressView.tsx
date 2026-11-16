@@ -11,6 +11,7 @@ import { ALL_DRILLS, drillsForTopic } from "@/lib/drills";
 import { addDaysISO, lastNDays, todayISO, weekStartISO } from "@/lib/dates";
 import { activeDaysThisWeek } from "@/lib/profileTypes";
 import { STRANDS } from "@/lib/topics/meta";
+import { strandLabel, strandStyle } from "@/lib/strands";
 import { MiniBars, type MiniBar } from "./MiniBars";
 
 const GOAL_OPTIONS = [10, 15, 20, 30, 45];
@@ -21,13 +22,6 @@ const THEME_KEY = "y8m2:theme";
 const CERT_PCT = 80;
 type Theme = "system" | "light" | "dark";
 
-const STRAND_DOT: Record<string, string> = {
-  Number: "bg-s-number",
-  "Ratio & Proportion": "bg-s-ratio",
-  Algebra: "bg-s-algebra",
-  "Geometry & Measure": "bg-s-geometry",
-  "Statistics & Probability": "bg-s-stats",
-};
 
 function fmtDuration(ms: number): string {
   const m = Math.round(ms / 60000);
@@ -150,7 +144,7 @@ export function ProgressView({ summaries }: { summaries: TopicSummary[] }) {
     <div className="space-y-6">
       <header>
         <h1 className="text-2xl font-black sm:text-3xl">{name ? `${name}'s progress` : "Your progress"}</h1>
-        <p className="mt-1 text-ink-2">Everything you&apos;ve done in the Maths Lab, in one place.</p>
+        <p className="mt-1 text-ink-2">Everything you&apos;ve done in the History Lab, in one place.</p>
       </header>
 
       <RankCard stars={data.stars} />
@@ -172,7 +166,7 @@ export function ProgressView({ summaries }: { summaries: TopicSummary[] }) {
             sub={skillCounts.total ? `${skillCounts.secure} secure · ${skillCounts.total} skills` : "Skill drills coming soon"}
             href="/skills"
           />
-          <Tile icon="🧩" label="Challenge problems" value={`${challenge.solved}`} sub={challenge.total ? `solved of ${challenge.total}` : "solved"} />
+          <Tile icon="🧩" label="Challenge questions" value={`${challenge.solved}`} sub={challenge.total ? `solved of ${challenge.total}` : "solved"} />
           <Tile icon="📖" label="Lesson sections" value={`${lessons.read}`} sub={lessons.total ? `understood of ${lessons.total}` : "understood"} />
         </ul>
       </section>
@@ -349,13 +343,13 @@ function TopicList({ summaries, masteries }: { summaries: TopicSummary[]; master
           </p>
         ) : null}
       </div>
-      <p className="mt-0.5 text-xs text-ink-2">Mastery combines lessons understood, skill levels, questions solved and challenge problems. {CERT_PCT}% earns a certificate.</p>
+      <p className="mt-0.5 text-xs text-ink-2">Mastery combines lessons understood, skill levels, questions solved and challenge questions. {CERT_PCT}% earns a certificate.</p>
       <div className="mt-3 space-y-5">
         {groups.map((g) => (
           <div key={g.strand}>
             <h3 className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wide text-ink-2">
-              <span className={`h-2.5 w-2.5 rounded-full ${STRAND_DOT[g.strand] ?? "bg-ink-2"}`} aria-hidden />
-              {g.strand}
+              <span className={`h-2.5 w-2.5 rounded-full ${g.strand === "Other" ? "bg-ink-2" : strandStyle(g.strand).bg}`} aria-hidden />
+              {strandLabel(g.strand)}
             </h3>
             <ul className="mt-1 divide-y divide-line">
               {g.topics.map((s) => {
@@ -546,7 +540,7 @@ function FocusPicker({ ready }: { ready: TopicSummary[] }) {
                   onClick={() => toggle(s.id)}
                   className={`flex min-h-10 items-center gap-1.5 rounded-full border px-3 text-sm font-bold transition-colors disabled:cursor-not-allowed disabled:opacity-45 ${on ? "border-brand bg-brand-soft text-brand" : "border-line bg-surface text-ink hover:bg-surface-2"}`}
                 >
-                  <span className={`h-2 w-2 shrink-0 rounded-full ${STRAND_DOT[s.strand] ?? "bg-ink-2"}`} aria-hidden />
+                  <span className={`h-2 w-2 shrink-0 rounded-full ${strandStyle(s.strand).bg}`} aria-hidden />
                   {s.title}
                   {on ? <span aria-hidden>✓</span> : null}
                 </button>

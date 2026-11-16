@@ -7,7 +7,7 @@ export const dynamic = "force-static";
 
 export const metadata: Metadata = {
   title: "All topics",
-  description: "Every Year 8 maths topic across Number, Ratio & Proportion, Algebra, Geometry & Measure, and Statistics & Probability — with your mastery for each.",
+  description: "Every Year 8 History topic — the Historian's Toolkit, Kings & Power, Dictatorship and Democracy — with your mastery for each.",
 };
 
 function TopicsFallback() {

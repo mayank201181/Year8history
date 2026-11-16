@@ -7,11 +7,11 @@ export function ErrorFallback({ error, onRetry }: { error?: Error & { digest?: s
       <div style={{ fontSize: 48 }} aria-hidden>
         🧮
       </div>
-      <h1 style={{ fontSize: 22, fontWeight: 800, margin: "8px 0" }}>Oops — that sum didn&apos;t add up</h1>
+      <h1 style={{ fontSize: 22, fontWeight: 800, margin: "8px 0" }}>Oops — a page went missing from the archive</h1>
       <p style={{ color: "#555b78" }}>Something went wrong on this page. Your saved progress is safe.</p>
       <div style={{ display: "flex", gap: 8, justifyContent: "center", marginTop: 16, flexWrap: "wrap" }}>
         {onRetry ? (
-          <button type="button" onClick={onRetry} style={{ padding: "10px 16px", borderRadius: 12, background: "#4f46e5", color: "#fff", fontWeight: 700, border: 0, cursor: "pointer" }}>
+          <button type="button" onClick={onRetry} style={{ padding: "10px 16px", borderRadius: 12, background: "#233056", color: "#fff", fontWeight: 700, border: 0, cursor: "pointer" }}>
             Try again
           </button>
         ) : null}

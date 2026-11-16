@@ -12,6 +12,7 @@ import { DAILY_REASONS, generateDrillItem, isDailyDone, itemKey, pickDaily, swap
 import { localISO, todayISO } from "@/lib/dates";
 import { isRusty, skillDue, skillLevel, topicOfQid } from "@/lib/learning";
 import { useStore } from "@/lib/store";
+import { strandStyle } from "@/lib/strands";
 import { DrillItemCard, type DrillOutcome } from "./DrillItemCard";
 import { LevelBadge } from "./DrillRunner";
 import { QuestionCard, guideHref, type QuestionOutcome } from "./QuestionCard";
@@ -63,23 +64,16 @@ export const SOURCE_LABEL: Record<QuestionSource, string> = {
   quiz: "Quick-check question",
   mcq: "Multiple-choice question",
   practice: "Practice-paper question",
-  challenge: "Challenge problem",
+  challenge: "Challenge question",
   exam: "Exam question",
 };
 
-const STRAND_DOT: Record<string, string> = {
-  Number: "bg-s-number",
-  "Ratio & Proportion": "bg-s-ratio",
-  Algebra: "bg-s-algebra",
-  "Geometry & Measure": "bg-s-geometry",
-  "Statistics & Probability": "bg-s-stats",
-};
 
 export function TopicTag({ topic }: { topic?: { title: string; icon: string; strand: string } | null }) {
   if (!topic) return null;
   return (
     <span className="chip max-w-full">
-      <span className={`h-2 w-2 shrink-0 rounded-full ${STRAND_DOT[topic.strand] ?? "bg-brand"}`} aria-hidden />
+      <span className={`h-2 w-2 shrink-0 rounded-full ${strandStyle(topic.strand).bg}`} aria-hidden />
       <span aria-hidden>{topic.icon}</span>
       <span className="truncate">{topic.title}</span>
     </span>
@@ -582,7 +576,7 @@ function DailySession({ summaries, profileKey, today }: { summaries: TopicInfo[]
               ))}
             </ol>
             <p className="mt-4 text-sm text-ink-2">
-              Each question&apos;s topic is revealed once you&apos;ve answered it — spotting which method a question needs is part of the workout.
+              Each question&apos;s topic is revealed once you&apos;ve answered it — working out which topic a question comes from is part of the workout.
             </p>
             <p className="mt-2 text-sm text-ink-2">About 10 minutes · +5 ⭐ when you finish · anything you miss comes back in Review.</p>
             <button
@@ -736,7 +730,7 @@ function DailySession({ summaries, profileKey, today }: { summaries: TopicInfo[]
       {cur ? (
         <div className="mb-3 flex flex-wrap items-center gap-2">
           <ReasonChip reason={cur.reason} />
-          {/* The topic stays hidden until answered: choosing the method is part of mixed practice. */}
+          {/* The topic stays hidden until answered: recognising the topic is part of mixed practice. */}
           {set.results[set.index] ? <TopicTag topic={topicOfItem(cur)} /> : null}
         </div>
       ) : null}

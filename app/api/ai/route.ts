@@ -13,28 +13,34 @@ const FALLBACK_MODELS = new Set(["claude-fable-5-1", "claude-opus-5-5", "claude-
 
 // Daily caps (UTC days, shared across server instances) so the AI key's cost stays bounded
 // however many accounts are signed up: one per family, and one for the whole site.
-const RESTING = "Professor Pi needs a rest — try again tomorrow.";
+const RESTING = "Professor Quill needs a rest — try again tomorrow.";
 function dailyLimit(name: string, fallback: number): number {
   const n = Math.floor(Number(process.env[name]));
   return Number.isFinite(n) && n > 0 ? n : fallback;
 }
 
 // Static (cacheable) system prompt — never interpolate per-request data here.
-const SYSTEM = `You are Professor Pi, a warm, patient maths tutor inside a Year 8 (age 12-13) maths practice app used by a learner in Singapore (UK-style Year 8 curriculum: Cambridge Lower Secondary Stage 8 / KS3).
+const SYSTEM = `You are Professor Quill, a wise, warm and gently witty history tutor inside a Year 8 (age 12-13) history revision app used by a learner at a British international school in Singapore. This year's theme is "Dictatorship and Democracy": the Historian's Toolkit (chronology, sources, provenance, interpretations, causation, change and continuity, significance, PEEL writing), how kings rose to power (William I, King John and Magna Carta, Henry VIII), how dictators came to power (Hitler, Mao, Pol Pot) and how democracy developed (the French Revolution, votes for women in Britain).
 
-How you teach (Art of Problem Solving style):
-- If the learner asks about a problem they are working on, do NOT give the final answer. Ask one guiding question or give only the single next hint, then stop. Let them do the thinking.
-- Only give a complete worked solution if they explicitly say they give up, or the context says they have already answered the question (then explain clearly and kindly why the correct answer is right and where their reasoning went wrong).
-- Explain why things work (show a picture in words, a pattern, or a short derivation), not just rules. Point out an elegant alternative method when there is one.
-- Praise specific good reasoning ("Nice — checking with an estimate was smart"), never empty praise. Treat the learner as capable; don't be babyish.
-- Be accurate. Double-check every number before you send it.
+How you teach (Socratic):
+- If the learner asks about a question they are working on, do NOT give the answer. Ask one guiding question or give only the single next hint, then stop. Let them do the thinking.
+- Never write their paragraph, essay or answer for them, even if asked. Instead help them plan: ask what their point is, what evidence (dates, names, numbers, a detail from a source) supports it, and how it links back to the question. You may show the shape of a PEEL paragraph (Point, Evidence, Explain, Link) with a one-line example on a different topic, then ask them to write their own.
+- Only give a full model answer if the context says they have already answered the question (then explain kindly what a strong answer includes and where theirs could improve).
+- Push for evidence and judgement: "How do you know?", "Which cause mattered most, and why?", "How far do you agree?". Show that good history weighs both sides and reaches a supported conclusion.
+- For sources, model Nature, Origin and Purpose: who made it, when, why and for whom, and how that affects what it can tell us. Remind them a biased source can still be useful.
+- Be balanced and neutral. Present how historians interpret events and why they disagree. Don't push modern political opinions; keep to well-established facts and say so when something is debated or uncertain.
+- Be accurate. Double-check every date, name and number. If you are not sure, say so rather than guess.
+- Praise specific good thinking ("Good — linking the bad harvest to bread prices shows cause and effect"), never empty praise. Treat the learner as capable; don't be babyish.
+
+Sensitive history:
+- Treat the Holocaust, genocide, famine, executions, the Terror, the Killing Fields, force-feeding and other suffering seriously and respectfully, at a level suitable for a 12-13-year-old: be honest about what happened and its scale without graphic detail. Never joke about victims. Never present perpetrators' ideas approvingly; explain propaganda as propaganda.
 
 Style:
-- Short: usually 2-6 sentences. British spelling. Friendly, calm, encouraging.
-- Write maths so the app can render it: put fractions, powers and roots inside double curly braces, e.g. {{3/4}}, {{x^2}}, {{sqrt(49)}}, {{2 1/3}}. Use × and ÷ and − in plain text. You may use **bold** and simple "- " bullet lists. No headings, no LaTeX, no code blocks.
+- Short: usually 2-6 sentences. British spelling. Calm, friendly and encouraging, with the occasional light touch of humour.
+- You may use **bold** and simple "- " bullet lists. No headings, no code blocks.
 
 Safety and scope:
-- Only help with maths and study skills. For anything else, kindly steer back to maths.
+- Only help with history and study skills. For anything else, kindly steer back to the history they are revising.
 - Never ask for or repeat personal information. If the learner seems upset or unsafe, encourage them to talk to a parent or trusted adult.`;
 
 interface ChatTurn {
@@ -60,12 +66,12 @@ function cleanTurns(raw: unknown): ChatTurn[] {
 
 export async function POST(req: Request) {
   if (!process.env.ANTHROPIC_API_KEY) {
-    return NextResponse.json({ error: "Professor Pi isn't switched on for this site yet — ask a grown-up to add an AI key." }, { status: 503 });
+    return NextResponse.json({ error: "Professor Quill isn't switched on for this site yet — ask a grown-up to add an AI key." }, { status: 503 });
   }
   const account = await currentAccount().catch(() => null);
-  if (!account) return NextResponse.json({ error: "Professor Pi is available once you're signed in to a family account." }, { status: 401 });
+  if (!account) return NextResponse.json({ error: "Professor Quill is available once you're signed in to a family account." }, { status: 401 });
   if (!throttle(`ai:${account.id}`, 30, 10 * 60 * 1000)) {
-    return NextResponse.json({ error: "Professor Pi needs a short break — try again in a few minutes." }, { status: 429 });
+    return NextResponse.json({ error: "Professor Quill needs a short break — try again in a few minutes." }, { status: 429 });
   }
 
   const body = await req.json().catch(() => ({}));
@@ -79,7 +85,7 @@ export async function POST(req: Request) {
     if (!allowed) return NextResponse.json({ error: RESTING }, { status: 429 });
   } catch {
     // Can't count it, so don't spend on it.
-    return NextResponse.json({ error: "Professor Pi couldn't answer just now. Please try again." }, { status: 503 });
+    return NextResponse.json({ error: "Professor Quill couldn't answer just now. Please try again." }, { status: 503 });
   }
 
   // Per-request context goes in the first user turn (after the cached system prompt).
@@ -101,7 +107,7 @@ export async function POST(req: Request) {
       ...(useFallback ? { betas: ["server-side-fallback-2026-07-01"], fallbacks: "default" as const } : {}),
     });
     if (response.stop_reason === "refusal") {
-      return NextResponse.json({ reply: "Let's keep our chat about maths. What are you working on?" });
+      return NextResponse.json({ reply: "Let's keep our chat about your history revision. Which question are you working on?" });
     }
     const reply = response.content
       .filter((b): b is Anthropic.Beta.BetaTextBlock => b.type === "text")
@@ -111,13 +117,13 @@ export async function POST(req: Request) {
     return NextResponse.json({ reply: reply || "Hmm, I lost my train of thought — could you ask that again?" });
   } catch (error) {
     if (error instanceof Anthropic.RateLimitError) {
-      return NextResponse.json({ error: "Lots of people are asking Professor Pi right now — try again in a minute." }, { status: 429 });
+      return NextResponse.json({ error: "Lots of people are asking Professor Quill right now — try again in a minute." }, { status: 429 });
     }
     if (error instanceof Anthropic.APIError) {
       console.error("AI tutor API error", error.status, error.message);
-      return NextResponse.json({ error: "Professor Pi couldn't answer just now. Please try again." }, { status: 502 });
+      return NextResponse.json({ error: "Professor Quill couldn't answer just now. Please try again." }, { status: 502 });
     }
     console.error("AI tutor error", error);
-    return NextResponse.json({ error: "Professor Pi couldn't answer just now. Please try again." }, { status: 500 });
+    return NextResponse.json({ error: "Professor Quill couldn't answer just now. Please try again." }, { status: 500 });
   }
 }

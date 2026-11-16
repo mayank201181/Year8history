@@ -12,6 +12,7 @@ import { topicMastery, type TopicMastery } from "@/lib/mastery";
 import { drillsForTopic } from "@/lib/drills";
 import { skillLevel } from "@/lib/learning";
 import { STRANDS } from "@/lib/topics/meta";
+import { strandStyle } from "@/lib/strands";
 import { LevelBadge } from "./DrillRunner";
 
 /** Topic certificate threshold (topic mastery %). */
@@ -31,11 +32,11 @@ export function PrintStyles({ orientation = "portrait", margin = "12mm" }: { ori
 @page { size: A4 ${orientation}; margin: ${margin}; }
 @media print {
   :root:root:root {
-    --bg: #ffffff; --surface: #ffffff; --surface-2: #f0f2f9; --ink: #171a2f; --ink-2: #555b78; --line: #e0e3ef;
-    --brand: #4f46e5; --brand-2: #7c3aed; --brand-ink: #ffffff; --brand-soft: #eceafe;
-    --accent: #f59e0b; --accent-soft: #fef3c7; --good: #15803d; --good-soft: #dcfce7;
+    --bg: #ffffff; --surface: #ffffff; --surface-2: #f1ece2; --ink: #1d1a16; --ink-2: #5c5548; --line: #e4dccd;
+    --brand: #233056; --brand-2: #5b3a7a; --brand-ink: #ffffff; --brand-soft: #e7e9f2;
+    --accent: #d97706; --accent-soft: #fdf0d5; --good: #15803d; --good-soft: #dcfce7;
     --bad: #c2410c; --bad-soft: #ffedd5; --warn: #a16207; --warn-soft: #fef9c3; --info: #0369a1; --info-soft: #e0f2fe;
-    --s-number: #4f46e5; --s-ratio: #0d9488; --s-algebra: #7c3aed; --s-geometry: #ea580c; --s-stats: #db2777;
+    --s-toolkit: #0f766e; --s-kings: #7e22ce; --s-dictatorship: #b91c1c; --s-democracy: #1d4ed8;
     --shadow: none;
     color-scheme: light;
   }
@@ -63,20 +64,6 @@ export function PrintButton({ label = "Print", className = "" }: { label?: strin
 
 // ------------------------------------------------------------------ helpers
 
-const STRAND_DOT: Record<string, string> = {
-  Number: "bg-s-number",
-  "Ratio & Proportion": "bg-s-ratio",
-  Algebra: "bg-s-algebra",
-  "Geometry & Measure": "bg-s-geometry",
-  "Statistics & Probability": "bg-s-stats",
-};
-const STRAND_TEXT: Record<string, string> = {
-  Number: "text-s-number",
-  "Ratio & Proportion": "text-s-ratio",
-  Algebra: "text-s-algebra",
-  "Geometry & Measure": "text-s-geometry",
-  "Statistics & Probability": "text-s-stats",
-};
 
 interface Row {
   s: TopicSummary;
@@ -119,13 +106,14 @@ function Bar({ value, label, target, className = "h-2.5", decorative = false }: 
 function StrandChip({ strand }: { strand: string }) {
   return (
     <span className="chip">
-      <span aria-hidden className={`h-2 w-2 rounded-full ${STRAND_DOT[strand] ?? "bg-brand"}`} />
+      <span aria-hidden className={`h-2 w-2 rounded-full ${strandStyle(strand).bg}`} />
       {strand}
     </span>
   );
 }
 
-const PI_PATHS = ["M17 37 C 20 28 26 25 34 25 L 84 25", "M41 27 C 41 50 38 65 29 77", "M65 27 L 65 64 C 65 74 70 77 79 73"];
+/** A classical temple front (pediment, four columns, steps), drawn as strokes in a 100 × 100 box. */
+const TEMPLE_PATHS = ["M14 32 L50 13 L86 32 Z", "M14 39 H86", "M24 45 V79", "M41 45 V79", "M59 45 V79", "M76 45 V79", "M14 85 H86", "M9 92 H91"];
 
 /** Serrated rosette edge for the seal (deterministic). */
 const SEAL_EDGE = (() => {
@@ -142,7 +130,7 @@ const SEAL_EDGE = (() => {
 function Seal({ className }: { className?: string }) {
   const grad = `seal-${useId().replace(/[^a-zA-Z0-9_-]/g, "")}`;
   return (
-    <svg viewBox="0 0 120 120" className={className} role="img" aria-label="Year 8 Maths Lab seal">
+    <svg viewBox="0 0 120 120" className={className} role="img" aria-label="Year 8 History Lab seal">
       <defs>
         <linearGradient id={grad} x1="0" y1="0" x2="1" y2="1">
           <stop offset="0%" style={{ stopColor: "var(--brand)" }} />
@@ -152,8 +140,8 @@ function Seal({ className }: { className?: string }) {
       <path d={SEAL_EDGE} fill={`url(#${grad})`} />
       <circle cx="60" cy="60" r="44" fill="none" stroke="#ffffff" strokeOpacity="0.8" strokeWidth="1.6" strokeDasharray="3 3.2" />
       <circle cx="60" cy="60" r="38.5" fill="none" stroke="#ffffff" strokeOpacity="0.35" strokeWidth="1" />
-      <g transform="translate(32.2 32) scale(0.55)" fill="none" stroke="#ffffff" strokeWidth="12" strokeLinecap="round" strokeLinejoin="round">
-        {PI_PATHS.map((d) => (
+      <g transform="translate(34 33) scale(0.52)" fill="none" stroke="#ffffff" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round">
+        {TEMPLE_PATHS.map((d) => (
           <path key={d} d={d} />
         ))}
       </g>
@@ -183,18 +171,18 @@ function CertificateSheet({ heading, name, verb, subject, icon, strand, stats, d
           <span key={c} aria-hidden className={`pointer-events-none absolute h-7 w-7 border-accent ${c}`} />
         ))}
         <svg aria-hidden viewBox="0 0 100 100" className="pointer-events-none absolute -bottom-12 -right-10 h-72 w-72 text-brand opacity-[0.06]">
-          <g fill="none" stroke="currentColor" strokeWidth="11" strokeLinecap="round" strokeLinejoin="round">
-            {PI_PATHS.map((d) => (
+          <g fill="none" stroke="currentColor" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round">
+            {TEMPLE_PATHS.map((d) => (
               <path key={d} d={d} />
             ))}
           </g>
         </svg>
 
         <div className="relative flex items-center gap-2 text-sm font-black tracking-tight text-ink-2">
-          <span aria-hidden className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-brand to-brand-2 text-base text-brand-ink">
-            π
+          <span aria-hidden className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-brand to-brand-2 text-[0.7rem] font-black text-brand-ink">
+            Y8
           </span>
-          Year 8 Maths Lab
+          Year 8 History Lab
         </div>
         <p className="relative mt-5 text-xs font-extrabold uppercase tracking-[0.32em] text-warn sm:text-sm">{heading}</p>
         <p className="relative mt-5 text-ink-2">This certifies that</p>
@@ -229,7 +217,7 @@ function CertificateSheet({ heading, name, verb, subject, icon, strand, stats, d
           </div>
           <Seal className="h-16 w-16 sm:h-24 sm:w-24" />
           <div className="border-t-2 border-line pt-1.5 text-sm">
-            <div className="font-serif font-bold italic text-ink">Year 8 Maths Lab</div>
+            <div className="font-serif font-bold italic text-ink">Year 8 History Lab</div>
             <div className="text-xs text-ink-2">Awarded by</div>
           </div>
         </div>
@@ -328,7 +316,7 @@ function TopicNeeds({ row }: { row: Row }) {
         )}
       </PartCard>
 
-      <PartCard title="Challenge problems" got={parts.challenge} of={15} detail={`${Math.min(m.challengeSolved, 5)} of 5 challenge problems solved.`}>
+      <PartCard title="Challenge questions" got={parts.challenge} of={15} detail={`${Math.min(m.challengeSolved, 5)} of 5 challenge questions solved.`}>
         {m.challengeSolved >= 5 ? (
           <p className="font-bold text-good">✓ Full marks here.</p>
         ) : s.challengeIds.length ? (
@@ -338,12 +326,12 @@ function TopicNeeds({ row }: { row: Row }) {
             </Link>
             {s.challengeIds.length < 5 ? (
               <p className="mt-2 text-xs text-ink-2">
-                There {s.challengeIds.length === 1 ? "is 1 challenge problem" : `are ${s.challengeIds.length} challenge problems`} in this topic at the moment.
+                There {s.challengeIds.length === 1 ? "is 1 challenge question" : `are ${s.challengeIds.length} challenge questions`} in this topic at the moment.
               </p>
             ) : null}
           </>
         ) : (
-          <p className="text-ink-2">Challenge problems for this topic are coming soon.</p>
+          <p className="text-ink-2">Challenge questions for this topic are coming soon.</p>
         )}
       </PartCard>
     </div>
@@ -439,7 +427,7 @@ export function Certificate({ kind, topic, summaries }: CertificateProps) {
               { value: `${m.pct}%`, label: "Topic mastery" },
               { value: `${m.skills.mastered}${m.skills.total ? `/${m.skills.total}` : ""}`, label: "Skills mastered", sub: m.skills.secure ? `+${m.skills.secure} secure` : undefined },
               { value: String(m.solved), label: "Questions solved" },
-              { value: String(m.challengeSolved), label: "Challenge problems solved" },
+              { value: String(m.challengeSolved), label: "Challenges solved" },
             ]}
           />
           {printTip}
@@ -500,7 +488,7 @@ export function Certificate({ kind, topic, summaries }: CertificateProps) {
         <p className="text-sm text-ink-2">
           Also working towards the{" "}
           <Link href="/certificate/year8" className="font-bold text-brand hover:underline">
-            Year 8 Maths certificate
+            Year 8 History certificate
           </Link>
           .
         </p>
@@ -522,7 +510,7 @@ export function Certificate({ kind, topic, summaries }: CertificateProps) {
         if (!list.length) return null;
         return (
           <div key={strand} className="card p-4">
-            <h3 className={`font-extrabold ${STRAND_TEXT[strand] ?? ""}`}>{strand}</h3>
+            <h3 className={`font-extrabold ${strandStyle(strand).text}`}>{strand}</h3>
             <ul className="mt-2 divide-y divide-line">
               {list.map((r) => {
                 const ok = r.m.pct >= YEAR8_TOPIC_PCT;
@@ -574,7 +562,7 @@ export function Certificate({ kind, topic, summaries }: CertificateProps) {
           <div>
             <h1 className="text-2xl font-black tracking-tight">Year 8 certificate earned 🎓</h1>
             <p className="text-ink-2">
-              {qualifying.length} topics at {YEAR8_TOPIC_PCT}%+ mastery — a whole year of maths. Print it, frame it, or save it as a PDF.
+              {qualifying.length} topics at {YEAR8_TOPIC_PCT}%+ mastery — a whole year of history. Print it, frame it, or save it as a PDF.
             </p>
           </div>
           {controls}
@@ -589,7 +577,7 @@ export function Certificate({ kind, topic, summaries }: CertificateProps) {
             { value: `${qualifying.length}/${rows.length}`, label: `Topics at ${YEAR8_TOPIC_PCT}%+` },
             { value: String(totals.skills), label: "Skills mastered" },
             { value: String(totals.solved), label: "Questions solved" },
-            { value: String(totals.challenge), label: "Challenge problems solved" },
+            { value: String(totals.challenge), label: "Challenges solved" },
           ]}
         />
         {printTip}
@@ -620,7 +608,7 @@ export function Certificate({ kind, topic, summaries }: CertificateProps) {
     <div className="space-y-5">
       <header>
         <span className="chip">🎓 Certificate of Achievement</span>
-        <h1 className="mt-2 text-2xl font-black tracking-tight sm:text-3xl">Year 8 Maths certificate</h1>
+        <h1 className="mt-2 text-2xl font-black tracking-tight sm:text-3xl">Year 8 History certificate</h1>
         <p className="mt-1 text-ink-2">
           Get any {YEAR8_TOPICS_NEEDED} of the {rows.length} topics to {YEAR8_TOPIC_PCT}% mastery or more to unlock a printable certificate for the whole year.
         </p>

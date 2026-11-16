@@ -1,5 +1,7 @@
 // ---------------------------------------------------------------------------
-// Auto-marking for typed maths answers.
+// Auto-marking for typed answers: years and numbers (exact), names and terms
+// (forgiving about case, accents, a leading "the" and small spelling slips).
+// The numeric/algebra checkers are kept from the shared engine.
 //
 //   correct   — right value in an acceptable form
 //   close     — right value but wrong form (e.g. not simplified), or a
@@ -138,7 +140,23 @@ function roundsTo(v: number, target: number): boolean {
   return Math.abs(v - target) <= 0.5 * 10 ** -dp + 1e-9;
 }
 
-function checkNumber(spec: Extract<AnswerSpec, { type: "number" }>, input: string): CheckResult {
+/**
+ * Years as people write them: "1066 AD", "AD 1066", "in 1066", "c. 1066", "55 BC"
+ * (→ −55). Returns the bare number text, or the input unchanged.
+ */
+export function yearForm(raw: string): string {
+  let s = raw.trim().replace(/\.$/, "");
+  s = s.replace(/^(?:in|by|from|around|about|the year|year)\s+/i, "");
+  s = s.replace(/^c(?:a|irca)?\.?\s*(?=\d)/i, "");
+  const bc = /(?<=[\d\s])\s*b\.?\s?c\.?(?:\s?e\.?)?$/i;
+  if (/^\d[\d,]*\s*b\.?\s?c/i.test(s) && bc.test(s)) return `-${s.replace(bc, "").trim()}`;
+  s = s.replace(/^a\.?\s?d\.?\s*(?=\d)/i, "").replace(/(?<=[\d\s])\s*(?:a\.?\s?d|c\.?\s?e)\.?$/i, "");
+  return s.trim();
+}
+
+function checkNumber(spec: Extract<AnswerSpec, { type: "number" }>, rawInput: string): CheckResult {
+  const asYear = Number.isInteger(spec.value) ? yearForm(rawInput) : rawInput;
+  const input = asYear !== rawInput && parseNumberAnswer(asYear) ? asYear : rawInput;
   const pi = piNumberValues(input);
   if (pi !== null) {
     if (pi.some((v) => near(v, spec.value, spec.tolerance) || roundsTo(v, spec.value))) {
@@ -149,7 +167,7 @@ function checkNumber(spec: Extract<AnswerSpec, { type: "number" }>, input: strin
   const p = parseNumberAnswer(input);
   if (!p) {
     // Maybe they wrote a list or an expression.
-    return { status: "invalid", feedback: "Type a single number, like 12, −3.5 or 3/4." };
+    return { status: "invalid", feedback: Number.isInteger(spec.value) && Math.abs(spec.value) >= 100 ? "Type the year as a number, like 1066." : "Type a single number, like 12 or 1066." };
   }
   const allowFraction = spec.allowFraction !== false;
   if (!allowFraction && p.frac) {
@@ -375,6 +393,11 @@ function looseText(s: string): string {
     .replace(/æ/gi, "ae")
     .toLowerCase()
     .replace(/^\s*(the|a|an)\s+/, "")
+    // Keep comparison symbols meaningful once punctuation is dropped.
+    .replace(/<=|≤/g, " le ")
+    .replace(/>=|≥/g, " ge ")
+    .replace(/</g, " lt ")
+    .replace(/>/g, " gt ")
     .replace(/[^a-z0-9]/g, "");
 }
 

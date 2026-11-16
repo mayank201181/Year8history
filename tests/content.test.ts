@@ -1,5 +1,6 @@
-// Every topic, drill set and exam paper passes structural + answer-key self-checks,
-// and question ids are unique across the whole app.
+// Every topic, drill set and exam paper that exists so far passes structural +
+// answer-key self-checks, and question ids are unique across the whole app.
+// Missing files are skipped (content is written topic by topic).
 import test from "node:test";
 import assert from "node:assert/strict";
 import { existsSync } from "node:fs";
@@ -13,40 +14,71 @@ import { makeRng } from "../lib/drills/rng.ts";
 import { specSelfCheck } from "../lib/answerCheck.ts";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+/** Import one export from a content file; undefined when the file doesn't exist yet. Import errors are reported. */
+const importErrors: string[] = [];
 const load = async <T>(rel: string, name: string): Promise<T | undefined> => {
   const p = path.join(root, rel);
-  return existsSync(p) ? ((await import(pathToFileURL(p).href))[name] as T) : undefined;
+  if (!existsSync(p)) return undefined;
+  try {
+    return (await import(pathToFileURL(p).href))[name] as T;
+  } catch (e) {
+    importErrors.push(`${rel}: failed to import (${(e as Error).message.split("\n")[0]})`);
+    return undefined;
+  }
 };
 
-test("all topics validate and ids are globally unique", async () => {
+/** Expected question counts for the Big Exam papers. */
+const EXAM_COUNTS: Record<string, number> = { "exam-k1": 40, "exam-s1": 20 };
+
+test("all present topic files validate and ids are globally unique", async () => {
   const seen = new Set<string>();
   const problems: string[] = [];
   for (const m of TOPIC_META) {
     const guide = await load<TopicGuide>(`lib/topics/${m.id}/guide.ts`, "guide");
-    if (!guide) continue;
     const practice = await load<TopicPractice>(`lib/topics/${m.id}/practice.ts`, "practice");
+    const mcqPapers = await load<Paper[]>(`lib/topics/${m.id}/mcq.ts`, "mcqPapers");
+    const morePapers = await load<Paper[]>(`lib/topics/${m.id}/practice2.ts`, "morePapers");
+    if (!guide && !practice && !mcqPapers && !morePapers) continue; // not written yet
+    if (guide) {
+      // The guide must follow the plan in meta.ts exactly (ids and order).
+      const want = m.sections.map((s) => s.id).join(",");
+      const got = (guide.guide ?? []).map((s) => s.id).join(",");
+      if (want !== got) problems.push(`${m.id}/guide: sections ${got} should be ${want}`);
+      if (guide.id !== m.id || guide.strand !== m.strand) problems.push(`${m.id}/guide: id/strand must match meta.ts`);
+    }
+    // Question files can arrive before the guide: validate them against the planned sections.
+    const stub: TopicGuide = {
+      id: m.id,
+      title: m.title,
+      strand: m.strand,
+      icon: m.icon,
+      summary: "",
+      intro: "",
+      guide: m.sections.map((s) => ({ id: s.id, heading: s.heading, body: "" })),
+      learn: { flashcards: [], mustKnow: [], misconceptions: [], examMistakes: [], mnemonics: [], realWorld: [], videos: [], formulas: [] },
+    };
     const topic: Topic = {
-      ...guide,
+      ...(guide ?? stub),
       quiz: practice?.quiz ?? [],
-      mcqPapers: (await load<Paper[]>(`lib/topics/${m.id}/mcq.ts`, "mcqPapers")) ?? [],
-      practicePapers: [...(practice?.papers ?? []), ...((await load<Paper[]>(`lib/topics/${m.id}/practice2.ts`, "morePapers")) ?? [])],
+      mcqPapers: mcqPapers ?? [],
+      practicePapers: [...(practice?.papers ?? []), ...(morePapers ?? [])],
       challenge: practice?.challenge ?? [],
     };
     const { issues } = validateTopic(topic, seen);
     for (const i of issues) problems.push(`${i.where}: ${i.problem}`);
   }
   const sections = Object.fromEntries(TOPIC_META.map((t) => [t.id, t.sections.map((s) => s.id)]));
-  for (const e of ["exam-n1", "exam-c1", "exam-n2", "exam-c2"]) {
+  for (const [e, count] of Object.entries(EXAM_COUNTS)) {
     const paper = await load<ExamPaper>(`lib/exam/${e}.ts`, "paper");
     if (!paper) continue;
-    const { issues } = validateExamPaper(paper, sections, 30);
+    const { issues } = validateExamPaper(paper, sections, count);
     for (const i of issues) problems.push(`${i.where}: ${i.problem}`);
     for (const q of paper.questions) {
       if (seen.has(q.id)) problems.push(`${q.id}: duplicate id`);
       seen.add(q.id);
     }
   }
-  assert.deepEqual(problems.slice(0, 30), []);
+  assert.deepEqual([...importErrors.filter((e) => !e.startsWith("lib/drills/")), ...problems].slice(0, 30), []);
 });
 
 test("all drills generate valid, self-consistent items", async () => {
@@ -55,9 +87,14 @@ test("all drills generate valid, self-consistent items", async () => {
   for (const m of TOPIC_META) {
     const drills = await load<Drill[]>(`lib/drills/${m.id}.ts`, "drills");
     if (!drills) continue;
+    if (!Array.isArray(drills)) {
+      problems.push(`drills/${m.id}: must export drills: Drill[]`);
+      continue;
+    }
     for (const d of drills) {
       if (ids.has(d.id)) problems.push(`${d.id}: duplicate drill id`);
       ids.add(d.id);
+      if (d.topicId !== m.id) problems.push(`${d.id}: topicId should be ${m.id}`);
       for (const tier of [1, 2, 3] as const) {
         for (let seed = 1; seed <= 40; seed++) {
           try {
@@ -72,5 +109,5 @@ test("all drills generate valid, self-consistent items", async () => {
       }
     }
   }
-  assert.deepEqual(problems.slice(0, 30), []);
+  assert.deepEqual([...importErrors.filter((e) => e.startsWith("lib/drills/")), ...problems].slice(0, 30), []);
 });

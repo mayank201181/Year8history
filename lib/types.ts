@@ -270,7 +270,7 @@ export interface LearnSmart {
   mnemonics: Mnemonic[];
   realWorld: RealWorld[];
   videos: VideoLink[];
-  /** Key formulas / facts for this topic (feeds the formula sheet). */
+  /** Key dates / facts for this topic: name = date or label, formula = event or fact (feeds the Timeline page). */
   formulas: FormulaFact[];
 }
 
@@ -312,8 +312,12 @@ export interface Topic extends TopicGuide {
 // Comprehensive cross-topic exam
 // ---------------------------------------------------------------------------
 
+/** Paper 1 tests knowledge & understanding; Paper 2 tests sources & judgement. */
+export type ExamKind = "knowledge" | "sources";
+
 export interface ExamPaper extends Paper {
-  calculator: boolean;
+  /** Which kind of paper this is (defaults from the id: exam-k… = knowledge, exam-s… = sources). */
+  kind?: ExamKind;
   /** Suggested minutes. */
   minutes: number;
 }
@@ -327,7 +331,7 @@ export interface Activity {
   emoji: string;
   materials: string[];
   steps: string[];
-  /** The maths behind it. */
+  /** The history behind it (field name kept from the shared engine). */
   maths: string;
 }
 
@@ -343,7 +347,7 @@ export interface TopicExtras {
   didYouKnow?: string[];
   activities?: Activity[];
   bonusDiagrams?: BonusDiagram[];
-  /** A short story from maths history. */
+  /** A short story from the archives. */
   history?: { title: string; story: string };
 }
 

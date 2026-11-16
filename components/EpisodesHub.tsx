@@ -1,11 +1,11 @@
 "use client";
-// /episodes — every "Totally Raotional" episode in one place: a player plus a playlist,
+// /episodes — every sitcom episode in one place: a player plus a playlist,
 // with an optional binge mode that rolls straight into the next episode.
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { SITCOM_EPISODES } from "@/lib/sitcom";
+import { EPISODES, SHOW_NAME } from "@/lib/show";
 import { EpisodePlayer, formatDuration, useWatchedEpisodes } from "./EpisodePlayer";
 
 export function EpisodesHub() {
@@ -15,14 +15,25 @@ export function EpisodesHub() {
   const [binge, setBinge] = useState(false);
   const [autoPlay, setAutoPlay] = useState(false);
 
-  const eps = SITCOM_EPISODES;
+  const eps = EPISODES;
   const requested = Number(params.get("ep"));
   const current = eps.find((e) => e.num === requested) ?? eps.find((e) => !watched[e.topicId]) ?? eps[0];
   const watchedCount = eps.filter((e) => watched[e.topicId]).length;
   const totalMin = Math.round(eps.reduce((s, e) => s + e.durationSec, 0) / 60);
 
   if (!current) {
-    return <p className="card p-6 text-ink-2">Episodes are on their way — check back soon.</p>;
+    return (
+      <div className="card mx-auto max-w-xl p-6 text-center">
+        <div aria-hidden className="text-4xl">
+          📺
+        </div>
+        <h1 className="mt-2 text-2xl font-black">{SHOW_NAME}</h1>
+        <p className="mt-2 text-ink-2">Episodes are being made and will appear here as each one is finished. Until then, every topic&apos;s Watch tab has hand-picked explainer videos.</p>
+        <Link href="/watch" className="btn btn-primary mt-4">
+          Go to the Watch hub
+        </Link>
+      </div>
+    );
   }
 
   const pick = (num: number, play: boolean) => {
@@ -40,9 +51,9 @@ export function EpisodesHub() {
             <span className="chip border-0 bg-brand-soft text-brand">📺 Season 1 · {eps.length} episode{eps.length === 1 ? "" : "s"} · {totalMin} min</span>
             <span className="chip">⭐ {watchedCount}/{eps.length} watched</span>
           </div>
-          <h1 className="mt-2 text-2xl font-black sm:text-3xl">Totally Raotional</h1>
+          <h1 className="mt-2 text-2xl font-black sm:text-3xl">{SHOW_NAME}</h1>
           <p className="text-sm text-ink-2">
-            One sarcastic family, one 100-eyed calculator monster, every Year 8 topic. Each episode ends with three pause challenges.
+            One episode per Year 8 History topic — kings, dictators and the fight for the vote, played for laughs but true to the facts. Each episode ends with questions to pause and answer.
           </p>
         </div>
         <label className="flex cursor-pointer items-center gap-2 text-sm font-bold">

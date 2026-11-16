@@ -57,7 +57,7 @@ test("adaptive tier", () => {
 
 test("ranks", () => {
   assert.equal(rankFor(0).rank.name, "Explorer");
-  assert.equal(rankFor(130).rank.name, "Problem Solver");
+  assert.equal(rankFor(130).rank.name, "Chronicler");
   assert.ok(rankFor(80).progress > 0 && rankFor(80).progress < 1);
   assert.equal(rankFor(99999).next, undefined);
 });
@@ -66,7 +66,7 @@ test("topic of question id prefers the longest match", () => {
   const ids = ["fractions", "sequences-graphs", "statistics"];
   assert.equal(topicOfQid("fractions-p1-q03", ids), "fractions");
   assert.equal(topicOfQid("sequences-graphs-m2-q01", ids), "sequences-graphs");
-  assert.equal(topicOfQid("exam-n1-q01", ids), undefined);
+  assert.equal(topicOfQid("exam-k1-q01", ids), undefined);
 });
 
 test("normalizeProgress repairs garbage and keeps valid data", () => {

@@ -22,7 +22,7 @@ for (const t of TOPIC_META) {
   if (existsSync(path.join(root, "lib", "drills", `${t.id}.ts`))) run("validate-drills.ts", t.id);
   else console.log(`· no drills yet for ${t.id}`);
 }
-for (const e of ["exam-n1", "exam-c1", "exam-n2", "exam-c2"]) {
+for (const e of ["exam-k1", "exam-s1"]) {
   if (existsSync(path.join(root, "lib", "exam", `${e}.ts`))) run("validate-exam.ts", e);
   else console.log(`· no ${e} yet`);
 }

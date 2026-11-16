@@ -1,9 +1,10 @@
 "use client";
-import { useState, useSyncExternalStore } from "react";
-import Image from "next/image";
+// /watch — the sitcom and every topic's episode status in one place.
+import { useState } from "react";
 import Link from "next/link";
-import { SITCOM_EPISODES, sitcomEpisodeFor } from "@/lib/sitcom";
-import { useWatchedEpisodes } from "./EpisodePlayer";
+import { EPISODES, SHOW_NAME, episodeFor } from "@/lib/show";
+import { STRANDS, strandLabel, strandStyle } from "@/lib/strands";
+import { formatDuration, useWatchedEpisodes } from "./EpisodePlayer";
 
 export interface WatchTopicItem {
   id: string;
@@ -14,107 +15,48 @@ export interface WatchTopicItem {
   summary: string;
 }
 
-function subscribeStorage(onChange: () => void): () => void {
-  if (typeof window === "undefined") return () => {};
-  window.addEventListener("storage", onChange);
-  return () => window.removeEventListener("storage", onChange);
-}
-
-function getStorageSnapshot(): string {
-  if (typeof window === "undefined") return "";
-  try {
-    return localStorage.getItem("y8m2:watch-v1") ?? "";
-  } catch {
-    return "";
-  }
-}
-
-function getServerStorageSnapshot(): string {
-  return "";
-}
+const ALL = "All";
 
 export function WatchHub({ topics }: { topics: WatchTopicItem[] }) {
-  const [strand, setStrand] = useState<string>("All");
-  const raw = useSyncExternalStore(subscribeStorage, getStorageSnapshot, getServerStorageSnapshot);
+  const [strand, setStrand] = useState<string>(ALL);
   const epDone = useWatchedEpisodes();
 
-  let mcDone: Record<string, boolean> = {};
-  let scDone: Record<string, boolean> = {};
-  if (raw) {
-    try {
-      const p = JSON.parse(raw) as {
-        completedMc?: Record<string, boolean>;
-        completedSitcom?: Record<string, boolean>;
-      };
-      mcDone = p.completedMc ?? {};
-      scDone = p.completedSitcom ?? {};
-    } catch {
-      // Ignore malformed storage JSON
-    }
-  }
-
-  const strands = ["All", "Number", "Ratio & Proportion", "Algebra", "Geometry & Measure", "Statistics & Probability"];
-  const visible = strand === "All" ? topics : topics.filter((t) => t.strand === strand);
-  const totalCompleted = Object.keys(mcDone).length + Object.keys(scDone).length;
+  const strands = [ALL, ...STRANDS.filter((s) => topics.some((t) => t.strand === s))];
+  const visible = strand === ALL ? topics : topics.filter((t) => t.strand === strand);
+  const watchedCount = EPISODES.filter((e) => epDone[e.topicId]).length;
+  const totalMin = Math.round(EPISODES.reduce((s, e) => s + e.durationSec, 0) / 60);
 
   return (
     <div className="space-y-6 pb-8">
-      {SITCOM_EPISODES.length ? (
-        <Link href="/episodes" className="card flex items-center gap-4 border-2 border-brand p-4 transition-colors hover:bg-brand-soft/40 sm:p-5">
-          <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#7c3aed] text-3xl" aria-hidden>📺</span>
-          <div className="min-w-0 flex-1">
-            <div className="text-lg font-black">Sitcom Episodes: &ldquo;Totally Raotional&rdquo;</div>
-            <p className="text-sm text-ink-2">
-              {SITCOM_EPISODES.length} animated episodes, one per topic. Sarcasm, a 100-eyed calculator monster and pause challenges. Binge mode included.
-            </p>
-          </div>
-          <span className="chip shrink-0">⭐ {Object.keys(epDone).length}/{SITCOM_EPISODES.length}</span>
-        </Link>
-      ) : null}
-      <section className="card overflow-hidden p-5 sm:p-6">
-        <div className="grid items-center gap-5 md:grid-cols-12">
-          <div className="space-y-3 md:col-span-7">
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="chip border-0 bg-brand-soft text-brand">20 Studio Whiteboards</span>
-              <span className="chip border-0 bg-accent-soft text-warn">20 Beast-Mode Sitcoms</span>
-              <span className="chip">⭐ {totalCompleted}/40 Watched</span>
-            </div>
-            <h1 className="text-2xl font-black leading-tight sm:text-3xl">
-              Maths Coaching Studio &amp; Beast-Mode Sitcom TV
-            </h1>
-            <p className="text-sm text-ink-2 sm:text-base">
-              Learn every Year 8 concept visually with <strong>Professor Pi&apos;s Interactive Whiteboards</strong>, then binge-watch <strong>Zara, Groggle &amp; Pippa</strong> roasting classic exam traps in Season 1!
-            </p>
-            <div className="flex flex-wrap gap-2 pt-1">
-              <a href="/season1/index.html" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-                👾 Full-Screen Beast TV (/season1)
-              </a>
-              <a href="/masterclass/index.html" target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
-                🎓 Full-Screen Studio (/masterclass)
-              </a>
-            </div>
-          </div>
-          <div className="md:col-span-5">
-            <Image
-              src="/coaching/assets/hero.jpg"
-              alt="Beast Mode Maths Academy cast around a glowing geometry table"
-              width={960}
-              height={540}
-              className="h-auto w-full rounded-2xl border border-line object-cover"
-              priority
-            />
-          </div>
+      <section className="card overflow-hidden p-5 sm:p-6" aria-labelledby="watch-h">
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="chip border-0 bg-brand-soft text-brand">
+            📺 {EPISODES.length ? `${EPISODES.length} episode${EPISODES.length === 1 ? "" : "s"} · ${totalMin} min` : "Season 1 in production"}
+          </span>
+          {EPISODES.length ? <span className="chip">⭐ {watchedCount}/{EPISODES.length} watched</span> : null}
+        </div>
+        <h1 id="watch-h" className="mt-3 text-2xl font-black leading-tight sm:text-3xl">
+          Watch: <span className="italic">{SHOW_NAME}</span>
+        </h1>
+        <p className="mt-1 max-w-2xl text-sm text-ink-2 sm:text-base">
+          An animated sitcom with one episode per Year 8 topic — a funny way into the story before (or after) the lesson. Each episode ends with questions to pause
+          and answer.
+        </p>
+        <div className="mt-4 flex flex-wrap gap-2">
+          {EPISODES.length ? (
+            <Link href="/episodes" className="btn btn-primary">
+              ▶ Play episodes
+            </Link>
+          ) : null}
+          <Link href="/topics" className="btn btn-secondary">
+            📚 Go to topics
+          </Link>
         </div>
       </section>
 
-      <div className="flex flex-wrap gap-2">
+      <div role="group" aria-label="Filter by strand" className="flex flex-wrap gap-2">
         {strands.map((s) => (
-          <button
-            key={s}
-            type="button"
-            onClick={() => setStrand(s)}
-            className={`btn btn-sm ${strand === s ? "btn-primary" : "btn-secondary"}`}
-          >
+          <button key={s} type="button" aria-pressed={strand === s} onClick={() => setStrand(s)} className={`btn btn-sm ${strand === s ? "btn-primary" : "btn-secondary"}`}>
             {s}
           </button>
         ))}
@@ -122,36 +64,38 @@ export function WatchHub({ topics }: { topics: WatchTopicItem[] }) {
 
       <div className="grid gap-4 sm:grid-cols-2">
         {visible.map((t) => {
-          const ep = sitcomEpisodeFor(t.id);
+          const ep = episodeFor(t.id);
+          const st = strandStyle(t.strand);
           return (
-          <article key={t.id} className="card flex flex-col justify-between gap-3 p-4">
-            <div>
-              <div className="flex items-center justify-between gap-2">
-                <span className="chip">
-                  {t.icon} Ep {String(t.num).padStart(2, "0")} · {t.strand}
-                </span>
-                <div className="flex gap-1">
-                  {mcDone[t.id] ? <span className="chip border-0 bg-good-soft text-good">🎓✓</span> : null}
-                  {scDone[t.id] ? <span className="chip border-0 bg-good-soft text-good">👾✓</span> : null}
-                  {epDone[t.id] ? <span className="chip border-0 bg-good-soft text-good">📺✓</span> : null}
+            <article key={t.id} className={`card flex flex-col justify-between gap-3 border-l-4 p-4 ${st.borderL}`}>
+              <div>
+                <div className="flex items-center justify-between gap-2">
+                  <span className="text-xs font-bold text-ink-2">{strandLabel(t.strand)}</span>
+                  {epDone[t.id] ? <span className="chip border-0 bg-good-soft text-good">Watched ✓</span> : null}
                 </div>
+                <h2 className="mt-1 text-lg font-extrabold">
+                  <span aria-hidden>{t.icon} </span>
+                  {t.title}
+                </h2>
+                {ep ? (
+                  <p className="mt-0.5 text-sm text-ink-2">
+                    Ep {ep.num}: &ldquo;{ep.title}&rdquo; · {formatDuration(ep.durationSec)}
+                  </p>
+                ) : (
+                  <p className="mt-0.5 text-sm text-ink-2">Episode coming soon — explainer videos are ready now.</p>
+                )}
               </div>
-              <h2 className="mt-2 text-lg font-extrabold">{t.title}</h2>
-            </div>
-            <div className={`grid gap-2 pt-1 ${ep ? "grid-cols-3" : "grid-cols-2"}`}>
-              {ep ? (
-                <Link href={`/topic/${t.id}?tab=watch&mode=episode`} className="btn btn-primary btn-sm">
-                  📺 Episode
+              <div className="flex flex-wrap gap-2 pt-1">
+                {ep ? (
+                  <Link href={`/episodes?ep=${ep.num}`} className="btn btn-primary btn-sm">
+                    📺 Play episode
+                  </Link>
+                ) : null}
+                <Link href={`/topic/${t.id}?tab=watch`} className={`btn btn-sm ${ep ? "btn-secondary" : "btn-primary"}`}>
+                  🎬 Open Watch tab
                 </Link>
-              ) : null}
-              <Link href={`/topic/${t.id}?tab=watch&mode=masterclass`} className="btn btn-secondary btn-sm">
-                🎓 Whiteboard
-              </Link>
-              <Link href={`/topic/${t.id}?tab=watch&mode=sitcom`} className={`btn btn-sm ${ep ? "btn-secondary" : "btn-primary"}`}>
-                👾 Beast Sitcom
-              </Link>
-            </div>
-          </article>
+              </div>
+            </article>
           );
         })}
       </div>

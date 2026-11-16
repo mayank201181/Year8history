@@ -1,5 +1,5 @@
 "use client";
-// The Learn tab: an AoPS-style lesson. Each section opens with a problem to try
+// The Learn tab: an enquiry-led lesson. Each section opens with a question to think about
 // BEFORE the idea is explained; the rest of the lesson appears once the learner
 // has had a go (or chooses to skip). Worked examples reveal one step at a time
 // and finish with a "your turn" question that is auto-marked.
@@ -211,7 +211,7 @@ function useSpeech() {
 function sectionSpeech(s: GuideSection, open: boolean, ideaShown: boolean): string {
   const parts = [`${s.heading}.`];
   if (s.discovery) {
-    parts.push(`Try this first. ${s.discovery.problem}`);
+    parts.push(`Think about it first. ${s.discovery.problem}`);
     if (ideaShown) parts.push(`The idea. ${s.discovery.idea}`);
   }
   if (open) {
@@ -256,7 +256,7 @@ function YourTurn({ yt, awardKey }: { yt: NonNullable<WorkedExample["yourTurn"]>
       setMsg({ status: "incorrect", text: r.feedback });
       finish(false);
     } else {
-      setMsg({ status: "incorrect", text: r.feedback ?? "Not quite — compare with the worked example and try once more." });
+      setMsg({ status: "incorrect", text: r.feedback ?? "Not quite — look back at the model answer and try once more." });
     }
   }
 
@@ -337,7 +337,7 @@ function WorkedExampleView({ ex, index, topicId, sectionId }: { ex: WorkedExampl
   return (
     <div className="rounded-2xl border border-line bg-surface-2 p-3 sm:p-5">
       <div className="text-xs font-black uppercase tracking-wider text-brand">
-        Worked example {index + 1}
+        Model answer {index + 1}
         {ex.title ? (
           <>
             {" · "}
@@ -469,7 +469,7 @@ function SectionView({ topicId, section: s, index, stretch, read, open, next, on
       {s.discovery ? (
         <div className="mt-4 rounded-2xl border-2 border-accent/50 bg-accent-soft p-4 sm:p-5">
           <div className="text-xs font-black uppercase tracking-wider text-warn">
-            <span aria-hidden>🧩</span> Try this first
+            <span aria-hidden>🧩</span> Think about it first
           </div>
           <Rich text={s.discovery.problem} className="mt-2" />
           {!open || scratch ? (
@@ -554,7 +554,7 @@ function SectionView({ topicId, section: s, index, stretch, read, open, next, on
               </ul>
             </div>
           ) : null}
-          {s.whyItWorks ? <Collapsible icon="🔍" title="Why does this work?" text={s.whyItWorks} /> : null}
+          {s.whyItWorks ? <Collapsible icon="🔍" title="Why it happened — and why it matters" text={s.whyItWorks} /> : null}
           {s.strategies?.length ? (
             <div className="flex flex-wrap items-center gap-1.5">
               <span className="mr-1 text-sm font-bold text-ink-2">Strategies:</span>
@@ -648,7 +648,7 @@ export function GuideView({ topic, extras, onPractise }: { topic: Topic; extras:
   const core = sections.filter((s) => !stretchIds.has(s.id));
   const coreRead = core.filter((s) => isRead(s.id)).length;
   const allCoreRead = core.length > 0 && coreRead === core.length;
-  const askContext = `Year 8 maths topic: ${topic.title}. Lesson sections: ${sections.map((s) => s.heading).join("; ")}.`;
+  const askContext = `Year 8 History topic: ${topic.title} (${topic.strand}). Lesson sections: ${sections.map((s) => s.heading).join("; ")}.`;
   const didYouKnow = extras.didYouKnow ?? [];
   const activities = extras.activities ?? [];
   const bonus = extras.bonusDiagrams ?? [];
@@ -795,7 +795,7 @@ export function GuideView({ topic, extras, onPractise }: { topic: Topic; extras:
                     ) : null}
                     {a.maths ? (
                       <div className="mt-4 rounded-xl bg-brand-soft p-3 text-sm">
-                        <div className="font-extrabold text-brand">The maths</div>
+                        <div className="font-extrabold text-brand">The history behind it</div>
                         <Rich text={a.maths} className="mt-1" />
                       </div>
                     ) : null}
@@ -808,7 +808,7 @@ export function GuideView({ topic, extras, onPractise }: { topic: Topic; extras:
           {bonus.length ? (
             <section aria-labelledby="gv-pics">
               <h2 id="gv-pics" className="section-title">
-                📐 Picture this
+                🖼️ Picture this
               </h2>
               <div className="mt-3 grid gap-4 xl:grid-cols-2">
                 {bonus.map((d, i) => (
@@ -825,7 +825,7 @@ export function GuideView({ topic, extras, onPractise }: { topic: Topic; extras:
 
           {extras.history ? (
             <section aria-labelledby="gv-history" className="card p-4 sm:p-6">
-              <div className="text-xs font-black uppercase tracking-wider text-ink-2">📜 From the history of maths</div>
+              <div className="text-xs font-black uppercase tracking-wider text-ink-2">📜 From the archives</div>
               <h2 id="gv-history" className="mt-1 text-lg font-extrabold">
                 <RichInline text={extras.history.title} />
               </h2>

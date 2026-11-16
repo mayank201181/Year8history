@@ -6,6 +6,7 @@ import { useId, useState } from "react";
 import type { ExamPaper } from "@/lib/types";
 import type { AttemptState } from "@/lib/profileTypes";
 import { useStore } from "@/lib/store";
+import { examKind } from "@/lib/examKind";
 import { PaperRunner } from "./PaperRunner";
 
 export interface ExamViewProps {
@@ -65,37 +66,40 @@ function topicCount(paper: ExamPaper): number {
 
 const TIPS = [
   {
-    icon: "✏️",
-    title: "Show your working on paper",
-    text: "Keep scrap paper and a pencil beside you. Writing each step makes slips easy to spot — and in a real exam, method earns marks even when the final answer is wrong.",
+    icon: "🎯",
+    title: "Answer the question asked",
+    text: "Underline the command word — describe, explain, how useful, how far do you agree — and the dates in the question. Everything you write should help answer it.",
   },
   {
-    icon: "📏",
-    title: "Check units and rounding",
-    text: "Before you type, re-read the question: cm or cm²? To 1 decimal place or 3 significant figures? A fraction or a decimal?",
+    icon: "🧱",
+    title: "Build with PEEL",
+    text: "Point, Evidence, Explain, Link. Precise evidence (names, dates, numbers, a detail from the source) turns a general point into a convincing one.",
   },
   {
-    icon: "⏭️",
-    title: "Skip and come back",
-    text: "Stuck for more than a couple of minutes? Jump ahead with the numbered buttons and return later with fresh eyes. Easy marks first.",
+    icon: "🔎",
+    title: "Use the source and its provenance",
+    text: "Quote or describe a detail from the source, then use who made it, when and why (Nature, Origin, Purpose) to judge how useful or reliable it is.",
   },
   {
-    icon: "🔍",
-    title: "Estimate, then check",
-    text: "A quick estimate tells you whether an answer is sensible. Leave five minutes at the end to look back over everything.",
+    icon: "⚖️",
+    title: "Reach a judgement",
+    text: "For “how far” questions, weigh both sides, then say clearly which matters most and why. Skip anything you're stuck on and come back with fresh eyes.",
   },
 ];
 
+const KIND_INFO = {
+  knowledge: { icon: "📚", label: "Knowledge & Understanding", note: "Mostly multiple choice and short answers — dates, people, key terms, causes and consequences." },
+  sources: { icon: "📜", label: "Sources & Judgement", note: "Mostly written answers — inference, provenance, interpretations and “how far do you agree?” judgements. Plan before you write." },
+} as const;
+
 // ---------------------------------------------------------------- pieces
 
-function CalcBadge({ calculator }: { calculator: boolean }) {
-  return calculator ? (
-    <span className="chip border-0 bg-info-soft text-info">
-      <span aria-hidden>🧮</span> Calculator
-    </span>
-  ) : (
-    <span className="chip border-0 bg-bad-soft text-bad">
-      <span aria-hidden>🚫🧮</span> Non-calculator
+function KindBadge({ paper }: { paper: ExamPaper }) {
+  const kind = examKind(paper);
+  const info = KIND_INFO[kind];
+  return (
+    <span className={`chip border-0 ${kind === "sources" ? "bg-accent-soft text-warn" : "bg-info-soft text-info"}`}>
+      <span aria-hidden>{info.icon}</span> {info.label}
     </span>
   );
 }
@@ -191,14 +195,12 @@ export function ExamView({ papers, topicTitles, practiceTopics = [] }: ExamViewP
           <button type="button" className="btn btn-ghost btn-sm min-h-10" onClick={exit}>
             ← All papers
           </button>
-          <CalcBadge calculator={active.calculator} />
+          <KindBadge paper={active} />
           <span className="chip">{running.timed ? `⏱ Timed · ${active.minutes} min` : "Untimed"}</span>
         </div>
-        {!active.calculator ? (
-          <p className="rounded-xl bg-surface-2 px-4 py-2.5 text-sm text-ink-2">
-            <strong className="text-ink">Non-calculator paper:</strong> put the calculator away — every question can be done with mental or written methods.
-          </p>
-        ) : null}
+        <p className="rounded-xl bg-surface-2 px-4 py-2.5 text-sm text-ink-2">
+          <strong className="text-ink">{KIND_INFO[examKind(active)].label}:</strong> {KIND_INFO[examKind(active)].note}
+        </p>
         <PaperRunner
           key={`${active.id}:${running.timed ? "timed" : "untimed"}`}
           attemptKey={attemptKey(active)}
@@ -222,7 +224,10 @@ export function ExamView({ papers, topicTitles, practiceTopics = [] }: ExamViewP
     <div className="space-y-6">
       <header className="space-y-2">
         <h1 className="text-2xl font-black tracking-tight sm:text-3xl">The Big Exam</h1>
-        <p className="max-w-2xl text-ink-2">Mixed questions from every topic, marked at the end like a real paper.</p>
+        <p className="max-w-2xl text-ink-2">
+          Two papers covering the whole year, marked at the end like the real thing: Paper 1 tests what you know and understand; Paper 2 tests how you use sources and reach a
+          judgement.
+        </p>
         {papers.length && done.length ? (
           <p className="text-sm font-bold text-ink-2">
             {done.length} of {papers.length} paper{papers.length === 1 ? "" : "s"} completed
@@ -263,7 +268,7 @@ export function ExamView({ papers, topicTitles, practiceTopics = [] }: ExamViewP
         <>
           <ol className="grid gap-3 sm:grid-cols-3" aria-label="How it works">
             {[
-              { n: 1, title: "Choose a paper", text: "Calculator or non-calculator, timed or not." },
+              { n: 1, title: "Choose a paper", text: "Knowledge or sources, timed or not." },
               { n: 2, title: "Answer everything", text: "Nothing is marked as you go — jump between questions freely." },
               { n: 3, title: "Mark & review", text: "Get your score, mark written answers, and see which topics to revise." },
             ].map((s) => (
@@ -301,7 +306,7 @@ export function ExamView({ papers, topicTitles, practiceTopics = [] }: ExamViewP
                         <StatusChip status={st} />
                       </div>
                       <div className="mt-2 flex flex-wrap gap-1.5">
-                        <CalcBadge calculator={paper.calculator} />
+                        <KindBadge paper={paper} />
                         <span className="chip">⏱ {paper.minutes} min</span>
                         <span className="chip">
                           {total} question{total === 1 ? "" : "s"}
@@ -344,7 +349,7 @@ export function ExamView({ papers, topicTitles, practiceTopics = [] }: ExamViewP
                             <Switch checked={useTimer && timerAvailable} onChange={setUseTimer} disabled={!timerAvailable} labelledBy={`${headingId}-timer`} describedBy={`${headingId}-timer-desc`} />
                           </div>
                           <ul className="mt-3 list-disc space-y-0.5 pl-5 text-sm text-ink-2">
-                            <li>{paper.calculator ? "You may use a calculator." : "No calculator — have scrap paper and a pencil ready."}</li>
+                            <li>{KIND_INFO[examKind(paper)].note}</li>
                             <li>Answers are marked when you press “Finish & mark”. Written answers are marked by you against the mark scheme.</li>
                           </ul>
                           <div className="mt-4 flex flex-wrap gap-2">

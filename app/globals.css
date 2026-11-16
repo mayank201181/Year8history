@@ -8,18 +8,18 @@
    text-good, bg-good-soft, text-bad, bg-bad-soft, text-warn, bg-warn-soft …
    ------------------------------------------------------------------------ */
 :root {
-  --bg: #f5f6fb;
-  --surface: #ffffff;
-  --surface-2: #f0f2f9;
-  --ink: #171a2f;
-  --ink-2: #555b78;
-  --line: #e0e3ef;
-  --brand: #4f46e5;
-  --brand-2: #7c3aed;
+  --bg: #f7f4ee;
+  --surface: #fffdf9;
+  --surface-2: #f1ece2;
+  --ink: #1d1a16;
+  --ink-2: #5c5548;
+  --line: #e4dccd;
+  --brand: #233056;
+  --brand-2: #5b3a7a;
   --brand-ink: #ffffff;
-  --brand-soft: #eceafe;
-  --accent: #f59e0b;
-  --accent-soft: #fef3c7;
+  --brand-soft: #e7e9f2;
+  --accent: #d97706;
+  --accent-soft: #fdf0d5;
   --good: #15803d;
   --good-soft: #dcfce7;
   --bad: #c2410c;
@@ -28,27 +28,26 @@
   --warn-soft: #fef9c3;
   --info: #0369a1;
   --info-soft: #e0f2fe;
-  --s-number: #4f46e5;
-  --s-ratio: #0d9488;
-  --s-algebra: #7c3aed;
-  --s-geometry: #ea580c;
-  --s-stats: #db2777;
-  --shadow: 0 1px 2px rgb(23 26 47 / 0.06), 0 4px 16px rgb(23 26 47 / 0.06);
+  --s-toolkit: #0f766e;
+  --s-kings: #7e22ce;
+  --s-dictatorship: #b91c1c;
+  --s-democracy: #1d4ed8;
+  --shadow: 0 1px 2px rgb(29 26 22 / 0.06), 0 4px 16px rgb(29 26 22 / 0.06);
   color-scheme: light;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #0e1020;
-    --surface: #171a2f;
-    --surface-2: #1f2340;
-    --ink: #eef0ff;
-    --ink-2: #a8aecb;
-    --line: #2c3156;
-    --brand: #8b85ff;
-    --brand-2: #b18cff;
-    --brand-ink: #0e1020;
-    --brand-soft: #262a52;
+    --bg: #12110f;
+    --surface: #1c1a17;
+    --surface-2: #26231f;
+    --ink: #f2ece0;
+    --ink-2: #b3aa98;
+    --line: #3a352d;
+    --brand: #e9c46a;
+    --brand-2: #f4a261;
+    --brand-ink: #14110d;
+    --brand-soft: #3a3120;
     --accent: #fbbf24;
     --accent-soft: #3a2f10;
     --good: #4ade80;
@@ -59,26 +58,25 @@
     --warn-soft: #332c0c;
     --info: #38bdf8;
     --info-soft: #0c2a3a;
-    --s-number: #8b85ff;
-    --s-ratio: #2dd4bf;
-    --s-algebra: #b18cff;
-    --s-geometry: #fb923c;
-    --s-stats: #f472b6;
+    --s-toolkit: #2dd4bf;
+    --s-kings: #c084fc;
+    --s-dictatorship: #f87171;
+    --s-democracy: #60a5fa;
     --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 6px 20px rgb(0 0 0 / 0.25);
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #0e1020;
-  --surface: #171a2f;
-  --surface-2: #1f2340;
-  --ink: #eef0ff;
-  --ink-2: #a8aecb;
-  --line: #2c3156;
-  --brand: #8b85ff;
-  --brand-2: #b18cff;
-  --brand-ink: #0e1020;
-  --brand-soft: #262a52;
+  --bg: #12110f;
+  --surface: #1c1a17;
+  --surface-2: #26231f;
+  --ink: #f2ece0;
+  --ink-2: #b3aa98;
+  --line: #3a352d;
+  --brand: #e9c46a;
+  --brand-2: #f4a261;
+  --brand-ink: #14110d;
+  --brand-soft: #3a3120;
   --accent: #fbbf24;
   --accent-soft: #3a2f10;
   --good: #4ade80;
@@ -89,11 +87,10 @@
   --warn-soft: #332c0c;
   --info: #38bdf8;
   --info-soft: #0c2a3a;
-  --s-number: #8b85ff;
-  --s-ratio: #2dd4bf;
-  --s-algebra: #b18cff;
-  --s-geometry: #fb923c;
-  --s-stats: #f472b6;
+  --s-toolkit: #2dd4bf;
+  --s-kings: #c084fc;
+  --s-dictatorship: #f87171;
+  --s-democracy: #60a5fa;
   --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 6px 20px rgb(0 0 0 / 0.25);
   color-scheme: dark;
 }
@@ -119,11 +116,10 @@
   --color-warn-soft: var(--warn-soft);
   --color-info: var(--info);
   --color-info-soft: var(--info-soft);
-  --color-s-number: var(--s-number);
-  --color-s-ratio: var(--s-ratio);
-  --color-s-algebra: var(--s-algebra);
-  --color-s-geometry: var(--s-geometry);
-  --color-s-stats: var(--s-stats);
+  --color-s-toolkit: var(--s-toolkit);
+  --color-s-kings: var(--s-kings);
+  --color-s-dictatorship: var(--s-dictatorship);
+  --color-s-democracy: var(--s-democracy);
   --font-sans: var(--font-nunito), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --shadow-card: var(--shadow);
 }
@@ -214,7 +210,7 @@ body {
   .muted { color: var(--ink-2); }
 }
 
-/* ------------------------- rich text & maths ---------------------------- */
+/* ------------------------------ rich text -------------------------------- */
 .rich { line-height: 1.7; }
 .rich > * + * { margin-top: 0.7rem; }
 .rich strong { font-weight: 800; }

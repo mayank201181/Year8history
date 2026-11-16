@@ -9,37 +9,11 @@ import type { TopicSummary } from "@/lib/server/content";
 import { drillsForTopic } from "@/lib/drills";
 import { topicMastery, type TopicMastery } from "@/lib/mastery";
 import { useStore } from "@/lib/store";
+import { strandLabel, strandStyle } from "@/lib/strands";
 import { RichInline } from "./Rich";
 
-// ---------------------------------------------------------------------------
-// Strand styling (full class names so Tailwind can see them)
-// ---------------------------------------------------------------------------
-
-export interface StrandStyle {
-  /** URL-friendly key, e.g. for /topics?strand=algebra. */
-  slug: string;
-  /** Strand colour as text (use at ≥ 20 px bold, or on decorative glyphs). */
-  text: string;
-  /** Solid strand colour fill. */
-  bg: string;
-  /** Soft tint of the strand colour, for icon tiles. */
-  soft: string;
-  border: string;
-}
-
-export const STRAND_STYLES: Record<string, StrandStyle> = {
-  Number: { slug: "number", text: "text-s-number", bg: "bg-s-number", soft: "bg-s-number/15", border: "border-s-number" },
-  "Ratio & Proportion": { slug: "ratio", text: "text-s-ratio", bg: "bg-s-ratio", soft: "bg-s-ratio/15", border: "border-s-ratio" },
-  Algebra: { slug: "algebra", text: "text-s-algebra", bg: "bg-s-algebra", soft: "bg-s-algebra/15", border: "border-s-algebra" },
-  "Geometry & Measure": { slug: "geometry", text: "text-s-geometry", bg: "bg-s-geometry", soft: "bg-s-geometry/15", border: "border-s-geometry" },
-  "Statistics & Probability": { slug: "stats", text: "text-s-stats", bg: "bg-s-stats", soft: "bg-s-stats/15", border: "border-s-stats" },
-};
-
-const FALLBACK_STYLE: StrandStyle = { slug: "other", text: "text-brand", bg: "bg-brand", soft: "bg-brand-soft", border: "border-brand" };
-
-export function strandStyle(strand: string): StrandStyle {
-  return STRAND_STYLES[strand] ?? FALLBACK_STYLE;
-}
+// Strand styling lives in lib/strands.ts; re-exported here for existing imports.
+export { STRAND_STYLES, strandStyle, type StrandStyle } from "@/lib/strands";
 
 // ---------------------------------------------------------------------------
 // Progress bar
@@ -170,7 +144,7 @@ export function TopicCard({
             {summary.icon}
           </span>
           <div className="min-w-0 flex-1">
-            {showStrand ? <p className="text-xs font-bold text-ink-2">{summary.strand}</p> : null}
+            {showStrand ? <p className="text-xs font-bold text-ink-2">{strandLabel(summary.strand)}</p> : null}
             <Heading className="font-extrabold leading-snug text-ink">{summary.title}</Heading>
           </div>
         </div>
@@ -192,7 +166,7 @@ export function TopicCard({
           {showStrand ? (
             <p className="flex items-center gap-1.5 text-xs font-bold text-ink-2">
               <span aria-hidden className={`h-2 w-2 rounded-full ${style.bg}`} />
-              {summary.strand}
+              {strandLabel(summary.strand)}
             </p>
           ) : null}
           <Heading className="font-extrabold leading-snug text-ink">

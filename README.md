@@ -1,45 +1,47 @@
-# Year 8 Maths Lab
+# Year 8 History Lab
 
-A complete Year 8 maths learning app — problem-first lessons, auto-marked practice, unlimited
-skill drills, a daily mixed set, spaced review, a cross-topic exam and a PIN-protected parent
-dashboard. Built for a Year 8 learner in Singapore on a UK-style curriculum (Cambridge Lower
-Secondary Stage 8 + England KS3 / White Rose Year 8), with **Art of Problem Solving** pedagogy
-throughout.
+A complete Year 8 History revision app for a learner at Tanglin Trust School, Singapore. This
+year's theme is **Dictatorship and Democracy**: enquiry-led lessons, source skills, auto-marked
+practice, unlimited skill drills, a daily mixed set, spaced review, a timeline of key dates, a
+cross-topic exam, an animated sitcom and a PIN-protected parent dashboard.
 
-**Live:** https://year8-maths.vercel.app
+Built on the engine of the Year 8 Maths Lab (year8-maths.vercel.app).
 
 ## What's inside
 
-- **20 topics** across Number, Ratio & Proportion, Algebra, Geometry & Measure and Statistics &
-  Probability — mapped to Cambridge Stage 8 objectives (see `docs/CURRICULUM.md`), with Stage 9
-  look-ahead "stretch" sections.
-- **Lessons** — every section opens with a *try-this-first* discovery problem, then the idea is
-  derived (not decreed), with diagrams, step-by-step worked examples, a "your turn" check,
-  "why does this work?", named strategies and think-deeper prompts. Proper maths typesetting
-  (fractions, powers, roots) and read-aloud.
-- **Practice** — per topic: a quick check, 4 multiple-choice papers, 4 practice papers (mostly
-  auto-marked typed answers, plus explain/convince questions that are self-marked against a mark
-  scheme) and a 10-problem **AoPS-style challenge set**. ~3,700 audited questions; every one of the
-  ~3,300 auto-marked answers was also re-solved blind by two independent solvers and checked against
-  the key (`scripts/blind-export.ts` / `scripts/blind-compare.ts`).
-- **Auto-marking that understands maths** — accepts equivalent fractions, mixed numbers,
-  decimals, units, coordinates, ratios and algebraic expressions (checked by equivalence, with
-  factorised/expanded/simplified form checks), and gives targeted feedback on classic slips.
-- **Skill drills** — procedurally generated, unlimited fresh questions per fine-grained skill with
-  adaptive difficulty and mastery levels (New → Practising → Secure → Mastered, with "rusty"
-  decay).
-- **Daily 5** — five interleaved questions a day (focus topic, spaced reviews, an older skill and a
-  stretch problem): the honest measure of what has stuck.
-- **Review** — missed questions come back after 1, 3, 7, 16 and 35 days.
-- **Fluency sprints**, **the Big Exam** (calculator and non-calculator papers with results by
-  topic), **certificates**, a **formula sheet**, and **interactive explorables** for every topic.
-- **Professor Pi** — an AI tutor that gives hints, not answers (needs `ANTHROPIC_API_KEY`).
+- **9 topics in 4 strands**, each strand answering an enquiry question:
+  - **Historian's Toolkit** (all year) — chronology, sources and provenance (NOP),
+    interpretations, causation, change and continuity, significance, PEEL writing, and the big
+    ideas of monarchy, dictatorship and democracy.
+  - **Term 1 · Kings & Power** — *Under what circumstances did kings rise to power?* William I,
+    King John and Magna Carta, Henry VIII.
+  - **Term 2 · Dictatorship** — *Under what circumstances did dictatorships come to power?*
+    Hitler, Mao, Pol Pot (crises, weak government, charismatic leadership).
+  - **Term 3 · Democracy** — *How and why has democracy developed?* The French Revolution and
+    votes for women in Britain.
+- **Lessons** — each section opens with a question to think about first, then the history, key
+  points, model answers that build a PEEL paragraph step by step (with a quick "your turn" check),
+  "why it happened — and why it matters", strategies and think-deeper prompts. Read-aloud built in.
+- **Practice** — per topic: a quick check, multiple-choice papers, practice papers (short
+  auto-marked answers plus written answers self-marked against a mark scheme) and an **Enquiry
+  Challenge** set of big judgement questions with hint ladders.
+- **Forgiving, fair auto-marking** — names and terms ignore case, accents, a leading "the" and
+  small spelling slips in longer names ("Robspierre" is accepted, with a nudge); years must be
+  exact ("1066 AD", "in 1066" and "55 BC" are all understood). Targeted feedback on classic
+  confusions (Hardrada vs William, suffragist vs suffragette …).
+- **Skill drills** — bank-based recall and reasoning drills (dates, people, key terms, which came
+  first, cause or consequence …) with adaptive difficulty and mastery levels (New → Practising →
+  Secure → Mastered, with "rusty" decay).
+- **Daily 5**, **Review** (spaced repetition at 1, 3, 7, 16 and 35 days), **Quick-fire rounds**,
+  **the Big Exam** (Paper 1: Knowledge & Understanding; Paper 2: Sources & Judgement),
+  **certificates**, and a printable **Timeline & Key Facts** page built from every topic.
+- **Watch** — one animated sitcom episode per topic (MP4) with binge mode, plus hand-picked
+  explainer videos.
+- **Professor Quill** — a Socratic AI history tutor that asks guiding questions and gives hints,
+  and never writes your essay for you (needs `ANTHROPIC_API_KEY`).
 - **Family accounts** with learner profiles and cloud sync, or **guest mode** on one device.
-  Progress from several devices or tabs is merged on the server (nothing a device did is lost
-  by another device saving an older copy); a parent-PIN reset is the only way to clear it.
-- **Parent dashboard** (PIN) — time, Daily 5 vs practice accuracy, hint use, skills, topic mastery,
-  "where to help" (weak topics, rusty skills, repeated slips), reported questions, and focus-topic
-  / goal settings.
+- **Parent dashboard** (PIN) — time, accuracy, hint use, skills, topic mastery, "where to help",
+  reported questions, and focus-topic / goal settings.
 - Installable **PWA**, light/dark themes, mobile-first.
 
 ## Tech
@@ -50,18 +52,21 @@ topic content stays on the server and questions are fetched by id.
 
 ```
 app/                 pages + API routes
-components/          UI (QuestionCard, PaperRunner, DrillRunner, GuideView, …) and widgets/
+components/          UI (QuestionCard, PaperRunner, DrillRunner, GuideView, TimelineView, …) and widgets/
 lib/
   types.ts           content model (questions, answer specs, guides)
-  answerCheck.ts     auto-marking; mathParse.ts (parser); mathml.ts ({{ }} → MathML)
+  answerCheck.ts     auto-marking (text + years; the numeric engine is kept from the maths app)
+  strands.ts         strand colours, terms and enquiry questions
+  timeline.ts        date parsing for the Timeline page
   learning.ts        stars, spaced repetition, mastery; mastery.ts topic progress
-  store.tsx          client state + safe cloud sync; profileTypes.ts (+ v1 migration)
+  store.tsx          client state + safe cloud sync; profileTypes.ts
   topics/<id>/       guide.ts, mcq.ts, practice.ts, practice2.ts (audited content)
-  drills/<id>.ts     skill generators     extras/<id>.ts   engagement extras
-  exam/              Big Exam papers      server/          blob, auth, rate limits, content
-docs/                authoring + audit specs, curriculum map, UI architecture
-scripts/             validators, registry generator, per-file type check
-tests/               node --test suites (answer checking, learning rules, all content)
+  drills/<id>.ts     skill drills        extras/<id>.ts   engagement extras
+  exam/              Big Exam papers (exam-k1, exam-s1)   server/  blob, auth, rate limits, content
+  sitcom.ts          sitcom episode manifest (generated); show.ts wraps it for the UI
+docs/                authoring + audit specs, UI architecture
+scripts/             validators, registry generator, per-file type check, sitcom pipeline
+tests/               node --test suites (answer checking, history rules, learning, sync, all content)
 ```
 
 ## Develop
@@ -71,19 +76,17 @@ npm install
 npm run dev            # http://localhost:3000 (guest mode without env vars)
 npm test               # unit + content tests
 npm run validate       # every topic, drill set and exam paper
+npm run lint
 npm run build
 ```
 
-Local accounts without Vercel Blob: `LOCAL_BLOB_DIR=/tmp/y8m-blob npm run dev`.
+Local accounts without Vercel Blob: `LOCAL_BLOB_DIR=/tmp/y8h-blob npm run dev`.
 
 ### Environment variables
 
 | Variable | Purpose |
 | --- | --- |
-| `BLOB_READ_WRITE_TOKEN` | Vercel Blob — accounts and cloud progress |
+| `BLOB_READ_WRITE_TOKEN` | Vercel Blob — accounts and cloud progress. Use a store of its own (not the Maths Lab's): keys such as `accounts/` and `names/` are not namespaced per app. |
 | `AUTH_SECRET` | Signs session cookies (recommended; otherwise derived from the Blob token) |
-| `ANTHROPIC_API_KEY` | Professor Pi (optional) |
-| `AI_MODEL` | Override the tutor model (default `claude-opus-5-5`; e.g. `claude-sonnet-5-5` or `claude-haiku-4-5` to cut cost) |
-
-Existing v1 accounts, sessions and progress keep working: progress documents are migrated on
-load (stars, streak, time and topic totals carry over).
+| `ANTHROPIC_API_KEY` | Professor Quill (optional) |
+| `AI_MODEL` | Override the tutor model (default `claude-opus-5-5`) |

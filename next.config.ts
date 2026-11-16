@@ -3,11 +3,9 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
-  async rewrites() {
-    return [
-      { source: "/masterclass", destination: "/masterclass/index.html" },
-      { source: "/season1", destination: "/season1/index.html" },
-    ];
+  async redirects() {
+    // The maths "formula sheet" became the Timeline & Key Facts page.
+    return [{ source: "/formulas", destination: "/timeline", permanent: true }];
   },
   async headers() {
     return [

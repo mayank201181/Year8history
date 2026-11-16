@@ -1,10 +1,11 @@
 import { Suspense } from "react";
 import type { Metadata } from "next";
 import { EpisodesHub } from "@/components/EpisodesHub";
+import { SHOW_NAME } from "@/lib/show";
 
 export const metadata: Metadata = {
-  title: "Sitcom Episodes — Totally Raotional",
-  description: "Animated sitcom episodes for every Year 8 Maths topic, with pause challenges.",
+  title: `Episodes — ${SHOW_NAME}`,
+  description: "Animated sitcom episodes for Year 8 History topics, with questions to pause and answer.",
 };
 
 export default function EpisodesPage() {

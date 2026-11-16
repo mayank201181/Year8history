@@ -1,6 +1,6 @@
 // PWA app icon as a PNG, drawn on demand (no binary assets in the repo).
 //   /api/appicon?size=192            rounded "any" icon
-//   /api/appicon?size=512&maskable=1 full-bleed maskable icon (glyph in the safe zone)
+//   /api/appicon?size=512&maskable=1 full-bleed maskable icon (lettering in the safe zone)
 import { ImageResponse } from "next/og";
 
 export const runtime = "nodejs";
@@ -8,8 +8,9 @@ export const runtime = "nodejs";
 const MIN = 48;
 const MAX = 1024;
 const FALLBACK = 512;
-const BRAND = "#4f46e5";
-const BRAND_2 = "#7c3aed";
+const BRAND = "#233056";
+const BRAND_2 = "#5b3a7a";
+const GOLD = "#e9c46a";
 
 function sizeFrom(raw: string | null): number {
   const n = Number(raw);
@@ -17,27 +18,16 @@ function sizeFrom(raw: string | null): number {
   return Math.round(Math.min(MAX, Math.max(MIN, n)));
 }
 
-/** A bold, hand-drawn π (stroked paths), so no font is needed. */
-function Pi({ px }: { px: number }) {
-  return (
-    <svg width={px} height={px} viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-      <g fill="none" stroke="#ffffff" strokeWidth={11.5} strokeLinecap="round" strokeLinejoin="round">
-        <path d="M17 37 C 20 28 26 25 34 25 L 84 25" />
-        <path d="M41 27 C 41 50 38 65 29 77" />
-        <path d="M65 27 L 65 64 C 65 74 70 77 79 73" />
-      </g>
-    </svg>
-  );
-}
-
 export function GET(req: Request) {
   const { searchParams } = new URL(req.url);
   const size = sizeFrom(searchParams.get("size"));
   const maskable = searchParams.get("maskable") === "1";
-  // Maskable icons may be cropped to a circle of 80% diameter. The π's ink spans
-  // about 67% × 52% of its box, so a 60% box keeps it within a ~26% radius of the
-  // centre (safe zone: 40%). "any" icons get rounded corners and a larger glyph.
-  const glyph = Math.round(size * (maskable ? 0.6 : 0.66));
+  // Maskable icons may be cropped to a circle of 80% diameter, so the lettering is
+  // scaled to sit well inside the safe zone. "any" icons get rounded corners.
+  const k = maskable ? 0.72 : 1;
+  const big = Math.round(size * 0.42 * k);
+  const small = Math.round(size * 0.125 * k);
+  const rule = Math.round(size * 0.56 * k);
 
   return new ImageResponse(
     (
@@ -46,24 +36,27 @@ export function GET(req: Request) {
           width: "100%",
           height: "100%",
           display: "flex",
+          flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
           background: `linear-gradient(135deg, ${BRAND} 0%, ${BRAND_2} 100%)`,
           borderRadius: maskable ? 0 : Math.round(size * 0.22),
+          color: GOLD,
         }}
       >
+        <div style={{ display: "flex", fontSize: big, fontWeight: 700, lineHeight: 1, letterSpacing: -Math.round(big * 0.03) }}>Y8</div>
         <div
           style={{
             display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            width: glyph,
-            height: glyph,
-            marginTop: Math.round(glyph * 0.04),
+            width: rule,
+            height: Math.max(2, Math.round(size * 0.016)),
+            marginTop: Math.round(size * 0.05 * k),
+            marginBottom: Math.round(size * 0.05 * k),
+            background: GOLD,
+            borderRadius: 4,
           }}
-        >
-          <Pi px={glyph} />
-        </div>
+        />
+        <div style={{ display: "flex", fontSize: small, letterSpacing: Math.round(small * 0.18) }}>HISTORY</div>
       </div>
     ),
     {

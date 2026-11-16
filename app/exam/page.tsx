@@ -7,7 +7,7 @@ export const dynamic = "force-static";
 
 export const metadata: Metadata = {
   title: "The Big Exam",
-  description: "Full mixed papers covering every Year 8 maths topic, marked at the end like a real exam, with a topic-by-topic breakdown.",
+  description: "Two Year 8 History papers — Knowledge & Understanding, and Sources & Judgement — marked at the end like a real exam, with a topic-by-topic breakdown.",
 };
 
 export default function ExamPage() {

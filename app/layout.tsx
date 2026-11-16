@@ -8,17 +8,17 @@ import { ErrorBoundary } from "@/components/ErrorBoundary";
 const nunito = Nunito({ subsets: ["latin"], variable: "--font-nunito", display: "swap" });
 
 export const metadata: Metadata = {
-  title: { default: "Year 8 Maths Lab", template: "%s · Year 8 Maths Lab" },
-  description: "Learn, practise and master Year 8 maths — problem-first lessons, auto-marked practice, skill drills, a daily mixed set and a parent dashboard.",
-  applicationName: "Maths Lab",
-  appleWebApp: { capable: true, statusBarStyle: "default", title: "Maths Lab" },
+  title: { default: "Year 8 History Lab", template: "%s · Year 8 History Lab" },
+  description: "Learn, practise and master Year 8 History — Dictatorship and Democracy: enquiry-led lessons, source skills, auto-marked practice, a timeline of key dates, a daily mixed set and a parent dashboard.",
+  applicationName: "History Lab",
+  appleWebApp: { capable: true, statusBarStyle: "default", title: "History Lab" },
   formatDetection: { telephone: false },
 };
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#4f46e5" },
-    { media: "(prefers-color-scheme: dark)", color: "#0e1020" },
+    { media: "(prefers-color-scheme: light)", color: "#233056" },
+    { media: "(prefers-color-scheme: dark)", color: "#12110f" },
   ],
   width: "device-width",
   initialScale: 1,
