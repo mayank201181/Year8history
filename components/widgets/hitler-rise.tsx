@@ -3,7 +3,7 @@
 //   1. Hyperinflation price explorer (bread prices 1918–1923, log vs ordinary scale)
 //   2. Reichstag seats explorer (elections 1928 – March 1933, coalition maths)
 // Figures match lib/topics/hitler-rise/guide.ts and lib/extras/hitler-rise.ts.
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { WidgetFrame, Slider, Segmented, Readout, type WidgetDef } from "./kit";
 
 // ---------------------------------------------------------------------------
@@ -95,7 +95,7 @@ type Scale = "log" | "linear";
 // Chart geometry
 const CX0 = 78;
 const CX1 = 462;
-const CY0 = 34;
+const CY0 = 42;
 const CY1 = 246;
 const LOG_MIN = -1; // 0.1 marks
 const LOG_MAX = 12; // 1 trillion marks
@@ -111,13 +111,9 @@ function HyperinflationExplorer() {
   const ratio = cur.price / BREAD[0].price;
   const loaves = savings.amount / cur.price;
 
-  const yAt = useMemo(() => {
-    if (scale === "log") {
-      return (v: number) => CY1 - ((Math.log10(v) - LOG_MIN) / (LOG_MAX - LOG_MIN)) * (CY1 - CY0);
-    }
-    const top = cur.price;
-    return (v: number) => CY1 - (v / top) * (CY1 - CY0);
-  }, [scale, cur.price]);
+  const top = cur.price;
+  const yAt = (v: number) =>
+    scale === "log" ? CY1 - ((Math.log10(v) - LOG_MIN) / (LOG_MAX - LOG_MIN)) * (CY1 - CY0) : CY1 - (v / top) * (CY1 - CY0);
 
   const grid =
     scale === "log"
@@ -202,7 +198,7 @@ function HyperinflationExplorer() {
           />
         </div>
 
-        <svg viewBox="0 0 480 290" className="h-auto w-full" role="img" aria-label={ariaLabel}>
+        <svg viewBox="0 0 480 290" className="mx-auto block h-auto w-full max-w-2xl" role="img" aria-label={ariaLabel}>
           <text x={240} y={18} fontSize={13} fontWeight={700} textAnchor="middle" className="fill-ink">
             Price of a loaf of bread (marks)
           </text>
@@ -359,18 +355,14 @@ function ReichstagExplorer() {
   const BX0 = 12;
   const BW = 456;
   const sx = (seats: number) => (seats / total) * BW;
-  let acc = 0;
-  const chamber = PARTIES.map((p) => {
-    const x = BX0 + sx(acc);
-    acc += e.seats[p.id];
-    return { p, x, w: sx(e.seats[p.id]) };
-  });
-  let acc2 = 0;
-  const coalBars = PARTIES.filter((p) => sel.includes(p.id)).map((p) => {
-    const x = BX0 + sx(acc2);
-    acc2 += e.seats[p.id];
-    return { p, x, w: sx(e.seats[p.id]) };
-  });
+  /** Lay parties end to end: each bar starts where the seats before it end. */
+  const stack = (parties: typeof PARTIES) =>
+    parties.map((p, i) => {
+      const before = parties.slice(0, i).reduce((n, q) => n + e.seats[q.id], 0);
+      return { p, x: BX0 + sx(before), w: sx(e.seats[p.id]) };
+    });
+  const chamber = stack(PARTIES);
+  const coalBars = stack(PARTIES.filter((p) => sel.includes(p.id)));
   const majX = BX0 + sx(majority);
 
   const selNames = PARTIES.filter((p) => sel.includes(p.id)).map((p) => p.short);
@@ -455,7 +447,7 @@ function ReichstagExplorer() {
           </button>
         </div>
 
-        <svg viewBox="0 0 480 150" className="h-auto w-full" role="img" aria-label={ariaLabel}>
+        <svg viewBox="0 0 480 150" className="mx-auto block h-auto w-full max-w-2xl" role="img" aria-label={ariaLabel}>
           <text x={BX0} y={16} fontSize={12} fontWeight={700} className="fill-ink">
             Reichstag, {e.label} ({total} seats)
           </text>

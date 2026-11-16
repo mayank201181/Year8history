@@ -810,7 +810,7 @@ export function GuideView({ topic, extras, onPractise }: { topic: Topic; extras:
               <h2 id="gv-pics" className="section-title">
                 🖼️ Picture this
               </h2>
-              <div className="mt-3 grid gap-4 xl:grid-cols-2">
+              <div className="mt-3 grid gap-4">
                 {bonus.map((d, i) => (
                   <div key={i} className="card p-4">
                     <h3 className="font-extrabold">

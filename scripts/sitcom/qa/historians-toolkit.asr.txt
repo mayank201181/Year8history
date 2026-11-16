@@ -1,0 +1,4 @@
+(0.8, 'ticktock', 'The trigger. The old batteries were the long-term cause.', ' The trigger the old batteries with a long term cause.')
+(0.84, 'teacher', 'Was the Great Remote Disaster significant? Use the five Rs.', ' Was the great remote disaster significant?  Use the 5RS.')
+(0.85, 'tara', "And there's no year zero: 1 BC is followed by AD 1. Some write BCE and CE.", " And there's no year zero.  One BC is followed by AD1.  Some right BCE and CE.")
+checked 86 flagged 3

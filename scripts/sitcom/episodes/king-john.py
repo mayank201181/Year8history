@@ -1,6 +1,7 @@
 # "Who Rules the Remote?" S01E03 "Bad King Dad" (Topic: King John and Magna Carta)
 # Format and helpers: see common.py and WRITING.md; check with lint_episode.py.
 
+SAY.update({"Runnymede": "Runny-meed", "Bouvines": "Boo-veen"})
 EP = dict(topic="king-john", logline="Dad taxes screen time to win back the bedroom TV, so the barons of the flat seize the sofa "
           "and make him seal a Family Charter. Ticktock (who was eighty-nine in 1215, and possibly there) explains King John, "
           "Magna Carta and whether John really was a bad king.")

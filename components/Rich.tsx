@@ -2,6 +2,7 @@
 // See the format notes at the top of lib/types.ts.
 import { Fragment, type ReactNode } from "react";
 import { toMathML } from "@/lib/mathml";
+import { DiagramZoom } from "./DiagramZoom";
 
 // Keys are positions within one render call, so re-rendering the same text keeps
 // the same DOM (no remounts: text selection and aria-live regions survive).
@@ -119,7 +120,9 @@ export function RichInline({ text, className }: { text: string; className?: stri
 export function Diagram({ svg, caption }: { svg: string; caption?: string }) {
   return (
     <figure className="diagram">
-      <div className="diagram-svg" dangerouslySetInnerHTML={{ __html: svg }} />
+      <DiagramZoom svg={svg}>
+        <div className="diagram-svg" dangerouslySetInnerHTML={{ __html: svg }} />
+      </DiagramZoom>
       {caption ? <figcaption>{renderInline(caption)}</figcaption> : null}
     </figure>
   );

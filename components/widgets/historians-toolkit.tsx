@@ -450,7 +450,7 @@ function CenturyTimeline() {
             value={zoom}
             onChange={setZoom}
           />
-          <svg viewBox={`0 0 ${W} 120`} className="mt-2 h-auto w-full" role="img" aria-label={aria}>
+          <svg viewBox={`0 0 ${W} 120`} className="mx-auto block mt-2 h-auto w-full max-w-lg" role="img" aria-label={aria}>
             {bandHi > bandLo ? <rect x={x(bandLo)} y={AXIS - 14} width={Math.max(1, x(bandHi) - x(bandLo))} height={28} className="fill-brand-soft" /> : null}
             {minor.map((v) => (
               <line key={`m${v}`} x1={x(v)} x2={x(v)} y1={AXIS - 4} y2={AXIS + 4} className="stroke-line" strokeWidth={1} />

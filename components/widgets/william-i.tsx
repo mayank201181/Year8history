@@ -231,7 +231,7 @@ function ClaimOMeter() {
           ))}
         </div>
 
-        <svg viewBox={`0 0 ${W} ${H}`} className="h-auto w-full" role="img" aria-label={aria}>
+        <svg viewBox={`0 0 ${W} ${H}`} className="mx-auto block h-auto w-full max-w-lg" role="img" aria-label={aria}>
           {rows.map((r, i) => {
             const y = 8 + i * rowH;
             let x = barX;
@@ -500,10 +500,10 @@ function CampaignStepper() {
         />
 
         <div className="grid gap-4 md:grid-cols-[minmax(0,1fr)_minmax(0,14rem)]">
-          <svg viewBox="0 0 360 440" className="h-auto w-full rounded-xl bg-info-soft" role="img" aria-label={mapAria}>
+          <svg viewBox="0 0 360 440" className="mx-auto block h-auto w-full max-w-[28rem] rounded-xl bg-info-soft" role="img" aria-label={mapAria}>
             <path d={COAST} className="fill-surface stroke-ink-2" strokeWidth={1.2} strokeLinejoin="round" />
             <path d={FRANCE} className="fill-surface stroke-ink-2" strokeWidth={1.2} />
-            <text x={150} y={437} fontSize={11} className="fill-ink-2" fontWeight={700}>
+            <text x={150} y={433} fontSize={11} className="fill-ink-2" fontWeight={700}>
               NORMANDY / FRANCE
             </text>
             <text x={186} y={120} fontSize={12} className="fill-ink-2" fontWeight={700} textAnchor="middle">
@@ -512,7 +512,7 @@ function CampaignStepper() {
             <text x={290} y={196} fontSize={10} className="fill-ink-2" fontStyle="italic">
               Humber
             </text>
-            <text x={200} y={406} fontSize={10} className="fill-ink-2" fontStyle="italic">
+            <text x={146} y={411} fontSize={10} className="fill-ink-2" fontStyle="italic">
               English Channel
             </text>
             <text x={350} y={14} fontSize={10} className="fill-ink-2" textAnchor="end">
@@ -590,7 +590,7 @@ function CampaignStepper() {
           </div>
         </div>
 
-        <svg viewBox="0 0 360 64" className="h-auto w-full" role="img" aria-label={`Timeline from September to December 1066, to scale. Current step: ${step.when}.`}>
+        <svg viewBox="0 0 360 64" className="mx-auto block h-auto w-full max-w-2xl" role="img" aria-label={`Timeline from September to December 1066, to scale. Current step: ${step.when}.`}>
           <text x={4} y={30} fontSize={9} className="fill-ink-2">
             Jan–
           </text>
@@ -620,7 +620,7 @@ function CampaignStepper() {
               />
             ) : null,
           )}
-          {i === 0 ? <circle cx={18} cy={20} r={5} className="fill-brand" /> : null}
+          {i === 0 ? <circle cx={12} cy={13} r={5} className="fill-brand" /> : null}
           <text x={tx1} y={14} fontSize={10} textAnchor="end" className="fill-ink" fontWeight={700}>
             {step.when}
           </text>

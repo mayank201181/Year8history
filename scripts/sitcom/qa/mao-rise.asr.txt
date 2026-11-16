@@ -1,0 +1,7 @@
+(0.64, 'uncle', 'Then Ravi also. Three cousins, one teh tarik. Cheap revolution, lah.', ' Then Ravi also, three cousins want a tariq cheap revolution law.')
+(0.67, 'uncle', 'Aiyoh. The hourglass talks.', ' I yield the hourglass talks.')
+(0.74, 'tara', "You're an hourglass. You'd have rolled into the river.", " You're in our glass, you'd have rolled into the river.")
+(0.75, 'uncle', "Arjun's with you. Zara also. Ravi wants murukku.", ' Arjans with you, Zara also, Ravi wants Miracu.')
+(0.8, 'teacher', 'A judgement, with reasons. Excellent.', ' A judgment with reasons excellent.')
+(0.84, 'dad', "The cousins? They're eight. They don't even have phones.", " The cousins, they are eight.  They don't even have phones.")
+checked 88 flagged 6

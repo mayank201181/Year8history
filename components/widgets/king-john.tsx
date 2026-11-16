@@ -163,11 +163,11 @@ function BadOrUnlucky() {
       </p>
       {totals.bad > 0 && chronShare >= 35 ? (
         <p>
-          <strong>{chronShare}%</strong> of the 'bad king' weight comes from monks' chronicles written after John's death by churchmen with a grudge. Lower your trust in them and see whether the verdict survives — the well-established events (Arthur, de Briouze, Normandy, the barons' distrust) still count.
+          <strong>{chronShare}%</strong> of the &apos;bad king&apos; weight comes from monks&apos; chronicles written after John&apos;s death by churchmen with a grudge. Lower your trust in them and see whether the verdict survives — the well-established events (Arthur, de Briouze, Normandy, the barons&apos; distrust) still count.
         </p>
       ) : totals.bad > 0 ? (
         <p>
-          Only <strong>{chronShare}%</strong> of the 'bad king' weight rests on the chronicles — the case against John here comes mostly from events and records that historians accept.
+          Only <strong>{chronShare}%</strong> of the &apos;bad king&apos; weight rests on the chronicles — the case against John here comes mostly from events and records that historians accept.
         </p>
       ) : null}
       <p className="text-ink-2">
@@ -205,7 +205,7 @@ function BadOrUnlucky() {
 
         <svg
           viewBox="0 0 360 170"
-          className="h-auto w-full"
+          className="mx-auto block h-auto w-full max-w-lg"
           role="img"
           aria-label={`Balance scale. Bad king side ${fmt(totals.bad)}, able but unlucky side ${fmt(totals.able)}: the scale ${verdict}.`}
         >
@@ -433,7 +433,7 @@ function ClauseExplorer() {
 
         <svg
           viewBox={`0 0 ${CLAUSE_INFO.length * (cell + gap) - gap} 62`}
-          className="h-auto w-full"
+          className="mx-auto block h-auto w-full max-w-md"
           role="img"
           aria-label={`Clauses in force ${era === "1215" ? "in 1215" : era === "reissues" ? "in the 1216 to 1225 reissues" : "today"}: ${CLAUSE_INFO.filter((c) => inForce(c, era)).map((c) => c.n).join(", ")}. Not in force: ${CLAUSE_INFO.filter((c) => !inForce(c, era)).map((c) => c.n).join(", ") || "none"}.`}
         >

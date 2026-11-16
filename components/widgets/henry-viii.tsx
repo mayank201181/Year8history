@@ -76,7 +76,7 @@ const INFO: Record<Factor, FactorInfo> = {
     short: "Money",
     node: "fill-accent-soft stroke-accent",
     line: "stroke-accent",
-    chip: "bg-accent-soft text-accent",
+    chip: "bg-accent-soft text-warn",
     supports: [
       "After the break, payments from the English Church to Rome stopped.",
       "The Valor Ecclesiasticus (1535) counted the Church's wealth; the dissolution brought the Crown land and income worth well over £100,000 a year.",
@@ -171,7 +171,7 @@ function BreakWithRome() {
   } else if (allEqual) {
     caption = (
       <p>
-        You have weighted every factor equally. That describes the causes but doesn't yet <strong>explain</strong> the break — a
+        You have weighted every factor equally. That describes the causes but doesn&apos;t yet <strong>explain</strong> the break — a
         judgement has to decide what mattered <em>most</em>. Try the lens buttons: does your answer change if the question is why
         it <em>started</em> or why it <em>lasted</em>?
       </p>
@@ -225,7 +225,7 @@ function BreakWithRome() {
           />
         </div>
 
-        <svg viewBox="0 0 480 300" className="h-auto w-full" role="img" aria-label={ariaWeb}>
+        <svg viewBox="0 0 480 300" className="mx-auto block h-auto w-full max-w-2xl" role="img" aria-label={ariaWeb}>
           {showLinks
             ? LINKS.map((l) => (
                 <line
@@ -597,7 +597,7 @@ function SuccessionTree() {
 
         <Slider label="Year" value={step} min={0} max={MOMENTS.length - 1} onChange={setStep} format={(v) => MOMENTS[v].year} />
 
-        <svg viewBox="0 0 480 204" className="h-auto w-full" role="img" aria-label={aria}>
+        <svg viewBox="0 0 480 204" className="mx-auto block h-auto w-full max-w-2xl" role="img" aria-label={aria}>
           {/* Henry */}
           <rect x={180} y={6} width={120} height={36} rx={8} className="fill-surface-2 stroke-ink" strokeWidth={2} />
           <text x={240} y={22} textAnchor="middle" fontSize={13} fontWeight={800} className="fill-ink">

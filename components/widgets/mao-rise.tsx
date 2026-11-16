@@ -204,7 +204,7 @@ function LongMarchStepper() {
       <div className="grid gap-4 md:grid-cols-[1.2fr_1fr]">
         <svg
           viewBox="0 0 330 310"
-          className="h-auto w-full rounded-xl border border-line bg-surface"
+          className="mx-auto block h-auto w-full rounded-xl border border-line bg-surface max-w-md"
           role="img"
           aria-label={`Schematic map, not to scale, of the Long March. Stage ${stage} of ${STAGES.length}: ${s.place}, ${s.when}. Route covered so far is drawn solid.`}
           fontFamily="sans-serif"
@@ -303,7 +303,7 @@ function LongMarchStepper() {
         />
         <svg
           viewBox="0 0 320 96"
-          className="h-auto w-full"
+          className="mx-auto block h-auto w-full max-w-md"
           role="img"
           aria-label={`Bar chart of Long March distance figures. Selected: ${d.label}, ${d.low === d.high ? `about ${fmtKm(d.low)} km` : `about ${fmtKm(d.low)} to ${fmtKm(d.high)} km`}.`}
           fontFamily="sans-serif"
@@ -486,7 +486,7 @@ function FactorBalance() {
 
         <svg
           viewBox="0 0 320 170"
-          className="h-auto w-full rounded-xl border border-line bg-surface"
+          className="mx-auto block h-auto w-full rounded-xl border border-line bg-surface max-w-md"
           role="img"
           aria-label={`Balance scale. Circumstances (GMD weakness ${w.gmd} plus Japanese invasion ${w.japan}) on the left, Mao's strategy ${w.mao} on the right. ${leanText}`}
           fontFamily="sans-serif"

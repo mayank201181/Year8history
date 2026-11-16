@@ -181,7 +181,9 @@ export function PaperRunner(props: PaperRunnerProps) {
             {pendingWritten.length ? ` · ${pendingWritten.length} written answer${pendingWritten.length === 1 ? "" : "s"} still to self-mark` : ""}
           </div>
           <p className="mx-auto mt-3 max-w-md text-sm">
-            {summary.pct >= 90 ? "Superb — you really know this." : summary.pct >= 70 ? "Strong work. Fix the few you missed and you've got it." : summary.pct >= 40 ? "Good effort — the mistakes show exactly what to practise next." : "This one was tough. Re-read the lesson sections linked from the questions, then try again."}
+            {pendingWritten.length
+              ? "That's your score so far. Press “Review & mark answers” and mark your written answers against the mark scheme to finish it."
+              : summary.pct >= 90 ? "Superb — you really know this." : summary.pct >= 70 ? "Strong work. Fix the few you missed and you've got it." : summary.pct >= 40 ? "Good effort — the mistakes show exactly what to practise next." : "This one was tough. Re-read the lesson sections linked from the questions, then try again."}
           </p>
           <div className="mt-4 flex flex-wrap justify-center gap-2">
             <button type="button" className="btn btn-secondary" onClick={() => setReview(true)}>

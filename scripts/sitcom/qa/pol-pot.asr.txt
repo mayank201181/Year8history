@@ -1,0 +1,8 @@
+(0.72, 'ticktock', 'Question one. On what date did the Khmer Rouge capture Phnom Penh?', ' Question 1 on what date did the Kameharoos capture Panong Pen?')
+(0.77, 'narrator', 'Today, Tuol Sleng and Choeung Ek are World Heritage sites, so that the world keeps remembering.', ' Today, tools slang and chungek are world heritage sites, so that the world keeps remembering.')
+(0.8, 'tara', 'Ticktock? I need help with this one.', ' Tick-tock, I need help with this one.')
+(0.82, 'ticktock', "From about 802, Khmer kings ruled a great empire from Angkor, and built Angkor Wat. It is still on Cambodia's flag.", " From about 802, Kamehia Kings ruled a great empire from Anka and built Anka Watt.  It is still on Cambodia's flag.")
+(0.83, 'guide', 'In Phnom Penh, a high school called Tuol Sleng became a secret prison, S-21. Very few of its prisoners survived. Most were taken to Choeung Ek, outside the city, and killed. Today both places are memorials.', ' In Panam Pen, a high school called Toul Slang became a secret prison, S21.  Very few of its prisoners survived.  Most were taken to Chung-Eck outside the city and killed.  Today both places are memorials.')
+(0.83, 'ticktock', 'Two. 17 April 1975: Phnom Penh falls. Then Year Zero.', ' 2. 17 April 1975, Punon Penn Falls, then year zero.')
+(0.84, 'tara', 'All three rose out of crisis, against a weak government. But leadership differed: Hitler gave speeches, Mao built a cult, Pol Pot hid.', ' All three rose out of crisis against a weak government.  But leadership differed.  Hitler gave speeches, now built a cult Paul Pothead.')
+checked 78 flagged 7

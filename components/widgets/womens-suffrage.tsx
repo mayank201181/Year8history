@@ -173,7 +173,7 @@ function ElectorateExplorer() {
             {firstYes >= 0 ? <>First able to vote: <strong>{STAGES[firstYes].label}</strong>.</> : null}
           </p>
           <p className="mt-2 text-xs text-ink-2">
-            Figures: approximate UK parliamentary electorates after each Act, as used in this topic's guide; historians' estimates vary slightly, and the 1928 split
+            Figures: approximate UK parliamentary electorates after each Act, as used in this topic&apos;s guide; historians&apos; estimates vary slightly, and the 1928 split
             (women about 53% of voters at the 1929 election) is approximate. Individual cases are simplified — before 1918 the rules varied from place to place.
           </p>
         </>
@@ -184,7 +184,7 @@ function ElectorateExplorer() {
 
         <svg
           viewBox={`0 0 ${W} ${H}`}
-          className="h-auto w-full"
+          className="mx-auto block h-auto w-full max-w-2xl"
           role="img"
           aria-label={`Bar chart of the approximate UK electorate. Selected: ${s.label}, about ${s.total} million voters, of whom about ${s.women} million were women.`}
         >
@@ -439,7 +439,7 @@ function TacticsSorter() {
         {mode === "weigh" ? (
           <svg
             viewBox={`0 0 ${W} ${H}`}
-            className="h-auto w-full"
+            className="mx-auto block h-auto w-full max-w-lg"
             role="img"
             aria-label={`Balance scale. Suffragist methods score ${ist}, suffragette methods score ${ette}. ${
               diff > 0 ? "The scale tips towards the suffragists." : diff < 0 ? "The scale tips towards the suffragettes." : "The scale is level."

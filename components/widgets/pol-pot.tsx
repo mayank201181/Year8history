@@ -230,7 +230,7 @@ function TakeoverConditions() {
           ))}
         </div>
 
-        <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto" role="img" aria-label={ariaLabel}>
+        <svg viewBox={`0 0 ${W} ${H}`} className="mx-auto block w-full h-auto max-w-2xl" role="img" aria-label={ariaLabel}>
           <text x={0} y={14} fontSize={12} className="fill-ink-2">Share of your explanation</text>
           {FACTORS.map((f, i) => {
             const y = 28 + i * (barH + 12);
@@ -510,7 +510,7 @@ function ThreeRoads() {
           </button>
         </div>
 
-        <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto" role="img" aria-label={ariaLabel}>
+        <svg viewBox={`0 0 ${W} ${H}`} className="mx-auto block w-full h-auto max-w-2xl" role="img" aria-label={ariaLabel}>
           {ticks.map((t) => (
             <g key={t}>
               <line x1={x(t)} x2={x(t)} y1={top - 6} y2={top + laneGap * 3 - 14} className="stroke-line" strokeWidth={1} />

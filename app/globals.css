@@ -267,6 +267,14 @@ body {
   display: block;
   margin: 0 auto;
 }
+/* Phones: let the diagram use the card's padding too — the text inside is authored at ~11px for a 480-wide canvas. */
+@media (max-width: 639px) {
+  .diagram-svg { margin-inline: -0.75rem; padding: 0.25rem; }
+}
+.diagram-zoom-hint { display: block; text-align: right; font-size: 0.75rem; color: var(--ink-2); margin-top: 0.2rem; }
+@media (min-width: 900px) { .diagram-zoom-hint { display: none; } }
+.diagram-zoomed { background: #ffffff; border-radius: 0.75rem; padding: 0.75rem; min-width: 640px; width: max(100%, 640px); margin: 0 auto; color: #1f2937; }
+.diagram-zoomed svg { width: 100%; height: auto; display: block; }
 .diagram figcaption { font-size: 0.85rem; color: var(--ink-2); text-align: center; margin-top: 0.35rem; }
 
 /* ------------------------------- motion --------------------------------- */

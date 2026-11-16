@@ -19,7 +19,7 @@ const ESTATE_INFO: Record<EstateId, { name: string; who: string; dots: number; p
 };
 
 const ESTATE_FILL: Record<EstateId, string> = { 1: "fill-brand", 2: "fill-accent", 3: "fill-good" };
-const ESTATE_TEXT: Record<EstateId, string> = { 1: "text-brand", 2: "text-accent", 3: "text-good" };
+const ESTATE_TEXT: Record<EstateId, string> = { 1: "text-brand", 2: "text-warn", 3: "text-good" };
 
 const LENSES: Record<Lens, { label: string; values: Record<EstateId, number>; labels: Record<EstateId, string>; note: string }> = {
   people: {
@@ -110,7 +110,7 @@ function EstatesExplorer() {
         />
         <svg
           viewBox={`0 0 ${W} 130`}
-          className="w-full h-auto"
+          className="mx-auto block w-full h-auto max-w-xl"
           role="img"
           aria-label={`${L.label}: First Estate ${L.labels[1]}, Second Estate ${L.labels[2]}, Third Estate ${L.labels[3]}.`}
         >
@@ -158,7 +158,7 @@ function EstatesExplorer() {
 
         <svg
           viewBox="0 0 400 112"
-          className="w-full h-auto"
+          className="mx-auto block w-full h-auto max-w-xl"
           role="img"
           aria-label={`France as 200 people: 1 clergy, 4 nobles, 195 Third Estate. Highlighted for "${burden.label}": First Estate ${burden.applies[1]}, Second Estate ${burden.applies[2]}, Third Estate ${burden.applies[3]}.`}
         >
@@ -409,7 +409,7 @@ function RightsExplorer() {
           <p className="text-sm font-semibold text-ink-2">Tracker: {group.name}, 1788–1804</p>
           <svg
             viewBox={`0 0 ${W} ${H}`}
-            className="w-full h-auto"
+            className="mx-auto block w-full h-auto max-w-xl"
             role="img"
             aria-label={`${group.name}: vote ${YEARS.map((yr) => `${yr} ${group.vote[yr][0]}`).join(", ")}; rights ${YEARS.map((yr) => `${yr} ${group.rights[yr][0]}`).join(", ")}.`}
           >
@@ -434,7 +434,7 @@ function RightsExplorer() {
           </svg>
           <div className="flex flex-wrap gap-4 text-xs font-bold">
             <span className="text-brand">● Vote (solid line)</span>
-            <span className="text-accent">■ Equal rights protected (dashed line)</span>
+            <span className="text-warn">■ Equal rights protected (dashed line)</span>
           </div>
         </div>
       </div>

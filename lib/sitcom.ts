@@ -16,6 +16,16 @@ export interface SitcomEpisode {
 
 export const SITCOM_EPISODES: SitcomEpisode[] = [
   {
+    "num": 1,
+    "topicId": "historians-toolkit",
+    "topicShort": "Historian's Toolkit",
+    "title": "Sources Say Dad Did It",
+    "logline": "The TV remote is found broken at breakfast, and Dad declares himself innocent. Tara investigates like a historian, with a source from every family member and a 900-year-old hourglass who was definitely, almost, an eyewitness.",
+    "durationSec": 520,
+    "src": "/videos/historians-toolkit.mp4",
+    "poster": "/videos/posters/historians-toolkit.jpg"
+  },
+  {
     "num": 2,
     "topicId": "william-i",
     "topicShort": "William I",
@@ -24,6 +34,76 @@ export const SITCOM_EPISODES: SitcomEpisode[] = [
     "durationSec": 539,
     "src": "/videos/william-i.mp4",
     "poster": "/videos/posters/william-i.jpg"
+  },
+  {
+    "num": 3,
+    "topicId": "king-john",
+    "topicShort": "King John",
+    "title": "Bad King Dad",
+    "logline": "Dad taxes screen time to win back the bedroom TV, so the barons of the flat seize the sofa and make him seal a Family Charter. Ticktock (who was eighty-nine in 1215, and possibly there) explains King John, Magna Carta and whether John really was a bad king.",
+    "durationSec": 557,
+    "src": "/videos/king-john.mp4",
+    "poster": "/videos/posters/king-john.jpg"
+  },
+  {
+    "num": 4,
+    "topicId": "henry-viii",
+    "topicShort": "Henry VIII",
+    "title": "The Break With Remote",
+    "logline": "Paati won't change the family streaming plan, so Dad breaks with her, makes himself Supreme Head of his own plan and dissolves the snack drawer to pay for it. Ticktock (who was possibly, unprovably, on Henry's desk) explains the Tudors, the Break with Rome, the monasteries and six wives.",
+    "durationSec": 534,
+    "src": "/videos/henry-viii.mp4",
+    "poster": "/videos/posters/henry-viii.jpg"
+  },
+  {
+    "num": 5,
+    "topicId": "hitler-rise",
+    "topicShort": "Hitler's Rise",
+    "title": "Emergency Powers",
+    "logline": "Mum's family council keeps deadlocking, so Dad declares a 'remote emergency' and takes 'temporary' powers he never hands back. Ms Lim and Ticktock show how Weimar Germany's democracy was taken apart, legally, and why we remember where it led.",
+    "durationSec": 562,
+    "src": "/videos/hitler-rise.mp4",
+    "poster": "/videos/posters/hitler-rise.jpg"
+  },
+  {
+    "num": 6,
+    "topicId": "mao-rise",
+    "topicShort": "Mao's Rise",
+    "title": "The Long March To The Sofa",
+    "logline": "Outvoted two to one at home, Tara retreats to the 'countryside' (Uncle Hock's stall) to win over her cousins one by one. Ticktock (who definitely crawled across Luding Bridge, allegedly) helps explain how Mao Zedong came to power, and what that power cost.",
+    "durationSec": 552,
+    "src": "/videos/mao-rise.mp4",
+    "poster": "/videos/posters/mao-rise.jpg"
+  },
+  {
+    "num": 7,
+    "topicId": "pol-pot",
+    "topicShort": "Pol Pot",
+    "title": "Why We Remember",
+    "logline": "For once, Dad puts down the remote: Tara's class is visiting a museum gallery about Cambodia, 1975 to 1979, and the whole family goes. Ticktock, who was never there, hands over to the survivors.",
+    "durationSec": 522,
+    "src": "/videos/pol-pot.mp4",
+    "poster": "/videos/posters/pol-pot.jpg"
+  },
+  {
+    "num": 8,
+    "topicId": "french-revolution",
+    "topicShort": "French Revolution",
+    "title": "Let Them Eat Kaya Toast",
+    "logline": "The snack fund is bankrupt, Dad claims he is exempt from chores by birth, and the Third Estate (Tara and the cousins) start a revolution in the kitchen. Ticktock (who definitely heard nobody mention cake) explains 1789, the Rights of Man and their limits, the Terror and Napoleon: did the Revolution create democracy?",
+    "durationSec": 556,
+    "src": "/videos/french-revolution.mp4",
+    "poster": "/videos/posters/french-revolution.jpg"
+  },
+  {
+    "num": 9,
+    "topicId": "womens-suffrage",
+    "topicShort": "Women's Suffrage",
+    "title": "Deeds Not Words, Dad",
+    "logline": "Season finale. Dad declares the remote a democracy with one voter (him), so Mum petitions politely and Tara chains herself to the sofa. Ticktock (who did not vote in 1918) helps untangle the Reform Acts, suffragists, suffragettes, the war, 1918 and 1928, and the family holds its first fair election.",
+    "durationSec": 564,
+    "src": "/videos/womens-suffrage.mp4",
+    "poster": "/videos/posters/womens-suffrage.jpg"
   }
 ];
 
