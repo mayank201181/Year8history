@@ -10,7 +10,7 @@ canvas{display:block}
 <canvas id="c" width="1280" height="720"></canvas>
 <script>
 const W = 1280, H = 720, SCALE = 1, GROUND = 655;
-const cv = document.getElementById('c'), ctx = cv.getContext('2d');
+const cv = document.getElementById('c'); let ctx = cv.getContext('2d');
 let TL = null;
 
 // ---------- utils ----------
@@ -128,10 +128,12 @@ function drawCrown(cx, cy, s, rot, t) {
   const tw = 0.5 + 0.5 * Math.sin(t * 4); ctx.globalAlpha = tw; ctx.beginPath(); ctx.moveTo(10, -30); ctx.lineTo(14, -22); ctx.lineTo(10, -14); ctx.lineTo(6, -22); ctx.closePath(); fillC('#fff'); ctx.globalAlpha = 1;
   ctx.restore();
 }
-function drawProp(p, t, bw, monster) {
+function drawProp(p, t, bw, hand) {
+  // hand: {x, y} where a monster holds things (props are then centred just beyond it)
   if (!p || p === 'crown') return;
-  const PX = bw + 30, PY = -230;
-  if (p === 'phone') { ctx.save(); ctx.translate(bw + 30, -230 - Math.sin(t*3)*4); ctx.rotate(-0.2); ctx.fillStyle = '#1f2937'; rr(-16, -28, 32, 56, 6); ctx.fill(); ctx.fillStyle = '#f43f5e'; rr(-12, -22, 24, 40, 3); ctx.fill(); text('70%', 0, -2, 9, '#fff'); ctx.restore(); }
+  const monster = !!hand;
+  const PX = hand ? hand.x + 22 : bw + 30, PY = hand ? hand.y - 18 : -230;
+  if (p === 'phone') { ctx.save(); ctx.translate(PX, PY - Math.sin(t*3)*4); ctx.rotate(-0.2); ctx.fillStyle = '#1f2937'; rr(-16, -28, 32, 56, 6); ctx.fill(); ctx.fillStyle = '#f43f5e'; rr(-12, -22, 24, 40, 3); ctx.fill(); text('70%', 0, -2, 9, '#fff'); ctx.restore(); }
   if (p === 'tablet') { ctx.save(); ctx.translate(-bw - 20, -205); ctx.rotate(0.15); ctx.fillStyle = '#111827'; rr(-40, -30, 80, 60, 6); ctx.fill(); ctx.fillStyle = '#e5f9ec'; rr(-35, -25, 70, 50, 3); ctx.fill();
     ctx.beginPath(); ctx.moveTo(-30, 12); ctx.lineTo(-10, -18); ctx.lineTo(10, 16); ctx.lineTo(30, 20); strokeC('#ef4444', 3); text('🍌', -22, -12, 12, '#000'); ctx.restore(); }
   if (p === 'cushion') { ctx.save(); ctx.translate(0, monster ? -95 : -215); ctx.rotate(Math.sin(t*2)*0.05); ctx.fillStyle = '#f472b6'; rr(-50, -40, 100, 80, 22); ctx.fill(); ctx.fillStyle = '#fbcfe8'; rr(-25, -20, 50, 40, 12); ctx.fill(); ctx.fillStyle = '#f472b6'; rr(-12, -10, 24, 20, 6); ctx.fill(); ctx.restore(); }
@@ -158,8 +160,9 @@ function drawProp(p, t, bw, monster) {
     ctx.beginPath(); ctx.moveTo(-6, -16); ctx.lineTo(4, -4); ctx.moveTo(4, -16); ctx.lineTo(-6, -4); strokeC('#1d4ed8', 3); ctx.restore();
     ctx.fillStyle = '#1e3a8a'; rr(-32, -26, 64, 54, 5); ctx.fill(); ctx.fillStyle = '#0f172a'; ctx.fillRect(-20, -26, 40, 5);
     text('BALLOT', 0, 6, 12, '#fff'); ctx.restore(); }
-  if (p === 'placard') { const sx = monster ? PX + 40 : PX + 10, sy = monster ? -375 : -425; ctx.save(); ctx.translate(0, Math.sin(t * 3) * 4);
-    ctx.fillStyle = '#92400e'; ctx.fillRect(sx - 4, sy + 30, 8, -sy - 30 + PY + 30);
+  if (p === 'placard') { const sx = monster ? 205 : bw + 112, sy = monster ? -372 : -425; ctx.save(); ctx.translate(0, Math.sin(t * 3) * 4);
+    const hx = monster ? hand.x + 6 : PX - 6, hy = monster ? hand.y : PY + 34;
+    ctx.beginPath(); ctx.moveTo(hx, hy); ctx.lineTo(sx, sy + 30); ctx.lineCap = 'round'; strokeC('#92400e', 9);
     ctx.save(); ctx.translate(sx, sy); ctx.rotate(Math.sin(t * 2.2) * 0.05);
     ctx.fillStyle = '#fff'; rr(-92, -46, 184, 92, 6); ctx.fill(); ctx.lineWidth = 7; ctx.strokeStyle = '#16a34a'; rr(-88, -42, 176, 84, 4); ctx.stroke();
     text('VOTES FOR', 0, -14, 28, '#6b21a8'); text('WOMEN', 0, 20, 32, '#6b21a8'); ctx.restore(); ctx.restore(); }
@@ -249,8 +252,9 @@ function drawChrono(x, st) {
   const armR = mood === 'shock' ? -2.5 : st.talking && ['teach', 'smug', 'excited'].includes(mood) ? -1.3 + wave : -0.45 + Math.sin(t * 1.3) * 0.04;
   const armL = mood === 'shock' ? 2.5 : mood === 'thinking' ? 2.3 : 0.45 - Math.sin(t * 1.3) * 0.04;
   chronoArm(-1, armL); chronoArm(1, armR);
+  const hand = { x: 96 - Math.sin(armR) * 68, y: -206 + Math.cos(armR) * 68 };   // end of the right scroll-arm
   // glass + sand
-  chronoGlass(); fillC('rgba(214,238,250,0.6)');
+  chronoGlass(); fillC('rgba(226,242,250,0.86)');
   ctx.save(); chronoGlass(); ctx.clip();
   const flow = 0.5 + 0.5 * Math.sin(t * 0.05);
   const lvl = -226 + 10 * flow, peak = -82 - 8 * flow;
@@ -280,7 +284,7 @@ function drawChrono(x, st) {
     // crow's feet (he is very old)
     ctx.strokeStyle = 'rgba(91,74,58,0.6)'; ctx.lineWidth = 2; for (const k of [-1, 0, 1]) { ctx.beginPath(); ctx.moveTo(x + side * (erx + 4), ey + k * 7); ctx.lineTo(x + side * (erx + 11), ey + k * 11); ctx.stroke(); }
     // bushy white brows
-    const inner = [x - side * 6, ey - ery - 10 + bi + grump], outer = [x + side * 26, ey - ery - 14 + bo];
+    const inner = [x - side * 6, Math.max(-296, ey - 34 + bi + grump)], outer = [x + side * 26, Math.max(-298, ey - 38 + bo)];
     ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(inner[0], inner[1]); ctx.lineTo(outer[0], outer[1]); strokeC('#9ca3af', 13);
     ctx.beginPath(); ctx.moveTo(inner[0], inner[1] - 1); ctx.lineTo(outer[0], outer[1] - 1); strokeC('#f3f4f6', 7);
   }
@@ -311,7 +315,7 @@ function drawChrono(x, st) {
   ctx.fillStyle = BRASS; rr(-114, -48, 228, 9, 4); ctx.fill(); ctx.fillStyle = WOOD; rr(-108, -42, 216, 30, 10); ctx.fill();
   ctx.fillStyle = WOOD2; ctx.fillRect(-96, -30, 192, 4);
   // props held by the scroll arms
-  ctx.save(); ctx.translate(18, 30); drawProp(st.prop, t, 110, true); ctx.restore();
+  drawProp(st.prop, t, 110, hand);
   ctx.restore();
 }
 
@@ -525,7 +529,16 @@ function setLibrary(t) {
   ctx.fillStyle = '#9ca3af'; ctx.fillRect(610, 462, 40, 2); ctx.fillRect(670, 462, 40, 2);
   [['#1e3a8a', 0], ['#7f1d1d', 1], ['#065f46', 2]].forEach(([c, k]) => { ctx.fillStyle = c; rr(780 - k * 4, 456 - k * 16, 80, 15, 3); ctx.fill(); ctx.fillStyle = '#fef3c7'; ctx.fillRect(852 - k * 4, 459 - k * 16, 6, 9); });
 }
+// Confession backdrops are static and blurred: ctx.filter is applied per draw call (very slow in software
+// canvas), so each one is painted once into an offscreen canvas and reused.
+const CONFESS_CACHE = new Map();
 function setConfess(who, t) {
+  let bg = CONFESS_CACHE.get(who);
+  if (!bg) { bg = document.createElement('canvas'); bg.width = W; bg.height = H; const keep = ctx; ctx = bg.getContext('2d');
+    try { paintConfess(who, 0); } finally { ctx = keep; } CONFESS_CACHE.set(who, bg); }
+  ctx.drawImage(bg, 0, 0);
+}
+function paintConfess(who, t) {
   const pal = { tara: ['#ede9fe', '#c4b5fd'], dad: ['#fef3c7', '#fcd34d'], chrono: ['#fdf4dc', '#d6b277'], mum: ['#ccfbf1', '#5eead4'], teacher: ['#fce7f3', '#f9a8d4'], uncle: ['#dbeafe', '#93c5fd'], cashier: ['#fee2e2', '#fca5a5'] }[who] || ['#eee', '#ccc'];
   const g = ctx.createRadialGradient(640, 300, 50, 640, 300, 800); g.addColorStop(0, pal[0]); g.addColorStop(1, pal[1]); ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
   ctx.save(); ctx.filter = 'blur(6px)';
@@ -704,10 +717,12 @@ function drawChallenge(seg, t) {
 }
 function drawSubsSmall(seg, t) { if (t < seg.say0) return; const lines = wrap(seg.subs[0].text, 860, 24); const h = 20 + lines.length * 30, y = H - h - 14; ctx.fillStyle = 'rgba(0,0,0,0.6)'; rr(60, y, 900, h, 12); ctx.fill(); lines.forEach((l, i) => text(l, 510, y + 25 + i * 30, 24, '#fff', { weight: 500 })); }
 
+const FREEZE_TMP = Object.assign(document.createElement('canvas'), { width: W, height: H });
 function drawFreeze(seg, t) {
   const ref = TL.segments[seg.ref]; const k = t - seg.t0;
-  ctx.save(); ctx.filter = 'grayscale(0.85) contrast(1.1)';
-  drawStage(ref, seg.hold, { zoom: 1 + ease(k / 0.3) * 0.08 }); ctx.restore();
+  drawStage(ref, seg.hold, { zoom: 1 + ease(k / 0.3) * 0.08 });
+  // one full-frame filter pass (a filter set while drawing the stage would run once per draw call: ~2 s/frame)
+  FREEZE_TMP.getContext('2d').drawImage(cv, 0, 0); ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.filter = 'grayscale(0.85) contrast(1.1)'; ctx.drawImage(FREEZE_TMP, 0, 0); ctx.restore();
   if (seg.serious) seriousVignette(9);
   ctx.fillStyle = 'rgba(255,240,200,0.12)'; ctx.fillRect(0, 0, W, H);
   const kk = back((k - 0.25) / 0.35); if (kk > 0) { ctx.save(); ctx.translate(640, 470); ctx.rotate(-0.06); ctx.scale(kk, kk);

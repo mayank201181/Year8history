@@ -157,6 +157,14 @@ const NOP_UTILITY: BankItem[] = [
   nop("“It is a photograph.”", "nature", "Nature: the type of source."),
   nop("“It was meant to be read by the king's supporters.”", "purpose", "Purpose includes the intended audience."),
   nop("“It is a speech to a crowd.”", "nature", "Nature: the type of source.", 2),
+  nop("“It is a political cartoon.”", "nature", "Nature: the type of source."),
+  nop("“It was drawn by a cartoonist working in Paris in 1790.”", "origin", "Origin: who made it, where and when."),
+  nop("“It was meant to raise money for the suffragette cause.”", "purpose", "Purpose: why it was made."),
+  {
+    prompt: "Checking a source against other sources to see whether they agree is called…?",
+    answer: { type: "text", accept: ["cross-referencing", "cross referencing", "corroboration", "corroborating", "cross-checking"], display: "Cross-referencing (corroboration)" },
+    solution: "Cross-referencing (corroboration): if independent sources agree, we can be more confident.",
+  },
   nop("“It was made to entertain, not to record facts.”", "purpose", "Purpose: why it was made.", 2),
   {
     prompt: "What word means how far we can **trust** what a source tells us?",
@@ -271,7 +279,6 @@ const INTERPRETATIONS: BankItem[] = [
     prompt: "The time and society in which a historian writes, which can shape their view, is called their…?",
     answer: { type: "text", accept: ["context", "historical context"], display: "Context" },
     solution: "Context: e.g. many Victorian historians, proud of Parliament, celebrated Magna Carta and condemned John.",
-    tier: 2,
   },
   {
     prompt: "When we test an interpretation, we check it against ___ from the time. (one word)",
@@ -289,6 +296,35 @@ const INTERPRETATIONS: BankItem[] = [
     answer: { type: "text", accept: ["interpretation", "an interpretation"], display: "Interpretation" },
     solution: "An interpretation: a modern explanation of the past.",
     traps: [{ spec: { type: "text", accept: ["source"] }, feedback: "It was written in 2018 to explain the past — an interpretation." }],
+  },
+  {
+    prompt: "Interpretation or source? A diary written by a soldier during the First World War, in 1916.",
+    answer: { type: "text", accept: ["source", "a source", "primary source"], display: "Source" },
+    solution: "A source: written at the time by someone who was there.",
+    traps: [{ spec: { type: "text", accept: ["interpretation"] }, feedback: "A diary has the writer's opinions, but it comes from the time — a source." }],
+  },
+  {
+    prompt: "Interpretation or source? A 2019 documentary arguing that Henry VIII broke with Rome mainly to get the Church's money.",
+    answer: { type: "text", accept: ["interpretation", "an interpretation"], display: "Interpretation" },
+    solution: "An interpretation: a modern argument about why something happened.",
+    traps: [{ spec: { type: "text", accept: ["source"] }, feedback: "It was made in 2019 and argues a case — an interpretation." }],
+  },
+  {
+    prompt: "Interpretation or source? A speech made by Emmeline Pankhurst in 1913.",
+    answer: { type: "text", accept: ["source", "a source", "primary source"], display: "Source" },
+    solution: "A source: made at the time by a leading suffragette.",
+    traps: [{ spec: { type: "text", accept: ["interpretation"] }, feedback: "Pankhurst had strong views, but the speech comes from 1913 — a source." }],
+  },
+  {
+    prompt: "Interpretation or source? A textbook chapter, written last year, explaining why William won at Hastings.",
+    answer: { type: "text", accept: ["interpretation", "an interpretation"], display: "Interpretation" },
+    solution: "An interpretation: a modern explanation of the past.",
+    traps: [{ spec: { type: "text", accept: ["source"] }, feedback: "It was written recently to explain the past — an interpretation." }],
+  },
+  {
+    prompt: "True or false: historians' views can change when new evidence is found.",
+    answer: { type: "text", accept: ["true", "t"], display: "True" },
+    solution: "True: for example, finding Richard III's skeleton in 2012 tested old stories about him.",
   },
   {
     prompt: "True or false: if two historians disagree, one of them must be lying.",
@@ -315,6 +351,28 @@ const CAUSES: BankItem[] = [
     answer: { type: "text", accept: ["trigger", "trigger cause", "the trigger"], display: "Trigger" },
     solution: "The trigger: the spark, not the fuel.",
     traps: [{ spec: { type: "text", accept: ["short-term cause", "short term"] }, feedback: "A trigger is even more immediate than a short-term cause — it's the final spark." }],
+  },
+  {
+    prompt: "A cause that happened shortly before an event (weeks or months before) is a ___-term cause.",
+    answer: { type: "text", accept: ["short", "short-term", "short term"], display: "Short-term" },
+    solution: "Short-term: close in time to the event.",
+  },
+  {
+    prompt: "What word do historians use for the results or effects of an event?",
+    answer: { type: "text", accept: ["consequences", "consequence", "effects", "results"], display: "Consequences" },
+    solution: "Consequences: what happened because of an event — short- or long-term, intended or unintended.",
+  },
+  {
+    prompt: "Category of cause: in January 1066 the Witan, a council of nobles and churchmen, chose Harold Godwinson as king.",
+    answer: { type: "text", accept: ["political"], display: "Political" },
+    solution: "Political: who holds power and how they get it.",
+    hint: "Political, economic, social, religious, military or individual?",
+  },
+  {
+    prompt: "Category of cause: a bad harvest in 1788 pushed up the price of bread in France.",
+    answer: { type: "text", accept: ["economic", "social"], display: "Economic (also social)" },
+    solution: "Economic: prices and food supply. (Social also works — hunger affected ordinary people's lives.)",
+    hint: "Political, economic, social, religious, military or individual?",
   },
   {
     prompt: "A cause that built up over many years is a ___-term cause.",
@@ -357,21 +415,18 @@ const CAUSES: BankItem[] = [
     solution: "Political: laws, government and power.",
     hint: "Political, economic, social, religious, military or individual?",
     traps: [{ spec: { type: "text", accept: ["Enabling Act"] }, feedback: "Careful — that's a different law (March 1933). And the question asks for a category: political." }],
-    tier: 2,
   },
   {
     prompt: "Category of cause: during the First World War, women's work in factories changed many people's attitudes towards women.",
     answer: { type: "text", accept: ["social"], display: "Social" },
     solution: "Social: how people lived and what they believed about each other.",
     hint: "Political, economic, social, religious, military or individual?",
-    tier: 2,
   },
   {
     prompt: "Long-term cause or trigger? The assassination of Archduke Franz Ferdinand in June 1914, as a cause of the First World War.",
     answer: { type: "text", accept: ["trigger", "the trigger"], display: "Trigger" },
     solution: "Trigger: it set off a crisis built on years of rivalry and alliances.",
     traps: [{ spec: { type: "text", accept: ["long-term", "long term"] }, feedback: "It happened just weeks before the war began — it was the spark." }],
-    tier: 2,
   },
   {
     prompt: "Long-term cause or trigger? Edward the Confessor having no children during his 24-year reign, as a cause of the 1066 crisis.",
@@ -396,7 +451,6 @@ const CAUSES: BankItem[] = [
     prompt: "When historians show how one cause made another worse, they are ___ the causes. (one word)",
     answer: { type: "text", accept: ["linking", "connecting", "link"], display: "Linking" },
     solution: "Linking: e.g. the Depression (economic) made Hitler's promises (individual) more attractive.",
-    tier: 2,
   },
   {
     prompt: "An explanation that blames just one single cause is called…? (starts with mono-)",
@@ -439,6 +493,15 @@ const SIGNIFICANCE_CHANGE: BankItem[] = [
     solution: "Explain: say HOW your evidence proves your point.",
   },
   cc("After 1066, most English peasants still farmed the land in much the same way.", false, "Continuity: daily life on the land carried on."),
+  cc("After 1066, most ordinary people in England went on speaking English.", false, "Continuity: Norman French was spoken by the new rulers, but most people kept speaking English."),
+  cc("After 1066, the Normans built hundreds of castles across England.", true, "Change: castles were new to most of England."),
+  cc("After 1928, women could vote at 21, on the same terms as men.", true, "Change: equal voting rights for women and men."),
+  cc("Even after the Reform Act of 1832, most adult men in Britain still could not vote.", false, "Continuity: the vote widened a little, but most men were still left out."),
+  {
+    prompt: "In PEEL paragraphs, what does the first E stand for?",
+    answer: { type: "text", accept: ["evidence"], display: "Evidence" },
+    solution: "Evidence: precise facts, dates, names or quotations that support your point.",
+  },
   cc("After 1066, almost all the English earls were replaced by Norman lords.", true, "Change: a new ruling class took over."),
   cc("In 1918, some women over 30 were allowed to vote in British elections for the first time.", true, "Change: a new group joined the electorate."),
   cc("Kings before and after Magna Carta still believed they were chosen by God.", false, "Continuity: Magna Carta limited the king but didn't end that belief.", 2),

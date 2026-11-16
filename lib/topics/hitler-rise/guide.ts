@@ -203,7 +203,7 @@ export const guide: TopicGuide = {
             "Conclude with the result: the army welcomed the purge and swore an oath to Hitler in August 1934.",
           ],
           answer:
-            "Hitler turned against the SA because it had become a threat to his power. Its leader, Ernst Röhm, wanted a 'second revolution' against big business and the old elites, and wanted the SA to absorb the army. The army leaders saw the SA — by then several times larger than the army — as a dangerous rival, and Hitler needed the army's support, especially as President Hindenburg was old and ill. So on 30 June 1934 the SS murdered Röhm and other SA leaders, along with political rivals such as Kurt von Schleicher. The army welcomed the purge, and when Hindenburg died in August 1934 soldiers swore an oath of personal loyalty to Hitler.",
+            "Hitler turned against the SA because it had become a threat to his power. Its leader, Ernst Röhm, wanted a 'second revolution' against big business and the old elites, and wanted the SA to absorb the army. The army leaders saw the SA — by then many times larger than the army — as a dangerous rival, and Hitler needed the army's support, especially as President Hindenburg was old and ill. So on 30 June 1934 the SS murdered Röhm and other SA leaders, along with political rivals such as Kurt von Schleicher. The army welcomed the purge, and when Hindenburg died in August 1934 soldiers swore an oath of personal loyalty to Hitler.",
         },
       ],
       keyPoints: [

@@ -306,5 +306,595 @@ export const mcqPapers: Paper[] = [
       },
     ],
   },
-  //@@M2@@
+  // =========================================================== MCQ PAPER 2
+  {
+    id: "historians-toolkit-m2",
+    title: "MCQ Paper 2",
+    questions: [
+      {
+        kind: "mcq",
+        id: "historians-toolkit-m2-q01",
+        question: "What does **AD** stand for?",
+        options: ["After Death", "Ancient Date", "After Domesday", "Anno Domini — 'in the year of the Lord'"],
+        answerIndex: 3,
+        explanation:
+          "AD is Latin: Anno Domini, 'in the year of the Lord', counting from the traditional date of Jesus's birth. 'After Death' is a common guess, but if it were true there would be a gap of about 30 years between BC and AD — there isn't.",
+        difficulty: "warmup",
+        guideRef: "chronology-and-periods",
+        hints: ["It is Latin, not English, and it is about the year Jesus was traditionally thought to be born."],
+      },
+      {
+        kind: "mcq",
+        id: "historians-toolkit-m2-q02",
+        question: "Which century is the year **1900** in?",
+        options: ["The 20th century", "The 18th century", "The 19th century", "The 21st century"],
+        answerIndex: 2,
+        explanation:
+          "There was no year 0, so each century ends on a year ending 00: the 19th century ran from 1801 to 1900. 'The 20th century' is the tempting answer, but that began in 1901 and ended in 2000.",
+        difficulty: "core",
+        guideRef: "chronology-and-periods",
+        hints: [
+          "The 1st century was years 1–100. So the 2nd century began in which year?",
+          "Follow the pattern: which century ends with the year 1900?",
+        ],
+        strategy: "Use the chronology",
+      },
+      {
+        kind: "mcq",
+        id: "historians-toolkit-m2-q03",
+        question: "Which detail would be an **anachronism** in a painting of the Battle of Hastings?",
+        options: [
+          "Knights on horseback",
+          "A soldier firing a musket",
+          "Archers with bows",
+          "Soldiers carrying kite-shaped shields",
+        ],
+        answerIndex: 1,
+        explanation:
+          "Muskets were developed centuries after 1066, so a musket at Hastings is out of its time — an anachronism. Knights, archers and kite-shaped shields all appear in the Bayeux Tapestry and fit 1066.",
+        difficulty: "warmup",
+        guideRef: "chronology-and-periods",
+        hints: ["Which of these did not exist yet in 1066?"],
+        strategy: "Spot the anachronism",
+      },
+      {
+        kind: "mcq",
+        id: "historians-toolkit-m2-q04",
+        question: "What is **corroboration**?",
+        options: [
+          "Checking whether a source agrees with other sources",
+          "Working out what a source suggests but does not say",
+          "Finding out who made a source",
+          "Proving that a source is biased",
+        ],
+        answerIndex: 0,
+        explanation:
+          "Corroboration (cross-referencing) means comparing a source with others to see if they agree. 'Working out what a source suggests' is inference — a different skill.",
+        difficulty: "warmup",
+        guideRef: "sources-and-evidence",
+        hints: ["It is also called cross-referencing."],
+        strategy: "Cross-reference sources",
+      },
+      {
+        kind: "mcq",
+        id: "historians-toolkit-m2-q05",
+        question:
+          "Study the source.\n\n> “We are here, not because we are law-breakers; we are here in our efforts to become law-makers.” — Emmeline Pankhurst, leader of the WSPU, speaking at her trial in 1908\n\nWhat can you infer from this source?",
+        options: [
+          "Pankhurst admitted the suffragettes had no aim except causing trouble",
+          "Women already had the vote in Britain in 1908",
+          "Pankhurst was standing for election as an MP in 1908",
+          "Pankhurst wanted the court to see the suffragettes as people seeking a fair say in making laws, not as ordinary criminals",
+        ],
+        answerIndex: 3,
+        explanation:
+          "By contrasting 'law-breakers' with 'law-makers', Pankhurst presents the suffragettes' actions as a struggle for a voice in Parliament. 'Pankhurst was standing for election as an MP' is a tempting over-reading of 'law-makers' — in 1908 women could not vote in general elections or sit in Parliament, which is exactly what she was protesting about.",
+        difficulty: "core",
+        guideRef: "sources-and-evidence",
+        hints: [
+          "What contrast does she make between two kinds of people?",
+          "Who makes laws in Britain — and could women vote for them in 1908?",
+        ],
+        strategy: "Use precise evidence",
+      },
+      {
+        kind: "mcq",
+        id: "historians-toolkit-m2-q06",
+        question:
+          "A historian is investigating **how people in Victorian Britain imagined 1066**. She studies a painting of the Battle of Hastings made in 1880. For THIS enquiry, the painting is best described as…",
+        options: [
+          "a secondary source, because it was made long after 1066",
+          "useless, because the painter was not at Hastings",
+          "a primary source, because it was made in the period she is studying",
+          "an anachronism that cannot be used as evidence",
+        ],
+        answerIndex: 2,
+        explanation:
+          "Whether a source is primary or secondary depends on the enquiry. For the battle itself, an 1880 painting is secondary — but this enquiry is about Victorian ideas, and the painting was made by a Victorian, so it is primary evidence of how they imagined the past. 'Secondary, because it was made long after 1066' would be right only for an enquiry into 1066 itself.",
+        difficulty: "challenge",
+        guideRef: "sources-and-evidence",
+        hints: [
+          "Read the enquiry question very carefully — what period is she actually studying?",
+          "Primary = produced during the period you are studying.",
+          "When was the painting made, and is that the period of her enquiry?",
+        ],
+        strategy: "Ask \"useful for what?\"",
+      },
+      {
+        kind: "mcq",
+        id: "historians-toolkit-m2-q07",
+        question: "Which word means “how useful a source is for a particular enquiry”?",
+        options: ["Reliability", "Utility", "Provenance", "Chronology"],
+        answerIndex: 1,
+        explanation:
+          "Utility means usefulness. 'Reliability' is the tempting mix-up — it means how far a source can be trusted, which is a different question.",
+        difficulty: "warmup",
+        guideRef: "utility-and-reliability",
+        hints: ["It comes from the same root as the word 'use'."],
+      },
+      {
+        kind: "mcq",
+        id: "historians-toolkit-m2-q08",
+        question: "The Bayeux Tapestry was made for the Norman side. Which enquiry would it be **most** useful for?",
+        options: [
+          "What weapons, armour and ships were used in 1066",
+          "What ordinary English peasants thought of William",
+          "How many people died in the Harrying of the North",
+          "Why King John lost Normandy in 1204",
+        ],
+        answerIndex: 0,
+        explanation:
+          "Its Norman viewpoint matters less for physical details: it shows mail armour, kite-shaped shields, spears, bows and ships in detail. It is far less useful on what English peasants thought — it was made for Norman patrons and tells the winners' story — and it ends before the Harrying of the North and long before King John.",
+        difficulty: "core",
+        guideRef: "utility-and-reliability",
+        hints: [
+          "Ask 'useful for what?' — and check the dates each enquiry covers.",
+          "Bias affects opinions and blame more than it affects pictures of equipment.",
+        ],
+        strategy: "Ask \"useful for what?\"",
+      },
+      {
+        kind: "mcq",
+        id: "historians-toolkit-m2-q09",
+        question: "Why do historians doubt that Marie Antoinette ever said “Let them eat cake”?",
+        options: [
+          "She could not speak French",
+          "She was executed before the Revolution began",
+          "The phrase was invented by Napoleon in 1804",
+          "A similar line appears in Rousseau's *Confessions*, written when she was still a child in Austria, and no reliable source records her saying it",
+        ],
+        answerIndex: 3,
+        explanation:
+          "The story fails a provenance check: the line was already in circulation, attributed to an unnamed 'great princess', before Marie Antoinette came to France, and no reliable source has her saying it. 'She was executed before the Revolution began' is false — she was executed in October 1793, during the Revolution.",
+        difficulty: "core",
+        guideRef: "utility-and-reliability",
+        hints: [
+          "Think about the ORIGIN of the story: when was the line first written down?",
+          "Where was Marie Antoinette when that book was written?",
+        ],
+        strategy: "Check the provenance (NOP)",
+      },
+      {
+        kind: "mcq",
+        id: "historians-toolkit-m2-q10",
+        question: "Why do historians disagree about whether suffragette militancy helped women win the vote?",
+        options: [
+          "Militancy began only after women had won the vote, so its effect cannot be measured",
+          "The evidence points both ways: militancy kept the issue in the news, but some MPs said it hardened their opposition",
+          "There are no surviving sources about the suffragettes",
+          "Historians do not know when women first got the vote",
+        ],
+        answerIndex: 1,
+        explanation:
+          "Interpretations differ when the evidence can reasonably be read in more than one way — here, publicity against a backlash among MPs. 'Militancy began only after women had won the vote' is false: WSPU militancy was at its height from about 1905 to 1914, before the 1918 Act.",
+        difficulty: "core",
+        guideRef: "interpretations",
+        hints: [
+          "Check each option against the chronology first: when was militancy, and when did women win the vote?",
+          "Interpretations usually differ because the evidence can be read in different ways.",
+        ],
+        strategy: "Weigh both sides, then judge",
+      },
+      {
+        kind: "mcq",
+        id: "historians-toolkit-m2-q11",
+        question: "Which of these is an **interpretation** of the French Revolution rather than a source from it?",
+        options: [
+          "The Declaration of the Rights of Man and of the Citizen (August 1789)",
+          "A historian's book about the Revolution published in 1989",
+          "Sieyès's pamphlet *What is the Third Estate?* (January 1789)",
+          "A diary kept by a Parisian in July 1789",
+        ],
+        answerIndex: 1,
+        explanation:
+          "A book written 200 years later by a historian is a later account — an interpretation. The Declaration of the Rights of Man might feel like a set of ideas or opinions, but it was produced during the Revolution, so it is a source from the time.",
+        difficulty: "warmup",
+        guideRef: "interpretations",
+        hints: ["Which item was made long after the events, looking back on them?"],
+      },
+      {
+        kind: "mcq",
+        id: "historians-toolkit-m2-q12",
+        question: "Which of these was a **long-term** cause of the French Revolution?",
+        options: [
+          "The unfair system of three estates, in which the Third Estate paid most of the taxes",
+          "The storming of the Bastille, 14 July 1789",
+          "The bad harvest of 1788",
+          "The Tennis Court Oath, June 1789",
+        ],
+        answerIndex: 0,
+        explanation:
+          "The estate system had shaped French society for centuries, building resentment over a long period. 'The bad harvest of 1788' is tempting, but it is a short-term cause: it pushed up bread prices in the year or so before the Revolution.",
+        difficulty: "core",
+        guideRef: "causation-and-consequence",
+        hints: [
+          "Long-term causes build up over many years or even centuries.",
+          "Which option describes a situation that existed long before 1788–89?",
+        ],
+        strategy: "Sort causes into categories",
+      },
+      {
+        kind: "mcq",
+        id: "historians-toolkit-m2-q13",
+        question:
+          "Mao's Great Leap Forward (1958–62) aimed to turn China into an industrial power very quickly. It led to a famine in which tens of millions of people died. The famine is best described as…",
+        options: [
+          "an intended consequence",
+          "a long-term cause of the Great Leap Forward",
+          "a trigger",
+          "an unintended consequence",
+        ],
+        answerIndex: 3,
+        explanation:
+          "The policy aimed at rapid industrial growth; mass famine was not its goal, so the famine was an unintended consequence (made far worse by the regime's policies and refusal to change course). It cannot be a cause of the Great Leap Forward, because it came after the policy began.",
+        difficulty: "core",
+        guideRef: "causation-and-consequence",
+        hints: [
+          "Did the famine come before or after the policy? That decides cause or consequence.",
+          "Was the famine what the policy set out to achieve?",
+        ],
+      },
+      {
+        kind: "mcq",
+        id: "historians-toolkit-m2-q14",
+        question:
+          "In 2019 Singapore's Bicentennial marked 200 years since Raffles' arrival in 1819, but deliberately placed it within a 700-year history. What does this show about historical significance?",
+        options: [
+          "1819 is no longer significant at all",
+          "Significance is a fixed fact that never changes",
+          "Judgements of significance can change over time and depend on who is judging and why",
+          "Raffles first arrived in Singapore in 1299",
+        ],
+        answerIndex: 2,
+        explanation:
+          "1819 was still commemorated — but set within a longer story, showing that how significant an event seems depends on the questions and values of the present. 'Significance is a fixed fact' is the misconception this example disproves. (1299 is the date traditionally given for the founding of Singapura, not Raffles' arrival.)",
+        difficulty: "core",
+        guideRef: "significance-and-change",
+        hints: [
+          "Did the Bicentennial ignore 1819, or reframe it?",
+          "Is significance something you look up, or a judgement people make?",
+        ],
+        strategy: "Zoom out to the big picture",
+      },
+      {
+        kind: "mcq",
+        id: "historians-toolkit-m2-q15",
+        question: "A student writes: “The 1918 Representation of the People Act changed everything for women.” Which evidence best **challenges** this claim?",
+        options: [
+          "About 8.4 million women gained the vote in 1918",
+          "Women under 30, and many women without property, still could not vote until 1928",
+          "Emily Wilding Davison died after the Epsom Derby in 1913",
+          "Millicent Fawcett led the suffragists of the NUWSS",
+        ],
+        answerIndex: 1,
+        explanation:
+          "To challenge 'changed everything' you need evidence of continuity — and millions of women were still excluded until 1928. '8.4 million women gained the vote' is tempting because it is about 1918, but it supports the claim of change rather than challenging it.",
+        difficulty: "challenge",
+        guideRef: "significance-and-change",
+        hints: [
+          "To challenge a claim of change, look for evidence of continuity.",
+          "Which option is about 1918 but shows what did NOT change?",
+          "Cross out options that support the claim or are about a different date.",
+        ],
+        strategy: "Look for change AND continuity",
+      },
+    ],
+  },
+  // =========================================================== MCQ PAPER 3
+  {
+    id: "historians-toolkit-m3",
+    title: "MCQ Paper 3",
+    questions: [
+      {
+        kind: "mcq",
+        id: "historians-toolkit-m3-q01",
+        question: "Henry VIII reigned from 1509 to 1547. Which period of history is his reign usually placed in?",
+        options: ["Early modern", "Ancient", "Medieval", "Modern"],
+        answerIndex: 0,
+        explanation:
+          "Historians usually call roughly 1500–1750 the early modern period, and the Tudors are a classic example. 'Medieval' is tempting because Henry was a king with castles and knights, but the Middle Ages are usually said to end around 1500.",
+        difficulty: "warmup",
+        guideRef: "chronology-and-periods",
+        hints: ["The Middle Ages are usually said to end around 1500. What comes next?"],
+      },
+      {
+        kind: "mcq",
+        id: "historians-toolkit-m3-q02",
+        question:
+          "Julius Caesar's first expedition to Britain was in 55 BC. The Roman invasion under Emperor Claudius was in AD 43. How many years apart were they?",
+        options: ["98 years", "97 years", "12 years", "88 years"],
+        answerIndex: 1,
+        explanation:
+          "Count 55 years from 55 BC to the end of 1 BC, then 42 more from AD 1 to AD 43: 55 + 43 − 1 = 97, because there was no year 0. '98 years' is the trap of simply adding 55 + 43 as if a year 0 existed.",
+        difficulty: "challenge",
+        guideRef: "chronology-and-periods",
+        hints: [
+          "BC dates count backwards towards 1 BC; AD dates count forwards from AD 1.",
+          "Adding the two numbers is close — but think about what comes between 1 BC and AD 1.",
+          "There was no year 0, so subtract one from 55 + 43.",
+        ],
+        strategy: "Use the chronology",
+      },
+      {
+        kind: "mcq",
+        id: "historians-toolkit-m3-q03",
+        question: "A speech made by Emmeline Pankhurst in 1908 is an example of…",
+        options: [
+          "a secondary source about the suffragettes",
+          "an interpretation written by a historian",
+          "a primary source for the suffragette campaign",
+          "an anachronism",
+        ],
+        answerIndex: 2,
+        explanation:
+          "It was made at the time by someone directly involved, so it is a primary source. It is not an interpretation — interpretations are later accounts, such as a historian's book about the campaign.",
+        difficulty: "warmup",
+        guideRef: "sources-and-evidence",
+        hints: ["Was Pankhurst involved in the campaign, and did she speak at the time?"],
+      },
+      {
+        kind: "mcq",
+        id: "historians-toolkit-m3-q04",
+        question: "Which fact about the Bayeux Tapestry belongs to the **Origin** part of NOP?",
+        options: [
+          "It is an embroidered cloth about 70 metres long",
+          "It was probably meant to justify William's conquest",
+          "It shows Harold swearing an oath to William",
+          "It was probably made in the decade or so after 1066, for Bishop Odo, William's half-brother",
+        ],
+        answerIndex: 3,
+        explanation:
+          "Origin is about who made a source, when and where — the years after 1066 and Bishop Odo. 'Meant to justify William's conquest' is tempting because it also concerns the Normans, but it is about WHY it was made, which is Purpose. Its form is Nature; what it shows is content.",
+        difficulty: "core",
+        guideRef: "sources-and-evidence",
+        hints: [
+          "Sort each option: is it about what it is, who/when, why, or what it shows?",
+          "Origin answers 'who made it, and when?'",
+        ],
+        strategy: "Check the provenance (NOP)",
+      },
+      {
+        kind: "mcq",
+        id: "historians-toolkit-m3-q05",
+        question:
+          "The Bayeux Tapestry shows a figure under the name 'Harold' with what may be an arrow near his eye. Another early account, the *Carmen de Hastingae Proelio*, says Harold was cut down by knights. What is the best conclusion?",
+        options: [
+          "Harold definitely died from an arrow in the eye, because the Tapestry is a primary source",
+          "The sources do not corroborate each other, so exactly how Harold died remains uncertain",
+          "Harold survived the Battle of Hastings",
+          "The *Carmen* must be right, because it uses words rather than pictures",
+        ],
+        answerIndex: 1,
+        explanation:
+          "When two early sources disagree, a careful historian says the matter is uncertain — and the Tapestry has been restored over the centuries, so even its picture is debated. 'Definitely an arrow, because it is primary' is the trap: being primary does not settle a disagreement.",
+        difficulty: "core",
+        guideRef: "sources-and-evidence",
+        hints: [
+          "Do the two sources agree?",
+          "If they do not, can either one alone prove what happened?",
+        ],
+        strategy: "Cross-reference sources",
+      },
+      {
+        kind: "mcq",
+        id: "historians-toolkit-m3-q06",
+        question: "What is the best definition of **reliability**?",
+        options: [
+          "How far a source can be trusted to be accurate",
+          "How useful a source is for a particular question",
+          "How old a source is",
+          "Whether a source is primary or secondary",
+        ],
+        answerIndex: 0,
+        explanation:
+          "Reliability is about trust and accuracy. 'How useful a source is for a particular question' is utility — the word students most often confuse it with.",
+        difficulty: "warmup",
+        guideRef: "utility-and-reliability",
+        hints: ["Think of the word 'rely': can you rely on what it says?"],
+      },
+      {
+        kind: "mcq",
+        id: "historians-toolkit-m3-q07",
+        question:
+          "Hans Holbein's portraits of Henry VIII show him standing broad-shouldered, richly dressed and powerful. Which enquiry are they **most** useful for?",
+        options: [
+          "Exactly what Henry looked like on an ordinary day",
+          "What poor people in Tudor England thought of Henry",
+          "Why the Pope refused to annul Henry's first marriage",
+          "How Henry VIII wanted his power and majesty to be seen",
+        ],
+        answerIndex: 3,
+        explanation:
+          "Royal portraits were carefully designed images of power, so they are excellent evidence of how Henry wished to be seen. They are less useful for 'exactly what Henry looked like', because a court painter flattered and posed his subject.",
+        difficulty: "core",
+        guideRef: "utility-and-reliability",
+        hints: [
+          "Who were the portraits made for, and why?",
+          "A source that flatters is still useful — useful for what?",
+        ],
+        strategy: "Ask \"useful for what?\"",
+      },
+      {
+        kind: "mcq",
+        id: "historians-toolkit-m3-q08",
+        question:
+          "Enquiry: **Why did many people in Edwardian Britain oppose votes for women?**\n\n- Source A: a speech by Emmeline Pankhurst, 1908, demanding the vote.\n- Source B: an anti-suffrage postcard from around 1910 that mocks suffragettes as unwomanly and ridiculous.\n\nWhich judgement is best?",
+        options: [
+          "Source A is more useful, because it is a primary source and Source B is not",
+          "Neither is useful, because both are biased",
+          "Source B is more useful, because its one-sided mockery reveals the attitudes of opponents — its bias is the evidence",
+          "Source A is more useful, because Pankhurst was the most famous suffragette",
+        ],
+        answerIndex: 2,
+        explanation:
+          "The enquiry is about opponents, so a source made by opponents shows their attitudes directly; its bias is exactly what you want to study. 'Neither is useful because both are biased' is the classic trap — bias does not make a source useless. Both sources are primary, so that cannot separate them.",
+        difficulty: "challenge",
+        guideRef: "utility-and-reliability",
+        hints: [
+          "Read the enquiry: whose views does it ask about?",
+          "Is bias a reason to throw a source away — or can it be the evidence?",
+          "Check the claim about primary and secondary: when was each made?",
+        ],
+        strategy: "Ask \"useful for what?\"",
+      },
+      {
+        kind: "mcq",
+        id: "historians-toolkit-m3-q09",
+        question: "Which of these is a genuine reason why interpretations of the same event can differ?",
+        options: [
+          "The dates of past events keep changing",
+          "Historians may have different evidence available to them",
+          "Only one historian is allowed to write about each event",
+          "All sources are completely neutral",
+        ],
+        answerIndex: 1,
+        explanation:
+          "New evidence (or access to different evidence) changes interpretations — modern historians of King John used government records that the monks who wrote about him did not study. 'All sources are completely neutral' is false; if it were true, interpretations would differ far less.",
+        difficulty: "warmup",
+        guideRef: "interpretations",
+        hints: ["Think about King John: what could modern historians read that Matthew Paris did not?"],
+      },
+      {
+        kind: "mcq",
+        id: "historians-toolkit-m3-q10",
+        question:
+          "Interpretation: “Hitler did not seize power — he was handed it by a small group of conservative politicians.” Which evidence best **supports** this interpretation?",
+        options: [
+          "Von Papen persuaded President Hindenburg to appoint Hitler Chancellor in January 1933, believing he could control him",
+          "The Nazis won about 37% of the vote in July 1932",
+          "Around six million Germans were unemployed in 1932",
+          "The Treaty of Versailles had angered many Germans",
+        ],
+        answerIndex: 0,
+        explanation:
+          "The interpretation stresses a backroom deal by a few powerful men — Papen's persuasion and Hindenburg's decision fit it exactly. The 37% vote is tempting, but it supports a different interpretation that stresses mass popular support.",
+        difficulty: "core",
+        guideRef: "interpretations",
+        hints: [
+          "Identify the key claim: WHO gave Hitler power, according to this view?",
+          "Which option is about a small group's decision rather than millions of voters?",
+        ],
+        strategy: "Use precise evidence",
+      },
+      {
+        kind: "mcq",
+        id: "historians-toolkit-m3-q11",
+        question:
+          "A student argues that the Depression was the most important cause of Hitler's rise. Which argument would give the strongest support?",
+        options: [
+          "It came first in time, before all the other causes",
+          "It is the most famous cause",
+          "It began with the Wall Street Crash in America",
+          "Before it the Nazis won only 2.6% of the vote, and it fed other causes such as unemployment and fear of communism",
+        ],
+        answerIndex: 3,
+        explanation:
+          "A strong 'most important' argument uses criteria: was it necessary (Nazi support was tiny before it) and did it strengthen other causes? 'It came first in time' is false — the Treaty of Versailles (1919) and hyperinflation (1923) came earlier — and coming first would not prove importance anyway.",
+        difficulty: "core",
+        guideRef: "causation-and-consequence",
+        hints: [
+          "What tests can show a cause was the most important? (Necessary? Affected other causes?)",
+          "Check each option for accuracy — did the Depression really come before everything else?",
+        ],
+        strategy: "Consider the counterfactual",
+      },
+      {
+        kind: "mcq",
+        id: "historians-toolkit-m3-q12",
+        question: "Which type of cause is described as “conditions that build up over many years”?",
+        options: ["A trigger", "A short-term cause", "A long-term cause", "A consequence"],
+        answerIndex: 2,
+        explanation:
+          "Long-term causes build up over years, like the unfair estate system in France. A trigger is the opposite — the final, sudden spark.",
+        difficulty: "warmup",
+        guideRef: "causation-and-consequence",
+        hints: ["Which kind of cause takes the most time to build up?"],
+      },
+      {
+        kind: "mcq",
+        id: "historians-toolkit-m3-q13",
+        question:
+          "Many historians argue that Japan's capture of Singapore in February 1942 badly damaged British prestige in Asia and encouraged later demands for independence. In this argument, the growth of demands for independence is…",
+        options: [
+          "a long-term consequence of the fall of Singapore",
+          "a long-term cause of the fall of Singapore",
+          "an anachronism",
+          "an example of corroboration",
+        ],
+        answerIndex: 0,
+        explanation:
+          "The fall came first and the independence demands grew afterwards, over years — so they are a long-term consequence. 'A long-term cause of the fall' reverses the chronology: something that happened later cannot cause something earlier.",
+        difficulty: "core",
+        guideRef: "causation-and-consequence",
+        hints: [
+          "Which came first: the fall of Singapore or the growth of independence demands?",
+          "Results that come years later are what kind of consequence?",
+        ],
+        strategy: "Use the chronology",
+      },
+      {
+        kind: "mcq",
+        id: "historians-toolkit-m3-q14",
+        question: "Which statement best describes the **rate** of change in women's voting rights in Britain?",
+        options: [
+          "Women won equal votes with men in one step in 1918",
+          "Nothing changed at all between 1897 and 1928",
+          "Women won the vote before most men did",
+          "It came in two big steps, in 1918 and 1928, after decades of campaigning",
+        ],
+        answerIndex: 3,
+        explanation:
+          "Rate is about speed and pattern: long campaigning with no change in the law, then a big step in 1918 (many women over 30) and another in 1928 (equal votes at 21). 'Equal votes in one step in 1918' is the common 1918/1928 confusion.",
+        difficulty: "core",
+        guideRef: "significance-and-change",
+        hints: [
+          "Rate = how fast, and in what pattern, change happened.",
+          "What was the difference between 1918 and 1928?",
+        ],
+        strategy: "Look for change AND continuity",
+      },
+      {
+        kind: "mcq",
+        id: "historians-toolkit-m3-q15",
+        question:
+          "A PEEL paragraph argues that the Depression helped Hitler. Which sentence is the **Explain** step?",
+        options: [
+          "The Depression was an important reason for Hitler's rise.",
+          "By 1932 about six million Germans were unemployed.",
+          "This mattered because desperate, jobless Germans were more willing to vote for a party that promised work and strong leadership.",
+          "Therefore the Depression was a key reason why Hitler became Chancellor.",
+        ],
+        answerIndex: 2,
+        explanation:
+          "The Explain step shows HOW the evidence proves the point — 'this mattered because…'. The unemployment figure is tempting because it is precise, but it is the Evidence step; the opening sentence is the Point, and the 'Therefore…' sentence is the Link.",
+        difficulty: "challenge",
+        guideRef: "significance-and-change",
+        hints: [
+          "Label each sentence P, E, E or L.",
+          "Evidence gives facts; Explain shows why those facts prove the point.",
+          "Look for the sentence that answers 'so what?'",
+        ],
+      },
+    ],
+  },
 ];

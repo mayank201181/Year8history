@@ -302,7 +302,7 @@ export const mcqPapers: Paper[] = [
         ],
         answerIndex: 1,
         explanation:
-          "Like a cat playing with a mouse, the government let weak hunger strikers go, then caught them again when they had recovered. This avoided deaths in prison while keeping suffragettes serving their sentences. It replaced reliance on force-feeding rather than making it compulsory.",
+          "Like a cat playing with a mouse, the government let weak hunger strikers go, then caught them again when they had recovered. This avoided deaths in prison while keeping suffragettes serving their sentences. It reduced the government's reliance on force-feeding rather than making it compulsory.",
         difficulty: "warmup",
         guideRef: "suffragettes",
         hints: ["A cat lets a mouse go — and then catches it again. Who is the cat and who is the mouse?"],
