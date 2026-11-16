@@ -191,7 +191,7 @@ export const practice: TopicPractice = {
           answer: { type: "text", accept: ["Francis I", "Francis", "King Francis", "Francis the First", "Francis 1", "François I", "Francois I", "King Francis I"], display: "Francis I" },
           traps: [
             { spec: { type: "text", accept: ["Charles V", "Charles"] }, feedback: "Charles V was the Holy Roman Emperor and King of Spain — France's great rival, and Catherine of Aragon's nephew." },
-            { spec: { type: "text", accept: ["Francis II", "Francis 2", "Francis the Second"] }, feedback: "Right name, wrong number. Francis II ruled France briefly in 1559–60, long after Henry died. Henry met the first King Francis." },
+            { spec: { type: "text", accept: ["Francis 2", "Francis II", "Francis the Second"] }, feedback: "Right name, wrong number. Francis II ruled France briefly in 1559–60, long after Henry died. Henry met the first King Francis." },
           ],
           solution: ["Francis I of France met Henry near Calais in June 1520."],
           difficulty: "warmup",
@@ -536,7 +536,7 @@ export const practice: TopicPractice = {
           answer: { type: "text", accept: ["Elizabeth", "Princess Elizabeth", "Elizabeth I", "Elizabeth Tudor", "Queen Elizabeth I"], display: "Elizabeth (later Elizabeth I)" },
           traps: [
             { spec: { type: "text", accept: ["Mary", "Princess Mary", "Mary I"] }, feedback: "Mary was Catherine of Aragon's daughter, born in 1516." },
-            { spec: { type: "text", accept: ["Elizabeth II", "Elizabeth 2", "Queen Elizabeth II"] }, feedback: "Right name, wrong queen. Elizabeth II reigned 1952–2022. Anne Boleyn's daughter became Elizabeth I." },
+            { spec: { type: "text", accept: ["Elizabeth 2", "Elizabeth II", "Queen Elizabeth II", "Elizabeth the Second"] }, feedback: "Right name, wrong queen. Elizabeth II reigned 1952–2022. Anne Boleyn's daughter became Elizabeth I." },
           ],
           solution: ["Princess Elizabeth, born 7 September 1533.", "She later ruled as Elizabeth I (1558–1603)."],
           difficulty: "warmup",

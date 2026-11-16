@@ -486,10 +486,10 @@ export const practice: TopicPractice = {
           id: "why-dictatorships-p2-q04",
           question: "What was the name of the Khmer Rouge's secret prison in Phnom Penh, where thousands of people were held and killed? (It is now a genocide museum.)",
           answer: { type: "text", accept: ["S-21", "S21", "S 21", "Tuol Sleng", "Tuol Sleng prison", "Security Prison 21"], display: "S-21 (Tuol Sleng)" },
-          solution: ["S-21, in a former school called Tuol Sleng. Today it is the Tuol Sleng Genocide Museum, which records the names and faces of those who died."],
+          solution: ["S-21, set up in a former high school in the Tuol Sleng area of Phnom Penh. Today it is the Tuol Sleng Genocide Museum, which records the names and faces of those who died."],
           difficulty: "warmup",
           guideRef: "keeping-control",
-          hints: ["It is known by a letter and a number — or by the name of the former school it took over."],
+          hints: ["It is known by a letter and a number — or by the name of the area of Phnom Penh where it stood, which is now the museum's name."],
         },
         {
           kind: "written",

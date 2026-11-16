@@ -8,16 +8,16 @@ export const practice: TopicPractice = {
       question: "Which king ruled France when the Revolution began in 1789?",
       answer: {
         type: "text",
-        accept: ["Louis XVI", "Louis 16", "King Louis XVI", "Louis the Sixteenth", "Louis 16th", "Louis Capet"],
+        accept: ["Louis XVI", "Louis 16", "King Louis XVI", "Louis the Sixteenth", "Louis 16th", "Louis the 16th", "Louis Capet"],
         display: "Louis XVI",
       },
       traps: [
         {
           spec: {
             type: "text",
-            accept: ["Louis XIV"],
+            accept: ["Louis XIV", "Louis XV", "Louis XVII", "Louis XVIII", "Louis 14", "Louis 15", "Louis 17", "Louis 18"],
           },
-          feedback: "Louis XIV was the “Sun King” who built up Versailles; he died in 1715. The king in 1789 reigned two kings later.",
+          feedback: "Right family, wrong number. Louis XIV (the “Sun King”) died in 1715 and Louis XV in 1774; Louis XVII was a child who never ruled, and Louis XVIII became king only in 1814. Which Louis became king in 1774?",
         },
         {
           spec: {
@@ -354,7 +354,7 @@ export const practice: TopicPractice = {
         {
           kind: "written",
           id: "french-revolution-p1-q05",
-          question: "> “What is the Third Estate? Everything. What has it been until now in the political order? Nothing. What does it ask? To become something.” — Abbé Sieyès, pamphlet *What is the Third Estate?*, January 1789\n\nWhat can you infer from this source about why the Third Estate was angry in 1789? (2 marks)",
+          question: "> “What is the Third Estate? Everything. What has it been until now in the political order? Nothing. What does it ask? To become something.” — Abbé Sieyès, pamphlet *What is the Third Estate?*, January 1789 (translated)\n\nWhat can you infer from this source about why the Third Estate was angry in 1789? (2 marks)",
           marks: 2,
           modelAnswer: "This suggests the Third Estate was angry because it was the vast majority of the nation (“Everything”) yet had no political power (“Nothing”). It also suggests they now expected a real share of power — “to become something” — which made the coming Estates-General a battle over representation.",
           markScheme: [
@@ -631,7 +631,7 @@ export const practice: TopicPractice = {
                 type: "text",
                 accept: ["Guadeloupe", "Martinique"],
               },
-              feedback: "Guadeloupe and Martinique stayed French — Napoleon restored slavery there in 1802.",
+              feedback: "Guadeloupe and Martinique stayed French colonies, and slavery continued there after 1802 until 1848. The colony that won independence in 1804 was Saint-Domingue.",
             },
           ],
           solution: [
@@ -713,7 +713,7 @@ export const practice: TopicPractice = {
         {
           kind: "short",
           id: "french-revolution-p2-q03",
-          question: "Which French nobleman fought for the American colonists against Britain and returned to France with ideas about liberty?",
+          question: "Which young French **marquis** volunteered to fight for the American colonists against Britain and returned to France with ideas about liberty?",
           answer: {
             type: "text",
             accept: [
@@ -740,7 +740,7 @@ export const practice: TopicPractice = {
           ],
           difficulty: "core",
           guideRef: "causes-of-the-revolution",
-          hints: ["He was a marquis.", "He became commander of the Paris National Guard in 1789."],
+          hints: ["He served alongside George Washington.", "He became commander of the Paris National Guard in 1789."],
         },
         {
           kind: "mcq",
