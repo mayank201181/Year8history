@@ -9,7 +9,7 @@ export const practice: TopicPractice = {
       question: "Who was crowned King of England on 6 January 1066?",
       answer: { type: "text", accept: ["Harold Godwinson", "Harold", "Harold II", "King Harold", "King Harold II", "Harold Godwineson"], display: "Harold Godwinson" },
       traps: [
-        { spec: { type: "text", accept: ["Harald Hardrada", "Hardrada", "Harald", "King Harald", "Harald III", "Harald Sigurdsson"] }, feedback: "Watch the spelling: Harald (with an a) is Harald Hardrada, the King of Norway who invaded later in 1066. The man crowned in January was the English earl Harold Godwinson." },
+        { spec: { type: "text", accept: ["Harald Hardrada", "Hardrada", "Harald", "King Harald", "Harald III", "Harald Sigurdsson"] }, feedback: "Harald Hardrada — Harald with an a — was the King of Norway who invaded later in 1066. The man crowned in January was the English earl Harold Godwinson." },
         { spec: { type: "text", accept: ["William", "William of Normandy", "William the Conqueror", "William I"] }, feedback: "William wasn't crowned until Christmas Day 1066. In January the Witan chose Harold Godwinson." },
       ],
       solution: ["Edward the Confessor died on 5 January 1066.", "The next day, the day of Edward's funeral, Harold Godwinson, Earl of Wessex, was crowned."],
