@@ -68,7 +68,7 @@ L("chrono", "Many were killed at Choeung Ek, one of the killing fields. Today it
 L("tara", "Every number is a person. A grandparent. A teacher. A child who missed school.", mood="sad", shot="close", gap=1.5)
 L("chrono", "Yes. Always remember that.", mood="sad", shot="close", gap=1.0)
 L("chrono", "The regime also attacked Vietnam across the border. In December nineteen seventy eight, Vietnam invaded. On the seventh of January, nineteen seventy nine, Phnom Penh fell.", mood="serious", shot="close", boardClear=True, board="7 Jan 1979  Vietnamese army takes Phnom Penh")
-L("chrono", "The Khmer Rouge fought on from the jungle for years. Pol Pot died in nineteen ninety eight, without ever facing trial.", mood="serious", shot="close", board="1998  Pol Pot dies, never tried", gap=1.0)
+L("chrono", "The Khmer Rouge fought on from the jungle for years. Pol Pot died in nineteen ninety eight, without ever facing trial.", mood="serious", shot="close", board="1998  Pol Pot dies, never faced trial", gap=1.0)
 serious(False)
 
 # ---------------- ACT 3: HOME — JUSTICE, MEMORY, COMPARISON ----------------

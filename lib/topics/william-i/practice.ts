@@ -9,7 +9,7 @@ export const practice: TopicPractice = {
       question: "Who was crowned King of England on 6 January 1066?",
       answer: { type: "text", accept: ["Harold Godwinson", "Harold", "Harold II", "King Harold", "King Harold II", "Harold Godwineson"], display: "Harold Godwinson" },
       traps: [
-        { spec: { type: "text", accept: ["Harald Hardrada", "Hardrada"] }, feedback: "Hardrada was the King of Norway who invaded later in 1066. The man crowned in January was the English earl Harold Godwinson." },
+        { spec: { type: "text", accept: ["Harald Hardrada", "Hardrada", "Harald", "King Harald", "Harald III", "Harald Sigurdsson"] }, feedback: "Watch the spelling: Harald (with an a) is Harald Hardrada, the King of Norway who invaded later in 1066. The man crowned in January was the English earl Harold Godwinson." },
         { spec: { type: "text", accept: ["William", "William of Normandy", "William the Conqueror", "William I"] }, feedback: "William wasn't crowned until Christmas Day 1066. In January the Witan chose Harold Godwinson." },
       ],
       solution: ["Edward the Confessor died on 5 January 1066.", "The next day, the day of Edward's funeral, Harold Godwinson, Earl of Wessex, was crowned."],
@@ -195,6 +195,7 @@ export const practice: TopicPractice = {
             display: "Edgar Ætheling",
           },
           traps: [
+            { spec: { type: "text", accept: ["Harald Hardrada", "Hardrada", "Harald"] }, feedback: "Harald Hardrada was King of Norway — his claim came from an old Viking deal, not from any blood link to Edward. The blood heir was a boy of about 14." },
             { spec: { type: "text", accept: ["Harold Godwinson", "Harold"] }, feedback: "Harold was Edward's brother-in-law (Edward married Harold's sister), not a blood relative. The blood heir was a boy of about 14." },
           ],
           solution: ["Edgar Ætheling was Edward's great-nephew, about 14 years old in 1066.", "“Ætheling” was a title for a prince eligible to be king."],
@@ -240,7 +241,7 @@ export const practice: TopicPractice = {
           kind: "short",
           id: "william-i-p1-q05",
           question: "At which battle, on 25 September 1066, were Harald Hardrada and Tostig killed?",
-          answer: { type: "text", accept: ["Stamford Bridge", "the Battle of Stamford Bridge", "Battle of Stamford Bridge"], display: "Stamford Bridge" },
+          answer: { type: "text", accept: ["Stamford Bridge", "the Battle of Stamford Bridge", "Battle of Stamford Bridge", "Stamford"], display: "Stamford Bridge" },
           traps: [
             { spec: { type: "text", accept: ["Gate Fulford", "Fulford", "the Battle of Fulford"] }, feedback: "Gate Fulford (20 September) was the Vikings' victory over Edwin and Morcar. Hardrada and Tostig died five days later, when Harold surprised them." },
             { spec: { type: "text", accept: ["Hastings", "the Battle of Hastings"] }, feedback: "Hastings (14 October) was Harold's battle against William. Hardrada had already died in the north." },
