@@ -209,7 +209,7 @@ export const practice: TopicPractice = {
           marks: 3,
           modelAnswer:
             "Arthur was a threat because he had a strong blood claim: he was the son of Geoffrey, John's older brother, so some argued he should have been king instead of John. He was also backed by Philip II and the lords of Anjou, Maine and Touraine. This meant that as long as Arthur was alive, Philip could use him as an excuse to attack John's lands and win over John's vassals.",
-      markScheme: [
+          markScheme: [
             { point: "Explains Arthur's claim by blood (son of an older brother)", keywords: ["geoffrey", "older brother", "blood", "claim", "nephew"] },
             { point: "Identifies his supporters (Philip II; Anjou, Maine, Touraine)", keywords: ["philip", "france", "french", "anjou", "maine", "touraine", "backed", "support"] },
             { point: "Explains why this was dangerous for John", keywords: ["excuse", "attack", "rival", "replace", "alive", "use him", "rebel"] },
@@ -343,7 +343,7 @@ export const practice: TopicPractice = {
           question: "Which French prince did the rebel barons invite to be King of England, who landed in May 1216?",
           answer: { type: "text", accept: ["Louis", "Prince Louis", "Louis of France", "Prince Louis of France", "Louis VIII", "Louis the Lion"], display: "Prince Louis (later Louis VIII)" },
           traps: [{ spec: { type: "text", accept: ["Philip II", "Philip", "Philip Augustus"] }, feedback: "Philip II was the King of France. The barons invited his son, the prince." }],
-          solution: ["Prince Louis, son of Philip II (later King Louis VIII of France).", "He held London but left in 1217 after William Marshal's victories."],
+          solution: ["Prince Louis, son of Philip II (later King Louis VIII of France).", "He held London but went home in 1217 after royalist victories at Lincoln and at sea."],
           difficulty: "core",
           guideRef: "magna-carta",
           hints: ["He was the son of Philip II.", "He later became King of France as the eighth of his name."],
@@ -374,7 +374,7 @@ export const practice: TopicPractice = {
           marks: 4,
           modelAnswer:
             "Early views came from monastic chroniclers such as Roger of Wendover and Matthew Paris, who wrote after John's death. They were very hostile because John had quarrelled with the Church and taxed it, and they used rumours, so for centuries John was seen as simply wicked. In the 20th century historians studied the government records — the rolls of John's letters and charters — which showed a hard-working, capable administrator. So views changed because historians used different evidence. Today most give a mixed verdict: able, but also cruel and untrustworthy.",
-      markScheme: [
+          markScheme: [
             { point: "Describes the chroniclers' hostile view", keywords: ["wendover", "paris", "monk", "chronicle", "evil", "wicked", "hell"] },
             { point: "Explains why the chroniclers were hostile (provenance)", keywords: ["church", "interdict", "later", "after his death", "rumour", "tax"] },
             { point: "Explains how government records changed the view", keywords: ["records", "rolls", "government", "administrator", "hard-working", "able", "capable"] },
