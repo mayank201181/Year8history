@@ -450,7 +450,7 @@ export const mcqPapers: Paper[] = [
         ],
         answerIndex: 1,
         explanation:
-          "Linking means showing how one factor caused or strengthened another — here the crisis (Depression) produced the weakness (rule by decree) that opened the door for Hitler. The first option lists factors without connecting them; the last simply narrates.",
+          "Linking means showing how one factor caused or strengthened another — here the crisis (Depression) produced the weakness (rule by decree) that opened the door for Hitler. Simply listing three separate facts or narrating dates ('came to power in 1933 and became Führer in 1934') does not connect causes together.",
         difficulty: "core",
         guideRef: "judging-causes",
         hints: ["Look for connecting words like 'because', 'so', 'which made'.", "Does the sentence show one factor *causing* another?"],

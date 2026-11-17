@@ -388,6 +388,8 @@ export const practice: TopicPractice = {
               "yearly parliaments",
               "elections every year",
               "a general election every year",
+              "annual elections for parliament",
+              "annual parliaments (a general election every year)",
             ],
             display: "Annual parliaments (a general election every year)",
           },

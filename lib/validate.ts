@@ -4,8 +4,9 @@
 // Pure — no React, no Next.
 // ---------------------------------------------------------------------------
 import type { AnswerSpec, Question, Topic, Trap, WorkedExample } from "./types.ts";
-import { checkWithTraps, specSelfCheck, specSample } from "./answerCheck.ts";
+import { checkAnswer, checkWithTraps, displayAnswer, specSelfCheck, specSample } from "./answerCheck.ts";
 import { toMathML } from "./mathml.ts";
+import { suggestMarks } from "./writtenCheck.ts";
 
 export interface Issue {
   where: string;
@@ -47,6 +48,11 @@ export function checkSpec(where: string, spec: AnswerSpec, issues: Issue[]) {
   }
   const r = specSelfCheck(spec);
   if (r.status !== "correct") issues.push({ where, problem: `answer spec fails its own check (${r.status}: ${r.feedback ?? ""}) ${JSON.stringify(spec)}` });
+  const disp = displayAnswer(spec);
+  const dispPlain = disp.replace(/\{\{|\}\}/g, "");
+  if (checkAnswer(spec, disp).status !== "correct" && checkAnswer(spec, dispPlain).status !== "correct") {
+    issues.push({ where, problem: `displayAnswer "${disp}" fails checkAnswer ${JSON.stringify(spec)}` });
+  }
   if (spec.type === "number" && !Number.isFinite(spec.value)) issues.push({ where, problem: "number answer is not finite" });
   if (spec.type === "fraction" && (!Number.isInteger(spec.n) || !Number.isInteger(spec.d) || spec.d === 0)) issues.push({ where, problem: "fraction n/d must be integers, d≠0" });
   if (spec.type === "text" && (!spec.accept || spec.accept.length === 0)) issues.push({ where, problem: "text answer has no accepted strings" });
@@ -87,10 +93,14 @@ export function checkQuestion(where: string, q: Question, sectionIds: Set<string
     }
     if (!Number.isInteger(q.answerIndex) || q.answerIndex < 0 || q.answerIndex > 3) issues.push({ where, problem: "answerIndex out of range" });
     checkText(`${where}.explanation`, q.explanation, issues);
-    if (/\b(?:option|answer|choice)\s*\(?[A-D]\)?(?![a-z])|\b[A-D]\)\s|\bthe (?:first|second|third|fourth|last) (?:option|answer|choice)/.test(q.explanation)) {
+    const optPosRe = /\b(?:[Oo]ption|[Aa]nswer|[Cc]hoice)s?\s*\(?[A-D]\)?(?![a-zA-Z])|\b[A-D]\)\s|\b[Tt]he (?:first|second|third|fourth|last) (?:option|answer|choice)\b/;
+    if (optPosRe.test(q.explanation)) {
       issues.push({ where, problem: "explanation refers to an option by letter/position (options are shuffled)" });
     }
-    if (/\b(?:all|none) of the above\b/i.test(q.options.join(" "))) issues.push({ where, problem: "'all/none of the above' breaks when options are shuffled" });
+    q.hints.forEach((h, i) => {
+      if (optPosRe.test(h)) issues.push({ where: `${where}.hints[${i}]`, problem: "hint refers to an option by letter/position (options are shuffled)" });
+    });
+    if (/\b(?:all|none) of the above\b|\bboth [A-D] and [A-D]\b/i.test(q.options.join(" "))) issues.push({ where, problem: "'all/none of the above' or 'both A and B' breaks when options are shuffled" });
   } else if (q.kind === "short") {
     checkSpec(`${where}.answer`, q.answer, issues);
     if (!Array.isArray(q.solution) || q.solution.length === 0) issues.push({ where, problem: "short question needs solution steps" });
@@ -106,6 +116,11 @@ export function checkQuestion(where: string, q: Question, sectionIds: Set<string
       if (!p.keywords?.length) issues.push({ where, problem: `markScheme[${i}] has no keywords` });
       else if (p.keywords.some((k) => k !== k.toLowerCase())) issues.push({ where, problem: `markScheme[${i}] keywords must be lower-case` });
     });
+    if (q.markScheme?.length && typeof q.modelAnswer === "string") {
+      if (!suggestMarks(q, q.modelAnswer).every(Boolean)) issues.push({ where, problem: "modelAnswer does not score full marks on suggestMarks" });
+      if (suggestMarks(q, q.question).some(Boolean)) issues.push({ where, problem: "copying question stem verbatim awards marks on suggestMarks" });
+      if (suggestMarks(q, "I don't know").some(Boolean)) issues.push({ where, problem: "'I don't know' awards marks on suggestMarks" });
+    }
   } else {
     issues.push({ where, problem: `unknown question kind ${(q as { kind?: string }).kind}` });
   }

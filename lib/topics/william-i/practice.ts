@@ -355,7 +355,7 @@ export const practice: TopicPractice = {
           kind: "short",
           id: "william-i-p1-q12",
           question: "What was the name of the land tax that the Domesday survey helped William to assess?",
-          answer: { type: "text", accept: ["geld", "the geld", "Danegeld", "the Danegeld"], display: "Geld" },
+          answer: { type: "text", accept: ["geld", "the geld", "geld tax", "the geld tax", "Danegeld", "the Danegeld"], display: "Geld" },
           traps: [
             { spec: { type: "text", accept: ["scutage"] }, feedback: "Scutage (“shield money”, paid instead of knight service) became important later, under kings such as John. The Anglo-Saxon land tax was the geld." },
           ],

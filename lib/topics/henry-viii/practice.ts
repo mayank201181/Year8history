@@ -522,7 +522,7 @@ export const practice: TopicPractice = {
           kind: "short",
           id: "henry-viii-p2-q08",
           question: "Which cardinal did the Pope send to England to hear Henry's case with Wolsey at the Blackfriars court in 1529?",
-          answer: { type: "text", accept: ["Campeggio", "Cardinal Campeggio", "Lorenzo Campeggio", "Campeggi", "Lorenzo Campeggi"], display: "Cardinal Lorenzo Campeggio" },
+          answer: { type: "text", accept: ["Campeggio", "Cardinal Campeggio", "Lorenzo Campeggio", "Cardinal Lorenzo Campeggio", "Campeggi", "Lorenzo Campeggi"], display: "Cardinal Lorenzo Campeggio" },
           traps: [{ spec: { type: "text", accept: ["Wolsey", "Cardinal Wolsey", "Thomas Wolsey"] }, feedback: "Wolsey was the English judge. The question asks for the cardinal sent from Rome to sit alongside him." }],
           solution: ["Cardinal Lorenzo Campeggio, the Pope's representative.", "He adjourned the court in July 1529, and the case was called back to Rome."],
           difficulty: "core",

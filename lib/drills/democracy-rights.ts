@@ -625,7 +625,7 @@ export const drills: Drill[] = [
         hint: "Its name begins with R.",
       },
       {
-        prompt: "How many of the 32 seats in the Legislative Assembly were elected in 1955?",
+        prompt: "How many of the 32 seats in Singapore's Legislative Assembly were elected in 1955?",
         answer: num(25),
         solution: "25 of 32 seats were elected; the rest were officials and nominated members.",
         hint: "About three-quarters of 32.",
@@ -936,7 +936,7 @@ export const drills: Drill[] = [
       },
       {
         tier: 3,
-        prompt: "The voting age was lowered to 18 in 1969. In what year's general election did 18-year-olds first vote?",
+        prompt: "Britain's voting age was lowered to 18 in 1969. In what year's UK general election did 18-year-olds first vote?",
         answer: num(1970),
         solution: "The general election of 18 June 1970.",
         hint: "The next general election after 1969.",

@@ -146,8 +146,20 @@ function checkNumber(spec: Extract<AnswerSpec, { type: "number" }>, input: strin
     }
     return { status: "incorrect" };
   }
-  const p = parseNumberAnswer(input);
+  let p = parseNumberAnswer(input);
   if (!p) {
+    const cleaned = normalizeInput(input)
+      .replace(/^(?:(?:about|approx\.?|approximately|around|roughly|nearly|c\.|circa)\s+)?(?:(?:article|clause|ad|ce)\s+)?/i, "")
+      .replace(/(?:st|nd|rd|th)?\s+century(?:\s+(?:bc|bce|ad|ce))?\.?$/i, "")
+      .replace(/\s+(?:(?:million|billion|trillion)\s+[a-z]+|bc|bce|ad|ce)\.?$/i, "")
+      .trim();
+    if (cleaned && cleaned !== normalizeInput(input)) p = parseNumberAnswer(cleaned);
+  }
+  if (!p) {
+    if (spec.display) {
+      const dw = normWords(spec.display);
+      if (dw && normWords(input) === dw) return { status: "correct" };
+    }
     // Maybe they wrote a list or an expression.
     return { status: "invalid", feedback: "Type a single number, like 12, −3.5 or 3/4." };
   }
@@ -392,22 +404,61 @@ function editDistance(a: string, b: string): number {
   return prev[b.length];
 }
 
+/** Distinct historical terms that differ by 1 edit and must never be forgiven as typos. */
+const CONFUSABLE_WORD_PAIRS: readonly [string, string][] = [
+  ["harold", "harald"],
+  ["angkar", "angkor"],
+  ["aldred", "alfred"],
+  ["henan", "hunan"],
+  ["content", "context"],
+  ["cause", "clause"],
+  ["causes", "clauses"],
+  ["danes", "dawes"],
+  ["kenney", "kennedy"],
+  ["malay", "malaya"],
+  ["marat", "murat"],
+  ["ancien", "ancient"],
+  ["statute", "statue"],
+];
+
+function wordTokens(s: string): string[] {
+  return s
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .match(/[a-z0-9]+/g) ?? [];
+}
+
+function hasConfusableSwap(aRaw: string, bRaw: string): boolean {
+  const ta = wordTokens(aRaw);
+  const tb = wordTokens(bRaw);
+  for (const [p, q] of CONFUSABLE_WORD_PAIRS) {
+    if ((ta.includes(p) && tb.includes(q) && !ta.includes(q) && !tb.includes(p)) ||
+        (ta.includes(q) && tb.includes(p) && !ta.includes(p) && !tb.includes(q))) {
+      return true;
+    }
+  }
+  return false;
+}
+
 function checkText(spec: Extract<AnswerSpec, { type: "text" }>, input: string): CheckResult {
+  const exactList = spec.display ? [...spec.accept, spec.display] : spec.accept;
   const n = normText(input);
-  if (spec.accept.some((a) => normText(a) === n)) return { status: "correct" };
+  if (exactList.some((a) => normText(a) === n)) return { status: "correct" };
   // Symbols carry meaning in maths-style answers (x > 3 vs x ≥ 3): only loosen plain words.
   if (/[<>≤≥=≠+*/^]/.test(input) || spec.accept.some((a) => /[<>≤≥=≠+*/^]/.test(a))) return { status: "incorrect" };
   const w = normWords(input);
-  if (w && spec.accept.some((a) => normWords(a) === w)) return { status: "correct" };
+  if (w && exactList.some((a) => normWords(a) === w)) return { status: "correct" };
   // Forgive small spelling slips in names and words (but never in numbers/years).
   // Regnal numbers must match exactly (Henry VII ≠ Henry VIII, Elizabeth I ≠ Elizabeth II).
-  const numerals = (x: string) => (x.match(/\b[ivxlc]+\b/gi) ?? []).map((t) => t.toLowerCase()).join(" ");
+  const numerals = (x: string) => (x.match(/\b(?:x{1,2}v?i{0,3}|ix|iv|v?i{1,3}|v)\b/gi) ?? []).map((t) => t.toLowerCase()).join(" ");
   const inNum = numerals(input);
   if (w.length >= 5 && !/\d/.test(w)) {
     const near = spec.accept.find((a) => {
       const t = normWords(a);
       if (/\d/.test(t) || t.length < 5) return false;
       if (numerals(a) !== inNum) return false;
+      if (hasConfusableSwap(input, a)) return false;
       return w[0] === t[0] && editDistance(w, t) <= 1;
     });
     if (near) return { status: "correct", feedback: `Correct — watch the spelling: ${near}.` };

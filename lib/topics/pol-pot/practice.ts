@@ -329,7 +329,7 @@ export const practice: TopicPractice = {
           kind: "short",
           id: "pol-pot-p1-q11",
           question: "S-21 prison was set up in a former high school in Phnom Penh. What is the name of that site, now a genocide museum?",
-          answer: { type: "text", accept: ["Tuol Sleng", "Toul Sleng", "Tuol Sleng Genocide Museum", "Tuol Svay Prey"], display: "Tuol Sleng" },
+          answer: { type: "text", accept: ["Tuol Sleng", "Toul Sleng", "Tuol Sleng Genocide Museum", "Tuol Sleng Museum", "Tuol Sleng High School", "Tuol Svay Prey"], display: "Tuol Sleng" },
           traps: [
             { spec: { type: "text", accept: ["Choeung Ek"] }, feedback: "Choeung Ek is the killing field outside the city where most S-21 prisoners were taken. The prison itself was Tuol Sleng." },
           ],
@@ -395,7 +395,7 @@ export const practice: TopicPractice = {
           question: "Compare how Pol Pot and Mao Zedong came to power. Explain one similarity and one difference. (4 marks)",
           marks: 4,
           modelAnswer:
-            "One similarity is that both won power through civil war with peasant support. Mao's Communists won the Chinese Civil War in 1949, and Pol Pot's Khmer Rouge captured Phnom Penh in 1975 after five years of war, relying on peasant recruits in both cases. One difference is leadership style. Mao built a huge public cult of personality, whereas Pol Pot hid behind 'Angkar' — most Cambodians did not even know who their leader was.",
+            "One similarity is that both won power through civil war with peasant support. Mao's Communists won the Chinese Civil War in 1949, and Pol Pot's Khmer Rouge captured Phnom Penh in 1975 after five years of war, relying on peasant recruits in both cases. One difference is leadership style. Mao built a huge public cult of personality with giant posters and the Little Red Book, whereas Pol Pot (Saloth Sar) stayed hidden behind 'Angkar' as 'Brother Number One' — most Cambodians did not even know who their leader was.",
           markScheme: [
             { point: "Identifies a valid similarity (civil war, peasant support, crisis, weak government)", keywords: ["both", "civil war", "peasants", "crisis", "weak government", "guerrilla"] },
             { point: "Supports the similarity with precise evidence for both leaders", keywords: ["1949", "1975", "gmd", "lon nol", "phnom penh", "long march"] },
@@ -739,7 +739,7 @@ export const practice: TopicPractice = {
     {
       kind: "short",
       id: "pol-pot-ch-q05",
-      question: "A website claims: \"Pol Pot ruled Cambodia for 23 years, from 1975 until his death in 1998.\" Spot the flaw in this claim, then work out the correct figure: for how many **whole** years did the Khmer Rouge rule Cambodia from Phnom Penh?",
+      question: "A website claims: \"Pol Pot ruled Cambodia for 23 years, from 1975 until his death in 1998.\" Spot the flaw in this claim, then work out the correct figure: for how many **completed whole** years did the Khmer Rouge rule Cambodia from Phnom Penh?",
       answer: { type: "number", value: 3, display: "3 (3 years, 8 months and about 3 weeks)" },
       traps: [
         { spec: { type: "number", value: 23 }, feedback: "That is the website's mistake. Pol Pot lived until 1998, but Khmer Rouge rule of the country ended when Vietnamese forces captured Phnom Penh on 7 January 1979. After that the movement survived in the jungle — it did not govern Cambodia." },

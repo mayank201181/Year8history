@@ -213,11 +213,12 @@ export function SprintRunner() {
       // ("63/9", or "3/4" for "write 3/4 as a decimal") isn't an answer yet:
       // nudge, don't mark.
       if (parseNumberAnswer(raw)?.frac) {
-        setNote(Number.isInteger(item.answer) ? "Work it out and type the answer as a whole number." : "Type it as a decimal, like 0.75.");
+        const expectsWhole = Number.isInteger(item.answer) || (item.tolerance !== undefined && Number.isInteger(item.answer - item.tolerance));
+        setNote(expectsWhole ? "Work it out and type the answer as a whole number." : "Type it as a decimal, like 0.75.");
         inputRef.current?.focus();
         return;
       }
-      const res = checkAnswer({ type: "number", value: item.answer, allowFraction: false }, raw);
+      const res = checkAnswer({ type: "number", value: item.answer, tolerance: item.tolerance, allowFraction: false }, raw);
       if (res.status === "invalid") {
         setNote("Type a single number, like 12 or −3.5.");
         inputRef.current?.focus();

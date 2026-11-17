@@ -494,7 +494,7 @@ export const practice: TopicPractice = {
           kind: "short",
           id: "womens-suffrage-p2-q07",
           question: "What name was given to the 1913 NUWSS event in which marchers walked from all over Britain to a mass rally in Hyde Park?",
-          answer: { type: "text", accept: ["Great Pilgrimage", "the Great Pilgrimage", "Pilgrimage", "Women's Pilgrimage", "the Pilgrimage"], display: "the Great Pilgrimage" },
+          answer: { type: "text", accept: ["Great Pilgrimage", "the Great Pilgrimage", "Pilgrimage", "Women's Pilgrimage", "the Pilgrimage", "Women's Suffrage Pilgrimage", "the Women's Suffrage Pilgrimage", "Suffrage Pilgrimage", "the Suffrage Pilgrimage"], display: "the Great Pilgrimage" },
           traps: [{ spec: { type: "text", accept: ["Mud March", "the Mud March"] }, feedback: "The Mud March was in London in 1907. The 1913 march from all over Britain was the Great Pilgrimage." }],
           solution: ["The Great Pilgrimage of summer 1913 ended with a huge peaceful rally in Hyde Park — the same year as Emily Wilding Davison's death, showing a very different side of the campaign."],
           difficulty: "core",

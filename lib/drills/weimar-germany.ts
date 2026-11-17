@@ -347,7 +347,7 @@ export const drills: Drill[] = [
         hint: "Who was to blame?",
       },
       {
-        prompt: "Reparations were fixed in 1921 at how many billion pounds? (Give the number.)",
+        prompt: "German reparations were fixed in 1921 at how many billion pounds? (Give the number.)",
         answer: { type: "number", value: 6.6, display: "£6.6 billion" },
         solution: "£6.6 billion (132 billion gold marks).",
         hint: "Between 6 and 7.",
@@ -366,7 +366,7 @@ export const drills: Drill[] = [
         hint: "Planes.",
       },
       {
-        prompt: "On which day of June 1919 was the treaty signed? (Give the day number.)",
+        prompt: "On which day of June 1919 was the Treaty of Versailles signed? (Give the day number.)",
         answer: { type: "number", value: 28 },
         solution: "28 June 1919 — exactly five years after Archduke Franz Ferdinand was assassinated.",
         hint: "Five years to the day after the assassination at Sarajevo.",
@@ -378,7 +378,7 @@ export const drills: Drill[] = [
         hint: "A room full of reflections.",
       },
       {
-        prompt: "About what percentage of its European territory did Germany lose? (Give a number.)",
+        prompt: "About what percentage of its European territory did Germany lose under the Treaty of Versailles? (Give a number.)",
         answer: { type: "number", value: 13, display: "about 13%" },
         solution: "About 13% of its European land.",
         hint: "Just over a tenth.",
@@ -424,21 +424,21 @@ export const drills: Drill[] = [
         tier: 2,
       },
       {
-        prompt: "How many battleships was the German navy allowed?",
+        prompt: "How many battleships was the German navy allowed under the Treaty of Versailles?",
         answer: { type: "number", value: 6 },
         solution: "Six battleships.",
         hint: "Fewer than ten.",
         tier: 2,
       },
       {
-        prompt: "In 1921 reparations were fixed at how many billion gold marks?",
+        prompt: "In 1921 German reparations were fixed at how many billion gold marks?",
         answer: { type: "number", value: 132 },
         solution: "132 billion gold marks (£6.6 billion).",
         hint: "Between 130 and 135.",
         tier: 2,
       },
       {
-        prompt: "How many sailors was the German navy limited to?",
+        prompt: "How many sailors was the German navy limited to under the Treaty of Versailles?",
         answer: { type: "number", value: 15000, display: "15,000" },
         solution: "15,000 sailors.",
         hint: "Fifteen thousand-ish.",
@@ -758,7 +758,7 @@ export const drills: Drill[] = [
         hint: "The 'Hunger Chancellor'.",
       },
       {
-        prompt: "Which article of the constitution let the President govern by emergency decree?",
+        prompt: "Which article of the Weimar Constitution let the President govern by emergency decree?",
         answer: { type: "number", value: 48 },
         solution: "Article 48.",
         hint: "Between 40 and 50.",

@@ -169,7 +169,7 @@ export const practice: TopicPractice = {
         {
           kind: "short",
           id: "king-john-p1-q01",
-          question: "In what year was John born?",
+          question: "John became king in May 1199 aged 32, and his birthday was on Christmas Eve (24 December). Working from those facts, in what year was he born?",
           answer: { type: "number", value: 1166 },
           traps: [
             { spec: { type: "number", value: 1066 }, feedback: "1066 is the Norman Conquest — a century earlier. John was born on 24 December 1166." },
@@ -608,7 +608,7 @@ export const practice: TopicPractice = {
           kind: "short",
           id: "king-john-p2-q14",
           question: "Which St Albans monk wrote: “Foul as it is, Hell itself is made fouler by the presence of John”?",
-          answer: { type: "text", accept: ["Matthew Paris", "Paris", "Matthew"], display: "Matthew Paris" },
+          answer: { type: "text", accept: ["Matthew Paris", "Matthew of Paris", "Paris", "Matthew"], display: "Matthew Paris" },
           traps: [{ spec: { type: "text", accept: ["Roger of Wendover", "Wendover", "Roger"] }, feedback: "Roger of Wendover was the earlier St Albans chronicler. This line comes from Matthew Paris, who continued his work." }],
           solution: ["Matthew Paris, monk of St Albans, writing in the mid-1200s."],
           commonError: "Mixing up the two St Albans chroniclers, Wendover and Paris.",

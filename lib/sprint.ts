@@ -41,6 +41,8 @@ export interface SprintItem {
   prompt: string;
   /** Exact numeric answer (a year or a count). */
   answer: number;
+  /** Optional tolerance (e.g. 0.5 for a winter 1069–70 year span, or rounded estimates). */
+  tolerance?: number;
   suffix?: string;
   /** The complete fact — for feedback and the missed list. */
   fact: string;
@@ -79,7 +81,13 @@ export function sprintItem(mode: SprintMode, rng: Rng): SprintItem {
     const d = rng.pick(drills);
     const item = d.generate(rng, rng.pick([1, 2] as const));
     if (item.answer.type !== "number") continue;
-    return { prompt: item.prompt, answer: item.answer.value, fact: item.solution.join(" "), mode: m };
+    return {
+      prompt: item.prompt,
+      answer: item.answer.value,
+      ...(item.answer.tolerance !== undefined ? { tolerance: item.answer.tolerance } : {}),
+      fact: item.solution.join(" "),
+      mode: m,
+    };
   }
   return { prompt: "In what year was the Battle of Hastings?", answer: 1066, fact: "The Battle of Hastings: 14 October 1066.", mode: "kings" };
 }

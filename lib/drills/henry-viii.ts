@@ -429,13 +429,13 @@ export const drills: Drill[] = [
         hint: "Arranged by Thomas Cromwell.",
       },
       {
-        prompt: "How many of Henry's wives were executed?",
+        prompt: "How many of Henry VIII's wives were executed?",
         answer: { type: "number", value: 2 },
         solution: "Two: Anne Boleyn (1536) and Catherine Howard (1542).",
         hint: "Count 'beheaded' in the rhyme.",
       },
       {
-        prompt: "How many of Henry's wives were named Catherine (or Katherine)?",
+        prompt: "How many of Henry VIII's wives were named Catherine (or Katherine)?",
         answer: { type: "number", value: 3 },
         solution: "Three: Catherine of Aragon, Catherine Howard and Catherine Parr.",
         hint: "Wives one, five and six.",
@@ -455,7 +455,7 @@ export const drills: Drill[] = [
         tier: 2,
       },
       {
-        prompt: "In which year did Henry marry both Anne of Cleves and Catherine Howard?",
+        prompt: "In which year did Henry VIII marry both Anne of Cleves and Catherine Howard?",
         answer: { type: "number", value: 1540 },
         solution: "1540 — Anne in January, Catherine in July, on the very day Cromwell was executed.",
         hint: "The year Thomas Cromwell was executed.",

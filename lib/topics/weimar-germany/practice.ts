@@ -444,7 +444,7 @@ export const practice: TopicPractice = {
           kind: "short",
           id: "weimar-germany-p2-q04",
           question: "In November 1923, about how many marks was one US dollar worth? Give your answer in trillions (for example, type 3 for 3 trillion).",
-          answer: { type: "number", value: 4.2, display: "about 4.2 trillion marks" },
+          answer: { type: "number", value: 4.2, tolerance: 0.2, display: "about 4.2 trillion marks" },
           traps: [{ spec: { type: "number", value: 200 }, feedback: "200 billion marks was the price of a loaf of bread. The dollar was worth about 4.2 trillion marks." }],
           solution: ["In November 1923 one dollar was worth about 4.2 trillion (4,200,000,000,000) marks.", "In 1914 it had been worth 4.2 marks — so the mark was now worth about a trillionth of its 1914 value."],
           commonError: "Mixing up the bread price (about 200 billion) with the dollar rate (about 4.2 trillion).",
@@ -565,7 +565,7 @@ export const practice: TopicPractice = {
           question: "Was the Treaty of Versailles unfair to Germany? Explain both sides. (4 marks)",
           marks: 4,
           modelAnswer:
-            "Germans had good reasons to call it unfair. It was a Diktat that they could not negotiate, Article 231 forced Germany to accept the blame for the war, and reparations of £6.6 billion were a huge burden. On the other hand, Germany had invaded Belgium and France, where much of the war's destruction took place, and in 1918 Germany had forced an even harsher treaty, Brest-Litovsk, on Russia. Germany also kept its industrial heartland in the Ruhr and remained a great power. So the treaty was harsh and humiliating, but not as crushing as many Germans believed.",
+            "Germans had good reasons to call it unfair. It was a Diktat that they could not negotiate, Article 231 forced Germany to accept the blame for the war, and reparations of £6.6 billion were a huge burden. On the other hand, Germany had invaded Belgium and France, where much of the war's destruction took place, and in 1918 Germany had forced an even harsher treaty, Brest-Litovsk, on Russia. Germany also kept its industrial heartland in the Ruhr and remained a great power. Overall, the treaty was harsh and humiliating, but not as crushing as many Germans believed.",
           markScheme: [
             { point: "Argues it was unfair: Diktat / no negotiation", keywords: ["diktat", "not allowed", "negotiate", "dictated"] },
             { point: "Argues it was unfair: precise harsh terms (Article 231, £6.6 billion, land)", keywords: ["231", "war guilt", "£6.6", "reparations", "13%", "colonies"] },

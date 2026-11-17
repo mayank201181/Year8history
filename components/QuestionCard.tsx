@@ -416,10 +416,8 @@ function ShortBody({ q, mode, restored, onDone, onAnswer, topicId, onNext, nextL
 }
 
 // -------------------------------------------------------------- Written
-export function suggestMarks(q: WrittenQ, text: string): boolean[] {
-  const t = ` ${text.toLowerCase().replace(/\s+/g, " ")} `;
-  return q.markScheme.map((p) => p.keywords.some((k) => k && t.includes(k.toLowerCase())));
-}
+import { suggestMarks } from "@/lib/writtenCheck";
+export { suggestMarks };
 
 function WrittenBody({ q, mode, restored, onDone, onAnswer, topicId, onNext, nextLabel }: QuestionCardProps & { q: WrittenQ }) {
   const [value, setValue] = useState(typeof restored?.answer === "string" ? restored.answer : "");

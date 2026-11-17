@@ -384,13 +384,13 @@ export const drills: Drill[] = [
         hint: "Behind the house.",
       },
       {
-        prompt: "The worst famine years were 1959 to which year?",
+        prompt: "The worst years of China's Great Famine were 1959 to which year?",
         answer: num(1961),
         solution: "1959–61. Recovery began in 1962 after policies were relaxed.",
         hint: "Three years.",
       },
       {
-        prompt: "Historians estimate between 15 and 45 million people died in the famine. What figure, in millions, is most commonly cited?",
+        prompt: "Historians estimate between 15 and 45 million people died in China's Great Famine (1959–61). What figure, in millions, is most commonly cited?",
         answer: num(30, "about 30 million"),
         solution: "About 30 million — estimates vary, but it was one of the deadliest famines in history.",
         hint: "In the middle of the range.",
@@ -440,7 +440,7 @@ export const drills: Drill[] = [
         tier: 2,
       },
       {
-        prompt: "In 1959, about what percentage of the real grain harvest did the state take?",
+        prompt: "In China in 1959, about what percentage of the real grain harvest did the state take?",
         answer: num(40, "about 40%", 1),
         solution: "About 40% — the highest share of the period, from a shrinking harvest.",
         hint: "Between a third and a half.",

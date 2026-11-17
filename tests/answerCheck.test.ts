@@ -1,7 +1,8 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { checkAnswer, checkWithTraps, specSelfCheck } from "../lib/answerCheck.ts";
-import type { AnswerSpec } from "../lib/types.ts";
+import { checkAnswer, checkWithTraps, displayAnswer, specSelfCheck } from "../lib/answerCheck.ts";
+import { suggestMarks } from "../lib/writtenCheck.ts";
+import type { AnswerSpec, WrittenQ } from "../lib/types.ts";
 
 const st = (spec: AnswerSpec, input: string) => checkAnswer(spec, input).status;
 
@@ -179,6 +180,60 @@ test("history text answers: spelling slips forgiven, confusions not", () => {
   assert.equal(st({ type: "text", accept: ["Elizabeth I"] }, "Elizabeth II"), "incorrect");
   assert.equal(st({ type: "text", accept: ["Elizabeth I"] }, "Elisabeth I"), "correct");
   assert.equal(st({ type: "text", accept: ["Clement VII"] }, "Clement VIII"), "incorrect");
+  assert.equal(st({ type: "text", accept: ["William I"] }, "William II"), "incorrect");
+  // Confusable historical terms with edit distance 1 must never match even without traps.
+  assert.equal(st({ type: "text", accept: ["Harold Godwinson", "Harold", "King Harold"] }, "Harald"), "incorrect");
+  assert.equal(st({ type: "text", accept: ["Harold Godwinson", "Harold", "King Harold"] }, "King Harald"), "incorrect");
+  assert.equal(st({ type: "text", accept: ["Harald Hardrada", "Harald"] }, "Harold"), "incorrect");
+  assert.equal(st({ type: "text", accept: ["Angkar"] }, "Angkor"), "incorrect");
+  assert.equal(st({ type: "text", accept: ["Angkor"] }, "Angkar"), "incorrect");
+  assert.equal(st({ type: "text", accept: ["democracy"] }, "dictatorship"), "incorrect");
+  assert.equal(st({ type: "text", accept: ["monarchy"] }, "republic"), "incorrect");
+  assert.equal(st({ type: "text", accept: ["Catholic"] }, "Protestant"), "incorrect");
+  assert.equal(st({ type: "text", accept: ["suffragist"] }, "suffragette"), "incorrect");
+  assert.equal(st({ type: "text", accept: ["content"] }, "context"), "incorrect");
+  assert.equal(st({ type: "text", accept: ["clause"] }, "cause"), "incorrect");
+  assert.equal(st({ type: "text", accept: ["Malaya"] }, "Malay"), "incorrect");
+  assert.equal(st({ type: "number", value: 1918 }, "1928"), "incorrect");
+  assert.equal(st({ type: "number", value: 1215 }, "1265"), "incorrect");
+  // Natural Year 8 History numeric phrasings and displayAnswer strings.
+  const cent: AnswerSpec = { type: "number", value: 16, display: "16th century" };
+  assert.equal(st(cent, displayAnswer(cent)), "correct");
+  assert.equal(st(cent, "16th"), "correct");
+  assert.equal(st(cent, "15th century"), "incorrect");
+  const art: AnswerSpec = { type: "number", value: 48, display: "Article 48" };
+  assert.equal(st(art, displayAnswer(art)), "correct");
+  assert.equal(st(art, "Article 231"), "incorrect");
+  const cl: AnswerSpec = { type: "number", value: 39, display: "Clause 39" };
+  assert.equal(st(cl, displayAnswer(cl)), "correct");
+  const mil: AnswerSpec = { type: "number", value: 6, display: "about 6 million" };
+  assert.equal(st(mil, displayAnswer(mil)), "correct");
+  const span: AnswerSpec = { type: "number", value: 1069.5, tolerance: 0.5, display: "1069–70" };
+  assert.equal(st(span, "1069"), "correct");
+  assert.equal(st(span, "1070"), "correct");
+  assert.equal(st(span, displayAnswer(span)), "correct");
+});
+
+test("written self-marking: modelAnswer full marks, stem copy & idk score 0", () => {
+  const q: WrittenQ = {
+    id: "test-w1",
+    kind: "written",
+    question: "Explain why the SA and proportional representation weakened Weimar democracy in 1932. (3 marks)",
+    marks: 3,
+    modelAnswer: "The SA used street violence to intimidate opponents, while proportional representation split the Reichstag into many small parties. Both factors worked *with* the Depression to weaken democracy.",
+    markScheme: [
+      { point: "SA violence / intimidation", keywords: ["sa", "violence", "intimidate"] },
+      { point: "PR produced many small parties", keywords: ["proportional", "pr", "small parties"] },
+      { point: "Links factors together", keywords: ["worked with", "together"] },
+    ],
+    difficulty: "core",
+    hints: ["Think about violence and coalitions.", "Link the two."],
+  };
+  assert.deepEqual(suggestMarks(q, q.modelAnswer), [true, true, true]);
+  assert.deepEqual(suggestMarks(q, q.question), [false, false, false]);
+  assert.deepEqual(suggestMarks(q, "I don't know"), [false, false, false]);
+  // Short alphabetic keywords ("sa", "pr") must not match inside unrelated words ("said", "prove").
+  assert.deepEqual(suggestMarks(q, "Historians said this can prove nothing at all about the past."), [false, false, false]);
 });
 
 test("self-check of display answers", () => {
