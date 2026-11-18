@@ -21,6 +21,7 @@ const DESKTOP_NAV = [
   { href: "/topics", label: "Topics" },
   { href: "/episodes", label: "📺 Sitcom" },
   { href: "/shorts", label: "📱 Shorts" },
+  { href: "/cram", label: "🚨 Cram" },
   { href: "/timeline", label: "Timeline" },
   { href: "/daily", label: "Daily 5" },
   { href: "/review", label: "Review" },
@@ -81,6 +82,7 @@ export function SiteHeader() {
           </Link>
 
           <Link href="/shorts" className="chip border-brand/30 bg-brand-soft text-brand text-sm md:hidden" title="Concept Shorts">📱 <span className="hidden sm:inline">Shorts</span></Link>
+          <Link href="/cram" className="chip border-bad/30 bg-bad-soft text-bad text-sm md:hidden" title="Custom Exam Cram Sheet">🚨 <span className="hidden sm:inline">Cram</span></Link>
           <Link href="/progress" className="chip text-sm" title={`${rank.name} · ${data.stars} stars`}>
             ⭐ {data.stars}
           </Link>
@@ -111,6 +113,7 @@ export function SiteHeader() {
                 <Link role="menuitem" href="/sprint" className="block rounded-lg px-3 py-2 hover:bg-surface-2">
                   ⚡ Date Dash
                 </Link>
+                <Link role="menuitem" href="/cram" className="block rounded-lg px-3 py-2 font-bold text-bad hover:bg-surface-2">🚨 Exam Cram Sheet</Link>
                 <Link role="menuitem" href="/exam" className="block rounded-lg px-3 py-2 hover:bg-surface-2">
                   📝 The Big Exam
                 </Link>
