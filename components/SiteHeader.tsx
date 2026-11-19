@@ -10,7 +10,8 @@ import { addDaysISO, todayISO } from "@/lib/dates";
 const NAV = [
   { href: "/", label: "Home", icon: "🏠" },
   { href: "/topics", label: "Topics", icon: "📚" },
-  { href: "/episodes", label: "Watch", icon: "🎬" },
+  { href: "/episodes", label: "Sitcom", icon: "📺" },
+  { href: "/shorts", label: "Shorts", icon: "📱" },
   { href: "/timeline", label: "Timeline", icon: "🕰️" },
   { href: "/daily", label: "Daily 5", icon: "🎯" },
   { href: "/review", label: "Review", icon: "🔁" },
@@ -77,11 +78,7 @@ export function SiteHeader() {
         </nav>
 
         <div className="ml-auto flex items-center gap-2">
-          <Link href="/episodes" className="chip border-brand/30 bg-brand-soft text-brand text-sm md:hidden" title="All 13 Sitcom episodes">
-            📺 <span className="hidden sm:inline">Sitcom</span>
-          </Link>
 
-          <Link href="/shorts" className="chip border-brand/30 bg-brand-soft text-brand text-sm md:hidden" title="Concept Shorts">📱 <span className="hidden sm:inline">Shorts</span></Link>
           <Link href="/cram" className="chip border-bad/30 bg-bad-soft text-bad text-sm md:hidden" title="Custom Exam Cram Sheet">🚨 <span className="hidden sm:inline">Cram</span></Link>
           <Link href="/progress" className="chip text-sm" title={`${rank.name} · ${data.stars} stars`}>
             ⭐ {data.stars}
@@ -113,6 +110,7 @@ export function SiteHeader() {
                 <Link role="menuitem" href="/sprint" className="block rounded-lg px-3 py-2 hover:bg-surface-2">
                   ⚡ Date Dash
                 </Link>
+                <Link role="menuitem" href="/shorts" className="block rounded-lg px-3 py-2 font-bold text-brand hover:bg-surface-2">📱 Concept Shorts</Link>
                 <Link role="menuitem" href="/cram" className="block rounded-lg px-3 py-2 font-bold text-bad hover:bg-surface-2">🚨 Exam Cram Sheet</Link>
                 <Link role="menuitem" href="/exam" className="block rounded-lg px-3 py-2 hover:bg-surface-2">
                   📝 The Big Exam
@@ -154,7 +152,7 @@ export function MobileNav() {
 
   return (
     <nav className="no-print fixed inset-x-0 bottom-0 z-30 border-t border-line bg-surface/95 pb-[env(safe-area-inset-bottom)] backdrop-blur" aria-label="Bottom navigation">
-      <div className="mx-auto grid max-w-3xl grid-cols-7 px-1">
+      <div className="mx-auto grid max-w-3xl grid-cols-8 px-1">
         {NAV.map((n) => (
           <Link key={n.href} href={n.href} className={`flex flex-col items-center gap-0.5 py-2 text-[0.62rem] font-bold transition-colors sm:text-xs ${active(path, n.href) ? "text-brand" : "text-ink-2 hover:text-ink"}`} aria-current={active(path, n.href) ? "page" : undefined}>
             <span className="text-lg sm:text-xl" aria-hidden>
